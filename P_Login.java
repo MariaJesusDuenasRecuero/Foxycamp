@@ -63,12 +63,11 @@ public class P_Login {
 	 */
 	private void initialize() {
 		frmLogin = new JFrame();
-		frmLogin.getContentPane().setForeground(new Color(255, 153, 0));
+		frmLogin.getContentPane().setForeground(new Color(248, 248, 255));
 		frmLogin.getContentPane().setFont(new Font("Verdana", Font.BOLD, 60));
 		frmLogin.setTitle("Login");
-		frmLogin.setIconImage(
-				Toolkit.getDefaultToolkit().getImage(P_Login.class.getResource("/presentacion/tienda-de-campana.png")));
-		frmLogin.getContentPane().setBackground(new Color(255, 228, 196));
+		frmLogin.setIconImage(Toolkit.getDefaultToolkit().getImage(P_Login.class.getResource("/presentacion/tienda-de-campana.png")));
+		frmLogin.getContentPane().setBackground(new Color(248, 248, 255));
 
 		JPanel pnlHeader = new JPanel();
 		pnlHeader.setBackground(new Color(255, 228, 196));
@@ -103,6 +102,7 @@ public class P_Login {
 		lblAyuda.setToolTipText("Ayuda");
 		lblAyuda.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/signo-de-interrogacion-dibujar.png")));
 		GridBagConstraints gbc_lblAyuda = new GridBagConstraints();
+		gbc_lblAyuda.anchor = GridBagConstraints.SOUTH;
 		gbc_lblAyuda.insets = new Insets(0, 0, 5, 5);
 		gbc_lblAyuda.gridx = 10;
 		gbc_lblAyuda.gridy = 1;
@@ -112,6 +112,7 @@ public class P_Login {
 		lblTraductor.setToolTipText("Traductor");
 		lblTraductor.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/traductor.png")));
 		GridBagConstraints gbc_lblTraductor = new GridBagConstraints();
+		gbc_lblTraductor.anchor = GridBagConstraints.SOUTH;
 		gbc_lblTraductor.insets = new Insets(0, 0, 5, 5);
 		gbc_lblTraductor.gridx = 11;
 		gbc_lblTraductor.gridy = 1;
@@ -246,6 +247,7 @@ public class P_Login {
 		pnlLogin.add(lblLink, gbc_lblLink);
 
 		JButton btnAceptarLogin = new JButton("Aceptar");
+		btnAceptarLogin.addActionListener(new BtnAceptarLoginActionListener());
 		btnAceptarLogin.setBackground(new Color(244, 164, 96));
 		btnAceptarLogin.setToolTipText("Confrmar para acceder");
 		btnAceptarLogin.setFont(new Font("Verdana", Font.BOLD, 16));
@@ -256,11 +258,17 @@ public class P_Login {
 		gbc_btnAceptarLogin.gridy = 10;
 		pnlLogin.add(btnAceptarLogin, gbc_btnAceptarLogin);
 		frmLogin.setResizable(false);
-		frmLogin.setBackground(new Color(255, 204, 102));
+		frmLogin.setBackground(new Color(248, 248, 255));
 		// frame.setForeground(new Color(255, 204, 102));
 		frmLogin.setBounds(new Rectangle(0, 0, 1300, 1000));
 		// frame.setBounds(100, 100, 450, 300);
 		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
+	private class BtnAceptarLoginActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			P_Parcela parcela = new P_Parcela();
+			parcela.setVisible(true);
+		}
+	}
 }
