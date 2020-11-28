@@ -8,22 +8,21 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-
-import java.awt.Rectangle;
-import javax.swing.JButton;
-import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class P_Parcela extends JFrame {
+public class P_About extends JFrame {
 
 	private JPanel contentPane;
 
@@ -34,7 +33,7 @@ public class P_Parcela extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					P_Parcela frame = new P_Parcela();
+					P_About frame = new P_About();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,9 +45,9 @@ public class P_Parcela extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public P_Parcela() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(P_Parcela.class.getResource("/presentacion/casa-de-perro.png")));
-		setTitle("Parcelas");
+	public P_About() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(P_About.class.getResource("/presentacion/servicio-al-cliente.png")));
+		setTitle("Sobre nosotros");
 		//Propiedades generales de todos los frames
 		setBounds(new Rectangle(0, 0, 1300, 1000));
 		setResizable(false);
@@ -158,22 +157,49 @@ public class P_Parcela extends JFrame {
 		contentPane.add(pnlContenido, BorderLayout.CENTER);
 		pnlContenido.setLayout(null);
 		
-		JButton btnParcela = new JButton("Parcelas");
-		btnParcela.setHorizontalAlignment(SwingConstants.RIGHT);
-		btnParcela.setFont(new Font("Verdana", Font.PLAIN, 30));
-		btnParcela.setBackground(new Color(248, 248, 255));
-		btnParcela.setBounds(74, 195, 257, 76);
-		pnlContenido.add(btnParcela);
+		JLabel lblMaria = new JLabel("");
+		lblMaria.setFont(new Font("Tahoma", Font.PLAIN, 95));
+		lblMaria.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblMaria.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/MAria.jpg")));
+		lblMaria.setBounds(93, 175, 300, 300);
+		pnlContenido.add(lblMaria);
 		
-		JLabel lblParcela = new JLabel("");
-		lblParcela.setHorizontalAlignment(SwingConstants.CENTER);
-		lblParcela.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/casa.png")));
-		lblParcela.setBounds(89, 209, 71, 49);
-		pnlContenido.add(lblParcela);
+		JLabel lblAdri = new JLabel("");
+		lblAdri.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/Adri.jpg")));
+		lblAdri.setBounds(499, 175, 300, 300);
+		pnlContenido.add(lblAdri);
+		
+		JLabel lblMJ = new JLabel("");
+		lblMJ.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/OIP.jpg")));
+		lblMJ.setBounds(899, 175, 300, 300);
+		pnlContenido.add(lblMJ);
+		
+		JLabel lblMariaB = new JLabel("Maria Blanco Gónzalez-Mohíno");
+		lblMariaB.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMariaB.setFont(new Font("Verdana", Font.BOLD, 16));
+		lblMariaB.setBounds(93, 488, 300, 14);
+		pnlContenido.add(lblMariaB);
+		
+		JLabel lblAdrianR = new JLabel("Adrián Ruiz Esteban");
+		lblAdrianR.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAdrianR.setFont(new Font("Verdana", Font.BOLD, 16));
+		lblAdrianR.setBounds(499, 491, 300, 14);
+		pnlContenido.add(lblAdrianR);
+		
+		JLabel lblMjessD = new JLabel("MªJesús Dueñas Recuero");
+		lblMjessD.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMjessD.setFont(new Font("Verdana", Font.BOLD, 16));
+		lblMjessD.setBounds(899, 491, 300, 14);
+		pnlContenido.add(lblMjessD);
+		
+		JLabel lblMiembros = new JLabel("Miembros del equipo");
+		lblMiembros.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMiembros.setForeground(new Color(210, 105, 30));
+		lblMiembros.setFont(new Font("Verdana", Font.BOLD, 46));
+		lblMiembros.setBounds(93, 63, 1106, 50);
+		pnlContenido.add(lblMiembros);
+		
+		
 
-		
-		
-		
-		
 	}
 }
