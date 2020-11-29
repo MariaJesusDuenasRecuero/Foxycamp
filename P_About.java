@@ -12,16 +12,15 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
+
+@SuppressWarnings("serial")
 public class P_About extends JFrame {
 
 	private JPanel contentPane;
@@ -46,7 +45,7 @@ public class P_About extends JFrame {
 	 * Create the frame.
 	 */
 	public P_About() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(P_About.class.getResource("/presentacion/servicio-al-cliente.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(P_About.class.getResource("/presentacion/informacion.png")));
 		setTitle("Sobre nosotros");
 		//Propiedades generales de todos los frames
 		setBounds(new Rectangle(0, 0, 1300, 1000));
@@ -160,17 +159,17 @@ public class P_About extends JFrame {
 		JLabel lblMaria = new JLabel("");
 		lblMaria.setFont(new Font("Tahoma", Font.PLAIN, 95));
 		lblMaria.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblMaria.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/MAria.jpg")));
+		lblMaria.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/Maria.png")));
 		lblMaria.setBounds(93, 175, 300, 300);
 		pnlContenido.add(lblMaria);
 		
 		JLabel lblAdri = new JLabel("");
-		lblAdri.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/Adri.jpg")));
+		lblAdri.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/adrian.png")));
 		lblAdri.setBounds(499, 175, 300, 300);
 		pnlContenido.add(lblAdri);
 		
 		JLabel lblMJ = new JLabel("");
-		lblMJ.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/OIP.jpg")));
+		lblMJ.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/mj.png")));
 		lblMJ.setBounds(899, 175, 300, 300);
 		pnlContenido.add(lblMJ);
 		
@@ -198,6 +197,11 @@ public class P_About extends JFrame {
 		lblMiembros.setFont(new Font("Verdana", Font.BOLD, 46));
 		lblMiembros.setBounds(93, 63, 1106, 50);
 		pnlContenido.add(lblMiembros);
+		
+		JLabel lblSalir = new JLabel("");
+		lblSalir.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/exit.png")));
+		lblSalir.setBounds(46, 618, 70, 70);
+		pnlContenido.add(lblSalir);
 		
 		
 
