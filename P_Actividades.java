@@ -1,36 +1,30 @@
 package presentacion;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Rectangle;
 import java.awt.Color;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.Font;
-import javax.swing.border.LineBorder;
-import javax.swing.SwingConstants;
-import javax.swing.ImageIcon;
-import javax.swing.UIManager;
-import java.awt.FlowLayout;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
 import java.awt.Component;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.JSeparator;
 
-public class P_Parcela extends JFrame {
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import java.awt.Toolkit;
+
+public class P_Actividades extends JFrame {
 
 	private JPanel contentPane;
 
@@ -41,7 +35,7 @@ public class P_Parcela extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					P_Parcela frame = new P_Parcela();
+					P_Actividades frame = new P_Actividades();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,7 +47,9 @@ public class P_Parcela extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public P_Parcela() {
+	public P_Actividades() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(P_Actividades.class.getResource("/presentacion/actividades.png")));
+		setTitle("Actividades");
 		setResizable(false);
 		setBounds(new Rectangle(0, 0, 1350, 850));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,7 +71,7 @@ public class P_Parcela extends JFrame {
 		pnlHeader.setLayout(gbl_pnlHeader);
 		
 		JLabel lblLogoZorro = new JLabel("");
-		lblLogoZorro.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/fox.png")));
+		lblLogoZorro.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/fox.png")));
 		lblLogoZorro.setBackground(new Color(255, 228, 181));
 		GridBagConstraints gbc_lblLogoZorro = new GridBagConstraints();
 		gbc_lblLogoZorro.insets = new Insets(0, 0, 5, 5);
@@ -93,7 +89,7 @@ public class P_Parcela extends JFrame {
 		pnlHeader.add(lblFoxycamp, gbc_lblFoxycamp);
 		
 		JLabel lblAyuda = new JLabel("");
-		lblAyuda.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/signo-de-interrogacion-dibujar.png")));
+		lblAyuda.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/signo-de-interrogacion-dibujar.png")));
 		lblAyuda.setToolTipText("Ayuda");
 		GridBagConstraints gbc_lblAyuda = new GridBagConstraints();
 		gbc_lblAyuda.anchor = GridBagConstraints.SOUTH;
@@ -103,7 +99,7 @@ public class P_Parcela extends JFrame {
 		pnlHeader.add(lblAyuda, gbc_lblAyuda);
 		
 		JLabel lblTraductor = new JLabel("");
-		lblTraductor.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/traductor.png")));
+		lblTraductor.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/traductor.png")));
 		lblTraductor.setToolTipText("Traductor");
 		GridBagConstraints gbc_lblTraductor = new GridBagConstraints();
 		gbc_lblTraductor.anchor = GridBagConstraints.SOUTH;
@@ -113,7 +109,7 @@ public class P_Parcela extends JFrame {
 		pnlHeader.add(lblTraductor, gbc_lblTraductor);
 		
 		JLabel lblPerfil = new JLabel("");
-		lblPerfil.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/usuario.png")));
+		lblPerfil.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/usuario.png")));
 		GridBagConstraints gbc_lblPerfil = new GridBagConstraints();
 		gbc_lblPerfil.anchor = GridBagConstraints.SOUTH;
 		gbc_lblPerfil.insets = new Insets(0, 0, 5, 5);
@@ -123,13 +119,13 @@ public class P_Parcela extends JFrame {
 		
 		JLabel lblFlecha = new JLabel("");
 		
-		lblFlecha.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png")));
+		lblFlecha.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png")));
 		
 		JPopupMenu pmFlecha = new JPopupMenu();
 		addPopup(lblFlecha, pmFlecha);
 		
 		JLabel lblPerfilOption = new JLabel("    Adrian Ruiz");
-		lblPerfilOption.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/adrianMini.png")));
+		lblPerfilOption.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/adrianMini.png")));
 		pmFlecha.add(lblPerfilOption);
 		
 		JSeparator separator = new JSeparator();
@@ -138,7 +134,7 @@ public class P_Parcela extends JFrame {
 		
 		JButton btnAbout = new JButton("   Sobre nosotros");
 		btnAbout.setBounds(new Rectangle(0, 0, 50, 0));
-		btnAbout.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/informacion.png")));
+		btnAbout.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/informacion.png")));
 		pmFlecha.add(btnAbout);
 		
 		JSeparator separator_1 = new JSeparator();
@@ -146,11 +142,11 @@ public class P_Parcela extends JFrame {
 		pmFlecha.add(separator_1);
 		
 		JButton btnAjustes = new JButton("   Ajustes               ");
-		btnAjustes.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/configuraciones.png")));
+		btnAjustes.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/configuraciones.png")));
 		pmFlecha.add(btnAjustes);
 		
 		JButton btnDesconectar = new JButton("   Salir                     ");
-		btnDesconectar.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/desconectar.png")));
+		btnDesconectar.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/desconectar.png")));
 		pmFlecha.add(btnDesconectar);
 		
 		lblFlecha.addMouseListener(new MouseAdapter() {
@@ -215,7 +211,7 @@ public class P_Parcela extends JFrame {
 		JLabel lblZorroEligeOpcion = new JLabel("");
 		lblZorroEligeOpcion.setBounds(179, 158, 475, 385);
 		lblZorroEligeOpcion.setHorizontalAlignment(SwingConstants.CENTER);
-		lblZorroEligeOpcion.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/zorroGrandeTransparencia.png")));
+		lblZorroEligeOpcion.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/zorroGrandeTransparencia.png")));
 		panel.add(lblZorroEligeOpcion);
 		
 		JPanel pnlParcelas = new JPanel();
@@ -230,7 +226,7 @@ public class P_Parcela extends JFrame {
 		pnlPantallaPrincipal.add(pnlParcelas, gbc_pnlParcelas);
 		
 		JLabel lblIconoParcelas = new JLabel("");
-		lblIconoParcelas.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/parcelas.png")));
+		lblIconoParcelas.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/parcelas.png")));
 		lblIconoParcelas.setBounds(10, 0, 67, 70);
 		pnlParcelas.add(lblIconoParcelas);
 		
@@ -251,7 +247,7 @@ public class P_Parcela extends JFrame {
 		pnlPantallaPrincipal.add(pnlBungalows, gbc_pnlBungalows);
 		
 		JLabel lblIconoBungalows = new JLabel("");
-		lblIconoBungalows.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/bungalow.png")));
+		lblIconoBungalows.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/bungalow.png")));
 		lblIconoBungalows.setBounds(10, 0, 67, 70);
 		pnlBungalows.add(lblIconoBungalows);
 		
@@ -273,7 +269,7 @@ public class P_Parcela extends JFrame {
 		pnlPantallaPrincipal.add(pnlActividades, gbc_pnlActividades);
 		
 		JLabel lblIconoActividades = new JLabel("");
-		lblIconoActividades.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/actividades.png")));
+		lblIconoActividades.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/actividades.png")));
 		lblIconoActividades.setBounds(10, 0, 67, 70);
 		pnlActividades.add(lblIconoActividades);
 		
@@ -294,7 +290,7 @@ public class P_Parcela extends JFrame {
 		pnlPantallaPrincipal.add(pnlRutas, gbc_pnlRutas);
 		
 		JLabel lblIconoRutas = new JLabel("");
-		lblIconoRutas.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/rutas.png")));
+		lblIconoRutas.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/rutas.png")));
 		lblIconoRutas.setBounds(10, 0, 70, 70);
 		pnlRutas.add(lblIconoRutas);
 		

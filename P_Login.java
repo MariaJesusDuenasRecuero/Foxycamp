@@ -8,7 +8,10 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
+import java.awt.Window;
+
 import javax.swing.JLabel;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.GridBagLayout;
@@ -22,18 +25,32 @@ import javax.swing.UIManager;
 import javax.swing.JTextField;
 import java.awt.FlowLayout;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import java.awt.Component;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class P_Login {
 
 	private JFrame frmLogin;
-	private JTextField txtXxxxxxxxxxcom;
+	private JTextField txtCorreoElectronico;
 	private JPasswordField passwordField;
+	private JLabel lblCheck;
+	private JLabel lblCheck1;
+	private JLabel lblEstado;
+
+	private Border bordeRojo = BorderFactory.createLineBorder(Color.RED);
+	private Border bordeVerde = BorderFactory.createLineBorder(Color.GREEN);
+	private ImageIcon imagTick = new ImageIcon(P_Login.class.getResource("/presentacion/checked.png"));
+	private ImageIcon imagCross = new ImageIcon(P_Login.class.getResource("/presentacion/cancel.png"));
 
 	/**
 	 * Launch the application.
@@ -66,8 +83,9 @@ public class P_Login {
 		frmLogin.getContentPane().setForeground(new Color(248, 248, 255));
 		frmLogin.getContentPane().setFont(new Font("Verdana", Font.BOLD, 60));
 		frmLogin.setTitle("Login");
-		frmLogin.setIconImage(Toolkit.getDefaultToolkit().getImage(P_Login.class.getResource("/presentacion/tienda-de-campana.png")));
-		frmLogin.getContentPane().setBackground(new Color(248, 248, 255));
+		frmLogin.setIconImage(
+				Toolkit.getDefaultToolkit().getImage(P_Login.class.getResource("/presentacion/tienda-de-campana.png")));
+		frmLogin.getContentPane().setBackground(Color.WHITE);
 
 		JPanel pnlHeader = new JPanel();
 		pnlHeader.setBackground(new Color(255, 228, 196));
@@ -173,7 +191,7 @@ public class P_Login {
 		pnlContenido.add(pnlLogin, gbc_pnlLogin);
 		GridBagLayout gbl_pnlLogin = new GridBagLayout();
 		gbl_pnlLogin.columnWidths = new int[] { 44, 0, 0, 20, 0 };
-		gbl_pnlLogin.rowHeights = new int[] { 56, 59, 24, 0, 0, 0, 0, 47, 14, 59, 0, 0 };
+		gbl_pnlLogin.rowHeights = new int[] { 56, 59, 24, 0, 0, 0, 0, 47, 34, 39, 0, 0 };
 		gbl_pnlLogin.columnWeights = new double[] { 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_pnlLogin.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
@@ -188,27 +206,27 @@ public class P_Login {
 		gbc_lblCElectronico.gridy = 2;
 		pnlLogin.add(lblCElectronico, gbc_lblCElectronico);
 
-		txtXxxxxxxxxxcom = new JTextField();
-		txtXxxxxxxxxxcom.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		txtXxxxxxxxxxcom.setForeground(new Color(169, 169, 169));
-		txtXxxxxxxxxxcom.setHorizontalAlignment(SwingConstants.CENTER);
-		txtXxxxxxxxxxcom.setFont(new Font("Verdana", Font.ITALIC, 14));
-		txtXxxxxxxxxxcom.setText("xxxxxxxxx@xxxxxxxx.com");
-		GridBagConstraints gbc_txtXxxxxxxxxxcom = new GridBagConstraints();
-		gbc_txtXxxxxxxxxxcom.insets = new Insets(0, 0, 5, 5);
-		gbc_txtXxxxxxxxxxcom.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtXxxxxxxxxxcom.gridx = 1;
-		gbc_txtXxxxxxxxxxcom.gridy = 3;
-		pnlLogin.add(txtXxxxxxxxxxcom, gbc_txtXxxxxxxxxxcom);
-		txtXxxxxxxxxxcom.setColumns(10);
+		txtCorreoElectronico = new JTextField();
+		txtCorreoElectronico.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		txtCorreoElectronico.setForeground(new Color(169, 169, 169));
+		txtCorreoElectronico.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCorreoElectronico.setFont(new Font("Verdana", Font.ITALIC, 14));
+		txtCorreoElectronico.setText("Correo electronico");
+		GridBagConstraints gbc_txtCorreoElectronico = new GridBagConstraints();
+		gbc_txtCorreoElectronico.insets = new Insets(0, 0, 5, 5);
+		gbc_txtCorreoElectronico.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtCorreoElectronico.gridx = 1;
+		gbc_txtCorreoElectronico.gridy = 3;
+		pnlLogin.add(txtCorreoElectronico, gbc_txtCorreoElectronico);
+		txtCorreoElectronico.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/sobre-de-correo-electronico.png")));
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel.gridx = 2;
-		gbc_lblNewLabel.gridy = 3;
-		pnlLogin.add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblCancelC = new JLabel("");
+		lblCancelC.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/cancel.png")));
+		GridBagConstraints gbc_lblCancelC = new GridBagConstraints();
+		gbc_lblCancelC.insets = new Insets(0, 0, 5, 5);
+		gbc_lblCancelC.gridx = 2;
+		gbc_lblCancelC.gridy = 3;
+		pnlLogin.add(lblCancelC, gbc_lblCancelC);
 
 		JLabel lblContraseña = new JLabel("Contraseña");
 		lblContraseña.setFont(new Font("Verdana", Font.BOLD, 16));
@@ -220,25 +238,28 @@ public class P_Login {
 		pnlLogin.add(lblContraseña, gbc_lblContraseña);
 
 		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Verdana", Font.PLAIN, 14));
+		passwordField.setEchoChar('*');
+		passwordField.setToolTipText("");
 		passwordField.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		GridBagConstraints gbc_passwordField = new GridBagConstraints();
-		gbc_passwordField.insets = new Insets(0, 0, 5, 5);
 		gbc_passwordField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_passwordField.insets = new Insets(0, 0, 5, 5);
 		gbc_passwordField.gridx = 1;
 		gbc_passwordField.gridy = 6;
 		pnlLogin.add(passwordField, gbc_passwordField);
 
-		JLabel lblIconPassword = new JLabel("");
-		lblIconPassword.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/contrasena.png")));
-		GridBagConstraints gbc_lblIconPassword = new GridBagConstraints();
-		gbc_lblIconPassword.insets = new Insets(0, 0, 5, 5);
-		gbc_lblIconPassword.gridx = 2;
-		gbc_lblIconPassword.gridy = 6;
-		pnlLogin.add(lblIconPassword, gbc_lblIconPassword);
+		JLabel lblCancelP = new JLabel("");
+		lblCancelP.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/cancel.png")));
+		GridBagConstraints gbc_lblCancelP = new GridBagConstraints();
+		gbc_lblCancelP.insets = new Insets(0, 0, 5, 5);
+		gbc_lblCancelP.gridx = 2;
+		gbc_lblCancelP.gridy = 6;
+		pnlLogin.add(lblCancelP, gbc_lblCancelP);
 
 		JLabel lblLink = new JLabel("Crear cuenta");
 		lblLink.setForeground(new Color(0, 0, 255));
-		lblLink.setFont(new Font("Verdana", Font.ITALIC, 11));
+		lblLink.setFont(new Font("Verdana", Font.ITALIC, 14));
 		GridBagConstraints gbc_lblLink = new GridBagConstraints();
 		gbc_lblLink.anchor = GridBagConstraints.WEST;
 		gbc_lblLink.insets = new Insets(0, 0, 5, 5);
@@ -248,6 +269,16 @@ public class P_Login {
 
 		JButton btnAceptarLogin = new JButton("Aceptar");
 		btnAceptarLogin.addActionListener(new BtnAceptarLoginActionListener());
+	//	btnAceptarLogin.addMouseListener(new BtnAceptarLoginMouseListener());
+		
+		JLabel lblEstado = new JLabel("");
+		lblEstado.setForeground(Color.RED);
+		GridBagConstraints gbc_lblEstado = new GridBagConstraints();
+		gbc_lblEstado.fill = GridBagConstraints.VERTICAL;
+		gbc_lblEstado.insets = new Insets(0, 0, 5, 5);
+		gbc_lblEstado.gridx = 1;
+		gbc_lblEstado.gridy = 8;
+		pnlLogin.add(lblEstado, gbc_lblEstado);
 		btnAceptarLogin.setBackground(new Color(244, 164, 96));
 		btnAceptarLogin.setToolTipText("Confrmar para acceder");
 		btnAceptarLogin.setFont(new Font("Verdana", Font.BOLD, 16));
@@ -258,17 +289,29 @@ public class P_Login {
 		gbc_btnAceptarLogin.gridy = 10;
 		pnlLogin.add(btnAceptarLogin, gbc_btnAceptarLogin);
 		frmLogin.setResizable(false);
-		frmLogin.setBackground(new Color(248, 248, 255));
+		frmLogin.setBackground(Color.WHITE);
 		// frame.setForeground(new Color(255, 204, 102));
-		frmLogin.setBounds(new Rectangle(0, 0, 1300, 1000));
+		frmLogin.setBounds(new Rectangle(0, 0, 1350, 850));
 		// frame.setBounds(100, 100, 450, 300);
 		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
+	
 	private class BtnAceptarLoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Parcela parcela = new P_Parcela();
-			parcela.setVisible(true);
+			if (txtCorreoElectronico.getText().equals("algo") && passwordField.getText().equals("algo")) {
+				JOptionPane.showMessageDialog(null,"BIENVENIDO");
+				P_Parcela parcela = new P_Parcela();
+				parcela.setVisible(true);
+			} else if (txtCorreoElectronico.getText().equals(" ") || txtCorreoElectronico.getText().equals("Correo electronico")
+					|| passwordField.getText().equals(" ") || passwordField.getText().equals("passsword")) {
+				
+				lblEstado.setText("Introduzca todos los datos");
+			}else {
+				lblEstado.setText("No coinciden los datos, por favor intentelo de nuevo");
+			}
+
 		}
 	}
+
 }

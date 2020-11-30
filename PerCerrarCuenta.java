@@ -1,36 +1,29 @@
 package presentacion;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Rectangle;
 import java.awt.Color;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.Font;
-import javax.swing.border.LineBorder;
-import javax.swing.SwingConstants;
-import javax.swing.ImageIcon;
-import javax.swing.UIManager;
-import java.awt.FlowLayout;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
 import java.awt.Component;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.JSeparator;
 
-public class P_Parcela extends JFrame {
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+
+public class PerCerrarCuenta extends JFrame {
 
 	private JPanel contentPane;
 
@@ -41,7 +34,7 @@ public class P_Parcela extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					P_Parcela frame = new P_Parcela();
+					PerCerrarCuenta frame = new PerCerrarCuenta();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,7 +46,7 @@ public class P_Parcela extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public P_Parcela() {
+	public PerCerrarCuenta() {
 		setResizable(false);
 		setBounds(new Rectangle(0, 0, 1350, 850));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -213,7 +206,7 @@ public class P_Parcela extends JFrame {
 		pnlPantallaPrincipal.add(panel, gbc_panel);
 		
 		JLabel lblZorroEligeOpcion = new JLabel("");
-		lblZorroEligeOpcion.setBounds(179, 158, 475, 385);
+		lblZorroEligeOpcion.setBounds(205, 85, 475, 385);
 		lblZorroEligeOpcion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblZorroEligeOpcion.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/zorroGrandeTransparencia.png")));
 		panel.add(lblZorroEligeOpcion);
