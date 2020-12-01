@@ -20,6 +20,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
@@ -28,17 +30,20 @@ import java.awt.Component;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.SoftBevelBorder;
+import javax.swing.text.MaskFormatter;
+
 import java.awt.SystemColor;
 import javax.swing.UIManager;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.ParseException;
 
 public class P_Login {
 
 	private JFrame frmLogin;
-	private JTextField txtDNI;
+	private JTextField txtFormattedDNI;
 	private JLabel lblDNI;
 	private JPasswordField pwdIntroduzcaContrasea;
 	private JButton btnBorrarLogin;
@@ -49,7 +54,7 @@ public class P_Login {
 	private JLabel lblAyuda;
 
 	private Color colorBlanco = new Color(255, 255, 255);
-	private Color colorResaltado = new Color(255,255,209);
+	private Color colorResaltado = new Color(255, 255, 209);
 
 	/**
 	 * Launch the application.
@@ -152,6 +157,7 @@ public class P_Login {
 		pnlHeader.add(lblLeftLine, gbc_lblLeftLine);
 
 		JPanel pnlContenido = new JPanel();
+		pnlContenido.setToolTipText("Introduzca contraseña");
 		pnlContenido.setBackground(new Color(255, 228, 196));
 		frmLogin.getContentPane().add(pnlContenido, BorderLayout.CENTER);
 		GridBagLayout gbl_pnlContenido = new GridBagLayout();
@@ -205,22 +211,35 @@ public class P_Login {
 		gbc_lblDNI.gridy = 1;
 		pnlLogin.add(lblDNI, gbc_lblDNI);
 
-		txtDNI = new JTextField();
-		txtDNI.setBackground(Color.WHITE);
-		txtDNI.addFocusListener(new TxtDNIFocusListener());
-		txtDNI.setFont(new Font("Verdana", Font.PLAIN, 11));
-		txtDNI.setForeground(new Color(169, 169, 169));
-		txtDNI.setText("Introduzca DNI");
-		txtDNI.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDNI.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.gridwidth = 4;
-		gbc_textField.insets = new Insets(0, 0, 5, 5);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 1;
-		gbc_textField.gridy = 2;
-		pnlLogin.add(txtDNI, gbc_textField);
-		txtDNI.setColumns(10);
+		// txtFormattedDNI = new JTextField();
+		MaskFormatter formatoDNI;
+		try	{
+			formatoDNI = new MaskFormatter("########'-U");
+			formatoDNI.setPlaceholderCharacter('X');
+			txtFormattedDNI = new JFormattedTextField(formatoDNI);
+			txtFormattedDNI.setToolTipText("Introduzca DNI");
+		}catch(
+		ParseException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		txtFormattedDNI.setBackground(Color.WHITE);
+		txtFormattedDNI.addFocusListener(new TxtDNIFocusListener());
+		txtFormattedDNI.setFont(new Font("Verdana", Font.PLAIN, 11));
+		txtFormattedDNI.setForeground(new Color(169, 169, 169));
+		txtFormattedDNI.setText("Introduzca DNI");
+		txtFormattedDNI.setHorizontalAlignment(SwingConstants.CENTER);
+		txtFormattedDNI.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		GridBagConstraints gbc_txtFormattedDNI = new GridBagConstraints();
+		gbc_txtFormattedDNI.gridwidth = 4;
+		gbc_txtFormattedDNI.insets = new Insets(0, 0, 5, 5);
+		gbc_txtFormattedDNI.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtFormattedDNI.gridx = 1;
+		gbc_txtFormattedDNI.gridy = 2;
+		pnlLogin.add(txtFormattedDNI, gbc_txtFormattedDNI);
+		txtFormattedDNI.setColumns(10);
 
 		lblIncorrectDNI = new JLabel("");
 		lblIncorrectDNI.setVisible(false);
@@ -253,7 +272,8 @@ public class P_Login {
 
 		pwdIntroduzcaContrasea = new JPasswordField();
 		pwdIntroduzcaContrasea.addFocusListener(new PwdIntroduzcaContraseaFocusListener());
-		//pwdIntroduzcaContrasea.addFocusListener(new PwdIntroduzcaContraseaFocusListener());
+		// pwdIntroduzcaContrasea.addFocusListener(new
+		// PwdIntroduzcaContraseaFocusListener());
 		pwdIntroduzcaContrasea.setHorizontalAlignment(SwingConstants.CENTER);
 		pwdIntroduzcaContrasea.setFont(new Font("Verdana", Font.PLAIN, 14));
 		pwdIntroduzcaContrasea.setToolTipText("");
@@ -343,20 +363,20 @@ public class P_Login {
 
 	private class BtnAceptarLoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if (txtDNI.getText().equals("06290278P") && pwdIntroduzcaContrasea.getText().equals("man123")) {
+			if (txtFormattedDNI.getText().equals("06290278P") && pwdIntroduzcaContrasea.getText().equals("man123")) {
 				frmLogin.setVisible(false);
 				P_Parcela principal = new P_Parcela();
 				principal.setVisible(true);
-			} else if (txtDNI.getText().equals(" ") || pwdIntroduzcaContrasea.getText().equals(" ")
-					|| (txtDNI.getText().equals("Introduzca DNI")
+			} else if (txtFormattedDNI.getText().equals(" ") || pwdIntroduzcaContrasea.getText().equals(" ")
+					|| (txtFormattedDNI.getText().equals("Introduzca DNI")
 							|| pwdIntroduzcaContrasea.getText().equals("passsword"))) {
 				lblValidar.setText("Por favor, introduzca los datos");
 				lblIncorrectPassword.setVisible(true);
 				lblIncorrectDNI.setVisible(true);
-			} else if (txtDNI.getText().equals("06290278P") || pwdIntroduzcaContrasea.getText().equals(" ")) {
+			} else if (txtFormattedDNI.getText().equals("06290278P") || pwdIntroduzcaContrasea.getText().equals(" ")) {
 				lblValidar.setText("Por favor, introduzca bien la contraseña");
 				lblIncorrectPassword.setVisible(true);
-			} else if (txtDNI.getText().equals(" ") && pwdIntroduzcaContrasea.getText().equals("man123")) {
+			} else if (txtFormattedDNI.getText().equals(" ") && pwdIntroduzcaContrasea.getText().equals("man123")) {
 				lblValidar.setText("Por favor, introduzca bien el usuario");
 				lblIncorrectDNI.setVisible(true);
 
@@ -369,9 +389,10 @@ public class P_Login {
 		}
 	}
 
+	
 	private class BtnBorrarLoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			txtDNI.setText(" ");
+			txtFormattedDNI.setText(" ");
 			lblIncorrectDNI.setVisible(false);
 			lblIncorrectPassword.setVisible(false);
 
@@ -385,29 +406,31 @@ public class P_Login {
 
 		}
 	}
+
 	private class TxtDNIFocusListener extends FocusAdapter {
 		@Override
 		public void focusGained(FocusEvent e) {
-			txtDNI.setBackground(colorResaltado);
+			txtFormattedDNI.setBackground(colorResaltado);
 		}
+
 		@Override
 		public void focusLost(FocusEvent e) {
-			txtDNI.setBackground(colorBlanco);
+			txtFormattedDNI.setBackground(colorBlanco);
 		}
 	}
+
 	private class PwdIntroduzcaContraseaFocusListener extends FocusAdapter {
 		@Override
 		public void focusGained(FocusEvent e) {
 			pwdIntroduzcaContrasea.setBackground(colorResaltado);
 		}
+
 		@Override
 		public void focusLost(FocusEvent e) {
 			pwdIntroduzcaContrasea.setBackground(colorBlanco);
 		}
 	}
 
-	
-	
 	class RoundedBorder implements Border {
 
 		private int radius;
