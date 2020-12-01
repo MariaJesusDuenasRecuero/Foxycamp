@@ -168,7 +168,7 @@ public class P_Login {
 		pnlContenido.setLayout(gbl_pnlContenido);
 
 		JLabel lblIngreseDatos = new JLabel("Introduzca sus datos");
-		lblIngreseDatos.setFont(new Font("Verdana", Font.BOLD, 36));
+		lblIngreseDatos.setFont(new Font("Verdana", Font.BOLD, 40));
 		lblIngreseDatos.setForeground(new Color(210, 105, 30));
 		GridBagConstraints gbc_lblIngreseDatos = new GridBagConstraints();
 		gbc_lblIngreseDatos.insets = new Insets(0, 0, 5, 0);
@@ -185,10 +185,10 @@ public class P_Login {
 		gbc_pnlLogin.gridy = 1;
 		pnlContenido.add(pnlLogin, gbc_pnlLogin);
 		GridBagLayout gbl_pnlLogin = new GridBagLayout();
-		gbl_pnlLogin.columnWidths = new int[] { 85, 10, 80, 0, 100, 30, 75, 0 };
+		gbl_pnlLogin.columnWidths = new int[] { 85, 10, 80, 0, 113, 30, 75, 0 };
 		gbl_pnlLogin.rowHeights = new int[] { 72, 48, 0, 30, 52, 0, 19, 26, 25, 23, 22, 45, 0 };
 		gbl_pnlLogin.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_pnlLogin.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+		gbl_pnlLogin.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		pnlLogin.setLayout(gbl_pnlLogin);
 
@@ -227,7 +227,7 @@ public class P_Login {
 
 		txtFormattedDNI.setBackground(Color.WHITE);
 		txtFormattedDNI.addFocusListener(new TxtDNIFocusListener());
-		txtFormattedDNI.setFont(new Font("Verdana", Font.PLAIN, 11));
+		txtFormattedDNI.setFont(new Font("Verdana", Font.PLAIN, 16));
 		txtFormattedDNI.setForeground(new Color(169, 169, 169));
 		txtFormattedDNI.setText("Introduzca DNI");
 		txtFormattedDNI.setHorizontalAlignment(SwingConstants.CENTER);
@@ -275,7 +275,7 @@ public class P_Login {
 		// pwdIntroduzcaContrasea.addFocusListener(new
 		// PwdIntroduzcaContraseaFocusListener());
 		pwdIntroduzcaContrasea.setHorizontalAlignment(SwingConstants.CENTER);
-		pwdIntroduzcaContrasea.setFont(new Font("Verdana", Font.PLAIN, 14));
+		pwdIntroduzcaContrasea.setFont(new Font("Verdana", Font.PLAIN, 16));
 		pwdIntroduzcaContrasea.setToolTipText("");
 		pwdIntroduzcaContrasea.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		GridBagConstraints gbc_pwdIntroduzcaContrasea = new GridBagConstraints();
@@ -363,20 +363,20 @@ public class P_Login {
 
 	private class BtnAceptarLoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if (txtFormattedDNI.getText().equals("06290278P") && pwdIntroduzcaContrasea.getText().equals("man123")) {
+			if (txtFormattedDNI.getText().equals("06290278-P") && pwdIntroduzcaContrasea.getText().equals("man123")) {
 				frmLogin.setVisible(false);
 				P_Parcela principal = new P_Parcela();
 				principal.setVisible(true);
-			} else if (txtFormattedDNI.getText().equals(" ") || pwdIntroduzcaContrasea.getText().equals(" ")
+			} else if (txtFormattedDNI.getText().equals("XXXXXXXX-X ") || pwdIntroduzcaContrasea.getText().equals(" ")
 					|| (txtFormattedDNI.getText().equals("Introduzca DNI")
 							|| pwdIntroduzcaContrasea.getText().equals("passsword"))) {
 				lblValidar.setText("Por favor, introduzca los datos");
 				lblIncorrectPassword.setVisible(true);
 				lblIncorrectDNI.setVisible(true);
-			} else if (txtFormattedDNI.getText().equals("06290278P") || pwdIntroduzcaContrasea.getText().equals(" ")) {
+			} else if (txtFormattedDNI.getText().equals("06290278-P") || pwdIntroduzcaContrasea.getText().equals(" ")) {
 				lblValidar.setText("Por favor, introduzca bien la contraseña");
 				lblIncorrectPassword.setVisible(true);
-			} else if (txtFormattedDNI.getText().equals(" ") && pwdIntroduzcaContrasea.getText().equals("man123")) {
+			} else if (txtFormattedDNI.getText().equals("XXXXXXXX-X") && pwdIntroduzcaContrasea.getText().equals("man123")) {
 				lblValidar.setText("Por favor, introduzca bien el usuario");
 				lblIncorrectDNI.setVisible(true);
 
