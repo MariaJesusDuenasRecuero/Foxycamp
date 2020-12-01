@@ -7,6 +7,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
@@ -68,8 +69,8 @@ public class P_Registro extends JFrame {
 	private JLabel lblImagenCarga;
 	private JLabel lblImagen;
 	private JLabel lblConfirmarContraseña;
-	private JTextField textContraseña;
-	private JTextField textConfirmarContraseña;
+	private JPasswordField textContraseña;
+	private JPasswordField textConfirmarContraseña;
 	
 	
 	private Color colorResaltado = new Color (255,255,210);
@@ -179,6 +180,7 @@ public class P_Registro extends JFrame {
 		pnlLogin.setBorder(new LineBorder(new Color(253, 245, 230), 4));
 		pnlLogin.setBackground(new Color(211, 211, 211));
 		GridBagConstraints gbc_pnlLogin = new GridBagConstraints();
+		gbc_pnlLogin.anchor = GridBagConstraints.WEST;
 		gbc_pnlLogin.insets = new Insets(0, 0, 0, 5);
 		gbc_pnlLogin.gridx = 1;
 		gbc_pnlLogin.gridy = 1;
@@ -191,7 +193,8 @@ public class P_Registro extends JFrame {
 				Double.MIN_VALUE };
 		pnlLogin.setLayout(gbl_pnlLogin);
 		
-		lblNombre = new JLabel("Nombre");
+		lblNombre = new JLabel("Nombre*");
+		lblNombre.setToolTipText("Campo obligatorio");
 		lblNombre.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblNombre = new GridBagConstraints();
 		gbc_lblNombre.anchor = GridBagConstraints.WEST;
@@ -251,20 +254,12 @@ public class P_Registro extends JFrame {
 		lblImagenCarga.addMouseListener(new LblImagenCargaMouseListener());
 		
 	
-		//textEmail = new JTextField();
-		//TODO
-		MaskFormatter formatoEmail;
-		try {
-			formatoEmail= new MaskFormatter("abcdefghijklm'@gmail.com");
-			formatoEmail.setPlaceholderCharacter('X');
-			textEmail= new JFormattedTextField(formatoEmail);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		textEmail = new JTextField();
+		textEmail.setFont(new Font("Verdana", Font.BOLD, 11));
 		textEmail.addFocusListener(new TextEmailFocusListener());
 		
-		lblDNI = new JLabel("DNI");
+		lblDNI = new JLabel("DNI*");
+		lblDNI.setToolTipText("Campo obligatorio");
 		lblDNI.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblDNI = new GridBagConstraints();
 		gbc_lblDNI.anchor = GridBagConstraints.WEST;
@@ -293,7 +288,8 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(txtDNI, gbc_txtDNI);
 		txtDNI.setColumns(10);
 		
-		lblEmail = new JLabel("Email");
+		lblEmail = new JLabel("Email*");
+		lblEmail.setToolTipText("Campo obligatorio");
 		lblEmail.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblEmail = new GridBagConstraints();
 		gbc_lblEmail.anchor = GridBagConstraints.WEST;
@@ -310,20 +306,11 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(textEmail, gbc_textEmail);
 		textEmail.setColumns(10);
 		
-		//textConfirmarMail = new JTextField();
-		//TODO
-		MaskFormatter formatoEmailC;
-		try {
-			formatoEmailC= new MaskFormatter("########'@###.#");
-			formatoEmailC.setPlaceholderCharacter('X');
-			textConfirmarMail= new JFormattedTextField(formatoEmailC);
-			textConfirmarMail.addFocusListener(new TextConfirmarMailFocusListener());
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		textConfirmarMail = new JTextField();
+		textConfirmarMail.addFocusListener(new TextConfirmarMailFocusListener());
 		
-		lblNewLabel = new JLabel("Confirmar email");
+		lblNewLabel = new JLabel("Confirmar email*");
+		lblNewLabel.setToolTipText("Campo obligatorio");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setHorizontalTextPosition(SwingConstants.LEFT);
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 16));
@@ -391,7 +378,8 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(textTelefono, gbc_textTelefono);
 		textTelefono.setColumns(10);
 		
-		lblContraseña = new JLabel("Contraseña");
+		lblContraseña = new JLabel("Contraseña*");
+		lblContraseña.setToolTipText("Campo obligatorio");
 		lblContraseña.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblContraseña = new GridBagConstraints();
 		gbc_lblContraseña.anchor = GridBagConstraints.WEST;
@@ -400,7 +388,7 @@ public class P_Registro extends JFrame {
 		gbc_lblContraseña.gridy = 7;
 		pnlLogin.add(lblContraseña, gbc_lblContraseña);
 		
-		textContraseña = new JTextField();
+		textContraseña = new JPasswordField();
 		textContraseña.addFocusListener(new TextContraseñaFocusListener());
 		GridBagConstraints gbc_textContraseña = new GridBagConstraints();
 		gbc_textContraseña.insets = new Insets(0, 0, 5, 5);
@@ -410,7 +398,8 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(textContraseña, gbc_textContraseña);
 		textContraseña.setColumns(10);
 		
-		lblConfirmarContraseña = new JLabel("Confirmar contraseña");
+		lblConfirmarContraseña = new JLabel("Confirmar contraseña*");
+		lblConfirmarContraseña.setToolTipText("Campo obligatorio");
 		lblConfirmarContraseña.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblConfirmarContraseña = new GridBagConstraints();
 		gbc_lblConfirmarContraseña.insets = new Insets(0, 0, 5, 5);
@@ -418,7 +407,8 @@ public class P_Registro extends JFrame {
 		gbc_lblConfirmarContraseña.gridy = 8;
 		pnlLogin.add(lblConfirmarContraseña, gbc_lblConfirmarContraseña);
 		
-		textConfirmarContraseña = new JTextField();
+		textConfirmarContraseña = new JPasswordField();
+		textConfirmarContraseña.addActionListener(new TextConfirmarContraseñaActionListener());
 		textConfirmarContraseña.addFocusListener(new TextConfirmarContraseñaFocusListener());
 		GridBagConstraints gbc_textConfirmarContraseña = new GridBagConstraints();
 		gbc_textConfirmarContraseña.insets = new Insets(0, 0, 5, 5);
@@ -428,7 +418,8 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(textConfirmarContraseña, gbc_textConfirmarContraseña);
 		textConfirmarContraseña.setColumns(10);
 		
-		lblCV = new JLabel("CV");
+		lblCV = new JLabel("CV*");
+		lblCV.setToolTipText("Campo obligatorio");
 		lblCV.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblCV = new GridBagConstraints();
 		gbc_lblCV.anchor = GridBagConstraints.WEST;
@@ -447,8 +438,8 @@ public class P_Registro extends JFrame {
 		lblInformacion = new JLabel("Información adicional");
 		lblInformacion.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblInformacion = new GridBagConstraints();
+		gbc_lblInformacion.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblInformacion.insets = new Insets(0, 0, 5, 5);
-		gbc_lblInformacion.anchor = GridBagConstraints.EAST;
 		gbc_lblInformacion.gridx = 1;
 		gbc_lblInformacion.gridy = 10;
 		pnlLogin.add(lblInformacion, gbc_lblInformacion);
@@ -593,6 +584,25 @@ public class P_Registro extends JFrame {
 		@Override
 		public void focusLost(FocusEvent e) {
 			e.getComponent().setBackground(colorBlanco);
+		}
+	}
+	private class TextConfirmarContraseñaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			//obtenemos la contraseña introducida
+		/* Para dar funcionalidad
+			if(String.valueOf(pwdPassword.getPassword()).equals(password)){
+				lblAviso.setBackground(Color.GREEN);
+				lblAviso.setText("Contraseña correcta. Puede entrar");
+				lblAviso.setVisible(true);
+				btnEntrar.setEnabled(true);
+				lblContraseña.setEnabled(false);
+				pwdPassword.setEnabled(false);
+				} else{
+					lblAviso.setBackground(Color.RED);
+					lblAviso.setText("Contraseña incorrecta. Vuelva a intentarlo");
+					lblAviso.setVisible(true);
+					btnEntrar.setEnabled(false);}
+		*/
 		}
 	}
 }
