@@ -30,6 +30,8 @@ import java.awt.SystemColor;
 import javax.swing.UIManager;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.MatteBorder;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class P_Login {
@@ -43,6 +45,7 @@ public class P_Login {
 	private JLabel lblIncorrectDNI;
 	private JLabel lblIncorrectPassword;
 	private JLabel lblValidar;
+	private JLabel lblAyuda;
 	
 	
 
@@ -110,7 +113,9 @@ public class P_Login {
 		gbc_lblFoxycamp.gridy = 1;
 		pnlHeader.add(lblFoxycamp, gbc_lblFoxycamp);
 
-		JLabel lblAyuda = new JLabel("");
+		lblAyuda = new JLabel("");
+		lblAyuda.setOpaque(true);
+		lblAyuda.setBackground(new Color(255, 228, 196));
 		lblAyuda.setToolTipText("Ayuda");
 		lblAyuda.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/signo-de-interrogacion-dibujar.png")));
 		GridBagConstraints gbc_lblAyuda = new GridBagConstraints();
@@ -366,8 +371,15 @@ public class P_Login {
 		public void actionPerformed(ActionEvent e) {
 			txtDNI.setText(" ");
 			lblIncorrectDNI.setVisible(false);
-			 lblIncorrectPassword.setVisible(false);
+			lblIncorrectPassword.setVisible(false);
 			
+			
+		}
+	}
+	private class LblAyudaMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			lblAyuda.setBackground(Color.ORANGE);
 			
 		}
 	}
