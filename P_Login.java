@@ -162,7 +162,7 @@ public class P_Login {
 		frmLogin.getContentPane().add(pnlContenido, BorderLayout.CENTER);
 		GridBagLayout gbl_pnlContenido = new GridBagLayout();
 		gbl_pnlContenido.columnWidths = new int[] { 413, 457, 0 };
-		gbl_pnlContenido.rowHeights = new int[] { 100, 447, 0 };
+		gbl_pnlContenido.rowHeights = new int[] { 135, 455, 0 };
 		gbl_pnlContenido.columnWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
 		gbl_pnlContenido.rowWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
 		pnlContenido.setLayout(gbl_pnlContenido);
