@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Font;
+import java.awt.Graphics;
+
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
@@ -23,16 +25,25 @@ import javax.swing.JComboBox;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.SoftBevelBorder;
+
+
+
 import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 import javax.swing.JSeparator;
+
 
 public class P_Parcela extends JFrame {
 
 	private JPanel contentPane;
+	private JButton btnParcela;
+	private JPopupMenu pmFlecha;
 
 	/**
 	 * Launch the application.
@@ -125,7 +136,8 @@ public class P_Parcela extends JFrame {
 		
 		lblFlecha.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png")));
 		
-		JPopupMenu pmFlecha = new JPopupMenu();
+		
+		 pmFlecha = new JPopupMenu();
 		addPopup(lblFlecha, pmFlecha);
 		
 		JLabel lblPerfilOption = new JLabel("    Adrian Ruiz");
@@ -197,7 +209,7 @@ public class P_Parcela extends JFrame {
 		contentPane.add(pnlPantallaPrincipal, BorderLayout.CENTER);
 		GridBagLayout gbl_pnlPantallaPrincipal = new GridBagLayout();
 		gbl_pnlPantallaPrincipal.columnWidths = new int[]{50, 75, 225, 10, 800, 50, 0};
-		gbl_pnlPantallaPrincipal.rowHeights = new int[]{60, 100, 75, 75, 75, 75, 200, 75, 50, 0};
+		gbl_pnlPantallaPrincipal.rowHeights = new int[]{60, 100, 75, 75, 75, 75, 142, 75, 50, 0};
 		gbl_pnlPantallaPrincipal.columnWeights = new double[]{1.0, 1.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		gbl_pnlPantallaPrincipal.rowWeights = new double[]{1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		pnlPantallaPrincipal.setLayout(gbl_pnlPantallaPrincipal);
@@ -213,31 +225,23 @@ public class P_Parcela extends JFrame {
 		pnlPantallaPrincipal.add(panel, gbc_panel);
 		
 		JLabel lblZorroEligeOpcion = new JLabel("");
-		lblZorroEligeOpcion.setBounds(179, 158, 475, 385);
+		lblZorroEligeOpcion.setBounds(173, 83, 475, 385);
 		lblZorroEligeOpcion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblZorroEligeOpcion.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/zorroGrandeTransparencia.png")));
 		panel.add(lblZorroEligeOpcion);
 		
-		JPanel pnlParcelas = new JPanel();
-		pnlParcelas.setBackground(Color.WHITE);
-		pnlParcelas.setLayout(null);
-		GridBagConstraints gbc_pnlParcelas = new GridBagConstraints();
-		gbc_pnlParcelas.gridwidth = 2;
-		gbc_pnlParcelas.insets = new Insets(0, 0, 5, 5);
-		gbc_pnlParcelas.fill = GridBagConstraints.BOTH;
-		gbc_pnlParcelas.gridx = 1;
-		gbc_pnlParcelas.gridy = 2;
-		pnlPantallaPrincipal.add(pnlParcelas, gbc_pnlParcelas);
-		
-		JLabel lblIconoParcelas = new JLabel("");
-		lblIconoParcelas.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/parcelas.png")));
-		lblIconoParcelas.setBounds(10, 0, 67, 70);
-		pnlParcelas.add(lblIconoParcelas);
-		
-		JLabel lblTextoParcelas = new JLabel("Parcelas");
-		lblTextoParcelas.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblTextoParcelas.setBounds(85, 11, 200, 48);
-		pnlParcelas.add(lblTextoParcelas);
+		btnParcela = new JButton("Parcelas");
+		btnParcela.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/casa.png")));
+		btnParcela.setFont(new Font("Verdana", Font.PLAIN, 30));
+		btnParcela.setBackground(Color.WHITE);
+		GridBagConstraints gbc_btnParcela = new GridBagConstraints();
+		gbc_btnParcela.fill = GridBagConstraints.BOTH;
+		btnParcela.setBorder(new RoundedBorder(12));
+		gbc_btnParcela.gridwidth = 2;
+		gbc_btnParcela.insets = new Insets(0, 0, 5, 5);
+		gbc_btnParcela.gridx = 1;
+		gbc_btnParcela.gridy = 2;
+		pnlPantallaPrincipal.add(btnParcela, gbc_btnParcela);
 		
 		JPanel pnlBungalows = new JPanel();
 		pnlBungalows.setBackground(Color.WHITE);
@@ -305,10 +309,42 @@ public class P_Parcela extends JFrame {
 		
 		
 		
-	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
+	
+	
+	
+	btnParcela.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            p = new V_Parcela();
+            V_Parcela.add(p);
+            V_Parcela.show();
+        }
+    });
 
-		});
-	}
+}
+
+public class RoundedBorder implements Border {
+
+    private int radius;
+
+    RoundedBorder(int radius) {
+        this.radius = radius;
+    }
+
+    public Insets getBorderInsets(Component c) {
+        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+    }
+
+    public boolean isBorderOpaque() {
+        return true;
+    }
+
+    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+    }
+}
+private static void addPopup(Component component, final JPopupMenu popup) {
+	component.addMouseListener(new MouseAdapter() {
+
+	});
+}
 }
