@@ -44,6 +44,7 @@ public class P_Parcela extends JFrame {
 	private JPanel contentPane;
 	private JButton btnParcela;
 	private JPopupMenu pmFlecha;
+	private JPanel panel;
 
 	/**
 	 * Launch the application.
@@ -214,7 +215,7 @@ public class P_Parcela extends JFrame {
 		gbl_pnlPantallaPrincipal.rowWeights = new double[]{1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		pnlPantallaPrincipal.setLayout(gbl_pnlPantallaPrincipal);
 		
-		JPanel panel = new JPanel();
+		 panel = new JPanel();
 		panel.setLayout(null);
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.gridheight = 7;
@@ -235,6 +236,7 @@ public class P_Parcela extends JFrame {
 		btnParcela.setFont(new Font("Verdana", Font.PLAIN, 30));
 		btnParcela.setBackground(Color.WHITE);
 		GridBagConstraints gbc_btnParcela = new GridBagConstraints();
+		
 		gbc_btnParcela.fill = GridBagConstraints.BOTH;
 		btnParcela.setBorder(new RoundedBorder(12));
 		gbc_btnParcela.gridwidth = 2;
@@ -308,40 +310,43 @@ public class P_Parcela extends JFrame {
 		pnlRutas.add(lblTextoRutas);
 		
 		
-		
 	
-	
-	
+
+
 	btnParcela.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
-            p = new V_Parcela();
-            V_Parcela.add(p);
-            V_Parcela.show();
+           V_Parcela  p = new V_Parcela();
+            panel.add(p);
+            p.show();
         }
     });
 
+
+
+
 }
+	
+	public class RoundedBorder implements Border {
 
-public class RoundedBorder implements Border {
+	    private int radius;
 
-    private int radius;
+	    RoundedBorder(int radius) {
+	        this.radius = radius;
+	    }
 
-    RoundedBorder(int radius) {
-        this.radius = radius;
-    }
+	    public Insets getBorderInsets(Component c) {
+	        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+	    }
 
-    public Insets getBorderInsets(Component c) {
-        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-    }
+	    public boolean isBorderOpaque() {
+	        return true;
+	    }
 
-    public boolean isBorderOpaque() {
-        return true;
-    }
+	    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+	        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+	    }
+	}
 
-    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
-    }
-}
 private static void addPopup(Component component, final JPopupMenu popup) {
 	component.addMouseListener(new MouseAdapter() {
 
