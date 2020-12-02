@@ -35,9 +35,9 @@ public class V_Parcela extends JPanel {
 		add(pnlDatos, BorderLayout.WEST);
 		GridBagLayout gbl_pnlDatos = new GridBagLayout();
 		gbl_pnlDatos.columnWidths = new int[]{86, 0, 50, 0, 86, 0};
-		gbl_pnlDatos.rowHeights = new int[]{100, 0, 35, 35, 0, 35, 35, 0, 35, 0, 35, 100, 0};
+		gbl_pnlDatos.rowHeights = new int[]{100, 0, 35, 35, 0, 35, 35, 0, 35, 0, 0, 35, 100, 0};
 		gbl_pnlDatos.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_pnlDatos.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_pnlDatos.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		pnlDatos.setLayout(gbl_pnlDatos);
 		
 		JLabel lblFEntrada = new JLabel("Fecha de entrada");
@@ -129,7 +129,7 @@ public class V_Parcela extends JPanel {
 		gbc_lblTParcela.anchor = GridBagConstraints.WEST;
 		gbc_lblTParcela.insets = new Insets(0, 0, 5, 5);
 		gbc_lblTParcela.gridx = 1;
-		gbc_lblTParcela.gridy = 9;
+		gbc_lblTParcela.gridy = 10;
 		pnlDatos.add(lblTParcela, gbc_lblTParcela);
 		
 		JComboBox comboBox_Parcela = new JComboBox();
@@ -139,7 +139,7 @@ public class V_Parcela extends JPanel {
 		gbc_comboBox_Parcela.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox_Parcela.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_Parcela.gridx = 1;
-		gbc_comboBox_Parcela.gridy = 10;
+		gbc_comboBox_Parcela.gridy = 11;
 		pnlDatos.add(comboBox_Parcela, gbc_comboBox_Parcela);
 		
 		JPanel pnlParcelas = new JPanel();
