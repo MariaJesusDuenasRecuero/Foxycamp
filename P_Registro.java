@@ -1,4 +1,4 @@
-package Presentation;
+package presentacion;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -102,7 +102,7 @@ public class P_Registro extends JFrame {
 	 */
 	public P_Registro() {
 		setFont(new Font("Verdana", Font.BOLD, 16));
-		setIconImage(Toolkit.getDefaultToolkit().getImage(P_Registro.class.getResource("/Presentation/usuario.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(P_Registro.class.getResource("/presentacion/usuario.png")));
 		setBackground(naranja);
 		setBounds(new Rectangle(0, 0, 1350, 850));
 		setTitle("Registro");
@@ -125,7 +125,7 @@ public class P_Registro extends JFrame {
 		pnlHeader.setLayout(gbl_pnlHeader);
 		
 		lblLogoZorro = new JLabel("");
-		lblLogoZorro.setIcon(new ImageIcon(P_Registro.class.getResource("/Presentation/fox.png")));
+		lblLogoZorro.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/fox.png")));
 		lblLogoZorro.setBackground(new Color(255, 228, 181));
 		GridBagConstraints gbc_lblLogoZorro = new GridBagConstraints();
 		gbc_lblLogoZorro.insets = new Insets(0, 0, 5, 5);
@@ -159,7 +159,7 @@ public class P_Registro extends JFrame {
 
 		pnlContenido = new JPanel();
 		pnlContenido.setBackground(new Color(255, 228, 196));
-		getContentPane().add(pnlContenido, BorderLayout.CENTER);
+		getContentPane().add(pnlContenido, BorderLayout.SOUTH);
 		GridBagLayout gbl_pnlContenido = new GridBagLayout();
 		gbl_pnlContenido.columnWidths = new int[] { 300, 429, 300, 0 };
 		gbl_pnlContenido.rowHeights = new int[] { 84, 440, 0 };
@@ -328,7 +328,7 @@ public class P_Registro extends JFrame {
 		gbc_textConfirmarMail.gridy = 5;
 		pnlLogin.add(textConfirmarMail, gbc_textConfirmarMail);
 		textConfirmarMail.setColumns(10);
-		lblImagenCarga.setIcon(new ImageIcon(P_Registro.class.getResource("/Presentation/uploadImage.png")));
+		lblImagenCarga.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/uploadImage.png")));
 		lblImagenCarga.setToolTipText("Pincha encima para subir archivo");
 		GridBagConstraints gbc_lblImagenCarga = new GridBagConstraints();
 		gbc_lblImagenCarga.fill = GridBagConstraints.HORIZONTAL;
@@ -428,7 +428,7 @@ public class P_Registro extends JFrame {
 		gbc_lblCV.gridy = 9;
 		pnlLogin.add(lblCV, gbc_lblCV);
 		lblImagenCV.setToolTipText("Pincha encima para subir archivo");
-		lblImagenCV.setIcon(new ImageIcon(P_Registro.class.getResource("/Presentation/uploadFile.png")));
+		lblImagenCV.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/uploadFile.png")));
 		GridBagConstraints gbc_lblImagenCV = new GridBagConstraints();
 		gbc_lblImagenCV.insets = new Insets(0, 0, 5, 5);
 		gbc_lblImagenCV.gridx = 3;
