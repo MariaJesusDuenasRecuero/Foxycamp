@@ -2,7 +2,6 @@ package presentacion;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -14,29 +13,19 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Font;
 import java.awt.Graphics;
-
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
-import javax.swing.UIManager;
-import java.awt.FlowLayout;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.SoftBevelBorder;
-
-import presentacion.P_Parcela.RoundedBorder;
-
-import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.JSeparator;
+
 
 public class P_Principal extends JFrame {
 
@@ -47,7 +36,8 @@ public class P_Principal extends JFrame {
 	private JPanel  pnlContenido;
 	private JButton btnRutas;
 	private JButton btnVolver;
-
+	private JLabel 	lblZorroEligeOpcion;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -69,7 +59,7 @@ public class P_Principal extends JFrame {
 	 */
 	public P_Principal() {
 		setResizable(false);
-		setBounds(new Rectangle(0, 0, 1300, 1000));
+		setBounds(new Rectangle(0, 0, 1375, 800));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(255, 153, 0));
@@ -187,7 +177,7 @@ public class P_Principal extends JFrame {
 		lblNewLabel_1.setAlignmentX(0.5f);
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblNewLabel_1.gridwidth = 13;
+		gbc_lblNewLabel_1.gridwidth = 14;
 		gbc_lblNewLabel_1.insets = new Insets(0, 0, 0, 5);
 		gbc_lblNewLabel_1.gridx = 1;
 		gbc_lblNewLabel_1.gridy = 2;
@@ -196,147 +186,99 @@ public class P_Principal extends JFrame {
 		JPanel pnlPantallaPrincipal = new JPanel();
 		pnlPantallaPrincipal.setBackground(new Color(255, 228, 196));
 		contentPane.add(pnlPantallaPrincipal, BorderLayout.CENTER);
-		GridBagLayout gbl_pnlPantallaPrincipal = new GridBagLayout();
-		gbl_pnlPantallaPrincipal.columnWidths = new int[]{45, 75, 225, 0, 5, 800, 50, 0};
-		gbl_pnlPantallaPrincipal.rowHeights = new int[]{29, 100, 75, 75, 75, 75, 73, 75, 50, 0, 0, 0, 0, 0, 0, 0};
-		gbl_pnlPantallaPrincipal.columnWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gbl_pnlPantallaPrincipal.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		pnlPantallaPrincipal.setLayout(gbl_pnlPantallaPrincipal);
+		pnlPantallaPrincipal.setLayout(null);
 		
 		JPanel pnlBotones = new JPanel();
 		pnlBotones.setBackground(new Color(255, 228, 196));
-		pnlBotones.setBounds(new Rectangle(0, 0, 200, 0));
-		GridBagConstraints gbc_pnlBotones = new GridBagConstraints();
-		gbc_pnlBotones.gridheight = 11;
-		gbc_pnlBotones.gridwidth = 2;
-		gbc_pnlBotones.insets = new Insets(0, 0, 5, 5);
-		gbc_pnlBotones.fill = GridBagConstraints.BOTH;
-		gbc_pnlBotones.gridx = 1;
-		gbc_pnlBotones.gridy = 1;
-		pnlPantallaPrincipal.add(pnlBotones, gbc_pnlBotones);
-		GridBagLayout gbl_pnlBotones = new GridBagLayout();
-		gbl_pnlBotones.columnWidths = new int[]{103, 89, 0, 0, 0, 0, 0};
-		gbl_pnlBotones.rowHeights = new int[]{90, 50, 90, 50, 90, 50, 90, 50, 100, 0};
-		gbl_pnlBotones.columnWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_pnlBotones.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		pnlBotones.setLayout(gbl_pnlBotones);
-		
-		 btnParcela = new JButton("Parcelas");
-		 btnParcela.setHorizontalTextPosition(SwingConstants.RIGHT);
-		 btnParcela.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/parcelas.png")));
-		 btnParcela.setFont(new Font("Verdana", Font.BOLD, 20));
-		 btnParcela.setBackground(Color.WHITE);
-		 btnParcela.setBounds(new Rectangle(0, 0, 0, 2000));
-		GridBagConstraints gbc_btnParcela = new GridBagConstraints();
-		gbc_btnParcela.insets = new Insets(0, 0, 5, 0);
-		gbc_btnParcela.fill = GridBagConstraints.BOTH;
-		btnParcela.setBorder(new RoundedBorder(12));
-		gbc_btnParcela.gridwidth = 6;
-		gbc_btnParcela.gridx = 0;
-		gbc_btnParcela.gridy = 0;
-		pnlBotones.add(btnParcela, gbc_btnParcela);
-		
-		btnBungalows = new JButton("Bungalows");
-		btnBungalows.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/bungalow.png")));
-		btnBungalows.setBackground(Color.WHITE);
-		btnBungalows.setFont(new Font("Verdana", Font.BOLD, 20));
-		GridBagConstraints gbc_btnBungalows = new GridBagConstraints();
-		btnBungalows.setBorder(new RoundedBorder(12));
-		gbc_btnBungalows.gridwidth = 6;
-		gbc_btnBungalows.fill = GridBagConstraints.BOTH;
-		gbc_btnBungalows.insets = new Insets(0, 0, 5, 0);
-		gbc_btnBungalows.gridx = 0;
-		gbc_btnBungalows.gridy = 2;
-		pnlBotones.add(btnBungalows, gbc_btnBungalows);
-		
-		btnActividades = new JButton("Actividades");
-		btnActividades.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/actividades.png")));
-		btnActividades.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnActividades.setBackground(Color.WHITE);
-		GridBagConstraints gbc_btnActividades = new GridBagConstraints();
-		gbc_btnActividades.fill = GridBagConstraints.BOTH;
-		btnActividades.setBorder(new RoundedBorder(12));
-		gbc_btnActividades.gridwidth = 6;
-		gbc_btnActividades.insets = new Insets(0, 0, 5, 0);
-		gbc_btnActividades.gridx = 0;
-		gbc_btnActividades.gridy = 4;
-		pnlBotones.add(btnActividades, gbc_btnActividades);
-		
-		btnRutas = new JButton("Rutas");
-		btnRutas.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/rutas.png")));
-		btnRutas.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnRutas.setBackground(Color.WHITE);
-		GridBagConstraints gbc_btnRutas = new GridBagConstraints();
-		gbc_btnRutas.fill = GridBagConstraints.BOTH;
-		btnRutas.setBorder(new RoundedBorder(12));
-		gbc_btnRutas.gridwidth = 6;
-		gbc_btnRutas.insets = new Insets(0, 0, 5, 0);
-		gbc_btnRutas.gridx = 0;
-		gbc_btnRutas.gridy = 6;
-		pnlBotones.add(btnRutas, gbc_btnRutas);
-		
+		pnlBotones.setBounds(new Rectangle(0, 0, 293, 575));
+		pnlPantallaPrincipal.add(pnlBotones);
+		  pnlBotones.setLayout(null);
+		 
+		  btnParcela = new JButton("Parcelas");
+		  btnParcela.setBounds(37, 11, 242, 65);
+		  pnlBotones.add(btnParcela);
+		  btnParcela.setHorizontalTextPosition(SwingConstants.RIGHT);
+		  btnParcela.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/parcelas.png")));
+		  btnParcela.setFont(new Font("Verdana", Font.BOLD, 20));
+		  btnParcela.setBackground(Color.WHITE);
+		  btnParcela.setBorder(new RoundedBorder(12));
+		  
+		  btnBungalows = new JButton("Bungalows");
+		  btnBungalows.setBounds(37, 130, 242, 65);
+		  pnlBotones.add(btnBungalows);
+		  btnBungalows.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/bungalow.png")));
+		  btnBungalows.setBackground(Color.WHITE);
+		  btnBungalows.setFont(new Font("Verdana", Font.BOLD, 20));
+		  btnBungalows.setBorder(new RoundedBorder(12));
+		  
+		  btnActividades = new JButton("Actividades");
+		  btnActividades.setBounds(37, 242, 242, 65);
+		  pnlBotones.add(btnActividades);
+		  btnActividades.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/actividades.png")));
+		  btnActividades.setFont(new Font("Verdana", Font.BOLD, 20));
+		  btnActividades.setBackground(Color.WHITE);
+		  btnActividades.setBorder(new RoundedBorder(12));
+		  
+		  btnRutas = new JButton("Rutas");
+		  btnRutas.setBounds(37, 355, 242, 65);
+		  pnlBotones.add(btnRutas);
+		  btnRutas.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/rutas.png")));
+		  btnRutas.setFont(new Font("Verdana", Font.BOLD, 20));
+		  btnRutas.setBackground(Color.WHITE);
+		  btnRutas.setBorder(new RoundedBorder(12));
+		  
 	    btnVolver = new JButton("Volver");
+	    btnVolver.addActionListener(new BtnVolverActionListener());
+	    btnVolver.setBounds(37, 498, 242, 33);
+	    pnlBotones.add(btnVolver);
 	    btnVolver.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/volver-flecha (1).png")));
-		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnVolver.setBackground(new Color(255, 165, 0));
-		GridBagConstraints gbc_btnVolver = new GridBagConstraints();
-		gbc_btnVolver.fill = GridBagConstraints.BOTH;
-		btnVolver.setBorder(new RoundedBorder(12));
-		gbc_btnVolver.gridwidth = 6;
-		gbc_btnVolver.insets = new Insets(0, 0, 0, 5);
-		gbc_btnVolver.gridx = 0;
-		gbc_btnVolver.gridy = 8;
-		pnlBotones.add(btnVolver, gbc_btnVolver);
+	    btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
+	    btnVolver.setBackground(new Color(255, 165, 0));
+	    btnVolver.setBorder(new RoundedBorder(12));
+		  
+		  btnActividades.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+	        	lblZorroEligeOpcion.show(false);
+	           V_Parcela  p = new V_Parcela();
+	            pnlContenido.add(p);
+	            p.show();
+	        }
+	    });
+		  
+		  btnBungalows.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+	        	lblZorroEligeOpcion.show(false);
+	           V_Parcela  p = new V_Parcela();
+	            pnlContenido.add(p);
+	            p.show();
+	        }
+	    });
+		 
+		 
+		 
+		 
+		 btnParcela.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+	        	lblZorroEligeOpcion.show(false);
+	           V_Parcela  p = new V_Parcela();
+	            pnlContenido.add(p);
+	            p.show();
+	        }
+	    });
 		
 		
 		
 		pnlContenido = new JPanel();
+		pnlContenido.setBounds(303, 0, 1001, 530);
 		pnlContenido.setLayout(null);
-		GridBagConstraints gbc_pnlContenido = new GridBagConstraints();
-		gbc_pnlContenido.gridwidth = 2;
-		gbc_pnlContenido.gridheight = 11;
-		gbc_pnlContenido.insets = new Insets(0, 0, 5, 5);
-		gbc_pnlContenido.fill = GridBagConstraints.BOTH;
 		pnlContenido.setBorder(new RoundedBorder(10));
-		gbc_pnlContenido.gridx = 4;
-		gbc_pnlContenido.gridy = 1;
-		pnlPantallaPrincipal.add(pnlContenido, gbc_pnlContenido);
+		pnlPantallaPrincipal.add(pnlContenido);
 		
-		JLabel lblZorroEligeOpcion = new JLabel("");
-		lblZorroEligeOpcion.setBounds(10, 11, 818, 638);
+		 lblZorroEligeOpcion = new JLabel("");
+		lblZorroEligeOpcion.setBounds(0, 0, 656, 343);
 		lblZorroEligeOpcion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblZorroEligeOpcion.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/zorroGrandeTransparencia.png")));
 		pnlContenido.add(lblZorroEligeOpcion);
-		
-		
-		
-		
-		btnParcela.addActionListener(new ActionListener() {
-	        public void actionPerformed(ActionEvent e) {
-	        	lblZorroEligeOpcion.show(false);
-	           V_Parcela  p = new V_Parcela();
-	            pnlContenido.add(p);
-	            p.show();
-	        }
-	    });
-		
-		btnBungalows.addActionListener(new ActionListener() {
-	        public void actionPerformed(ActionEvent e) {
-	        	lblZorroEligeOpcion.show(false);
-	           V_Parcela  p = new V_Parcela();
-	            pnlContenido.add(p);
-	            p.show();
-	        }
-	    });
-		
-		btnActividades.addActionListener(new ActionListener() {
-	        public void actionPerformed(ActionEvent e) {
-	        	lblZorroEligeOpcion.show(false);
-	           V_Parcela  p = new V_Parcela();
-	            pnlContenido.add(p);
-	            p.show();
-	        }
-	    });
 		
 	}
 	public class RoundedBorder implements Border {
@@ -369,5 +311,12 @@ public class P_Principal extends JFrame {
 
 		});
 	}
+	private class BtnVolverActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			P_Principal principal = new P_Principal();
+			lblZorroEligeOpcion.setVisible(true);
+			
+			
+		}
+	}
 }
-
