@@ -248,9 +248,9 @@ public class P_Principal extends JFrame {
 		  btnBungalows.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
 	        	lblZorroEligeOpcion.show(false);
-	           V_Parcela  p = new V_Parcela();
-	            pnlContenido.add(p);
-	            p.show();
+	           V_Bungalow  b = new V_Bungalow();
+	            pnlContenido.add(b);
+	            b.show();
 	        }
 	    });
 		 
@@ -269,13 +269,13 @@ public class P_Principal extends JFrame {
 		
 		
 		pnlContenido = new JPanel();
-		pnlContenido.setBounds(303, 0, 1001, 530);
+		pnlContenido.setBounds(303, 0, 1001, 575);
 		pnlContenido.setLayout(null);
 		pnlContenido.setBorder(new RoundedBorder(10));
 		pnlPantallaPrincipal.add(pnlContenido);
 		
 		 lblZorroEligeOpcion = new JLabel("");
-		lblZorroEligeOpcion.setBounds(0, 0, 656, 343);
+		lblZorroEligeOpcion.setBounds(10, 0, 981, 548);
 		lblZorroEligeOpcion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblZorroEligeOpcion.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/zorroGrandeTransparencia.png")));
 		pnlContenido.add(lblZorroEligeOpcion);
