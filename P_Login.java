@@ -356,7 +356,7 @@ public class P_Login {
 		frmLogin.setResizable(false);
 		frmLogin.setBackground(Color.WHITE);
 		// frame.setForeground(new Color(255, 204, 102));
-		frmLogin.setBounds(new Rectangle(0, 0, 1350, 850));
+		frmLogin.setBounds(new Rectangle(0, 0, 1375, 800));
 		// frame.setBounds(100, 100, 450, 300);
 		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
