@@ -25,6 +25,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.border.Border;
 import javax.swing.JSeparator;
+import java.awt.FlowLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 
 public class P_Principal extends JFrame {
@@ -235,50 +238,52 @@ public class P_Principal extends JFrame {
 	    btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
 	    btnVolver.setBackground(new Color(255, 165, 0));
 	    btnVolver.setBorder(new RoundedBorder(12));
-		  
-		  btnActividades.addActionListener(new ActionListener() {
-	        public void actionPerformed(ActionEvent e) {
-	        	lblZorroEligeOpcion.show(false);
-	           V_Parcela  p = new V_Parcela();
-	            pnlContenido.add(p);
-	            p.show();
-	        }
-	    });
-		  
-		  btnBungalows.addActionListener(new ActionListener() {
-	        public void actionPerformed(ActionEvent e) {
-	        	lblZorroEligeOpcion.show(false);
-	           V_Bungalow  b = new V_Bungalow();
-	            pnlContenido.add(b);
-	            b.show();
-	        }
-	    });
-		 
-		 
-		 
-		 
-		 btnParcela.addActionListener(new ActionListener() {
-	        public void actionPerformed(ActionEvent e) {
-	        	lblZorroEligeOpcion.show(false);
-	           V_Parcela  p = new V_Parcela();
-	            pnlContenido.add(p);
-	            p.show();
-	        }
-	    });
-		
-		
-		
-		pnlContenido = new JPanel();
+	    
+	    pnlContenido = new JPanel();
 		pnlContenido.setBounds(303, 0, 1001, 575);
-		pnlContenido.setLayout(null);
 		pnlContenido.setBorder(new RoundedBorder(10));
 		pnlPantallaPrincipal.add(pnlContenido);
+		 pnlContenido.setLayout(new BorderLayout(0, 0));
 		
 		 lblZorroEligeOpcion = new JLabel("");
-		lblZorroEligeOpcion.setBounds(10, 0, 981, 548);
-		lblZorroEligeOpcion.setHorizontalAlignment(SwingConstants.CENTER);
-		lblZorroEligeOpcion.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/zorroGrandeTransparencia.png")));
-		pnlContenido.add(lblZorroEligeOpcion);
+		 lblZorroEligeOpcion.setHorizontalAlignment(SwingConstants.CENTER);
+		 lblZorroEligeOpcion.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/zorroGrandeTransparencia.png")));
+		 pnlContenido.add(lblZorroEligeOpcion);
+	    
+	    btnParcela.addActionListener(new ActionListener() {
+	      
+			public void actionPerformed(ActionEvent e) {
+	        	lblZorroEligeOpcion.show(false);
+	           V_Parcela  p = new V_Parcela();
+	            pnlContenido.add(p);
+	            p.show();
+	        }
+	    });
+	    btnBungalows.addActionListener(new ActionListener() {
+	        @SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent e) {
+	        	lblZorroEligeOpcion.show(false);
+	        	V_PerfilContraseña b = new V_PerfilContraseña();
+	            pnlContenido.add(b);
+	            b.show();
+	    
+		  
+		
+		  
+		 
+	        }
+	    });
+		 
+  btnActividades.addActionListener(new ActionListener() {
+	        
+			public void actionPerformed(ActionEvent e) {
+	        	lblZorroEligeOpcion.show(false);
+	           V_Actividades  act= new V_Actividades();
+	            pnlContenido.add(act);
+	            act.show();
+	        }
+	    });
+		
 		
 	}
 	public class RoundedBorder implements Border {
@@ -313,8 +318,10 @@ public class P_Principal extends JFrame {
 	}
 	private class BtnVolverActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal principal = new P_Principal();
-			lblZorroEligeOpcion.setVisible(true);
+			lblZorroEligeOpcion.show(false);
+			V_LogoZorro iconZorro = new V_LogoZorro();
+			pnlContenido.add(iconZorro);
+            iconZorro.show();
 			
 			
 		}

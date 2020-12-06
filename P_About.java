@@ -71,7 +71,7 @@ public class P_About extends JFrame {
 
 		JLabel lblLogoZorro = new JLabel("");
 		lblLogoZorro.setBackground(new Color(255, 228, 181));
-		lblLogoZorro.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/fox.png")));
+		lblLogoZorro.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/fox.png")));
 		GridBagConstraints gbc_lblLogoZorro = new GridBagConstraints();
 		gbc_lblLogoZorro.insets = new Insets(0, 0, 5, 5);
 		gbc_lblLogoZorro.gridx = 2;
@@ -89,7 +89,7 @@ public class P_About extends JFrame {
 
 		JLabel lblAyuda = new JLabel("");
 		lblAyuda.setToolTipText("Ayuda");
-		lblAyuda.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/signo-de-interrogacion-dibujar.png")));
+		lblAyuda.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/signo-de-interrogacion-dibujar.png")));
 		GridBagConstraints gbc_lblAyuda = new GridBagConstraints();
 		gbc_lblAyuda.anchor = GridBagConstraints.SOUTH;
 		gbc_lblAyuda.insets = new Insets(0, 0, 5, 5);
@@ -99,7 +99,7 @@ public class P_About extends JFrame {
 
 		JLabel lblTraductor = new JLabel("");
 		lblTraductor.setToolTipText("Traductor");
-		lblTraductor.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/traductor.png")));
+		lblTraductor.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/traductor.png")));
 		GridBagConstraints gbc_lblTraductor = new GridBagConstraints();
 		gbc_lblTraductor.anchor = GridBagConstraints.SOUTH;
 		gbc_lblTraductor.insets = new Insets(0, 0, 5, 5);
@@ -108,7 +108,7 @@ public class P_About extends JFrame {
 		pnlHeader.add(lblTraductor, gbc_lblTraductor);
 		
 		JLabel lblPerfil = new JLabel("");
-		lblPerfil.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/usuario.png")));
+		lblPerfil.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/usuario.png")));
 		GridBagConstraints gbc_lblPerfil = new GridBagConstraints();
 		gbc_lblPerfil.anchor = GridBagConstraints.SOUTH;
 		gbc_lblPerfil.insets = new Insets(0, 0, 5, 5);
@@ -117,7 +117,7 @@ public class P_About extends JFrame {
 		pnlHeader.add(lblPerfil, gbc_lblPerfil);
 		
 		JLabel lblFlechaPerfil = new JLabel("");
-		lblFlechaPerfil.setIcon(new ImageIcon(P_Parcela.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png")));
+		lblFlechaPerfil.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png")));
 		GridBagConstraints gbc_lblFlechaPerfil = new GridBagConstraints();
 		gbc_lblFlechaPerfil.anchor = GridBagConstraints.SOUTHWEST;
 		gbc_lblFlechaPerfil.insets = new Insets(0, 0, 5, 5);

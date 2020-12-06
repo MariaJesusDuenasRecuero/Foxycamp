@@ -1,153 +1,190 @@
 package presentacion;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+
 import java.awt.Rectangle;
 import java.awt.SystemColor;
 import java.awt.GridBagLayout;
 import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
+import java.awt.Color;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
 import java.awt.Font;
 import javax.swing.JSlider;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerListModel;
 import javax.swing.JComboBox;
+import javax.swing.JEditorPane;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.SoftBevelBorder;
+
+import com.toedter.calendar.JDateChooser;
 
 public class V_Parcela extends JPanel {
-	private JTextField txtEntrada;
-	private JTextField txtSalida;
+	private JTextField txtLlegada;
+	private JTextField txtSAlida;
+	private final JSeparator separator_3 = new JSeparator();
 
 	/**
 	 * Create the panel.
 	 */
 	public V_Parcela() {
-		setBackground(SystemColor.controlHighlight);
-		setBounds(new Rectangle(0, 0, 800, 517));
+		setBackground(Color.LIGHT_GRAY);
+		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
 		
-		JPanel pnlDatos = new JPanel();
-		add(pnlDatos, BorderLayout.WEST);
-		GridBagLayout gbl_pnlDatos = new GridBagLayout();
-		gbl_pnlDatos.columnWidths = new int[]{86, 0, 50, 0, 86, 0};
-		gbl_pnlDatos.rowHeights = new int[]{100, 0, 35, 35, 0, 35, 35, 0, 35, 0, 0, 35, 100, 0};
-		gbl_pnlDatos.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_pnlDatos.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		pnlDatos.setLayout(gbl_pnlDatos);
+		JPanel panel = new JPanel();
+		add(panel, BorderLayout.CENTER);
+		panel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblFEntrada = new JLabel("Fecha de entrada");
-		lblFEntrada.setFont(new Font("Verdana", Font.BOLD, 16));
-		GridBagConstraints gbc_lblFEntrada = new GridBagConstraints();
-		gbc_lblFEntrada.anchor = GridBagConstraints.WEST;
-		gbc_lblFEntrada.insets = new Insets(0, 0, 5, 5);
-		gbc_lblFEntrada.gridx = 1;
-		gbc_lblFEntrada.gridy = 1;
-		pnlDatos.add(lblFEntrada, gbc_lblFEntrada);
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel_1.setBounds(new Rectangle(0, 0, 800, 530));
+		panel.add(panel_1, BorderLayout.EAST);
+		GridBagLayout gbl_panel_1 = new GridBagLayout();
+		gbl_panel_1.columnWidths = new int[]{0, 25, 0, 140, 145, 100, 25, 0};
+		gbl_panel_1.rowHeights = new int[]{50, 130, 0, 0, 0, 0, 0, 0, 50, 0};
+		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel_1.setLayout(gbl_panel_1);
 		
-		txtEntrada = new JTextField();
-		txtEntrada.setFont(new Font("Verdana", Font.PLAIN, 16));
-		GridBagConstraints gbc_txtEntrada = new GridBagConstraints();
-		gbc_txtEntrada.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtEntrada.insets = new Insets(0, 0, 5, 5);
-		gbc_txtEntrada.anchor = GridBagConstraints.SOUTH;
-		gbc_txtEntrada.gridx = 1;
-		gbc_txtEntrada.gridy = 2;
-		pnlDatos.add(txtEntrada, gbc_txtEntrada);
-		txtEntrada.setColumns(10);
+		JScrollBar scrollBar = new JScrollBar();
+		GridBagConstraints gbc_scrollBar = new GridBagConstraints();
+		gbc_scrollBar.fill = GridBagConstraints.VERTICAL;
+		gbc_scrollBar.gridheight = 9;
+		gbc_scrollBar.anchor = GridBagConstraints.EAST;
+		gbc_scrollBar.gridx = 6;
+		gbc_scrollBar.gridy = 0;
+		panel_1.add(scrollBar, gbc_scrollBar);
 		
-		JLabel lblCalendario = new JLabel("");
-		lblCalendario.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/IconCalendario.png")));
-		GridBagConstraints gbc_lblCalendario = new GridBagConstraints();
-		gbc_lblCalendario.insets = new Insets(0, 0, 5, 5);
-		gbc_lblCalendario.gridx = 2;
-		gbc_lblCalendario.gridy = 2;
-		pnlDatos.add(lblCalendario, gbc_lblCalendario);
+		JLabel lblNewLabel_6 = new JLabel("");
+		lblNewLabel_6.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela1.jpg")));
+		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
+		gbc_lblNewLabel_6.fill = GridBagConstraints.VERTICAL;
+		gbc_lblNewLabel_6.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_6.gridx = 2;
+		gbc_lblNewLabel_6.gridy = 1;
+		panel_1.add(lblNewLabel_6, gbc_lblNewLabel_6);
 		
-		JLabel lblFLlegada = new JLabel("Fecha de salida");
-		lblFLlegada.setFont(new Font("Verdana", Font.BOLD, 16));
-		GridBagConstraints gbc_lblFLlegada = new GridBagConstraints();
-		gbc_lblFLlegada.anchor = GridBagConstraints.WEST;
-		gbc_lblFLlegada.insets = new Insets(0, 0, 5, 5);
-		gbc_lblFLlegada.gridx = 1;
-		gbc_lblFLlegada.gridy = 4;
-		pnlDatos.add(lblFLlegada, gbc_lblFLlegada);
+		JButton btnReservar = new JButton("Reservar");
+		btnReservar.setBackground(new Color(255, 140, 0));
+		GridBagConstraints gbc_btnReservar = new GridBagConstraints();
+		gbc_btnReservar.fill = GridBagConstraints.BOTH;
+		gbc_btnReservar.insets = new Insets(0, 0, 5, 5);
+		gbc_btnReservar.gridx = 5;
+		gbc_btnReservar.gridy = 2;
+		panel_1.add(btnReservar, gbc_btnReservar);
 		
-		txtSalida = new JTextField();
-		txtSalida.setFont(new Font("Verdana", Font.BOLD, 16));
-		GridBagConstraints gbc_txtSalida = new GridBagConstraints();
-		gbc_txtSalida.insets = new Insets(0, 0, 5, 5);
-		gbc_txtSalida.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtSalida.gridx = 1;
-		gbc_txtSalida.gridy = 5;
-		pnlDatos.add(txtSalida, gbc_txtSalida);
-		txtSalida.setColumns(10);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(new Rectangle(0, 0, 75, 500));
+		panel.add(panel_2, BorderLayout.WEST);
+		GridBagLayout gbl_panel_2 = new GridBagLayout();
+		gbl_panel_2.columnWidths = new int[]{50, 155, 70, 0, 0};
+		gbl_panel_2.rowHeights = new int[]{100, 0, 50, 0, 50, 0, 0, 50, 0, 0, 100, 0};
+		gbl_panel_2.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_2.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel_2.setLayout(gbl_panel_2);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/IconCalendario.png")));
+		JLabel lblNewLabel = new JLabel("Fecha llegada");
+		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel.gridx = 2;
-		gbc_lblNewLabel.gridy = 5;
-		pnlDatos.add(lblNewLabel, gbc_lblNewLabel);
+		gbc_lblNewLabel.gridx = 1;
+		gbc_lblNewLabel.gridy = 1;
+		panel_2.add(lblNewLabel, gbc_lblNewLabel);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		GridBagConstraints gbc_dateChooser = new GridBagConstraints();
+		gbc_dateChooser.insets = new Insets(0, 0, 5, 5);
+		gbc_dateChooser.fill = GridBagConstraints.BOTH;
+		gbc_dateChooser.gridx = 2;
+		gbc_dateChooser.gridy = 1;
+		panel_2.add(dateChooser, gbc_dateChooser);
+		
+		JLabel lblSalida = new JLabel("Fecha salida");
+		lblSalida.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_lblSalida = new GridBagConstraints();
+		gbc_lblSalida.anchor = GridBagConstraints.WEST;
+		gbc_lblSalida.insets = new Insets(0, 0, 5, 5);
+		gbc_lblSalida.gridx = 1;
+		gbc_lblSalida.gridy = 3;
+		panel_2.add(lblSalida, gbc_lblSalida);
+		
+		JDateChooser dateChooser_1 = new JDateChooser();
+		GridBagConstraints gbc_dateChooser_1 = new GridBagConstraints();
+		gbc_dateChooser_1.insets = new Insets(0, 0, 5, 5);
+		gbc_dateChooser_1.fill = GridBagConstraints.BOTH;
+		gbc_dateChooser_1.gridx = 2;
+		gbc_dateChooser_1.gridy = 3;
+		panel_2.add(dateChooser_1, gbc_dateChooser_1);
 		
 		JLabel lblPrecio = new JLabel("Precio");
-		lblPrecio.setFont(new Font("Verdana", Font.BOLD, 16));
+		lblPrecio.setFont(new Font("Verdana", Font.BOLD, 14));
 		GridBagConstraints gbc_lblPrecio = new GridBagConstraints();
 		gbc_lblPrecio.anchor = GridBagConstraints.WEST;
 		gbc_lblPrecio.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPrecio.gridx = 1;
-		gbc_lblPrecio.gridy = 7;
-		pnlDatos.add(lblPrecio, gbc_lblPrecio);
+		gbc_lblPrecio.gridy = 5;
+		panel_2.add(lblPrecio, gbc_lblPrecio);
 		
 		JSlider slider = new JSlider();
-		slider.setValue(225);
-		slider.setMinimum(50);
+		slider.setValue(275);
 		slider.setMaximum(500);
+		slider.setMinimum(50);
+		slider.setSnapToTicks(true);
+		slider.setPaintTicks(true);
+		slider.setPaintLabels(true);
+		slider.setFont(new Font("Verdana", Font.PLAIN, 16));
 		GridBagConstraints gbc_slider = new GridBagConstraints();
-		gbc_slider.fill = GridBagConstraints.HORIZONTAL;
 		gbc_slider.insets = new Insets(0, 0, 5, 5);
 		gbc_slider.gridx = 1;
-		gbc_slider.gridy = 8;
-		pnlDatos.add(slider, gbc_slider);
+		gbc_slider.gridy = 6;
+		panel_2.add(slider, gbc_slider);
 		
-		JLabel lblIconEuro = new JLabel("");
-		lblIconEuro.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/IconEuro.png")));
-		GridBagConstraints gbc_lblIconEuro = new GridBagConstraints();
-		gbc_lblIconEuro.insets = new Insets(0, 0, 5, 5);
-		gbc_lblIconEuro.gridx = 2;
-		gbc_lblIconEuro.gridy = 8;
-		pnlDatos.add(lblIconEuro, gbc_lblIconEuro);
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/IconEuro.png")));
+		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
+		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_4.gridx = 2;
+		gbc_lblNewLabel_4.gridy = 6;
+		panel_2.add(lblNewLabel_4, gbc_lblNewLabel_4);
 		
-		JLabel lblTParcela = new JLabel("Tipo de parcela");
-		lblTParcela.setFont(new Font("Verdana", Font.BOLD, 16));
-		GridBagConstraints gbc_lblTParcela = new GridBagConstraints();
-		gbc_lblTParcela.anchor = GridBagConstraints.WEST;
-		gbc_lblTParcela.insets = new Insets(0, 0, 5, 5);
-		gbc_lblTParcela.gridx = 1;
-		gbc_lblTParcela.gridy = 10;
-		pnlDatos.add(lblTParcela, gbc_lblTParcela);
+		JLabel lblNewLabel_3 = new JLabel("Tipo");
+		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD, 14));
+		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
+		gbc_lblNewLabel_3.anchor = GridBagConstraints.WEST;
+		gbc_lblNewLabel_3.fill = GridBagConstraints.VERTICAL;
+		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_3.gridx = 1;
+		gbc_lblNewLabel_3.gridy = 8;
+		panel_2.add(lblNewLabel_3, gbc_lblNewLabel_3);
 		
-		JComboBox comboBox_Parcela = new JComboBox();
-		comboBox_Parcela.setFont(new Font("Verdana", Font.PLAIN, 16));
-		comboBox_Parcela.setModel(new DefaultComboBoxModel(new String[] {"Pequeña", "Mediana", "Grande", "Deluxe", "Con auto"}));
-		GridBagConstraints gbc_comboBox_Parcela = new GridBagConstraints();
-		gbc_comboBox_Parcela.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_Parcela.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_Parcela.gridx = 1;
-		gbc_comboBox_Parcela.gridy = 11;
-		pnlDatos.add(comboBox_Parcela, gbc_comboBox_Parcela);
-		
-		JPanel pnlParcelas = new JPanel();
-		add(pnlParcelas, BorderLayout.CENTER);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		pnlParcelas.add(scrollPane);
-		V_Parcela p = new V_Parcela();
-
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Pequeña", "Mediana", "Grande", "Deluxe", "Con auto"}));
+		comboBox.setFont(new Font("Verdana", Font.PLAIN, 14));
+		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox.gridx = 2;
+		gbc_comboBox.gridy = 8;
+		panel_2.add(comboBox, gbc_comboBox);
+		GridBagConstraints gbc_separator_3 = new GridBagConstraints();
+		gbc_separator_3.anchor = GridBagConstraints.WEST;
+		gbc_separator_3.insets = new Insets(0, 0, 0, 5);
+		gbc_separator_3.gridx = 0;
+		gbc_separator_3.gridy = 3;
 	}
 }

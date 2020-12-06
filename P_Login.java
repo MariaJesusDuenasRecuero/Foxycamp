@@ -121,6 +121,7 @@ public class P_Login {
 		pnlHeader.add(lblFoxycamp, gbc_lblFoxycamp);
 
 		lblAyuda = new JLabel("");
+		lblAyuda.addMouseListener(new LblAyudaMouseListener_1());
 		lblAyuda.setOpaque(true);
 		lblAyuda.setBackground(new Color(255, 228, 196));
 		lblAyuda.setToolTipText("Ayuda");
@@ -186,21 +187,21 @@ public class P_Login {
 		pnlContenido.add(pnlLogin, gbc_pnlLogin);
 		GridBagLayout gbl_pnlLogin = new GridBagLayout();
 		gbl_pnlLogin.columnWidths = new int[] { 85, 10, 80, 0, 113, 30, 75, 0 };
-		gbl_pnlLogin.rowHeights = new int[] { 72, 48, 0, 30, 52, 0, 19, 26, 25, 23, 22, 45, 0 };
+		gbl_pnlLogin.rowHeights = new int[] { 72, 48, 0, 30, 52, 0, 31, 26, 25, 23, 22, 45, 0 };
 		gbl_pnlLogin.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_pnlLogin.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		pnlLogin.setLayout(gbl_pnlLogin);
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/usuario.png")));
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblNewLabel.anchor = GridBagConstraints.SOUTH;
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel.gridx = 1;
-		gbc_lblNewLabel.gridy = 1;
-		pnlLogin.add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblIconUsuario = new JLabel("");
+		lblIconUsuario.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/usuario.png")));
+		GridBagConstraints gbc_lblIconUsuario = new GridBagConstraints();
+		gbc_lblIconUsuario.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblIconUsuario.anchor = GridBagConstraints.SOUTH;
+		gbc_lblIconUsuario.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIconUsuario.gridx = 1;
+		gbc_lblIconUsuario.gridy = 1;
+		pnlLogin.add(lblIconUsuario, gbc_lblIconUsuario);
 
 		lblDNI = new JLabel("Usuario");
 		lblDNI.setFont(new Font("Verdana", Font.BOLD, 20));
@@ -213,14 +214,12 @@ public class P_Login {
 
 		// txtFormattedDNI = new JTextField();
 		MaskFormatter formatoDNI;
-		try	{
+		try {
 			formatoDNI = new MaskFormatter("########'-U");
 			formatoDNI.setPlaceholderCharacter('X');
 			txtFormattedDNI = new JFormattedTextField(formatoDNI);
 			txtFormattedDNI.setToolTipText("Introduzca DNI");
-		}catch(
-		ParseException e)
-		{
+		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -250,15 +249,15 @@ public class P_Login {
 		gbc_lblIncorrectDNI.gridy = 2;
 		pnlLogin.add(lblIncorrectDNI, gbc_lblIncorrectDNI);
 
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/IconContrasena.png")));
-		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-		gbc_lblNewLabel_1.anchor = GridBagConstraints.SOUTH;
-		gbc_lblNewLabel_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_1.gridx = 1;
-		gbc_lblNewLabel_1.gridy = 4;
-		pnlLogin.add(lblNewLabel_1, gbc_lblNewLabel_1);
+		JLabel lblIconPassword = new JLabel("");
+		lblIconPassword.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/IconContrasena.png")));
+		GridBagConstraints gbc_lblIconPassword = new GridBagConstraints();
+		gbc_lblIconPassword.anchor = GridBagConstraints.SOUTH;
+		gbc_lblIconPassword.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblIconPassword.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIconPassword.gridx = 1;
+		gbc_lblIconPassword.gridy = 4;
+		pnlLogin.add(lblIconPassword, gbc_lblIconPassword);
 
 		JLabel lblContraseña = new JLabel("Contraseña");
 		lblContraseña.setFont(new Font("Verdana", Font.BOLD, 20));
@@ -296,11 +295,11 @@ public class P_Login {
 		pnlLogin.add(lblIncorrectPassword, gbc_lblInocrrectPassword);
 
 		lblValidar = new JLabel("");
-		lblValidar.setHorizontalAlignment(SwingConstants.LEFT);
+		lblValidar.setFont(new Font("Verdana", Font.PLAIN, 16));
+		lblValidar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblValidar.setForeground(new Color(255, 0, 0));
-		lblValidar.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		GridBagConstraints gbc_lblValidar = new GridBagConstraints();
-		gbc_lblValidar.anchor = GridBagConstraints.SOUTHWEST;
+		gbc_lblValidar.fill = GridBagConstraints.VERTICAL;
 		gbc_lblValidar.gridwidth = 4;
 		gbc_lblValidar.insets = new Insets(0, 0, 5, 5);
 		gbc_lblValidar.gridx = 1;
@@ -367,19 +366,11 @@ public class P_Login {
 				frmLogin.setVisible(false);
 				P_Parcela principal = new P_Parcela();
 				principal.setVisible(true);
-			} else if (txtFormattedDNI.getText().equals("XXXXXXXX-X ") || pwdIntroduzcaContrasea.getText().equals(" ")
-					|| (txtFormattedDNI.getText().equals("Introduzca DNI")
-							|| pwdIntroduzcaContrasea.getText().equals("passsword"))) {
-				lblValidar.setText("Por favor, introduzca los datos");
-				lblIncorrectPassword.setVisible(true);
+			} else if (txtFormattedDNI.getText().equals("XXXXXXXXX-X")
+					&& pwdIntroduzcaContrasea.getText().equals(null)) {
+				lblValidar.setText("Por favor, introduzca datos");
 				lblIncorrectDNI.setVisible(true);
-			} else if (txtFormattedDNI.getText().equals("06290278-P") || pwdIntroduzcaContrasea.getText().equals(" ")) {
-				lblValidar.setText("Por favor, introduzca bien la contraseña");
 				lblIncorrectPassword.setVisible(true);
-			} else if (txtFormattedDNI.getText().equals("XXXXXXXX-X") && pwdIntroduzcaContrasea.getText().equals("man123")) {
-				lblValidar.setText("Por favor, introduzca bien el usuario");
-				lblIncorrectDNI.setVisible(true);
-
 			} else {
 
 				lblIncorrectDNI.setVisible(true);
@@ -389,10 +380,10 @@ public class P_Login {
 		}
 	}
 
-	
 	private class BtnBorrarLoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			txtFormattedDNI.setText(" ");
+			txtFormattedDNI.setText(null);
+			pwdIntroduzcaContrasea.setText(null);
 			lblIncorrectDNI.setVisible(false);
 			lblIncorrectPassword.setVisible(false);
 
@@ -428,6 +419,16 @@ public class P_Login {
 		@Override
 		public void focusLost(FocusEvent e) {
 			pwdIntroduzcaContrasea.setBackground(colorBlanco);
+		}
+	}
+
+	private class LblAyudaMouseListener_1 extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			frmLogin.setVisible(false);
+			P_Ayuda ayuda = new P_Ayuda();
+			ayuda.setVisible(true);
+
 		}
 	}
 
