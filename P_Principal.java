@@ -223,6 +223,7 @@ public class P_Principal extends JFrame {
 		  btnActividades.setBorder(new RoundedBorder(12));
 		  
 		  btnRutas = new JButton("Rutas");
+		//  btnRutas.addActionListener(new BtnRutasActionListener());
 		  btnRutas.setBounds(37, 355, 242, 65);
 		  pnlBotones.add(btnRutas);
 		  btnRutas.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/rutas.png")));
@@ -252,9 +253,10 @@ public class P_Principal extends JFrame {
 	    
 	    btnParcela.addActionListener(new ActionListener() {
 	      
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 	        	lblZorroEligeOpcion.show(false);
-	           V_Parcela  p = new V_Parcela();
+	        	V_Parcela  p = new V_Parcela();
 	            pnlContenido.add(p);
 	            p.show();
 	        }
@@ -263,27 +265,11 @@ public class P_Principal extends JFrame {
 	        @SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 	        	lblZorroEligeOpcion.show(false);
-	        	V_PerfilContraseña b = new V_PerfilContraseña();
-	            pnlContenido.add(b);
-	            b.show();
-	    
-		  
-		
-		  
-		 
+	        	V_Bungalow bungalow = new V_Bungalow();
+	            pnlContenido.add(bungalow);
+	            bungalow.show();
 	        }
 	    });
-		 
-  btnActividades.addActionListener(new ActionListener() {
-	        
-			public void actionPerformed(ActionEvent e) {
-	        	lblZorroEligeOpcion.show(false);
-	           V_Actividades  act= new V_Actividades();
-	            pnlContenido.add(act);
-	            act.show();
-	        }
-	    });
-		
 		
 	}
 	public class RoundedBorder implements Border {
@@ -326,4 +312,13 @@ public class P_Principal extends JFrame {
 			
 		}
 	}
+	/*private class BtnRutasActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			lblZorroEligeOpcion.show(false);
+			V_Rutas ruta = new V_Rutas();
+			pnlContenido.add(ruta);
+           ruta.show();
+		}
+	}*/
+	
 }
