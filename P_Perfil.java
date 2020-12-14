@@ -221,6 +221,8 @@ public class P_Perfil extends JFrame {
 		btnInformacion.setBorder(new RoundedBorder(12));
 
 		btnContrasenia = new JButton(" Contrasenia");
+	
+		
 		btnContrasenia.setBounds(37, 118, 242, 65);
 		pnlBotones.add(btnContrasenia);
 		btnContrasenia.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/vintage-key-outline.png")));
@@ -253,6 +255,7 @@ public class P_Perfil extends JFrame {
 		btnVolver.setBorder(new RoundedBorder(12));
 
 		JPanel panel = new JPanel();
+		setBackground(Color.LIGHT_GRAY);
 		panel.setBounds(313, 11, 978, 521);
 		pnlPerfil.add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
@@ -279,13 +282,13 @@ public class P_Perfil extends JFrame {
 		gbc_lblNombre.gridy = 3;
 		panel.add(lblNombre, gbc_lblNombre);
 		
-				JLabel lblCargarFoto = new JLabel("Cargar foto de perfil");
-				GridBagConstraints gbc_lblCargarFoto = new GridBagConstraints();
-				gbc_lblCargarFoto.gridwidth = 4;
-				gbc_lblCargarFoto.insets = new Insets(0, 0, 5, 5);
-				gbc_lblCargarFoto.gridx = 8;
-				gbc_lblCargarFoto.gridy = 3;
-				panel.add(lblCargarFoto, gbc_lblCargarFoto);
+		JLabel lblCargarFoto = new JLabel("Cargar foto de perfil");
+		GridBagConstraints gbc_lblCargarFoto = new GridBagConstraints();
+		gbc_lblCargarFoto.gridwidth = 4;
+		gbc_lblCargarFoto.insets = new Insets(0, 0, 5, 5);
+		gbc_lblCargarFoto.gridx = 8;
+		gbc_lblCargarFoto.gridy = 3;
+		panel.add(lblCargarFoto, gbc_lblCargarFoto);
 
 		textNombre = new JTextField();
 		GridBagConstraints gbc_textNombre = new GridBagConstraints();
@@ -296,19 +299,19 @@ public class P_Perfil extends JFrame {
 		panel.add(textNombre, gbc_textNombre);
 		textNombre.setColumns(10);
 		
-				JScrollPane scrollPane = new JScrollPane();
-				scrollPane.setBorder(new TitledBorder(null, "Foto", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-				GridBagConstraints gbc_scrollPane = new GridBagConstraints();
-				gbc_scrollPane.gridwidth = 4;
-				gbc_scrollPane.gridheight = 10;
-				gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
-				gbc_scrollPane.fill = GridBagConstraints.BOTH;
-				gbc_scrollPane.gridx = 8;
-				gbc_scrollPane.gridy = 4;
-				panel.add(scrollPane, gbc_scrollPane);
-				
-				JLabel lblFoto = new JLabel("");
-				scrollPane.setViewportView(lblFoto);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBorder(new TitledBorder(null, "Foto", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
+		gbc_scrollPane.gridwidth = 4;
+		gbc_scrollPane.gridheight = 10;
+		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
+		gbc_scrollPane.fill = GridBagConstraints.BOTH;
+		gbc_scrollPane.gridx = 8;
+		gbc_scrollPane.gridy = 4;
+		panel.add(scrollPane, gbc_scrollPane);
+			
+		JLabel lblFoto = new JLabel("");
+		scrollPane.setViewportView(lblFoto);
 
 		JLabel lblApellidos = new JLabel("Apellidos");
 		GridBagConstraints gbc_lblApellidos = new GridBagConstraints();
@@ -406,7 +409,7 @@ public class P_Perfil extends JFrame {
 				//Recoger el nombre del fichero seleccionado por el usuario
 				if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 					File file = fcAbrir.getSelectedFile();
-					//En este punto la aplicaciÃ³n se deberÃ­a encargar de realizar la operaciÃ³n sobre el fichero
+					//En este punto la aplicación se debería encargar de realizar la operación sobre el fichero
 					System.out.println("Fichero seleccionado: " + file.getName());
 					lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
 				}
@@ -435,6 +438,17 @@ public class P_Perfil extends JFrame {
 		btnGuardarCambios.setBackground(new Color(255, 175, 0));
 		btnGuardarCambios.setBorder(new RoundedBorder(2));
 
+
+		btnContrasenia.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent e) {
+				panel.show(false);
+				V_Formacion  f = new V_Formacion();
+				panel.add(f);
+				f.show(true);
+
+			}
+		});
 	}
 	public class RoundedBorder implements Border {
 
