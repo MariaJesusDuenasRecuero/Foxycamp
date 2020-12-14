@@ -23,17 +23,21 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class V_Formacion extends JPanel {
 	private JTextField txtIdioma;
 
+	private Color colorResaltado = new Color (255,255,210);
+	private Color colorBlanco = new Color (255,255,255);
 	/**
 	 * Create the panel.
 	 */
 	public V_Formacion() {
 		Border border = BorderFactory.createLineBorder(Color.BLACK);
 		setBackground(Color.LIGHT_GRAY);
-		setBounds(new Rectangle(313, 11, 978, 521));
+		setBounds(new Rectangle(10, 50, 1001, 530));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0};
@@ -54,7 +58,7 @@ public class V_Formacion extends JPanel {
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JLabel lblFormacion = new JLabel("Formacion");
+		JLabel lblFormacion = new JLabel("Formaci\u00F3n");
 		lblFormacion.setFont(new Font("Verdana", Font.BOLD, 20));
 		GridBagConstraints gbc_lblFormacion = new GridBagConstraints();
 		gbc_lblFormacion.insets = new Insets(0, 0, 5, 5);
@@ -62,7 +66,7 @@ public class V_Formacion extends JPanel {
 		gbc_lblFormacion.gridy = 1;
 		panel.add(lblFormacion, gbc_lblFormacion);
 		
-		JLabel lblFormacionActual = new JLabel("Formacion actual");
+		JLabel lblFormacionActual = new JLabel("Formaci\u00F3n actual");
 		lblFormacionActual.setFont(new Font("Verdana", Font.BOLD, 11));
 		GridBagConstraints gbc_lblFormacionActual = new GridBagConstraints();
 		gbc_lblFormacionActual.anchor = GridBagConstraints.WEST;
@@ -72,6 +76,16 @@ public class V_Formacion extends JPanel {
 		panel.add(lblFormacionActual, gbc_lblFormacionActual);
 		
 		JTextArea txtFormacion = new JTextArea();
+		txtFormacion.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				e.getComponent().setBackground(colorResaltado);
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				e.getComponent().setBackground(colorBlanco);
+			}
+		});
 		txtFormacion.setBorder(BorderFactory.createCompoundBorder(border, 
 	               BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 		GridBagConstraints gbc_txtFormacion = new GridBagConstraints();
@@ -83,7 +97,7 @@ public class V_Formacion extends JPanel {
 		gbc_txtFormacion.gridy = 3;
 		panel.add(txtFormacion, gbc_txtFormacion);
 		
-		JLabel lblIdioma = new JLabel("Aniadir idioma");
+		JLabel lblIdioma = new JLabel("A\u00F1adir idioma");
 		lblIdioma.setFont(new Font("Verdana", Font.BOLD, 11));
 		GridBagConstraints gbc_lblIdioma = new GridBagConstraints();
 		gbc_lblIdioma.fill = GridBagConstraints.VERTICAL;
@@ -94,6 +108,16 @@ public class V_Formacion extends JPanel {
 		panel.add(lblIdioma, gbc_lblIdioma);
 		
 		txtIdioma = new JTextField();
+		txtIdioma.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				e.getComponent().setBackground(colorResaltado);
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				e.getComponent().setBackground(colorBlanco);
+			}
+		});
 		txtIdioma.setBorder(BorderFactory.createCompoundBorder(border, 
 	               BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 		GridBagConstraints gbc_txtIdioma = new GridBagConstraints();
@@ -139,9 +163,8 @@ public class V_Formacion extends JPanel {
 		panel.add(lblCV, gbc_lblCV);
 		
 		JButton btnGuardarCambios = new JButton("Guardar cambios");
-		btnGuardarCambios.setBorderPainted(false);
-		btnGuardarCambios.setBounds(37, 498, 242, 33);
-		
+		btnGuardarCambios.setBackground(new Color(255, 165, 0));
+		btnGuardarCambios.setBorder(new RoundedBorder(4));
 		btnGuardarCambios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
