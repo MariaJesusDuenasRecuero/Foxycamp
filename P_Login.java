@@ -158,7 +158,7 @@ public class P_Login {
 		pnlHeader.add(lblLeftLine, gbc_lblLeftLine);
 
 		JPanel pnlContenido = new JPanel();
-		pnlContenido.setToolTipText("Introduzca contraseÃ±a");
+		pnlContenido.setToolTipText("Introduzca contraseña");
 		pnlContenido.setBackground(new Color(255, 228, 196));
 		frmLogin.getContentPane().add(pnlContenido, BorderLayout.CENTER);
 		GridBagLayout gbl_pnlContenido = new GridBagLayout();
@@ -259,15 +259,15 @@ public class P_Login {
 		gbc_lblIconPassword.gridy = 4;
 		pnlLogin.add(lblIconPassword, gbc_lblIconPassword);
 
-		JLabel lblContraseÃ±a = new JLabel("ContraseÃ±a");
-		lblContraseÃ±a.setFont(new Font("Verdana", Font.BOLD, 20));
-		GridBagConstraints gbc_lblContraseÃ±a = new GridBagConstraints();
-		gbc_lblContraseÃ±a.gridwidth = 2;
-		gbc_lblContraseÃ±a.anchor = GridBagConstraints.SOUTHEAST;
-		gbc_lblContraseÃ±a.insets = new Insets(0, 0, 5, 5);
-		gbc_lblContraseÃ±a.gridx = 2;
-		gbc_lblContraseÃ±a.gridy = 4;
-		pnlLogin.add(lblContraseÃ±a, gbc_lblContraseÃ±a);
+		JLabel lblContraseña = new JLabel("Contraseña");
+		lblContraseña.setFont(new Font("Verdana", Font.BOLD, 20));
+		GridBagConstraints gbc_lblContraseña = new GridBagConstraints();
+		gbc_lblContraseña.gridwidth = 2;
+		gbc_lblContraseña.anchor = GridBagConstraints.SOUTHEAST;
+		gbc_lblContraseña.insets = new Insets(0, 0, 5, 5);
+		gbc_lblContraseña.gridx = 2;
+		gbc_lblContraseña.gridy = 4;
+		pnlLogin.add(lblContraseña, gbc_lblContraseña);
 
 		pwdIntroduzcaContrasea = new JPasswordField();
 		pwdIntroduzcaContrasea.addFocusListener(new PwdIntroduzcaContraseaFocusListener());
@@ -316,6 +316,7 @@ public class P_Login {
 		gbc_lblLink.gridx = 1;
 		gbc_lblLink.gridy = 7;
 		pnlLogin.add(lblLink, gbc_lblLink);
+		lblLink.addMouseListener(new LblLinkListener());
 
 		btnEntrarLogin = new JButton("Entrar");
 		btnEntrarLogin.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -364,8 +365,8 @@ public class P_Login {
 		public void actionPerformed(ActionEvent e) {
 			if (txtFormattedDNI.getText().equals("06290278-P") && pwdIntroduzcaContrasea.getText().equals("man123")) {
 				frmLogin.setVisible(false);
-				P_Parcela principal = new P_Parcela();
-				principal.setVisible(true);
+				P_Principal principal = new P_Principal();
+				principal.getFrame().setVisible(true);
 			} else if (txtFormattedDNI.getText().equals("XXXXXXXXX-X")
 					&& pwdIntroduzcaContrasea.getText().equals(null)) {
 				lblValidar.setText("Por favor, introduzca datos");
@@ -395,6 +396,14 @@ public class P_Login {
 		public void mouseClicked(MouseEvent e) {
 			lblAyuda.setBackground(Color.ORANGE);
 
+		}
+	}
+	private class LblLinkListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			P_Registro frmRegistro = new P_Registro();
+			frmRegistro.getFrame().setVisible(true);
+			frmLogin.dispose();
 		}
 	}
 
@@ -427,7 +436,7 @@ public class P_Login {
 		public void mouseClicked(MouseEvent e) {
 			frmLogin.setVisible(false);
 			P_Ayuda ayuda = new P_Ayuda();
-			ayuda.setVisible(true);
+			ayuda.getFrame().setVisible(true);
 
 		}
 	}
@@ -452,5 +461,10 @@ public class P_Login {
 			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
 		}
 	}
+	
+	public JFrame getFrame() {
+		return frmLogin;
+	}
+	
 
 }

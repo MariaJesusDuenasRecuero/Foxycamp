@@ -1,6 +1,7 @@
 package presentacion;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,6 +15,7 @@ import java.awt.Insets;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.border.LineBorder;
+
 
 import presentacion.P_Perfil.RoundedBorder;
 
@@ -54,36 +56,29 @@ public class P_Perfil extends JFrame {
 	private JTextField textCodigoPostal;
 	private JTextField textTelefono;
 	JButton btnCargarImagen;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					P_Perfil frame = new P_Perfil();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	JFrame frmPerfil;
+	V_PerfilContraseña panelContraseña;
+	V_Informacion panelInformacion;
+	JPanel panel;
+	V_Formacion panelFormacion;
+	V_PerfilCerrarCuenta panelCerrarCuenta;
+	
 
 	/**
 	 * Create the frame.
 	 */
 	public P_Perfil() {
-		setTitle("Perfil");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(P_Perfil.class.getResource("/presentacion/usuario.png")));
-		setBounds(new Rectangle(0, 0, 1375, 800));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmPerfil = new JFrame();
+		frmPerfil.setTitle("Perfil");
+		frmPerfil.setIconImage(Toolkit.getDefaultToolkit().getImage(P_Perfil.class.getResource("/presentacion/usuario.png")));
+		frmPerfil.setBounds(new Rectangle(0, 0, 1375, 800));
+		frmPerfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(255, 153, 0));
 		contentPane.setBackground(new Color(255, 228, 196));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		frmPerfil.getContentPane().add(contentPane);
 
 		JPanel pnlHeader = new JPanel();
 		pnlHeader.setBackground(new Color(255, 228, 196));
@@ -122,6 +117,7 @@ public class P_Perfil extends JFrame {
 		gbc_lblAyuda.gridx = 10;
 		gbc_lblAyuda.gridy = 1;
 		pnlHeader.add(lblAyuda, gbc_lblAyuda);
+		lblAyuda.addMouseListener(new LblAyudaMouseListener());
 
 		JLabel lblTraductor = new JLabel("");
 		lblTraductor.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/traductor.png")));
@@ -158,6 +154,13 @@ public class P_Perfil extends JFrame {
 		pmFlecha.add(separator);
 
 		JButton btnAbout = new JButton("   Sobre nosotros");
+		btnAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				P_About frmAbout = new P_About();
+				frmAbout.getFrame().setVisible(true);
+				frmPerfil.dispose();
+			}
+		});
 		btnAbout.setBounds(new Rectangle(0, 0, 50, 0));
 		btnAbout.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/informacion.png")));
 		pmFlecha.add(btnAbout);
@@ -166,11 +169,14 @@ public class P_Perfil extends JFrame {
 		separator_1.setBorder(new LineBorder(Color.ORANGE, 10));
 		pmFlecha.add(separator_1);
 
-		JButton btnAjustes = new JButton("   Ajustes               ");
-		btnAjustes.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/configuraciones.png")));
-		pmFlecha.add(btnAjustes);
-
 		JButton btnDesconectar = new JButton("   Salir                     ");
+		btnDesconectar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				P_Login frmLogin = new P_Login();
+				frmLogin.getFrame().setVisible(true);
+				frmPerfil.dispose();
+			}
+		});
 		btnDesconectar.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/desconectar.png")));
 		pmFlecha.add(btnDesconectar);
 
@@ -212,6 +218,7 @@ public class P_Perfil extends JFrame {
 		pnlBotones.setLayout(null);
 
 		btnInformacion = new JButton(" Informacion");
+		
 		btnInformacion.setBounds(37, 11, 242, 65);
 		pnlBotones.add(btnInformacion);
 		btnInformacion.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -219,10 +226,10 @@ public class P_Perfil extends JFrame {
 		btnInformacion.setFont(new Font("Verdana", Font.BOLD, 20));
 		btnInformacion.setBackground(Color.WHITE);
 		btnInformacion.setBorder(new RoundedBorder(12));
+		btnInformacion.addActionListener(new BtnInformacionActionListener());
 
 		btnContrasenia = new JButton(" Contrasenia");
-	
-		
+		btnContrasenia.addActionListener(new BtnContraseñaActionListener());
 		btnContrasenia.setBounds(37, 118, 242, 65);
 		pnlBotones.add(btnContrasenia);
 		btnContrasenia.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/vintage-key-outline.png")));
@@ -231,6 +238,7 @@ public class P_Perfil extends JFrame {
 		btnContrasenia.setBorder(new RoundedBorder(12));
 
 		btnFormacion = new JButton(" Formacion");
+		btnFormacion.addActionListener(new BtnFormacionActionListener());
 		btnFormacion.setBounds(37, 229, 242, 65);
 		pnlBotones.add(btnFormacion);
 		btnFormacion.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/document.png")));
@@ -245,6 +253,7 @@ public class P_Perfil extends JFrame {
 		btnCerrarCuenta.setFont(new Font("Verdana", Font.BOLD, 20));
 		btnCerrarCuenta.setBackground(Color.WHITE);
 		btnCerrarCuenta.setBorder(new RoundedBorder(12));
+		btnCerrarCuenta.addActionListener(new BtnCerrarCuentaActionListener());
 
 		btnVolver = new JButton("Volver");
 		btnVolver.setBounds(37, 498, 242, 33);
@@ -254,7 +263,7 @@ public class P_Perfil extends JFrame {
 		btnVolver.setBackground(new Color(255, 165, 0));
 		btnVolver.setBorder(new RoundedBorder(12));
 
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		setBackground(Color.LIGHT_GRAY);
 		panel.setBounds(313, 11, 978, 521);
 		pnlPerfil.add(panel);
@@ -263,16 +272,16 @@ public class P_Perfil extends JFrame {
 		gbl_panel.rowHeights = new int[]{25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 115, 0, 37, 0};
 		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
-		panel.setLayout(gbl_panel);
+		panel.setLayout(new CardLayout(5,25));
 
-		JLabel lblInformacion = new JLabel("Informacion basica");
+		JLabel lblInformacion = new JLabel("");
 		lblInformacion.setFont(new Font("Verdana", Font.BOLD, 20));
 		GridBagConstraints gbc_lblInformacion = new GridBagConstraints();
 		gbc_lblInformacion.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblInformacion.insets = new Insets(0, 0, 5, 5);
 		gbc_lblInformacion.gridx = 1;
 		gbc_lblInformacion.gridy = 1;
-		panel.add(lblInformacion, gbc_lblInformacion);
+		panel.add(lblInformacion, "lblInformacion");
 
 		JLabel lblNombre = new JLabel("Nombre");
 		GridBagConstraints gbc_lblNombre = new GridBagConstraints();
@@ -280,7 +289,7 @@ public class P_Perfil extends JFrame {
 		gbc_lblNombre.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNombre.gridx = 1;
 		gbc_lblNombre.gridy = 3;
-		panel.add(lblNombre, gbc_lblNombre);
+		panel.add(lblNombre, "lblNombre");
 		
 		JLabel lblCargarFoto = new JLabel("Cargar foto de perfil");
 		GridBagConstraints gbc_lblCargarFoto = new GridBagConstraints();
@@ -288,7 +297,7 @@ public class P_Perfil extends JFrame {
 		gbc_lblCargarFoto.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCargarFoto.gridx = 8;
 		gbc_lblCargarFoto.gridy = 3;
-		panel.add(lblCargarFoto, gbc_lblCargarFoto);
+		panel.add(lblCargarFoto, "lblCargarFoto");
 
 		textNombre = new JTextField();
 		GridBagConstraints gbc_textNombre = new GridBagConstraints();
@@ -296,7 +305,7 @@ public class P_Perfil extends JFrame {
 		gbc_textNombre.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textNombre.gridx = 1;
 		gbc_textNombre.gridy = 4;
-		panel.add(textNombre, gbc_textNombre);
+		panel.add(textNombre, "lblNombre");
 		textNombre.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -308,7 +317,7 @@ public class P_Perfil extends JFrame {
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
 		gbc_scrollPane.gridx = 8;
 		gbc_scrollPane.gridy = 4;
-		panel.add(scrollPane, gbc_scrollPane);
+		panel.add(scrollPane, "scrollPane");
 			
 		JLabel lblFoto = new JLabel("");
 		scrollPane.setViewportView(lblFoto);
@@ -319,7 +328,7 @@ public class P_Perfil extends JFrame {
 		gbc_lblApellidos.insets = new Insets(0, 0, 5, 5);
 		gbc_lblApellidos.gridx = 1;
 		gbc_lblApellidos.gridy = 6;
-		panel.add(lblApellidos, gbc_lblApellidos);
+		panel.add(lblApellidos, "lblApellidos");
 
 		textApellidos = new JTextField();
 		GridBagConstraints gbc_textApellidos = new GridBagConstraints();
@@ -328,7 +337,7 @@ public class P_Perfil extends JFrame {
 		gbc_textApellidos.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textApellidos.gridx = 1;
 		gbc_textApellidos.gridy = 7;
-		panel.add(textApellidos, gbc_textApellidos);
+		panel.add(textApellidos, "txtApellidos");
 		textApellidos.setColumns(10);
 
 		JLabel lblCiudad = new JLabel("Ciudad");
@@ -337,7 +346,7 @@ public class P_Perfil extends JFrame {
 		gbc_lblCiudad.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCiudad.gridx = 1;
 		gbc_lblCiudad.gridy = 8;
-		panel.add(lblCiudad, gbc_lblCiudad);
+		panel.add(lblCiudad, "lblCiudad");
 
 		textCiudad = new JTextField();
 		GridBagConstraints gbc_textCiudad = new GridBagConstraints();
@@ -345,7 +354,7 @@ public class P_Perfil extends JFrame {
 		gbc_textCiudad.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textCiudad.gridx = 1;
 		gbc_textCiudad.gridy = 9;
-		panel.add(textCiudad, gbc_textCiudad);
+		panel.add(textCiudad, "txtCiudad");
 		textCiudad.setColumns(10);
 
 		JLabel lblEmail = new JLabel("Email");
@@ -354,7 +363,7 @@ public class P_Perfil extends JFrame {
 		gbc_lblEmail.insets = new Insets(0, 0, 5, 5);
 		gbc_lblEmail.gridx = 1;
 		gbc_lblEmail.gridy = 10;
-		panel.add(lblEmail, gbc_lblEmail);
+		panel.add(lblEmail, "lblEmail");
 
 		textEmail = new JTextField();
 		GridBagConstraints gbc_textEmail = new GridBagConstraints();
@@ -363,7 +372,7 @@ public class P_Perfil extends JFrame {
 		gbc_textEmail.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textEmail.gridx = 1;
 		gbc_textEmail.gridy = 11;
-		panel.add(textEmail, gbc_textEmail);
+		panel.add(textEmail, "txtEmeail");
 		textEmail.setColumns(10);
 
 		JLabel lblCodigoPostal = new JLabel("Codigo postal");
@@ -372,7 +381,7 @@ public class P_Perfil extends JFrame {
 		gbc_lblCodigoPostal.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCodigoPostal.gridx = 1;
 		gbc_lblCodigoPostal.gridy = 12;
-		panel.add(lblCodigoPostal, gbc_lblCodigoPostal);
+		panel.add(lblCodigoPostal, "lblCodigoPostal");
 
 		textCodigoPostal = new JTextField();
 		GridBagConstraints gbc_textCodigoPostal = new GridBagConstraints();
@@ -380,7 +389,7 @@ public class P_Perfil extends JFrame {
 		gbc_textCodigoPostal.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textCodigoPostal.gridx = 1;
 		gbc_textCodigoPostal.gridy = 13;
-		panel.add(textCodigoPostal, gbc_textCodigoPostal);
+		panel.add(textCodigoPostal, "txtCodigoPostal");
 		textCodigoPostal.setColumns(10);
 
 		JLabel lblTelefono = new JLabel("Telefono");
@@ -389,7 +398,7 @@ public class P_Perfil extends JFrame {
 		gbc_lblTelefono.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblTelefono.gridx = 1;
 		gbc_lblTelefono.gridy = 14;
-		panel.add(lblTelefono, gbc_lblTelefono);
+		panel.add(lblTelefono, "lblTelefono");
 
 		textTelefono = new JTextField();
 		GridBagConstraints gbc_textTelefono = new GridBagConstraints();
@@ -397,7 +406,7 @@ public class P_Perfil extends JFrame {
 		gbc_textTelefono.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textTelefono.gridx = 1;
 		gbc_textTelefono.gridy = 15;
-		panel.add(textTelefono, gbc_textTelefono);
+		panel.add(textTelefono, "txtTelefono");
 		textTelefono.setColumns(10);
 						
 		btnCargarImagen = new JButton("Cargar imagen");
@@ -422,7 +431,7 @@ public class P_Perfil extends JFrame {
 		gbc_btnCargarImagen.insets = new Insets(0, 0, 5, 5);
 		gbc_btnCargarImagen.gridx = 8;
 		gbc_btnCargarImagen.gridy = 15;
-		panel.add(btnCargarImagen, gbc_btnCargarImagen);
+		panel.add(btnCargarImagen, "btnCargarImagen");
 		btnCargarImagen.setFont(new Font("Verdana", Font.BOLD, 20));
 		btnCargarImagen.setBackground(new Color(255, 165, 0));
 		btnCargarImagen.setBorder(new RoundedBorder(4));
@@ -434,22 +443,54 @@ public class P_Perfil extends JFrame {
 		gbc_btnGuardarCambios.insets = new Insets(0, 0, 5, 5);
 		gbc_btnGuardarCambios.gridx = 4;
 		gbc_btnGuardarCambios.gridy = 17;
-		panel.add(btnGuardarCambios, gbc_btnGuardarCambios);
+		panel.add(btnGuardarCambios, "GridbafConstraints");
 		btnGuardarCambios.setBackground(new Color(255, 175, 0));
 		btnGuardarCambios.setBorder(new RoundedBorder(2));
-
-
-		btnContrasenia.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
-			public void actionPerformed(ActionEvent e) {
-				panel.show(false);
-				V_Formacion  f = new V_Formacion();
-				panel.add(f);
-				f.show(true);
-
-			}
-		});
+		
+		
+		
+		panelContraseña = new V_PerfilContraseña();
+		panel.add(panelContraseña, "Contraseña");
+		
+		panelInformacion = new V_Informacion();
+		panel.add(panelInformacion, "Informacion");
+		
+		panelFormacion = new V_Formacion();
+		panel.add(panelFormacion, "Formacion");
+		
+		panelCerrarCuenta = new V_PerfilCerrarCuenta();
+		panel.add(panelCerrarCuenta, "CerrarCuenta");
 	}
+	
+	private class BtnInformacionActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout c1 = (CardLayout)(panel.getLayout());
+			c1.show(panel, "Informacion");
+		}
+	}
+	
+	private class BtnContraseñaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout c1 = (CardLayout)(panel.getLayout());
+			c1.show(panel, "Contraseña");
+		}
+	}
+	
+	private class BtnFormacionActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout c1 = (CardLayout)(panel.getLayout());
+			c1.show(panel, "Formacion");
+		}
+	}
+	
+	private class BtnCerrarCuentaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout c1 = (CardLayout)(panel.getLayout());
+			c1.show(panel, "CerrarCuenta");
+		}
+	}
+	
+	
 	public class RoundedBorder implements Border {
 
 		private int radius;
@@ -476,4 +517,20 @@ public class P_Perfil extends JFrame {
 
 		});
 	}
+	
+	public JFrame getFrame() {
+		return frmPerfil;
+	}
+	
+	private class LblAyudaMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			P_Ayuda frmAyuda = new P_Ayuda();
+			frmAyuda.getFrame().setVisible(true);
+			frmPerfil.dispose();
+		}
+	}
+	
+	
+	
 }

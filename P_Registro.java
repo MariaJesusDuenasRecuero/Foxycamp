@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
@@ -18,6 +19,8 @@ import javax.swing.text.MaskFormatter;
 import java.awt.Toolkit;
 import java.awt.GridBagLayout;
 import java.awt.Font;
+import java.awt.Graphics;
+
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -69,6 +72,7 @@ public class P_Registro extends JFrame {
 	private JLabel lblConfirmarContraseña;
 	private JPasswordField textContraseña;
 	private JPasswordField textConfirmarContraseña;
+	private JFrame frmRegistro;
 	
 	
 	private Color colorResaltado = new Color (255,255,210);
@@ -79,37 +83,23 @@ public class P_Registro extends JFrame {
 	private JTextField textConfirmarMail;
 	private JLabel lblNewLabel;
 	//private Color botones = new Color(244, 164, 96);
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					P_Registro frame = new P_Registro();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
 	public P_Registro() {
-		setFont(new Font("Verdana", Font.BOLD, 16));
-		setIconImage(Toolkit.getDefaultToolkit().getImage(P_Registro.class.getResource("/presentacion/usuario.png")));
-		setBackground(naranja);
-		setBounds(new Rectangle(0, 0, 1350, 850));
-		setTitle("Registro");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRegistro = new JFrame();
+		frmRegistro.setFont(new Font("Verdana", Font.BOLD, 16));
+		frmRegistro.setIconImage(Toolkit.getDefaultToolkit().getImage(P_Registro.class.getResource("/presentacion/usuario.png")));
+		frmRegistro.setBackground(naranja);
+		frmRegistro.setBounds(new Rectangle(0, 0, 1350, 850));
+		frmRegistro.setTitle("Registro");
+		frmRegistro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		contentPane.setBackground(naranja);
-		setContentPane(contentPane);
+		frmRegistro.getContentPane().add(contentPane);
 		
 		pnlHeader = new JPanel();
 		pnlHeader.setBackground(naranja);
@@ -157,13 +147,13 @@ public class P_Registro extends JFrame {
 
 		pnlContenido = new JPanel();
 		pnlContenido.setBackground(new Color(255, 228, 196));
-		getContentPane().add(pnlContenido, BorderLayout.SOUTH);
 		GridBagLayout gbl_pnlContenido = new GridBagLayout();
 		gbl_pnlContenido.columnWidths = new int[] { 300, 429, 300, 0 };
 		gbl_pnlContenido.rowHeights = new int[] { 84, 440, 0 };
 		gbl_pnlContenido.columnWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_pnlContenido.rowWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
 		pnlContenido.setLayout(gbl_pnlContenido);
+		contentPane.add(pnlContenido);
 
 		lblIngreseDatos = new JLabel("Introduzca sus datos para el registro");
 		lblIngreseDatos.setFont(new Font("Verdana", Font.BOLD, 36));
@@ -603,4 +593,31 @@ public class P_Registro extends JFrame {
 		*/
 		}
 	}
+	
+	public class RoundedBorder implements Border {
+
+	    private int radius;
+
+	    RoundedBorder(int radius) {
+	        this.radius = radius;
+	    }
+
+	    public Insets getBorderInsets(Component c) {
+	        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+	    }
+
+	    public boolean isBorderOpaque() {
+	        return true;
+	    }
+
+	    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+	        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+	    }
+	}
+	
+	public JFrame getFrame() {
+		return frmRegistro;
+	}
+	
+	
 }

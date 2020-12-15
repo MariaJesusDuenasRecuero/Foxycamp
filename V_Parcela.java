@@ -71,7 +71,7 @@ public class V_Parcela extends JPanel {
 		panel_1.add(scrollBar, gbc_scrollBar);
 
 		JLabel lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela1.jpg")));
+		lblNewLabel_6.setIcon(new ImageIcon(V_Parcela.class.getResource("Parcela1.jpg")));
 		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
 		gbc_lblNewLabel_6.fill = GridBagConstraints.VERTICAL;
 		gbc_lblNewLabel_6.insets = new Insets(0, 0, 5, 5);
@@ -189,7 +189,7 @@ public class V_Parcela extends JPanel {
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(
-				new DefaultComboBoxModel(new String[] { "PequeÃ±a", "Mediana", "Grande", "Deluxe", "Con auto" }));
+				new DefaultComboBoxModel(new String[] { "Pequeña", "Mediana", "Grande", "Deluxe", "Con auto" }));
 		comboBox.setFont(new Font("Verdana", Font.PLAIN, 14));
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 5);

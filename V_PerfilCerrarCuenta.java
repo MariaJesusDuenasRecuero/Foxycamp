@@ -65,7 +65,7 @@ public class V_PerfilCerrarCuenta extends JPanel {
 		JTextPane txtpnSiCierraLa = new JTextPane();
 		txtpnSiCierraLa.setFont(new Font("Verdana", Font.PLAIN, 16));
 		txtpnSiCierraLa.setEditable(false);
-		txtpnSiCierraLa.setText("Si cierra la cuenta sus datos ser√°n borrados de \r\nnuestra base de datos y no podr√° volver a acceder \r\nsin volver a darse de alta.");
+		txtpnSiCierraLa.setText("Si cierra la cuenta sus datos ser·n borrados de \r\nnuestra base de datos y no podr· volver a acceder \r\nsin volver a darse de alta.");
 		txtpnSiCierraLa.setBackground(SystemColor.menu);
 		GridBagConstraints gbc_txtpnSiCierraLa = new GridBagConstraints();
 		gbc_txtpnSiCierraLa.anchor = GridBagConstraints.WEST;

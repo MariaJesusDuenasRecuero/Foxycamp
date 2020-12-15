@@ -192,7 +192,7 @@ public class V_Bungalow extends JPanel {
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(
-				new DefaultComboBoxModel(new String[] { "PequeÃ±a", "Mediana", "Grande", "Deluxe", "Con auto" }));
+				new DefaultComboBoxModel(new String[] { "Pequeña", "Mediana", "Grande", "Deluxe", "Con auto" }));
 		comboBox.setFont(new Font("Verdana", Font.PLAIN, 14));
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 5);

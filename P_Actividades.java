@@ -27,38 +27,25 @@ import java.awt.Toolkit;
 public class P_Actividades extends JFrame {
 
 	private JPanel contentPane;
+	private JFrame frmActividades;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					P_Actividades frame = new P_Actividades();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
 	public P_Actividades() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(P_Actividades.class.getResource("/presentacion/actividades.png")));
-		setTitle("Actividades");
-		setResizable(false);
-		setBounds(new Rectangle(0, 0, 1350, 850));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmActividades = new JFrame();
+		frmActividades.setIconImage(Toolkit.getDefaultToolkit().getImage(P_Actividades.class.getResource("/presentacion/actividades.png")));
+		frmActividades.setTitle("Actividades");
+		frmActividades.setResizable(false);
+		frmActividades.setBounds(new Rectangle(0, 0, 1350, 850));
+		frmActividades.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(255, 153, 0));
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		frmActividades.getContentPane().add(contentPane);
 		
 		JPanel pnlHeader = new JPanel();
 		pnlHeader.setBackground(new Color(255, 228, 196));
@@ -97,6 +84,7 @@ public class P_Actividades extends JFrame {
 		gbc_lblAyuda.gridx = 10;
 		gbc_lblAyuda.gridy = 1;
 		pnlHeader.add(lblAyuda, gbc_lblAyuda);
+		lblAyuda.addMouseListener(new LblAyudaMouseListener());
 		
 		JLabel lblTraductor = new JLabel("");
 		lblTraductor.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/traductor.png")));
@@ -307,4 +295,19 @@ public class P_Actividades extends JFrame {
 
 		});
 	}
+	
+	private class LblAyudaMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			P_Ayuda frmAyuda = new P_Ayuda();
+			frmAyuda.getFrame().setVisible(true);
+			frmActividades.dispose();
+
+		}
+	}
+	
+	public JFrame getFrame() {
+		return frmActividades;
+	}
+	
 }
