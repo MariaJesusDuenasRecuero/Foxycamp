@@ -47,17 +47,19 @@ public class V_Parcela extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BorderLayout(0, 0));
 
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.WHITE);
 		panel_1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_1.setBounds(new Rectangle(0, 0, 800, 530));
 		panel.add(panel_1, BorderLayout.EAST);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[] { 0, 0, 140, 145, 100, 25, 0 };
+		gbl_panel_1.columnWidths = new int[] { 0, 0, 0, 140, 145, 100, 15, 0 };
 		gbl_panel_1.rowHeights = new int[] { 50, 130, 0, 0, 0, 0, 0, 0, 50, 0 };
-		gbl_panel_1.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel_1.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_panel_1.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE };
 		panel_1.setLayout(gbl_panel_1);
 
@@ -66,40 +68,43 @@ public class V_Parcela extends JPanel {
 		gbc_scrollBar.fill = GridBagConstraints.VERTICAL;
 		gbc_scrollBar.gridheight = 9;
 		gbc_scrollBar.anchor = GridBagConstraints.EAST;
-		gbc_scrollBar.gridx = 5;
+		gbc_scrollBar.gridx = 6;
 		gbc_scrollBar.gridy = 0;
 		panel_1.add(scrollBar, gbc_scrollBar);
-
-		JLabel lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6.setIcon(new ImageIcon(V_Parcela.class.getResource("Parcela1.jpg")));
-		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
-		gbc_lblNewLabel_6.fill = GridBagConstraints.VERTICAL;
-		gbc_lblNewLabel_6.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_6.gridx = 1;
-		gbc_lblNewLabel_6.gridy = 1;
-		panel_1.add(lblNewLabel_6, gbc_lblNewLabel_6);
 		
-		JEditorPane editorPane = new JEditorPane();
-		editorPane.setBackground(SystemColor.menu);
-		editorPane.setEditable(false);
-		GridBagConstraints gbc_editorPane = new GridBagConstraints();
-		gbc_editorPane.gridwidth = 3;
-		gbc_editorPane.insets = new Insets(0, 0, 5, 5);
-		gbc_editorPane.fill = GridBagConstraints.BOTH;
-		gbc_editorPane.gridx = 2;
-		gbc_editorPane.gridy = 1;
-		panel_1.add(editorPane, gbc_editorPane);
+				JLabel lblNewLabel_6 = new JLabel("");
+				lblNewLabel_6.setIcon(new ImageIcon(V_Parcela.class.getResource("Parcela1.jpg")));
+				GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
+				gbc_lblNewLabel_6.fill = GridBagConstraints.VERTICAL;
+				gbc_lblNewLabel_6.insets = new Insets(0, 0, 5, 5);
+				gbc_lblNewLabel_6.gridx = 1;
+				gbc_lblNewLabel_6.gridy = 1;
+				panel_1.add(lblNewLabel_6, gbc_lblNewLabel_6);
+		
+		JEditorPane dtrpnLesPermitirConocer = new JEditorPane();
+		dtrpnLesPermitirConocer.setFont(new Font("Verdana", Font.PLAIN, 11));
+		dtrpnLesPermitirConocer.setText("Les permitirá conocer los encantos de una ciudad tan mágica como Santiago de Compostela de la forma más fácil. Visitar su zona histórica es tan simple como dar un pequeño paseo  desde el propio camping. Y si lo desean, también disponen de opciones más cómodas, como tomar la línea de buses anexa al camping, que en 5 minutos les dejarán en el centro de la ciudad. Además, el Camping As Cancelas abre los 365 días del año y pone a su disposición la alta calidad de todos sus servicios e instalaciones, y le ofrece el compromiso personal de intentar convertir sus vacaciones en un recuerdo inolvidable.");
+		dtrpnLesPermitirConocer.setBackground(Color.WHITE);
+		dtrpnLesPermitirConocer.setEditable(false);
+		GridBagConstraints gbc_dtrpnLesPermitirConocer = new GridBagConstraints();
+		gbc_dtrpnLesPermitirConocer.gridwidth = 4;
+		gbc_dtrpnLesPermitirConocer.insets = new Insets(0, 0, 5, 5);
+		gbc_dtrpnLesPermitirConocer.fill = GridBagConstraints.BOTH;
+		gbc_dtrpnLesPermitirConocer.gridx = 2;
+		gbc_dtrpnLesPermitirConocer.gridy = 1;
+		panel_1.add(dtrpnLesPermitirConocer, gbc_dtrpnLesPermitirConocer);
 
 		JButton btnReservar = new JButton("Reservar");
 		btnReservar.setBackground(new Color(255, 140, 0));
 		GridBagConstraints gbc_btnReservar = new GridBagConstraints();
 		gbc_btnReservar.fill = GridBagConstraints.BOTH;
 		gbc_btnReservar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnReservar.gridx = 4;
+		gbc_btnReservar.gridx = 5;
 		gbc_btnReservar.gridy = 2;
 		panel_1.add(btnReservar, gbc_btnReservar);
 
 		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(Color.WHITE);
 		panel_2.setBounds(new Rectangle(0, 0, 75, 500));
 		panel.add(panel_2, BorderLayout.WEST);
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
@@ -154,6 +159,7 @@ public class V_Parcela extends JPanel {
 		panel_2.add(lblPrecio, gbc_lblPrecio);
 
 		sliderPrecio = new JSlider(JSlider.HORIZONTAL, 50, 500, 250);
+		sliderPrecio.setBackground(Color.WHITE);
 		sliderPrecio.setValue(50);
 		sliderPrecio.setMaximum(550);
 		sliderPrecio.setMinimum(50);
@@ -189,7 +195,7 @@ public class V_Parcela extends JPanel {
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(
-				new DefaultComboBoxModel(new String[] { "Peque�a", "Mediana", "Grande", "Deluxe", "Con auto" }));
+				new DefaultComboBoxModel(new String[] {"Pequeña", "Mediana", "Grande", "Deluxe", "Con auto"}));
 		comboBox.setFont(new Font("Verdana", Font.PLAIN, 14));
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 5);

@@ -3,7 +3,6 @@ package presentacion;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -60,7 +59,7 @@ public class P_Registro extends JFrame {
 	private JTextArea txtInfoAdicional;
 	private JLabel lblCV;
 	private JLabel lblEmail;
-	private JLabel lblContraseña;
+	private JLabel lblContrasena;
 	private JLabel lblInformacion;
 	private JLabel lblNombre;
 	private JTextField textEmail;
@@ -69,9 +68,9 @@ public class P_Registro extends JFrame {
 	private JLabel lblTelefono;
 	private JLabel lblImagenCarga;
 	private JLabel lblImagen;
-	private JLabel lblConfirmarContraseña;
-	private JPasswordField textContraseña;
-	private JPasswordField textConfirmarContraseña;
+	private JLabel lblConfirmarContrasena;
+	private JPasswordField textContrasena;
+	private JPasswordField textConfirmarContrasena;
 	private JFrame frmRegistro;
 	
 	
@@ -139,7 +138,7 @@ public class P_Registro extends JFrame {
 		GridBagConstraints gbc_lblLeftLine = new GridBagConstraints();
 		gbc_lblLeftLine.anchor = GridBagConstraints.SOUTH;
 		gbc_lblLeftLine.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblLeftLine.gridwidth = 10;
+		gbc_lblLeftLine.gridwidth = 12;
 		gbc_lblLeftLine.insets = new Insets(0, 0, 0, 5);
 		gbc_lblLeftLine.gridx = 1;
 		gbc_lblLeftLine.gridy = 2;
@@ -175,7 +174,7 @@ public class P_Registro extends JFrame {
 		pnlContenido.add(pnlLogin, gbc_pnlLogin);
 		GridBagLayout gbl_pnlLogin = new GridBagLayout();
 		gbl_pnlLogin.columnWidths = new int[] { 20, 0, 20, 115, 101, 20, 20, 20, 35, 35, 0, 20, 0 };
-		gbl_pnlLogin.rowHeights = new int[] { 35, 35, 35, 35, 35, 35, 35, 35, 35, 34, 39, 0, 20, 0 };
+		gbl_pnlLogin.rowHeights = new int[] { 35, 35, 35, 35, 35, 35, 35, 35, 35, 34, 39, 10, 20, 0 };
 		gbl_pnlLogin.columnWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_pnlLogin.rowWeights = new double[] { 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
@@ -333,7 +332,7 @@ public class P_Registro extends JFrame {
 		gbc_lblImagen.gridy = 5;
 		pnlLogin.add(lblImagen, gbc_lblImagen);
 		
-		lblTelefono = new JLabel("Teléfono de contacto");
+		lblTelefono = new JLabel("TelÃ³fono de contacto");
 		lblTelefono.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblTelefono = new GridBagConstraints();
 		gbc_lblTelefono.anchor = GridBagConstraints.WEST;
@@ -366,45 +365,45 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(textTelefono, gbc_textTelefono);
 		textTelefono.setColumns(10);
 		
-		lblContraseña = new JLabel("Contraseña*");
-		lblContraseña.setToolTipText("Campo obligatorio");
-		lblContraseña.setFont(new Font("Verdana", Font.BOLD, 16));
-		GridBagConstraints gbc_lblContraseña = new GridBagConstraints();
-		gbc_lblContraseña.anchor = GridBagConstraints.WEST;
-		gbc_lblContraseña.insets = new Insets(0, 0, 5, 5);
-		gbc_lblContraseña.gridx = 1;
-		gbc_lblContraseña.gridy = 7;
-		pnlLogin.add(lblContraseña, gbc_lblContraseña);
+		lblContrasena = new JLabel("ContraseÃ±a*");
+		lblContrasena.setToolTipText("Campo obligatorio");
+		lblContrasena.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_lblContrasena = new GridBagConstraints();
+		gbc_lblContrasena.anchor = GridBagConstraints.WEST;
+		gbc_lblContrasena.insets = new Insets(0, 0, 5, 5);
+		gbc_lblContrasena.gridx = 1;
+		gbc_lblContrasena.gridy = 7;
+		pnlLogin.add(lblContrasena, gbc_lblContrasena);
 		
-		textContraseña = new JPasswordField();
-		textContraseña.addFocusListener(new TextContraseñaFocusListener());
-		GridBagConstraints gbc_textContraseña = new GridBagConstraints();
-		gbc_textContraseña.insets = new Insets(0, 0, 5, 5);
-		gbc_textContraseña.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textContraseña.gridx = 3;
-		gbc_textContraseña.gridy = 7;
-		pnlLogin.add(textContraseña, gbc_textContraseña);
-		textContraseña.setColumns(10);
+		textContrasena = new JPasswordField();
+		textContrasena.addFocusListener(new TextContrasenaFocusListener());
+		GridBagConstraints gbc_textContrasena = new GridBagConstraints();
+		gbc_textContrasena.insets = new Insets(0, 0, 5, 5);
+		gbc_textContrasena.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textContrasena.gridx = 3;
+		gbc_textContrasena.gridy = 7;
+		pnlLogin.add(textContrasena, gbc_textContrasena);
+		textContrasena.setColumns(10);
 		
-		lblConfirmarContraseña = new JLabel("Confirmar contraseña*");
-		lblConfirmarContraseña.setToolTipText("Campo obligatorio");
-		lblConfirmarContraseña.setFont(new Font("Verdana", Font.BOLD, 16));
-		GridBagConstraints gbc_lblConfirmarContraseña = new GridBagConstraints();
-		gbc_lblConfirmarContraseña.insets = new Insets(0, 0, 5, 5);
-		gbc_lblConfirmarContraseña.gridx = 1;
-		gbc_lblConfirmarContraseña.gridy = 8;
-		pnlLogin.add(lblConfirmarContraseña, gbc_lblConfirmarContraseña);
+		lblConfirmarContrasena = new JLabel("Confirmar contraseÃ±a*");
+		lblConfirmarContrasena.setToolTipText("Campo obligatorio");
+		lblConfirmarContrasena.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_lblConfirmarContrasena = new GridBagConstraints();
+		gbc_lblConfirmarContrasena.insets = new Insets(0, 0, 5, 5);
+		gbc_lblConfirmarContrasena.gridx = 1;
+		gbc_lblConfirmarContrasena.gridy = 8;
+		pnlLogin.add(lblConfirmarContrasena, gbc_lblConfirmarContrasena);
 		
-		textConfirmarContraseña = new JPasswordField();
-		textConfirmarContraseña.addActionListener(new TextConfirmarContraseñaActionListener());
-		textConfirmarContraseña.addFocusListener(new TextConfirmarContraseñaFocusListener());
-		GridBagConstraints gbc_textConfirmarContraseña = new GridBagConstraints();
-		gbc_textConfirmarContraseña.insets = new Insets(0, 0, 5, 5);
-		gbc_textConfirmarContraseña.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textConfirmarContraseña.gridx = 3;
-		gbc_textConfirmarContraseña.gridy = 8;
-		pnlLogin.add(textConfirmarContraseña, gbc_textConfirmarContraseña);
-		textConfirmarContraseña.setColumns(10);
+		textConfirmarContrasena = new JPasswordField();
+		textConfirmarContrasena.addActionListener(new TextConfirmarContrasenaActionListener());
+		textConfirmarContrasena.addFocusListener(new TextConfirmarContrasenaFocusListener());
+		GridBagConstraints gbc_textConfirmarContrasena = new GridBagConstraints();
+		gbc_textConfirmarContrasena.insets = new Insets(0, 0, 5, 5);
+		gbc_textConfirmarContrasena.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textConfirmarContrasena.gridx = 3;
+		gbc_textConfirmarContrasena.gridy = 8;
+		pnlLogin.add(textConfirmarContrasena, gbc_textConfirmarContrasena);
+		textConfirmarContrasena.setColumns(10);
 		
 		lblCV = new JLabel("CV*");
 		lblCV.setToolTipText("Campo obligatorio");
@@ -423,7 +422,7 @@ public class P_Registro extends JFrame {
 		gbc_lblImagenCV.gridy = 9;
 		pnlLogin.add(lblImagenCV, gbc_lblImagenCV);
 		
-		lblInformacion = new JLabel("Información adicional");
+		lblInformacion = new JLabel("InformaciÃ³n adicional");
 		lblInformacion.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblInformacion = new GridBagConstraints();
 		gbc_lblInformacion.fill = GridBagConstraints.HORIZONTAL;
@@ -441,7 +440,8 @@ public class P_Registro extends JFrame {
 		gbc_txtInfoAdicional.gridy = 10;
 		pnlLogin.add(txtInfoAdicional, gbc_txtInfoAdicional);
 		
-		btnConfirmar = new JButton("Confirmar suscripción");
+		btnConfirmar = new JButton("Confirmar suscripciÃ³n");
+		btnConfirmar.setBounds(new Rectangle(0, 0, 0, 10));
 		btnConfirmar.setFont(new Font("Verdana", Font.BOLD, 9));
 		GridBagConstraints gbc_btnConfirmar = new GridBagConstraints();
 		gbc_btnConfirmar.insets = new Insets(0, 0, 5, 5);
@@ -464,7 +464,7 @@ public class P_Registro extends JFrame {
 			//Recoger el nombre del fichero seleccionado por el usuario
 			if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 				File file = fcAbrir.getSelectedFile();
-				//En este punto la aplicación se debería encargar de realizar la operación sobre el fichero
+				//En este punto la aplicaciï¿½n se deberï¿½a encargar de realizar la operaciï¿½n sobre el fichero
 				System.out.println("Fichero seleccionado: " + file.getName());
 				lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
 			}
@@ -478,7 +478,7 @@ public class P_Registro extends JFrame {
 			//Recoger el nombre del fichero seleccionado por el usuario
 			if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 				File file = fcAbrir.getSelectedFile();
-				//En este punto la aplicación se debería encargar de realizar la operación sobre el fichero
+				//En este punto la aplicaciï¿½n se deberï¿½a encargar de realizar la operaciï¿½n sobre el fichero
 				System.out.println("Fichero seleccionado: " + file.getName());
 				lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
 			}
@@ -524,7 +524,7 @@ public class P_Registro extends JFrame {
 			e.getComponent().setBackground(colorBlanco);
 		}
 	}
-	private class TextContraseñaFocusListener extends FocusAdapter {
+	private class TextContrasenaFocusListener extends FocusAdapter {
 		@Override
 		public void focusGained(FocusEvent e) {
 			e.getComponent().setBackground(colorResaltado);
@@ -534,7 +534,7 @@ public class P_Registro extends JFrame {
 			e.getComponent().setBackground(colorBlanco);
 		}
 	}
-	private class TextConfirmarContraseñaFocusListener extends FocusAdapter {
+	private class TextConfirmarContrasenaFocusListener extends FocusAdapter {
 		@Override
 		public void focusGained(FocusEvent e) {
 			e.getComponent().setBackground(colorResaltado);
@@ -574,20 +574,20 @@ public class P_Registro extends JFrame {
 			e.getComponent().setBackground(colorBlanco);
 		}
 	}
-	private class TextConfirmarContraseñaActionListener implements ActionListener {
+	private class TextConfirmarContrasenaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//obtenemos la contraseña introducida
+			//obtenemos la contraseï¿½a introducida
 		/* Para dar funcionalidad
 			if(String.valueOf(pwdPassword.getPassword()).equals(password)){
 				lblAviso.setBackground(Color.GREEN);
-				lblAviso.setText("Contraseña correcta. Puede entrar");
+				lblAviso.setText("Contraseï¿½a correcta. Puede entrar");
 				lblAviso.setVisible(true);
 				btnEntrar.setEnabled(true);
-				lblContraseña.setEnabled(false);
+				lblContraseï¿½a.setEnabled(false);
 				pwdPassword.setEnabled(false);
 				} else{
 					lblAviso.setBackground(Color.RED);
-					lblAviso.setText("Contraseña incorrecta. Vuelva a intentarlo");
+					lblAviso.setText("Contraseï¿½a incorrecta. Vuelva a intentarlo");
 					lblAviso.setVisible(true);
 					btnEntrar.setEnabled(false);}
 		*/

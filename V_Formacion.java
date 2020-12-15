@@ -55,18 +55,18 @@ public class V_Formacion extends JPanel {
 		gbc_panel.gridy = 0;
 		add(panel, gbc_panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{47, 0, 0, 193, 234, 285, 0};
-		gbl_panel.rowHeights = new int[]{0, 0, 0, 44, 38, 41, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.columnWidths = new int[]{0, 47, 0, 0, 193, 234, 285, 0};
+		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 44, 38, 41, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		JLabel lblFormacion = new JLabel("Formaci\u00F3n");
 		lblFormacion.setFont(new Font("Verdana", Font.BOLD, 20));
 		GridBagConstraints gbc_lblFormacion = new GridBagConstraints();
 		gbc_lblFormacion.insets = new Insets(0, 0, 5, 5);
-		gbc_lblFormacion.gridx = 1;
-		gbc_lblFormacion.gridy = 1;
+		gbc_lblFormacion.gridx = 2;
+		gbc_lblFormacion.gridy = 2;
 		panel.add(lblFormacion, gbc_lblFormacion);
 		
 		JLabel lblFormacionActual = new JLabel("Formaci\u00F3n actual");
@@ -74,8 +74,8 @@ public class V_Formacion extends JPanel {
 		GridBagConstraints gbc_lblFormacionActual = new GridBagConstraints();
 		gbc_lblFormacionActual.anchor = GridBagConstraints.WEST;
 		gbc_lblFormacionActual.insets = new Insets(0, 0, 5, 5);
-		gbc_lblFormacionActual.gridx = 1;
-		gbc_lblFormacionActual.gridy = 3;
+		gbc_lblFormacionActual.gridx = 2;
+		gbc_lblFormacionActual.gridy = 4;
 		panel.add(lblFormacionActual, gbc_lblFormacionActual);
 		
 		JTextArea txtFormacion = new JTextArea();
@@ -94,10 +94,10 @@ public class V_Formacion extends JPanel {
 		GridBagConstraints gbc_txtFormacion = new GridBagConstraints();
 		gbc_txtFormacion.gridwidth = 3;
 		gbc_txtFormacion.gridheight = 3;
-		gbc_txtFormacion.insets = new Insets(0, 0, 5, 5);
+		gbc_txtFormacion.insets = new Insets(0, 0, 5, 0);
 		gbc_txtFormacion.fill = GridBagConstraints.BOTH;
-		gbc_txtFormacion.gridx = 3;
-		gbc_txtFormacion.gridy = 3;
+		gbc_txtFormacion.gridx = 4;
+		gbc_txtFormacion.gridy = 4;
 		panel.add(txtFormacion, gbc_txtFormacion);
 		
 		JLabel lblIdioma = new JLabel("A\u00F1adir idioma");
@@ -106,8 +106,8 @@ public class V_Formacion extends JPanel {
 		gbc_lblIdioma.fill = GridBagConstraints.VERTICAL;
 		gbc_lblIdioma.anchor = GridBagConstraints.WEST;
 		gbc_lblIdioma.insets = new Insets(0, 0, 5, 5);
-		gbc_lblIdioma.gridx = 1;
-		gbc_lblIdioma.gridy = 7;
+		gbc_lblIdioma.gridx = 2;
+		gbc_lblIdioma.gridy = 8;
 		panel.add(lblIdioma, gbc_lblIdioma);
 		
 		txtIdioma = new JTextField();
@@ -127,8 +127,8 @@ public class V_Formacion extends JPanel {
 		gbc_txtIdioma.gridwidth = 2;
 		gbc_txtIdioma.insets = new Insets(0, 0, 5, 5);
 		gbc_txtIdioma.fill = GridBagConstraints.BOTH;
-		gbc_txtIdioma.gridx = 3;
-		gbc_txtIdioma.gridy = 7;
+		gbc_txtIdioma.gridx = 4;
+		gbc_txtIdioma.gridy = 8;
 		panel.add(txtIdioma, gbc_txtIdioma);
 		txtIdioma.setColumns(10);
 		
@@ -137,8 +137,8 @@ public class V_Formacion extends JPanel {
 		GridBagConstraints gbc_lblActualizar = new GridBagConstraints();
 		gbc_lblActualizar.anchor = GridBagConstraints.WEST;
 		gbc_lblActualizar.insets = new Insets(0, 0, 5, 5);
-		gbc_lblActualizar.gridx = 1;
-		gbc_lblActualizar.gridy = 9;
+		gbc_lblActualizar.gridx = 2;
+		gbc_lblActualizar.gridy = 10;
 		panel.add(lblActualizar, gbc_lblActualizar);
 		
 		JLabel lblCV = new JLabel("");
@@ -150,7 +150,7 @@ public class V_Formacion extends JPanel {
 				//Recoger el nombre del fichero seleccionado por el usuario
 				if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 					File file = fcAbrir.getSelectedFile();
-					//En este punto la aplicación se debería encargar de realizar la operación sobre el fichero
+					//En este punto la aplicaciï¿½n se deberï¿½a encargar de realizar la operaciï¿½n sobre el fichero
 					System.out.println("Fichero seleccionado: " + file.getName());
 					lblCV.setIcon(new ImageIcon(file.getAbsolutePath()));
 				}
@@ -161,8 +161,8 @@ public class V_Formacion extends JPanel {
 		GridBagConstraints gbc_lblCV = new GridBagConstraints();
 		gbc_lblCV.anchor = GridBagConstraints.WEST;
 		gbc_lblCV.insets = new Insets(0, 0, 5, 5);
-		gbc_lblCV.gridx = 3;
-		gbc_lblCV.gridy = 9;
+		gbc_lblCV.gridx = 4;
+		gbc_lblCV.gridy = 10;
 		panel.add(lblCV, gbc_lblCV);
 		
 		JButton btnGuardarCambios = new JButton("Guardar cambios");
@@ -174,9 +174,8 @@ public class V_Formacion extends JPanel {
 		});
 		GridBagConstraints gbc_btnGuardarCambios = new GridBagConstraints();
 		gbc_btnGuardarCambios.gridwidth = 2;
-		gbc_btnGuardarCambios.insets = new Insets(0, 0, 0, 5);
-		gbc_btnGuardarCambios.gridx = 4;
-		gbc_btnGuardarCambios.gridy = 14;
+		gbc_btnGuardarCambios.gridx = 5;
+		gbc_btnGuardarCambios.gridy = 15;
 		btnGuardarCambios.setFont(new Font("Verdana", Font.BOLD, 13));
 		btnGuardarCambios.setBorder(new RoundedBorder(4));
 		btnGuardarCambios.setForeground(new Color(0,0,0));

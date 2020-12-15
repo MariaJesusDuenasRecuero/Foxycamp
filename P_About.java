@@ -123,7 +123,7 @@ public class P_About extends JFrame {
 		addPopup(lblFlechaPerfil, pmFlecha);
 		
 		JLabel lblPerfilOption = new JLabel("    Adrian Ruiz");
-		lblPerfilOption.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/adrianMini.png")));
+		lblPerfilOption.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/PerfilAdri.png")));
 		pmFlecha.add(lblPerfilOption);
 		
 		JButton btnAjustes = new JButton("   Ajustes               ");
@@ -134,7 +134,7 @@ public class P_About extends JFrame {
 				frmAbout.dispose();
 			}
 		});
-		btnAjustes.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/configuraciones.png")));
+		btnAjustes.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/configuraciones.png")));
 		pmFlecha.add(btnAjustes);
 		
 		JButton btnDesconectar = new JButton("   Salir                     ");
@@ -145,7 +145,7 @@ public class P_About extends JFrame {
 				frmAbout.dispose();
 			}
 		});
-		btnDesconectar.setIcon(new ImageIcon(P_Actividades.class.getResource("/presentacion/desconectar.png")));
+		btnDesconectar.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/desconectar.png")));
 		pmFlecha.add(btnDesconectar);
 		
 		lblFlechaPerfil.addMouseListener(new MouseAdapter() {
@@ -192,19 +192,19 @@ public class P_About extends JFrame {
 		lblMJ.setBounds(899, 175, 300, 300);
 		pnlContenido.add(lblMJ);
 		
-		JLabel lblMariaB = new JLabel("Maria Blanco Gónzalez-Mohíno");
+		JLabel lblMariaB = new JLabel("Maria Blanco GÃ³nzalez-MohÃ­no");
 		lblMariaB.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMariaB.setFont(new Font("Verdana", Font.BOLD, 16));
 		lblMariaB.setBounds(93, 488, 300, 14);
 		pnlContenido.add(lblMariaB);
 		
-		JLabel lblAdrianR = new JLabel("Adrián Ruiz Esteban");
+		JLabel lblAdrianR = new JLabel("AdriÃ¡n Ruiz Esteban");
 		lblAdrianR.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAdrianR.setFont(new Font("Verdana", Font.BOLD, 16));
 		lblAdrianR.setBounds(499, 491, 300, 14);
 		pnlContenido.add(lblAdrianR);
 		
-		JLabel lblMjessD = new JLabel("MªJesús Dueñas Recuero");
+		JLabel lblMjessD = new JLabel("MÂªJesÃºs DueÃ±as Recuero");
 		lblMjessD.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMjessD.setFont(new Font("Verdana", Font.BOLD, 16));
 		lblMjessD.setBounds(899, 491, 300, 14);

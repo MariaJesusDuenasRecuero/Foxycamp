@@ -38,9 +38,9 @@ import java.awt.event.ActionEvent;
 public class P_Ayuda extends JFrame {
 
 	private JPanel contentPane;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
-	private JButton btnNewButton_2;
+	private JButton btnContactos;
+	private JButton btnManual;
+	private JButton btnVideo;
 	private JFrame frmAyuda;
 
 
@@ -131,8 +131,9 @@ public class P_Ayuda extends JFrame {
 		JPopupMenu pmFlecha = new JPopupMenu();
 		addPopup(lblFlecha, pmFlecha);
 
-		JLabel lblPerfilOption = new JLabel("    Adrian Ruiz");
-		lblPerfilOption.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/adrian.png")));
+		JLabel lblPerfilOption = new JLabel("    Adrián Ruiz");
+		lblPerfilOption.setFont(new Font("Verdana", Font.PLAIN, 14));
+		lblPerfilOption.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/PerfilAdri.png")));
 		pmFlecha.add(lblPerfilOption);
 
 		JSeparator separator = new JSeparator();
@@ -205,7 +206,7 @@ public class P_Ayuda extends JFrame {
 
 		JPanel pnlContenido = new JPanel();
 		pnlContenido.setBackground(new Color(255, 228, 181));
-		contentPane.add(pnlContenido, BorderLayout.CENTER);
+		contentPane.add(pnlContenido, BorderLayout.WEST);
 		GridBagLayout gbl_pnlContenido = new GridBagLayout();
 		gbl_pnlContenido.columnWidths = new int[] { 75, 200, 225, 200, 335, 100, 0 };
 		gbl_pnlContenido.rowHeights = new int[] { 75, 0, 77, 0, 50, 39, 75, 0, 50, 0 };
@@ -223,60 +224,60 @@ public class P_Ayuda extends JFrame {
 		gbc_lblFoxycamp_1.gridy = 2;
 		pnlContenido.add(lblFoxycamp_1, gbc_lblFoxycamp_1);
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/servicio-al-cliente.png")));
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.fill = GridBagConstraints.VERTICAL;
-		gbc_lblNewLabel.gridwidth = 2;
-		gbc_lblNewLabel.gridheight = 9;
-		gbc_lblNewLabel.insets = new Insets(0, 0, 0, 5);
-		gbc_lblNewLabel.gridx = 2;
-		gbc_lblNewLabel.gridy = 0;
-		pnlContenido.add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblAtencionCliente = new JLabel("");
+		lblAtencionCliente.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/servicio-al-cliente.png")));
+		GridBagConstraints gbc_lblAtencionCliente = new GridBagConstraints();
+		gbc_lblAtencionCliente.fill = GridBagConstraints.VERTICAL;
+		gbc_lblAtencionCliente.gridwidth = 2;
+		gbc_lblAtencionCliente.gridheight = 9;
+		gbc_lblAtencionCliente.insets = new Insets(0, 0, 0, 5);
+		gbc_lblAtencionCliente.gridx = 2;
+		gbc_lblAtencionCliente.gridy = 0;
+		pnlContenido.add(lblAtencionCliente, gbc_lblAtencionCliente);
 
-		btnNewButton = new JButton("Contactanos");
-		btnNewButton.setBackground(new Color(255, 140, 0));
-		btnNewButton.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/llamada-telefonica.png")));
-		btnNewButton.setFont(new Font("Verdana", Font.BOLD, 20));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton.gridx = 4;
-		gbc_btnNewButton.gridy = 2;
-		pnlContenido.add(btnNewButton, gbc_btnNewButton);
+		btnContactos = new JButton("Contáctenos");
+		btnContactos.setBackground(new Color(255, 140, 0));
+		btnContactos.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/llamada-telefonica.png")));
+		btnContactos.setFont(new Font("Verdana", Font.BOLD, 20));
+		GridBagConstraints gbc_btnContactos = new GridBagConstraints();
+		gbc_btnContactos.fill = GridBagConstraints.BOTH;
+		gbc_btnContactos.insets = new Insets(0, 0, 5, 5);
+		gbc_btnContactos.gridx = 4;
+		gbc_btnContactos.gridy = 2;
+		pnlContenido.add(btnContactos, gbc_btnContactos);
 
-		JLabel lblNewLabel_2 = new JLabel("Atenci�n al cliente");
-		lblNewLabel_2.setForeground(new Color(255, 165, 0));
-		lblNewLabel_2.setFont(new Font("Verdana", Font.BOLD, 30));
-		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
-		gbc_lblNewLabel_2.anchor = GridBagConstraints.NORTH;
-		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_2.gridx = 1;
-		gbc_lblNewLabel_2.gridy = 3;
-		pnlContenido.add(lblNewLabel_2, gbc_lblNewLabel_2);
+		JLabel lblAtencionC = new JLabel("Atención al cliente");
+		lblAtencionC.setForeground(new Color(255, 165, 0));
+		lblAtencionC.setFont(new Font("Verdana", Font.BOLD, 30));
+		GridBagConstraints gbc_lblAtencionC = new GridBagConstraints();
+		gbc_lblAtencionC.anchor = GridBagConstraints.NORTH;
+		gbc_lblAtencionC.insets = new Insets(0, 0, 5, 5);
+		gbc_lblAtencionC.gridx = 1;
+		gbc_lblAtencionC.gridy = 3;
+		pnlContenido.add(lblAtencionC, gbc_lblAtencionC);
 
-		btnNewButton_1 = new JButton("Manual de usuario");
-		btnNewButton_1.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/instrucciones.png")));
-		btnNewButton_1.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnNewButton_1.setBackground(new Color(255, 140, 0));
-		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-		gbc_btnNewButton_1.fill = GridBagConstraints.BOTH;
-		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton_1.gridx = 4;
-		gbc_btnNewButton_1.gridy = 4;
-		pnlContenido.add(btnNewButton_1, gbc_btnNewButton_1);
+		btnManual = new JButton("Manual de usuario");
+		btnManual.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/instrucciones.png")));
+		btnManual.setFont(new Font("Verdana", Font.BOLD, 20));
+		btnManual.setBackground(new Color(255, 140, 0));
+		GridBagConstraints gbc_btnManual = new GridBagConstraints();
+		gbc_btnManual.fill = GridBagConstraints.BOTH;
+		gbc_btnManual.insets = new Insets(0, 0, 5, 5);
+		gbc_btnManual.gridx = 4;
+		gbc_btnManual.gridy = 4;
+		pnlContenido.add(btnManual, gbc_btnManual);
 
-		btnNewButton_2 = new JButton(" Video ayuda");
-		btnNewButton_2.setBackground(new Color(255, 140, 0));
-		btnNewButton_2.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/boton-de-play.png")));
-		btnNewButton_2.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnNewButton_2.setBorder(new RoundedBorder(12));
-		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
-		gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
-		gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton_2.gridx = 4;
-		gbc_btnNewButton_2.gridy = 6;
-		pnlContenido.add(btnNewButton_2, gbc_btnNewButton_2);
+		btnVideo = new JButton(" Video ayuda");
+		btnVideo.setBackground(new Color(255, 140, 0));
+		btnVideo.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/boton-de-play.png")));
+		btnVideo.setFont(new Font("Verdana", Font.BOLD, 20));
+		btnVideo.setBorder(new RoundedBorder(12));
+		GridBagConstraints gbc_btnVideo = new GridBagConstraints();
+		gbc_btnVideo.fill = GridBagConstraints.BOTH;
+		gbc_btnVideo.insets = new Insets(0, 0, 5, 5);
+		gbc_btnVideo.gridx = 4;
+		gbc_btnVideo.gridy = 6;
+		pnlContenido.add(btnVideo, gbc_btnVideo);
 
 	}
 

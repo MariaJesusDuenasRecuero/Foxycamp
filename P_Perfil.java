@@ -45,7 +45,7 @@ public class P_Perfil extends JFrame {
 
 	private JPanel contentPane;
 	private JButton btnInformacion;
-	private JButton  btnContrasenia;
+	private JButton  btnContrasena;
 	private JButton btnFormacion;
 	private JButton btnCerrarCuenta;
 	private JButton btnVolver;
@@ -57,7 +57,7 @@ public class P_Perfil extends JFrame {
 	private JTextField textTelefono;
 	JButton btnCargarImagen;
 	JFrame frmPerfil;
-	V_PerfilContraseña panelContraseña;
+	V_PerfilContrasena panelContrasena;
 	V_Informacion panelInformacion;
 	JPanel panel;
 	V_Formacion panelFormacion;
@@ -145,8 +145,9 @@ public class P_Perfil extends JFrame {
 		JPopupMenu pmFlecha = new JPopupMenu();
 		addPopup(lblFlecha, pmFlecha);
 
-		JLabel lblPerfilOption = new JLabel("    Adrian Ruiz");
-		lblPerfilOption.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/adrian.png")));
+		JLabel lblPerfilOption = new JLabel("    AdriÃ¡n Ruiz");
+		lblPerfilOption.setFont(new Font("Verdana", Font.PLAIN, 14));
+		lblPerfilOption.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/PerfilAdri.png")));
 		pmFlecha.add(lblPerfilOption);
 
 		JSeparator separator = new JSeparator();
@@ -217,7 +218,7 @@ public class P_Perfil extends JFrame {
 		pnlPerfil.add(pnlBotones);
 		pnlBotones.setLayout(null);
 
-		btnInformacion = new JButton(" Informacion");
+		btnInformacion = new JButton(" InformaciÃ³n");
 		
 		btnInformacion.setBounds(37, 11, 242, 65);
 		pnlBotones.add(btnInformacion);
@@ -228,16 +229,16 @@ public class P_Perfil extends JFrame {
 		btnInformacion.setBorder(new RoundedBorder(12));
 		btnInformacion.addActionListener(new BtnInformacionActionListener());
 
-		btnContrasenia = new JButton(" Contrasenia");
-		btnContrasenia.addActionListener(new BtnContraseñaActionListener());
-		btnContrasenia.setBounds(37, 118, 242, 65);
-		pnlBotones.add(btnContrasenia);
-		btnContrasenia.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/vintage-key-outline.png")));
-		btnContrasenia.setBackground(Color.WHITE);
-		btnContrasenia.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnContrasenia.setBorder(new RoundedBorder(12));
+		btnContrasena = new JButton(" ContraseÃ±a");
+		btnContrasena.addActionListener(new BtnContrasenaActionListener());
+		btnContrasena.setBounds(37, 118, 242, 65);
+		pnlBotones.add(btnContrasena);
+		btnContrasena.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/vintage-key-outline.png")));
+		btnContrasena.setBackground(Color.WHITE);
+		btnContrasena.setFont(new Font("Verdana", Font.BOLD, 20));
+		btnContrasena.setBorder(new RoundedBorder(12));
 
-		btnFormacion = new JButton(" Formacion");
+		btnFormacion = new JButton(" FormaciÃ³n");
 		btnFormacion.addActionListener(new BtnFormacionActionListener());
 		btnFormacion.setBounds(37, 229, 242, 65);
 		pnlBotones.add(btnFormacion);
@@ -418,7 +419,7 @@ public class P_Perfil extends JFrame {
 				//Recoger el nombre del fichero seleccionado por el usuario
 				if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 					File file = fcAbrir.getSelectedFile();
-					//En este punto la aplicación se debería encargar de realizar la operación sobre el fichero
+					//En este punto la aplicaciï¿½n se deberï¿½a encargar de realizar la operaciï¿½n sobre el fichero
 					System.out.println("Fichero seleccionado: " + file.getName());
 					lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
 				}
@@ -449,8 +450,8 @@ public class P_Perfil extends JFrame {
 		
 		
 		
-		panelContraseña = new V_PerfilContraseña();
-		panel.add(panelContraseña, "Contraseña");
+		panelContrasena = new V_PerfilContrasena();
+		panel.add(panelContrasena, "Contraseï¿½a");
 		
 		panelInformacion = new V_Informacion();
 		panel.add(panelInformacion, "Informacion");
@@ -469,10 +470,10 @@ public class P_Perfil extends JFrame {
 		}
 	}
 	
-	private class BtnContraseñaActionListener implements ActionListener {
+	private class BtnContrasenaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout c1 = (CardLayout)(panel.getLayout());
-			c1.show(panel, "Contraseña");
+			c1.show(panel, "Contraseï¿½a");
 		}
 	}
 	

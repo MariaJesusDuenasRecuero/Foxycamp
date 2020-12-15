@@ -23,9 +23,7 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.SoftBevelBorder;
 
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
+
 
 import com.toedter.calendar.JCalendar;
 
@@ -40,20 +38,23 @@ import com.toedter.calendar.JDateChooser;
 public class V_Bungalow extends JPanel {
 
 	private JSlider sliderPrecio;
+	
 
 	/**
 	 * Create the panel.
 	 */
 	public V_Bungalow() {
-		setBackground(Color.LIGHT_GRAY);
+		setBackground(Color.WHITE);
 		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BorderLayout(0, 0));
 
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.WHITE);
 		panel_1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel_1.setBounds(new Rectangle(0, 0, 800, 530));
 		panel.add(panel_1, BorderLayout.EAST);
@@ -82,16 +83,18 @@ public class V_Bungalow extends JPanel {
 		gbc_lblNewLabel_6.gridy = 1;
 		panel_1.add(lblNewLabel_6, gbc_lblNewLabel_6);
 		
-		JEditorPane editorPane = new JEditorPane();
-		editorPane.setBackground(SystemColor.menu);
-		editorPane.setEditable(false);
-		GridBagConstraints gbc_editorPane = new GridBagConstraints();
-		gbc_editorPane.gridwidth = 3;
-		gbc_editorPane.insets = new Insets(0, 0, 5, 5);
-		gbc_editorPane.fill = GridBagConstraints.BOTH;
-		gbc_editorPane.gridx = 2;
-		gbc_editorPane.gridy = 1;
-		panel_1.add(editorPane, gbc_editorPane);
+		JEditorPane dtrpnElCampingFuentes = new JEditorPane();
+		dtrpnElCampingFuentes.setFont(new Font("Verdana", Font.PLAIN, 10));
+		dtrpnElCampingFuentes.setText("Se encuentra en la localidad de Cervera de Pisuerga. Respira aire fresco en pleno corazón de la Montaña Palentina y a orillas del Río Pisuerga, donde puedes iniciar las diferentes rutas y excursiones que ofrece este paraje natural y paisajístico. El Camping dispone de diferentes bungalows, todas ellas de césped natural, con tomas de corriente eléctrica  y sombra proporcionada por numerosos árboles. Sus bungalows ofrecen la comodidad necesaria para que tu estancia sea inmejorable y pueda disfrutar de un entorno único.");
+		dtrpnElCampingFuentes.setBackground(Color.WHITE);
+		dtrpnElCampingFuentes.setEditable(false);
+		GridBagConstraints gbc_dtrpnElCampingFuentes = new GridBagConstraints();
+		gbc_dtrpnElCampingFuentes.fill = GridBagConstraints.BOTH;
+		gbc_dtrpnElCampingFuentes.gridwidth = 3;
+		gbc_dtrpnElCampingFuentes.insets = new Insets(0, 0, 5, 5);
+		gbc_dtrpnElCampingFuentes.gridx = 2;
+		gbc_dtrpnElCampingFuentes.gridy = 1;
+		panel_1.add(dtrpnElCampingFuentes, gbc_dtrpnElCampingFuentes);
 
 		JButton btnReservar = new JButton("Reservar");
 		btnReservar.setBackground(new Color(255, 140, 0));
@@ -103,6 +106,7 @@ public class V_Bungalow extends JPanel {
 		panel_1.add(btnReservar, gbc_btnReservar);
 
 		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(Color.WHITE);
 		panel_2.setBounds(new Rectangle(0, 0, 75, 500));
 		panel.add(panel_2, BorderLayout.WEST);
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
@@ -157,6 +161,7 @@ public class V_Bungalow extends JPanel {
 		panel_2.add(lblPrecio, gbc_lblPrecio);
 
 		sliderPrecio = new JSlider(JSlider.HORIZONTAL, 50, 500, 250);
+		sliderPrecio.setBackground(Color.WHITE);
 		sliderPrecio.setValue(50);
 		sliderPrecio.setMaximum(550);
 		sliderPrecio.setMinimum(50);
@@ -192,7 +197,7 @@ public class V_Bungalow extends JPanel {
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(
-				new DefaultComboBoxModel(new String[] { "Peque�a", "Mediana", "Grande", "Deluxe", "Con auto" }));
+				new DefaultComboBoxModel(new String[] {"Pequeña", "Mediana", "Grande", "Deluxe", "Con auto"}));
 		comboBox.setFont(new Font("Verdana", Font.PLAIN, 14));
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 5);

@@ -34,6 +34,7 @@ import java.awt.Panel;
 import java.awt.Rectangle;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import javax.swing.border.EtchedBorder;
 
 public class V_Informacion extends JPanel {
 
@@ -57,7 +58,7 @@ public class V_Informacion extends JPanel {
 		JPanel panel = new JPanel();
 		add(panel, BorderLayout.CENTER);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0, 85, 81, 0, 66, 95, 120, 260, 119, 81, 0};
+		gbl_panel.columnWidths = new int[]{50, 85, 81, 0, 66, 95, 120, 260, 119, 50, 0};
 		gbl_panel.rowHeights = new int[]{0, 0, 0, 30, 0, 30, 0, 30, 0, 30, 0, 30, 0, 30, 0, 0, 19, 0, 0};
 		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
@@ -73,16 +74,17 @@ public class V_Informacion extends JPanel {
 		panel.add(lblInformacion, gbc_lblInformacion);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblNombre.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblNombre = new GridBagConstraints();
 		gbc_lblNombre.anchor = GridBagConstraints.WEST;
+		gbc_lblNombre.fill = GridBagConstraints.VERTICAL;
 		gbc_lblNombre.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNombre.gridx = 1;
 		gbc_lblNombre.gridy = 3;
 		panel.add(lblNombre, gbc_lblNombre);
 		
 		JLabel lblCambiarFoto = new JLabel("Cambiar foto de perfil");
-		lblCambiarFoto.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblCambiarFoto.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblCambiarFoto = new GridBagConstraints();
 		gbc_lblCambiarFoto.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCambiarFoto.gridx = 7;
@@ -110,7 +112,7 @@ public class V_Informacion extends JPanel {
 		txtNombre.setColumns(10);
 		
 		JLabel lblApellidos = new JLabel("Apellidos");
-		lblApellidos.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblApellidos.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblApellidos = new GridBagConstraints();
 		gbc_lblApellidos.anchor = GridBagConstraints.WEST;
 		gbc_lblApellidos.insets = new Insets(0, 0, 5, 5);
@@ -119,7 +121,7 @@ public class V_Informacion extends JPanel {
 		panel.add(lblApellidos, gbc_lblApellidos);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBorder(new TitledBorder(null, "Foto", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		scrollPane.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Foto", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.gridheight = 10;
 		gbc_scrollPane.gridwidth = 3;
@@ -153,7 +155,7 @@ public class V_Informacion extends JPanel {
 		txtApellidos.setColumns(10);
 		
 		JLabel lblCiudad = new JLabel("Ciudad");
-		lblCiudad.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblCiudad.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblCiudad = new GridBagConstraints();
 		gbc_lblCiudad.anchor = GridBagConstraints.WEST;
 		gbc_lblCiudad.insets = new Insets(0, 0, 5, 5);
@@ -182,7 +184,7 @@ public class V_Informacion extends JPanel {
 		txtCiudad.setColumns(10);
 		
 		JLabel lblEmail = new JLabel("Email");
-		lblEmail.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblEmail.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblEmail = new GridBagConstraints();
 		gbc_lblEmail.anchor = GridBagConstraints.WEST;
 		gbc_lblEmail.insets = new Insets(0, 0, 5, 5);
@@ -211,7 +213,7 @@ public class V_Informacion extends JPanel {
 		txtEmail.setColumns(10);
 		
 		JLabel lblCodigoPostal = new JLabel("C\u00F3digo postal");
-		lblCodigoPostal.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblCodigoPostal.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblCodigoPostal = new GridBagConstraints();
 		gbc_lblCodigoPostal.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCodigoPostal.gridx = 1;
@@ -239,7 +241,7 @@ public class V_Informacion extends JPanel {
 		txtCodigoP.setColumns(10);
 		
 		JLabel lblTelefono = new JLabel("Tel\u00E9fono");
-		lblTelefono.setFont(new Font("Verdana", Font.BOLD, 11));
+		lblTelefono.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblTelefono = new GridBagConstraints();
 		gbc_lblTelefono.anchor = GridBagConstraints.WEST;
 		gbc_lblTelefono.insets = new Insets(0, 0, 5, 5);
@@ -268,6 +270,7 @@ public class V_Informacion extends JPanel {
 		txtTelefono.setColumns(10);
 		
 		JButton btnCargarFoto = new JButton("Cargar");
+		btnCargarFoto.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnCargarFoto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -276,7 +279,7 @@ public class V_Informacion extends JPanel {
 				//Recoger el nombre del fichero seleccionado por el usuario
 				if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 					File file = fcAbrir.getSelectedFile();
-					//En este punto la aplicación se debería encargar de realizar la operación sobre el fichero
+					//En este punto la aplicaciï¿½n se deberï¿½a encargar de realizar la operaciï¿½n sobre el fichero
 					System.out.println("Fichero seleccionado: " + file.getName());
 					lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
 				}
@@ -293,6 +296,7 @@ public class V_Informacion extends JPanel {
 		panel.add(btnCargarFoto, gbc_btnCargarFoto);
 		
 		JButton btnGuardarCambios = new JButton("Guardar cambios");
+		btnGuardarCambios.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnGuardarCambios.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -301,7 +305,7 @@ public class V_Informacion extends JPanel {
 				//Recoger el nombre del fichero seleccionado por el usuario
 				if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 					File file = fcAbrir.getSelectedFile();
-					//En este punto la aplicación se debería encargar de realizar la operación sobre el fichero
+					//En este punto la aplicaciï¿½n se deberï¿½a encargar de realizar la operaciï¿½n sobre el fichero
 					System.out.println("Fichero seleccionado: " + file.getName());
 					lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
 				}

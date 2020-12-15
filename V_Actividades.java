@@ -29,11 +29,11 @@ public class V_Actividades extends JPanel {
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_1 = new JPanel();
-		panel.add(panel_1, BorderLayout.CENTER);
+		panel.add(panel_1, BorderLayout.NORTH);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[]{50, 218, 0, 500, 0, 0, 0, 0};
-		gbl_panel_1.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_1.columnWidths = new int[]{50, 218, 0, 500, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel_1.rowHeights = new int[]{70, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_1.setLayout(gbl_panel_1);
 		
@@ -41,7 +41,6 @@ public class V_Actividades extends JPanel {
 		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD, 25));
 		lblNewLabel_3.setForeground(new Color(255, 140, 0));
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
-		gbc_lblNewLabel_3.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_3.gridx = 3;
 		gbc_lblNewLabel_3.gridy = 0;
@@ -55,27 +54,27 @@ public class V_Actividades extends JPanel {
 		gbc_lblNewLabel.gridy = 1;
 		panel_1.add(lblNewLabel, gbc_lblNewLabel);
 		
-		JEditorPane editorPane = new JEditorPane();
-		editorPane.setEditable(false);
-		GridBagConstraints gbc_editorPane = new GridBagConstraints();
-		gbc_editorPane.insets = new Insets(0, 0, 5, 5);
-		gbc_editorPane.fill = GridBagConstraints.BOTH;
-		gbc_editorPane.gridx = 3;
-		gbc_editorPane.gridy = 1;
-		panel_1.add(editorPane, gbc_editorPane);
+		JEditorPane dtrpnLaActividadComienza = new JEditorPane();
+		dtrpnLaActividadComienza.setFont(new Font("Verdana", Font.PLAIN, 14));
+		dtrpnLaActividadComienza.setText("La actividad comienza el día 3 de septiembre.\r\nEn la escuela de niños, para la inscripción en los grupos no indicadosen el  formulario se requiere una prueba de nivel, excepto para aquellos que ya estuvieran apuntados al final de la temporada pasada. Laspruebas se realizarán del 3 al 7 de septiembre, de 18:00 a 20:00 horas.");
+		dtrpnLaActividadComienza.setEditable(false);
+		GridBagConstraints gbc_dtrpnLaActividadComienza = new GridBagConstraints();
+		gbc_dtrpnLaActividadComienza.insets = new Insets(0, 0, 5, 5);
+		gbc_dtrpnLaActividadComienza.fill = GridBagConstraints.BOTH;
+		gbc_dtrpnLaActividadComienza.gridx = 3;
+		gbc_dtrpnLaActividadComienza.gridy = 1;
+		panel_1.add(dtrpnLaActividadComienza, gbc_dtrpnLaActividadComienza);
 		
 		JPanel panel_2 = new JPanel();
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
 		gbc_panel_2.gridwidth = 2;
 		gbc_panel_2.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_2.gridx = 4;
+		gbc_panel_2.gridx = 5;
 		gbc_panel_2.gridy = 1;
 		panel_1.add(panel_2, gbc_panel_2);
 		
-		JButton btnNewButton = new JButton("Inscritos");
-		panel_2.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Reservar");
+		JButton btnNewButton_1 = new JButton("Inscribirse");
+		btnNewButton_1.setBackground(Color.ORANGE);
 		panel_2.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
@@ -99,14 +98,12 @@ public class V_Actividades extends JPanel {
 		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
 		gbc_panel_3.gridwidth = 2;
 		gbc_panel_3.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_3.gridx = 4;
+		gbc_panel_3.gridx = 5;
 		gbc_panel_3.gridy = 3;
 		panel_1.add(panel_3, gbc_panel_3);
 		
-		JButton btnNewButton_2 = new JButton("Inscritos");
-		panel_3.add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("Reservar");
+		JButton btnNewButton_3 = new JButton("Inscribirse");
+		btnNewButton_3.setBackground(Color.ORANGE);
 		panel_3.add(btnNewButton_3);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
@@ -130,14 +127,12 @@ public class V_Actividades extends JPanel {
 		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
 		gbc_panel_4.gridwidth = 2;
 		gbc_panel_4.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_4.gridx = 4;
+		gbc_panel_4.gridx = 5;
 		gbc_panel_4.gridy = 5;
 		panel_1.add(panel_4, gbc_panel_4);
 		
-		JButton btnNewButton_5 = new JButton("Inscritos");
-		panel_4.add(btnNewButton_5);
-		
-		JButton btnNewButton_4 = new JButton("Reservar");
+		JButton btnNewButton_4 = new JButton("Inscribirse");
+		btnNewButton_4.setBackground(Color.ORANGE);
 		panel_4.add(btnNewButton_4);
 		
 	}

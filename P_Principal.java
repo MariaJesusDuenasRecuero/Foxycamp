@@ -29,6 +29,7 @@ import javax.swing.JSeparator;
 import java.awt.FlowLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import java.awt.Toolkit;
 
 public class P_Principal extends JFrame {
 
@@ -52,6 +53,8 @@ public class P_Principal extends JFrame {
 	 */
 	public P_Principal() {
 		frmPrincipal = new JFrame();
+		frmPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage(P_Principal.class.getResource("/presentacion/casa-de-perro.png")));
+		frmPrincipal.setTitle("Menú principal");
 		frmPrincipal.setResizable(false);
 		frmPrincipal.setBounds(new Rectangle(0, 0, 1375, 800));
 		frmPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -130,8 +133,9 @@ public class P_Principal extends JFrame {
 		JPopupMenu pmFlecha = new JPopupMenu();
 		addPopup(lblFlecha, pmFlecha);
 
-		JLabel lblPerfilOption = new JLabel("    Adrian Ruiz");
-		lblPerfilOption.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/adrian.png")));
+		JLabel lblPerfilOption = new JLabel("    Adrián Ruiz");
+		lblPerfilOption.setFont(new Font("Verdana", Font.PLAIN, 14));
+		lblPerfilOption.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png")));
 		pmFlecha.add(lblPerfilOption);
 
 		JSeparator separator = new JSeparator();
