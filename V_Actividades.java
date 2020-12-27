@@ -13,6 +13,12 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JEditorPane;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 public class V_Actividades extends JPanel {
 
@@ -26,115 +32,114 @@ public class V_Actividades extends JPanel {
 		
 		JPanel panel = new JPanel();
 		add(panel, BorderLayout.CENTER);
-		panel.setLayout(new BorderLayout(0, 0));
+		panel.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel.add(panel_1, BorderLayout.NORTH);
-		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[]{50, 218, 0, 500, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel_1.rowHeights = new int[]{70, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		panel_1.setLayout(gbl_panel_1);
+		JLabel lblTiroConArco = new JLabel("");
+		lblTiroConArco.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTiroConArco.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/TiroConArcox64.png")));
+		lblTiroConArco.setBounds(48, 180, 124, 119);
+		panel.add(lblTiroConArco);
 		
-		JLabel lblNewLabel_3 = new JLabel("ACTIVIDADES");
-		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD, 25));
-		lblNewLabel_3.setForeground(new Color(255, 140, 0));
-		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
-		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_3.gridx = 3;
-		gbc_lblNewLabel_3.gridy = 0;
-		panel_1.add(lblNewLabel_3, gbc_lblNewLabel_3);
+		JLabel lblNatacion = new JLabel("");
+		lblNatacion.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNatacion.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/natacionx64.png")));
+		lblNatacion.setBounds(48, 36, 124, 119);
+		panel.add(lblNatacion);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/natacion.png")));
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel.gridx = 1;
-		gbc_lblNewLabel.gridy = 1;
-		panel_1.add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblkayak = new JLabel("");
+		lblkayak.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/kayakx64.png")));
+		lblkayak.setHorizontalAlignment(SwingConstants.CENTER);
+		lblkayak.setBounds(48, 326, 124, 119);
+		panel.add(lblkayak);
 		
-		JEditorPane dtrpnLaActividadComienza = new JEditorPane();
-		dtrpnLaActividadComienza.setFont(new Font("Verdana", Font.PLAIN, 14));
-		dtrpnLaActividadComienza.setText("La actividad comienza el día 3 de septiembre.\r\nEn la escuela de niños, para la inscripción en los grupos no indicadosen el  formulario se requiere una prueba de nivel, excepto para aquellos que ya estuvieran apuntados al final de la temporada pasada. Laspruebas se realizarán del 3 al 7 de septiembre, de 18:00 a 20:00 horas.");
-		dtrpnLaActividadComienza.setEditable(false);
-		GridBagConstraints gbc_dtrpnLaActividadComienza = new GridBagConstraints();
-		gbc_dtrpnLaActividadComienza.insets = new Insets(0, 0, 5, 5);
-		gbc_dtrpnLaActividadComienza.fill = GridBagConstraints.BOTH;
-		gbc_dtrpnLaActividadComienza.gridx = 3;
-		gbc_dtrpnLaActividadComienza.gridy = 1;
-		panel_1.add(dtrpnLaActividadComienza, gbc_dtrpnLaActividadComienza);
+		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		separator.setBounds(486, 24, 11, 421);
+		panel.add(separator);
 		
-		JPanel panel_2 = new JPanel();
-		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
-		gbc_panel_2.gridwidth = 2;
-		gbc_panel_2.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_2.gridx = 5;
-		gbc_panel_2.gridy = 1;
-		panel_1.add(panel_2, gbc_panel_2);
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(58, 157, 408, 18);
+		panel.add(separator_1);
 		
-		JButton btnNewButton_1 = new JButton("Inscribirse");
-		btnNewButton_1.setBackground(Color.ORANGE);
-		panel_2.add(btnNewButton_1);
+		JSeparator separator_1_1 = new JSeparator();
+		separator_1_1.setBounds(58, 305, 408, 18);
+		panel.add(separator_1_1);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/objetivox128.png")));
-		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_1.gridx = 1;
-		gbc_lblNewLabel_1.gridy = 3;
-		panel_1.add(lblNewLabel_1, gbc_lblNewLabel_1);
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setEditable(false);
+		textArea_1.setBounds(178, 172, 288, 122);
+		panel.add(textArea_1);
 		
-		JEditorPane editorPane_1 = new JEditorPane();
-		editorPane_1.setEditable(false);
-		GridBagConstraints gbc_editorPane_1 = new GridBagConstraints();
-		gbc_editorPane_1.insets = new Insets(0, 0, 5, 5);
-		gbc_editorPane_1.fill = GridBagConstraints.BOTH;
-		gbc_editorPane_1.gridx = 3;
-		gbc_editorPane_1.gridy = 3;
-		panel_1.add(editorPane_1, gbc_editorPane_1);
+		JButton btnNewButton = new JButton("Inscritos");
+		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+		btnNewButton.setBackground(new Color(255, 165, 0));
+		btnNewButton.setBounds(342, 485, 124, 23);
+		panel.add(btnNewButton);
 		
-		JPanel panel_3 = new JPanel();
-		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
-		gbc_panel_3.gridwidth = 2;
-		gbc_panel_3.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_3.gridx = 5;
-		gbc_panel_3.gridy = 3;
-		panel_1.add(panel_3, gbc_panel_3);
+		JButton btnNewButton_1 = new JButton("Incribirse");
+		btnNewButton_1.setFont(new Font("Verdana", Font.PLAIN, 16));
+		btnNewButton_1.setBackground(new Color(255, 165, 0));
+		btnNewButton_1.setBounds(511, 485, 124, 23);
+		panel.add(btnNewButton_1);
 		
-		JButton btnNewButton_3 = new JButton("Inscribirse");
-		btnNewButton_3.setBackground(Color.ORANGE);
-		panel_3.add(btnNewButton_3);
+		JTextArea textArea_1_1 = new JTextArea();
+		textArea_1_1.setEditable(false);
+		textArea_1_1.setBounds(178, 323, 288, 122);
+		panel.add(textArea_1_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/kayak.png")));
-		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
-		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_2.gridx = 1;
-		gbc_lblNewLabel_2.gridy = 5;
-		panel_1.add(lblNewLabel_2, gbc_lblNewLabel_2);
+		JTextArea textArea_1_2 = new JTextArea();
+		textArea_1_2.setEditable(false);
+		textArea_1_2.setBounds(178, 22, 288, 122);
+		panel.add(textArea_1_2);
 		
-		JEditorPane editorPane_2 = new JEditorPane();
-		editorPane_2.setEditable(false);
-		GridBagConstraints gbc_editorPane_2 = new GridBagConstraints();
-		gbc_editorPane_2.insets = new Insets(0, 0, 5, 5);
-		gbc_editorPane_2.fill = GridBagConstraints.BOTH;
-		gbc_editorPane_2.gridx = 3;
-		gbc_editorPane_2.gridy = 5;
-		panel_1.add(editorPane_2, gbc_editorPane_2);
+		JLabel lblNatacion_1 = new JLabel("");
+		lblNatacion_1.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/IconCiclismo.png")));
+		lblNatacion_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNatacion_1.setBounds(511, 38, 124, 119);
+		panel.add(lblNatacion_1);
 		
-		JPanel panel_4 = new JPanel();
-		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
-		gbc_panel_4.gridwidth = 2;
-		gbc_panel_4.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_4.gridx = 5;
-		gbc_panel_4.gridy = 5;
-		panel_1.add(panel_4, gbc_panel_4);
+		JTextArea textArea_1_2_1 = new JTextArea();
+		textArea_1_2_1.setEditable(false);
+		textArea_1_2_1.setBounds(641, 24, 288, 122);
+		panel.add(textArea_1_2_1);
 		
-		JButton btnNewButton_4 = new JButton("Inscribirse");
-		btnNewButton_4.setBackground(Color.ORANGE);
-		panel_4.add(btnNewButton_4);
+		JSeparator separator_1_2 = new JSeparator();
+		separator_1_2.setBounds(521, 159, 408, 18);
+		panel.add(separator_1_2);
+		
+		JTextArea textArea_1_3 = new JTextArea();
+		textArea_1_3.setEditable(false);
+		textArea_1_3.setBounds(641, 174, 288, 122);
+		panel.add(textArea_1_3);
+		
+		JLabel lblTiroConArco_1 = new JLabel("");
+		lblTiroConArco_1.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/IconFutbol.png")));
+		lblTiroConArco_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTiroConArco_1.setBounds(511, 182, 124, 119);
+		panel.add(lblTiroConArco_1);
+		
+		JSeparator separator_1_1_1 = new JSeparator();
+		separator_1_1_1.setBounds(521, 307, 408, 18);
+		panel.add(separator_1_1_1);
+		
+		JTextArea textArea_1_1_1 = new JTextArea();
+		textArea_1_1_1.setEditable(false);
+		textArea_1_1_1.setBounds(641, 325, 288, 122);
+		panel.add(textArea_1_1_1);
+		
+		JLabel lblkayak_1 = new JLabel("");
+		lblkayak_1.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/IconYoga.png")));
+		lblkayak_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblkayak_1.setBounds(511, 328, 124, 119);
+		panel.add(lblkayak_1);
 		
 	}
 
+	/*private class BtnInscritosActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			P_Inscritos ins = new P_Inscritos();
+			ins.getFrame().setVisible(true);
+			frmLogin.dispose();
+		}
+	}*/
 }

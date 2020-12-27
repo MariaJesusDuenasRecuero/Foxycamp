@@ -31,6 +31,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JTextPane;
+import javax.swing.JTextArea;
 
 public class V_Parcela extends JPanel {
 	private JTextField txtLlegada;
@@ -51,69 +53,26 @@ public class V_Parcela extends JPanel {
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BorderLayout(0, 0));
 
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.WHITE);
-		panel_1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel_1.setBounds(new Rectangle(0, 0, 800, 530));
-		panel.add(panel_1, BorderLayout.EAST);
-		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[] { 0, 0, 0, 140, 145, 100, 15, 0 };
-		gbl_panel_1.rowHeights = new int[] { 50, 130, 0, 0, 0, 0, 0, 0, 50, 0 };
-		gbl_panel_1.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_panel_1.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE };
-		panel_1.setLayout(gbl_panel_1);
-
-		JScrollBar scrollBar = new JScrollBar();
-		GridBagConstraints gbc_scrollBar = new GridBagConstraints();
-		gbc_scrollBar.fill = GridBagConstraints.VERTICAL;
-		gbc_scrollBar.gridheight = 9;
-		gbc_scrollBar.anchor = GridBagConstraints.EAST;
-		gbc_scrollBar.gridx = 6;
-		gbc_scrollBar.gridy = 0;
-		panel_1.add(scrollBar, gbc_scrollBar);
-		
-				JLabel lblNewLabel_6 = new JLabel("");
-				lblNewLabel_6.setIcon(new ImageIcon(V_Parcela.class.getResource("Parcela1.jpg")));
-				GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
-				gbc_lblNewLabel_6.fill = GridBagConstraints.VERTICAL;
-				gbc_lblNewLabel_6.insets = new Insets(0, 0, 5, 5);
-				gbc_lblNewLabel_6.gridx = 1;
-				gbc_lblNewLabel_6.gridy = 1;
-				panel_1.add(lblNewLabel_6, gbc_lblNewLabel_6);
-		
-		JEditorPane dtrpnLesPermitirConocer = new JEditorPane();
-		dtrpnLesPermitirConocer.setFont(new Font("Verdana", Font.PLAIN, 11));
-		dtrpnLesPermitirConocer.setText("Les permitirá conocer los encantos de una ciudad tan mágica como Santiago de Compostela de la forma más fácil. Visitar su zona histórica es tan simple como dar un pequeño paseo  desde el propio camping. Y si lo desean, también disponen de opciones más cómodas, como tomar la línea de buses anexa al camping, que en 5 minutos les dejarán en el centro de la ciudad. Además, el Camping As Cancelas abre los 365 días del año y pone a su disposición la alta calidad de todos sus servicios e instalaciones, y le ofrece el compromiso personal de intentar convertir sus vacaciones en un recuerdo inolvidable.");
-		dtrpnLesPermitirConocer.setBackground(Color.WHITE);
-		dtrpnLesPermitirConocer.setEditable(false);
-		GridBagConstraints gbc_dtrpnLesPermitirConocer = new GridBagConstraints();
-		gbc_dtrpnLesPermitirConocer.gridwidth = 4;
-		gbc_dtrpnLesPermitirConocer.insets = new Insets(0, 0, 5, 5);
-		gbc_dtrpnLesPermitirConocer.fill = GridBagConstraints.BOTH;
-		gbc_dtrpnLesPermitirConocer.gridx = 2;
-		gbc_dtrpnLesPermitirConocer.gridy = 1;
-		panel_1.add(dtrpnLesPermitirConocer, gbc_dtrpnLesPermitirConocer);
-
-		JButton btnReservar = new JButton("Reservar");
-		btnReservar.setBackground(new Color(255, 140, 0));
-		GridBagConstraints gbc_btnReservar = new GridBagConstraints();
-		gbc_btnReservar.fill = GridBagConstraints.BOTH;
-		gbc_btnReservar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnReservar.gridx = 5;
-		gbc_btnReservar.gridy = 2;
-		panel_1.add(btnReservar, gbc_btnReservar);
-
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.WHITE);
 		panel_2.setBounds(new Rectangle(0, 0, 75, 500));
 		panel.add(panel_2, BorderLayout.WEST);
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
-		gbl_panel_2.columnWidths = new int[] { 50, 155, 70, 0, 0 };
+		gbl_panel_2.columnWidths = new int[] { 25, 177, 70, 35, 0 };
 		gbl_panel_2.rowHeights = new int[] { 100, 0, 50, 0, 50, 0, 0, 50, 0, 0, 100, 0 };
 		gbl_panel_2.columnWeights = new double[] { 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_panel_2.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		panel_2.setLayout(gbl_panel_2);
+		
+		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		GridBagConstraints gbc_separator = new GridBagConstraints();
+		gbc_separator.gridheight = 11;
+		gbc_separator.insets = new Insets(0, 0, 5, 0);
+		gbc_separator.gridx = 3;
+		gbc_separator.gridy = 0;
+		panel_2.add(separator, gbc_separator);
 
 		JLabel lblNewLabel = new JLabel("Fecha llegada");
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 16));
@@ -203,10 +162,112 @@ public class V_Parcela extends JPanel {
 		gbc_comboBox.gridx = 2;
 		gbc_comboBox.gridy = 8;
 		panel_2.add(comboBox, gbc_comboBox);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setAutoscrolls(true);
+		scrollPane.setBackground(Color.WHITE);
+		scrollPane.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel.add(scrollPane, BorderLayout.CENTER);
+		
+		JPanel pnlParcelas = new JPanel();
+		pnlParcelas.setBounds(new Rectangle(0, 0, 0, 900));
+		scrollPane.setViewportView(pnlParcelas);
+		pnlParcelas.setLayout(null);
+		
+		JLabel lblParcela2 = new JLabel("");
+		lblParcela2.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela2.jpg")));
+		lblParcela2.setBounds(10, 20, 149, 130);
+		pnlParcelas.add(lblParcela2);
+		
+		JButton btnParcela2 = new JButton("Reservar");
+		btnParcela2.setBackground(new Color(255, 165, 0));
+		btnParcela2.setFont(new Font("Verdana", Font.PLAIN, 16));
+		btnParcela2.setBounds(169, 127, 418, 23);
+		pnlParcelas.add(btnParcela2);
+		
+		JLabel lblParcela3 = new JLabel("");
+		lblParcela3.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela3.jpg")));
+		lblParcela3.setBounds(10, 177, 149, 130);
+		pnlParcelas.add(lblParcela3);
+		
+		JTextArea textAreaParcela3 = new JTextArea();
+		textAreaParcela3.setFont(new Font("Verdana", Font.PLAIN, 10));
+		textAreaParcela3.setText("La Casa El Mirador se encuentra en Teruel, Aragón, y ofrece patio y vistas al jardín. El establecimiento se encuentra a 2,7 km del parque Dinópolis y dispone de jardín y aparcamiento privado gratuito.\r\nLa casa cuenta con 3 dormitorios independientes y cocina con lavavajillas, microondas y zona de comedor.\r\nEn las inmediaciones se puede practicar ciclismo. Además, hay solárium.");
+		textAreaParcela3.setAutoscrolls(false);
+		textAreaParcela3.setLineWrap(true);
+		textAreaParcela3.setEditable(false);
+		textAreaParcela3.setBounds(169, 179, 418, 102);
+		pnlParcelas.add(textAreaParcela3);
+		
+		JButton btnParcela3 = new JButton("Reservar");
+		btnParcela3.setFont(new Font("Verdana", Font.PLAIN, 16));
+		btnParcela3.setBackground(new Color(255, 165, 0));
+		btnParcela3.setBounds(169, 282, 418, 23);
+		pnlParcelas.add(btnParcela3);
+		
+		JLabel lblParcela4 = new JLabel("");
+		lblParcela4.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela4.jpg")));
+		lblParcela4.setBounds(10, 318, 149, 130);
+		pnlParcelas.add(lblParcela4);
+		
+		JTextArea textAreaParcela2 = new JTextArea();
+		textAreaParcela2.setFont(new Font("Verdana", Font.PLAIN, 10));
+		textAreaParcela2.setText("El RK Catalina Lofts se encuentra en Las Palmas de Gran Canaria, a 2,3 km de la playa del Confital .Ofrece WiFi gratuita y aire acondicionado. \r\nEl apartamento cuenta con 1 dormitorio, TV de pantalla plana, cocina equipada con microondas y nevera, lavadora y baño con ducha.Entre los lugares de interés cercanos al apartamento se incluyen el centro comercial El Muelle, el acuario Poema Del Mar y el puerto de Las Palmas.");
+		textAreaParcela2.setAutoscrolls(false);
+		textAreaParcela2.setLineWrap(true);
+		textAreaParcela2.setEditable(false);
+		textAreaParcela2.setBounds(169, 24, 418, 102);
+		pnlParcelas.add(textAreaParcela2);
+		
+		JTextArea textAreaParcela4 = new JTextArea();
+		textAreaParcela4.setFont(new Font("Verdana", Font.PLAIN, 10));
+		textAreaParcela4.setText("El CAN JOAN está situado en Palma de Mallorca, a 1,5 km de la playa de Es Calonet des Fornàs y a 12 km del puerto de Palma, y ofrece alojamiento con conexión WiFi gratuita, aire acondicionado, piscina al aire libre de temporada y jardín. El establecimiento cuenta con piscina privada.\r\nLa casa cuenta con 5 dormitorios, TV de pantalla plana con canales vía satélite, cocina equipada con lavavajillas y microondas, lavadora y 3 baños con bidet.\r\nLa casa cuenta con barbacoa y terraza.");
+		textAreaParcela4.setAutoscrolls(false);
+		textAreaParcela4.setLineWrap(true);
+		textAreaParcela4.setEditable(false);
+		textAreaParcela4.setBounds(169, 318, 418, 102);
+		pnlParcelas.add(textAreaParcela4);
+		
+		JButton btnParcela4 = new JButton("Reservar");
+		btnParcela4.setFont(new Font("Verdana", Font.PLAIN, 16));
+		btnParcela4.setBackground(new Color(255, 165, 0));
+		btnParcela4.setBounds(169, 421, 418, 23);
+		pnlParcelas.add(btnParcela4);
+		
+		JLabel lblParcela1 = new JLabel("");
+		lblParcela1.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela1.jpg")));
+		lblParcela1.setBounds(10, 474, 149, 130);
+		pnlParcelas.add(lblParcela1);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(10, 162, 577, 23);
+		pnlParcelas.add(separator_1);
+		
+		JSeparator separator2 = new JSeparator();
+		separator2.setBounds(10, 313, 573, 23);
+		pnlParcelas.add(separator2);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setBounds(10, 459, 573, 2);
+		pnlParcelas.add(separator_2);
+		
+		JTextArea txtrCercaDeLa = new JTextArea();
+		txtrCercaDeLa.setEditable(false);
+		txtrCercaDeLa.setFont(new Font("Verdana", Font.PLAIN, 10));
+		txtrCercaDeLa.setLineWrap(true);
+		txtrCercaDeLa.setText("Cerca de la Casa cercana hay varios lugares de interés. El establecimiento A Santa Catalina alberga el club náutico de Palma, el Pueblo Español Mallorca y la discoteca Pacha Mallorca. El aeropuerto más cercano es el de Palma de Mallorca, ubicado a 11 km.");
+		txtrCercaDeLa.setAutoscrolls(false);
+		txtrCercaDeLa.setBounds(169, 472, 418, 66);
+		pnlParcelas.add(txtrCercaDeLa);
 		GridBagConstraints gbc_separator_3 = new GridBagConstraints();
 		gbc_separator_3.anchor = GridBagConstraints.WEST;
 		gbc_separator_3.insets = new Insets(0, 0, 0, 5);
 		gbc_separator_3.gridx = 0;
 		gbc_separator_3.gridy = 3;
+	}
+	private static class __Tmp {
+		private static void __tmp() {
+			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
+		}
 	}
 }
