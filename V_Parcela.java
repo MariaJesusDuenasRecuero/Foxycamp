@@ -33,12 +33,15 @@ import javax.swing.border.SoftBevelBorder;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
+import java.awt.CardLayout;
+import javax.swing.border.TitledBorder;
 
 public class V_Parcela extends JPanel {
 	private JTextField txtLlegada;
 	private JTextField txtSAlida;
 	private final JSeparator separator_3 = new JSeparator();
 	private JSlider sliderPrecio;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Create the panel.
@@ -74,7 +77,7 @@ public class V_Parcela extends JPanel {
 		gbc_separator.gridy = 0;
 		panel_2.add(separator, gbc_separator);
 
-		JLabel lblNewLabel = new JLabel("Fecha llegada");
+		JLabel lblNewLabel = new JLabel("Fecha entrada");
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
@@ -163,102 +166,185 @@ public class V_Parcela extends JPanel {
 		gbc_comboBox.gridy = 8;
 		panel_2.add(comboBox, gbc_comboBox);
 		
-		JScrollPane scrollPane = new JScrollPane();
+	    scrollPane = new JScrollPane();
 		scrollPane.setAutoscrolls(true);
 		scrollPane.setBackground(Color.WHITE);
-		scrollPane.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel.add(scrollPane, BorderLayout.CENTER);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		JPanel pnlParcelas = new JPanel();
-		pnlParcelas.setBounds(new Rectangle(0, 0, 0, 900));
+		pnlParcelas.setBackground(Color.WHITE);
 		scrollPane.setViewportView(pnlParcelas);
-		pnlParcelas.setLayout(null);
+		GridBagLayout gbl_pnlParcelas = new GridBagLayout();
+		gbl_pnlParcelas.columnWidths = new int[]{40, 0, 0, 35, 0};
+		gbl_pnlParcelas.rowHeights = new int[]{35, 144, 35, 30, 144, 35, 30, 144, 35, 30, 144, 0, 25, 144, 0, 0, 0, 0};
+		gbl_pnlParcelas.columnWeights = new double[]{0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gbl_pnlParcelas.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		pnlParcelas.setLayout(gbl_pnlParcelas);
+		
+		JLabel lblParcela1 = new JLabel("");
+		lblParcela1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		lblParcela1.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela1.jpg")));
+		GridBagConstraints gbc_lblParcela1 = new GridBagConstraints();
+		gbc_lblParcela1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblParcela1.gridx = 1;
+		gbc_lblParcela1.gridy = 1;
+		pnlParcelas.add(lblParcela1, gbc_lblParcela1);
+		
+		JTextArea txtAParcela1 = new JTextArea();
+		txtAParcela1.setFont(new Font("Verdana", Font.PLAIN, 9));
+		txtAParcela1.setText("El RK Catalina Lofts se encuentra en Las Palmas de Gran Canaria, a 2,3 km de la playa del Confital y a 200 metros del parque de Santa Catalina, y ofrece WiFi gratuita y aire acondicionado. Este apartamento ocupa un edificio que data de 2018 y se encuentra a 1,7 km del parque Romano y a 2 km del auditorio Alfredo Kraus.\r\n\r\nEl apartamento cuenta con 1 dormitorio, TV de pantalla plana, cocina equipada con microondas y nevera, lavadora y baño con ducha.\r\n\r\nEntre los lugares de interés cercanos al apartamento se incluyen el centro comercial El Muelle, el acuario Poema Del Mar y el puerto de Las Palmas.");
+		txtAParcela1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtAParcela1.setEditable(false);
+		txtAParcela1.setLineWrap(true);
+		GridBagConstraints gbc_txtAParcela1 = new GridBagConstraints();
+		gbc_txtAParcela1.insets = new Insets(0, 0, 5, 5);
+		gbc_txtAParcela1.fill = GridBagConstraints.BOTH;
+		gbc_txtAParcela1.gridx = 2;
+		gbc_txtAParcela1.gridy = 1;
+		
+		pnlParcelas.add(txtAParcela1, gbc_txtAParcela1);
+		
+		JButton btnReservarParcela1 = new JButton("Reservar");
+		btnReservarParcela1.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_btnReservarParcela1 = new GridBagConstraints();
+		gbc_btnReservarParcela1.gridwidth = 2;
+		gbc_btnReservarParcela1.fill = GridBagConstraints.BOTH;
+		gbc_btnReservarParcela1.insets = new Insets(0, 0, 5, 5);
+		gbc_btnReservarParcela1.gridx = 1;
+		gbc_btnReservarParcela1.gridy = 2;
+		btnReservarParcela1.setBackground(new Color(255, 165, 0));
+		pnlParcelas.add(btnReservarParcela1, gbc_btnReservarParcela1);
 		
 		JLabel lblParcela2 = new JLabel("");
 		lblParcela2.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela2.jpg")));
-		lblParcela2.setBounds(10, 20, 149, 130);
-		pnlParcelas.add(lblParcela2);
+		GridBagConstraints gbc_lblParcela2 = new GridBagConstraints();
+		gbc_lblParcela2.insets = new Insets(0, 0, 5, 5);
+		gbc_lblParcela2.gridx = 1;
+		gbc_lblParcela2.gridy = 4;
+		pnlParcelas.add(lblParcela2, gbc_lblParcela2);
 		
-		JButton btnParcela2 = new JButton("Reservar");
-		btnParcela2.setBackground(new Color(255, 165, 0));
-		btnParcela2.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnParcela2.setBounds(169, 127, 418, 23);
-		pnlParcelas.add(btnParcela2);
+		JTextArea txtAParcela2 = new JTextArea();
+		txtAParcela2.setFont(new Font("Verdana", Font.PLAIN, 9));
+		txtAParcela2.setText("La Casa El Mirador se encuentra en Teruel, Aragón, y ofrece patio y vistas al jardín. El establecimiento se encuentra a 2,7 km del parque Dinópolis y dispone de jardín y aparcamiento privado gratuito.\r\nLa casa cuenta con 3 dormitorios independientes y cocina con lavavajillas, microondas y zona de comedor.\r\n\r\nEn las inmediaciones se puede practicar ciclismo. Además, hay solárium.");
+		txtAParcela2.setLineWrap(true);
+		txtAParcela2.setEditable(false);
+		txtAParcela2.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		GridBagConstraints gbc_txtAParcela2 = new GridBagConstraints();
+		gbc_txtAParcela2.insets = new Insets(0, 0, 5, 5);
+		gbc_txtAParcela2.fill = GridBagConstraints.BOTH;
+		gbc_txtAParcela2.gridx = 2;
+		gbc_txtAParcela2.gridy = 4;
+		pnlParcelas.add(txtAParcela2, gbc_txtAParcela2);
+		
+		JButton btnReservarParcela2 = new JButton("Reservar");
+		btnReservarParcela2.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_btnReservarParcela2 = new GridBagConstraints();
+		gbc_btnReservarParcela2.fill = GridBagConstraints.BOTH;
+		gbc_btnReservarParcela2.gridwidth = 2;
+		gbc_btnReservarParcela2.insets = new Insets(0, 0, 5, 5);
+		gbc_btnReservarParcela2.gridx = 1;
+		gbc_btnReservarParcela2.gridy = 5;
+		btnReservarParcela2.setBackground(new Color(255, 165, 0));
+		pnlParcelas.add(btnReservarParcela2, gbc_btnReservarParcela2);
 		
 		JLabel lblParcela3 = new JLabel("");
 		lblParcela3.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela3.jpg")));
-		lblParcela3.setBounds(10, 177, 149, 130);
-		pnlParcelas.add(lblParcela3);
+		GridBagConstraints gbc_lblParcela3 = new GridBagConstraints();
+		gbc_lblParcela3.insets = new Insets(0, 0, 5, 5);
+		gbc_lblParcela3.gridx = 1;
+		gbc_lblParcela3.gridy = 7;
+		pnlParcelas.add(lblParcela3, gbc_lblParcela3);
 		
-		JTextArea textAreaParcela3 = new JTextArea();
-		textAreaParcela3.setFont(new Font("Verdana", Font.PLAIN, 10));
-		textAreaParcela3.setText("La Casa El Mirador se encuentra en Teruel, Aragón, y ofrece patio y vistas al jardín. El establecimiento se encuentra a 2,7 km del parque Dinópolis y dispone de jardín y aparcamiento privado gratuito.\r\nLa casa cuenta con 3 dormitorios independientes y cocina con lavavajillas, microondas y zona de comedor.\r\nEn las inmediaciones se puede practicar ciclismo. Además, hay solárium.");
-		textAreaParcela3.setAutoscrolls(false);
-		textAreaParcela3.setLineWrap(true);
-		textAreaParcela3.setEditable(false);
-		textAreaParcela3.setBounds(169, 179, 418, 102);
-		pnlParcelas.add(textAreaParcela3);
+		JTextArea txtAParcela3 = new JTextArea();
+		txtAParcela3.setFont(new Font("Verdana", Font.PLAIN, 9));
+		txtAParcela3.setText("La Casa La Finca se encuentra en Vigo y ofrece jardín, zona de barbacoa, WiFi gratuita y vistas al jardín. El establecimiento tiene vistas a la montaña y está a 500 metros de la playa de Samil y a 8 km de la estación marítima.\r\n\r\nEsta casa cuenta con 2 dormitorios, cocina con microondas, TV de pantalla plana, zona de estar y baño con ducha.\r\n\r\nEn los alrededores se puede pescar.\r\n\r\nEl Museo del Mar de Galicia se encuentra a 2,5 km de la casa, mientras que la sede de Comisiones Obreras está a 2,7 km. El aeropuerto más cercano es el de Vigo, ubicado a 12 km de la Casa La Finca. El establecimiento ofrece un servicio de enlace con el aeropuerto por un suplemento.");
+		txtAParcela3.setLineWrap(true);
+		txtAParcela3.setEditable(false);
+		txtAParcela3.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		GridBagConstraints gbc_txtAParcela3 = new GridBagConstraints();
+		gbc_txtAParcela3.insets = new Insets(0, 0, 5, 5);
+		gbc_txtAParcela3.fill = GridBagConstraints.BOTH;
+		gbc_txtAParcela3.gridx = 2;
+		gbc_txtAParcela3.gridy = 7;
 		
-		JButton btnParcela3 = new JButton("Reservar");
-		btnParcela3.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnParcela3.setBackground(new Color(255, 165, 0));
-		btnParcela3.setBounds(169, 282, 418, 23);
-		pnlParcelas.add(btnParcela3);
+		pnlParcelas.add(txtAParcela3, gbc_txtAParcela3);
+		
+		JButton btnReservarParcela3 = new JButton("Reservar");
+		btnReservarParcela3.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_btnReservarParcela3 = new GridBagConstraints();
+		gbc_btnReservarParcela3.fill = GridBagConstraints.BOTH;
+		gbc_btnReservarParcela3.gridwidth = 2;
+		gbc_btnReservarParcela3.insets = new Insets(0, 0, 5, 5);
+		gbc_btnReservarParcela3.gridx = 1;
+		gbc_btnReservarParcela3.gridy = 8;
+		btnReservarParcela3.setBackground(new Color(255, 165, 0));
+		pnlParcelas.add(btnReservarParcela3, gbc_btnReservarParcela3);
 		
 		JLabel lblParcela4 = new JLabel("");
 		lblParcela4.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela4.jpg")));
-		lblParcela4.setBounds(10, 318, 149, 130);
-		pnlParcelas.add(lblParcela4);
+		GridBagConstraints gbc_lblParcela4 = new GridBagConstraints();
+		gbc_lblParcela4.insets = new Insets(0, 0, 5, 5);
+		gbc_lblParcela4.gridx = 1;
+		gbc_lblParcela4.gridy = 10;
+		pnlParcelas.add(lblParcela4, gbc_lblParcela4);
 		
-		JTextArea textAreaParcela2 = new JTextArea();
-		textAreaParcela2.setFont(new Font("Verdana", Font.PLAIN, 10));
-		textAreaParcela2.setText("El RK Catalina Lofts se encuentra en Las Palmas de Gran Canaria, a 2,3 km de la playa del Confital .Ofrece WiFi gratuita y aire acondicionado. \r\nEl apartamento cuenta con 1 dormitorio, TV de pantalla plana, cocina equipada con microondas y nevera, lavadora y baño con ducha.Entre los lugares de interés cercanos al apartamento se incluyen el centro comercial El Muelle, el acuario Poema Del Mar y el puerto de Las Palmas.");
-		textAreaParcela2.setAutoscrolls(false);
-		textAreaParcela2.setLineWrap(true);
-		textAreaParcela2.setEditable(false);
-		textAreaParcela2.setBounds(169, 24, 418, 102);
-		pnlParcelas.add(textAreaParcela2);
+		JTextArea txtAParcela4 = new JTextArea();
+		txtAParcela4.setFont(new Font("Verdana", Font.PLAIN, 9));
+		txtAParcela4.setText("El CAN JOAN está situado en Palma de Mallorca, a 1,5 km de la playa de Es Calonet des Fornàs y a 12 km del puerto de Palma, y ofrece alojamiento con conexión WiFi gratuita, aire acondicionado, piscina al aire libre de temporada y jardín. El establecimiento cuenta con piscina privada.\r\n\r\nLa casa cuenta con 5 dormitorios, TV de pantalla plana con canales vía satélite, cocina equipada con lavavajillas y microondas, lavadora y 3 baños con bidet.\r\n\r\nLa casa cuenta con barbacoa y terraza.");
+		txtAParcela4.setLineWrap(true);
+		txtAParcela4.setEditable(false);
+		txtAParcela4.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		GridBagConstraints gbc_txtAParcela4 = new GridBagConstraints();
+		gbc_txtAParcela4.insets = new Insets(0, 0, 5, 5);
+		gbc_txtAParcela4.fill = GridBagConstraints.BOTH;
+		gbc_txtAParcela4.gridx = 2;
+		gbc_txtAParcela4.gridy = 10;
+		pnlParcelas.add(txtAParcela4, gbc_txtAParcela4);
 		
-		JTextArea textAreaParcela4 = new JTextArea();
-		textAreaParcela4.setFont(new Font("Verdana", Font.PLAIN, 10));
-		textAreaParcela4.setText("El CAN JOAN está situado en Palma de Mallorca, a 1,5 km de la playa de Es Calonet des Fornàs y a 12 km del puerto de Palma, y ofrece alojamiento con conexión WiFi gratuita, aire acondicionado, piscina al aire libre de temporada y jardín. El establecimiento cuenta con piscina privada.\r\nLa casa cuenta con 5 dormitorios, TV de pantalla plana con canales vía satélite, cocina equipada con lavavajillas y microondas, lavadora y 3 baños con bidet.\r\nLa casa cuenta con barbacoa y terraza.");
-		textAreaParcela4.setAutoscrolls(false);
-		textAreaParcela4.setLineWrap(true);
-		textAreaParcela4.setEditable(false);
-		textAreaParcela4.setBounds(169, 318, 418, 102);
-		pnlParcelas.add(textAreaParcela4);
+		JButton btnReservarParcela4 = new JButton("Reservar");
+		btnReservarParcela4.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_btnReservarParcela4 = new GridBagConstraints();
+		gbc_btnReservarParcela4.fill = GridBagConstraints.BOTH;
+		gbc_btnReservarParcela4.gridwidth = 2;
+		gbc_btnReservarParcela4.insets = new Insets(0, 0, 5, 5);
+		gbc_btnReservarParcela4.gridx = 1;
+		gbc_btnReservarParcela4.gridy = 11;
+		btnReservarParcela4.setBackground(new Color(255, 165, 0));
+		pnlParcelas.add(btnReservarParcela4, gbc_btnReservarParcela4);
 		
-		JButton btnParcela4 = new JButton("Reservar");
-		btnParcela4.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnParcela4.setBackground(new Color(255, 165, 0));
-		btnParcela4.setBounds(169, 421, 418, 23);
-		pnlParcelas.add(btnParcela4);
+		JLabel lblParcela5 = new JLabel("");
+		lblParcela5.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/101.jpg")));
+		GridBagConstraints gbc_lblParcela5 = new GridBagConstraints();
+		gbc_lblParcela5.insets = new Insets(0, 0, 5, 5);
+		gbc_lblParcela5.gridx = 1;
+		gbc_lblParcela5.gridy = 13;
+		pnlParcelas.add(lblParcela5, gbc_lblParcela5);
 		
-		JLabel lblParcela1 = new JLabel("");
-		lblParcela1.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela1.jpg")));
-		lblParcela1.setBounds(10, 474, 149, 130);
-		pnlParcelas.add(lblParcela1);
+		JTextArea txtAParcela5 = new JTextArea();
+		txtAParcela5.setText("La Casa cercana a Santa Catalina se encuentra en Palma de Mallorca y ofrece alojamiento con aire acondicionado y patio. Esta casa cuenta con jardín, zona de barbacoa, conexión WiFi gratuita y aparcamiento privado gratuito.\r\nEsta casa cuenta con 2 dormitorios, sala de estar, TV de pantalla plana, cocina equipada con zona de comedor y 2 baños con ducha y lavadora.\r\nLa casa tiene terraza.\r\n\r\n");
+		txtAParcela5.setFont(new Font("Verdana", Font.PLAIN, 9));
+		txtAParcela5.setLineWrap(true);
+		txtAParcela5.setEditable(false);
+		txtAParcela5.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		GridBagConstraints gbc_txtAParcela5 = new GridBagConstraints();
+		gbc_txtAParcela5.insets = new Insets(0, 0, 5, 5);
+		gbc_txtAParcela5.fill = GridBagConstraints.BOTH;
+		gbc_txtAParcela5.gridx = 2;
+		gbc_txtAParcela5.gridy = 13;
+		pnlParcelas.add(txtAParcela5, gbc_txtAParcela5);
 		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(10, 162, 577, 23);
-		pnlParcelas.add(separator_1);
+		JButton btnReservarParcela5 = new JButton("Reservar");
+		btnReservarParcela5.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_btnReservarParcela5 = new GridBagConstraints();
+		gbc_btnReservarParcela5.fill = GridBagConstraints.BOTH;
+		gbc_btnReservarParcela5.gridwidth = 2;
+		gbc_btnReservarParcela5.insets = new Insets(0, 0, 5, 5);
+		gbc_btnReservarParcela5.gridx = 1;
+		gbc_btnReservarParcela5.gridy = 14;
+		btnReservarParcela5.setBackground(new Color(255, 165, 0));
+		pnlParcelas.add(btnReservarParcela5, gbc_btnReservarParcela5);
 		
-		JSeparator separator2 = new JSeparator();
-		separator2.setBounds(10, 313, 573, 23);
-		pnlParcelas.add(separator2);
-		
-		JSeparator separator_2 = new JSeparator();
-		separator_2.setBounds(10, 459, 573, 2);
-		pnlParcelas.add(separator_2);
-		
-		JTextArea txtrCercaDeLa = new JTextArea();
-		txtrCercaDeLa.setEditable(false);
-		txtrCercaDeLa.setFont(new Font("Verdana", Font.PLAIN, 10));
-		txtrCercaDeLa.setLineWrap(true);
-		txtrCercaDeLa.setText("Cerca de la Casa cercana hay varios lugares de interés. El establecimiento A Santa Catalina alberga el club náutico de Palma, el Pueblo Español Mallorca y la discoteca Pacha Mallorca. El aeropuerto más cercano es el de Palma de Mallorca, ubicado a 11 km.");
-		txtrCercaDeLa.setAutoscrolls(false);
-		txtrCercaDeLa.setBounds(169, 472, 418, 66);
-		pnlParcelas.add(txtrCercaDeLa);
 		GridBagConstraints gbc_separator_3 = new GridBagConstraints();
 		gbc_separator_3.anchor = GridBagConstraints.WEST;
 		gbc_separator_3.insets = new Insets(0, 0, 0, 5);

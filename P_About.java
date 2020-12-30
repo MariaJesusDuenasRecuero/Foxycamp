@@ -25,6 +25,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextPane;
+import javax.swing.JTextArea;
 
 
 @SuppressWarnings("serial")
@@ -175,52 +177,62 @@ public class P_About extends JFrame {
 		contentPane.add(pnlContenido, BorderLayout.CENTER);
 		pnlContenido.setLayout(null);
 		
-		JLabel lblMaria = new JLabel("");
-		lblMaria.setFont(new Font("Tahoma", Font.PLAIN, 95));
-		lblMaria.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblMaria.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/Maria.png")));
-		lblMaria.setBounds(93, 175, 300, 300);
-		pnlContenido.add(lblMaria);
-		
-		JLabel lblAdri = new JLabel("");
-		lblAdri.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/adrian.png")));
-		lblAdri.setBounds(499, 175, 300, 300);
-		pnlContenido.add(lblAdri);
-		
-		JLabel lblMJ = new JLabel("");
-		lblMJ.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/mj.png")));
-		lblMJ.setBounds(899, 175, 300, 300);
-		pnlContenido.add(lblMJ);
-		
-		JLabel lblMariaB = new JLabel("Maria Blanco Gónzalez-Mohíno");
-		lblMariaB.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMariaB.setFont(new Font("Verdana", Font.BOLD, 16));
-		lblMariaB.setBounds(93, 488, 300, 14);
-		pnlContenido.add(lblMariaB);
-		
-		JLabel lblAdrianR = new JLabel("Adrián Ruiz Esteban");
-		lblAdrianR.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAdrianR.setFont(new Font("Verdana", Font.BOLD, 16));
-		lblAdrianR.setBounds(499, 491, 300, 14);
-		pnlContenido.add(lblAdrianR);
-		
-		JLabel lblMjessD = new JLabel("MªJesús Dueñas Recuero");
-		lblMjessD.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMjessD.setFont(new Font("Verdana", Font.BOLD, 16));
-		lblMjessD.setBounds(899, 491, 300, 14);
-		pnlContenido.add(lblMjessD);
-		
-		JLabel lblMiembros = new JLabel("Miembros del equipo");
+		JLabel lblMiembros = new JLabel("Sobre nosotros...");
 		lblMiembros.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMiembros.setForeground(new Color(210, 105, 30));
 		lblMiembros.setFont(new Font("Verdana", Font.BOLD, 46));
-		lblMiembros.setBounds(93, 63, 1106, 50);
+		lblMiembros.setBounds(93, 11, 1106, 50);
 		pnlContenido.add(lblMiembros);
 		
-		JLabel lblSalir = new JLabel("");
-		lblSalir.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/exit.png")));
-		lblSalir.setBounds(46, 618, 70, 70);
-		pnlContenido.add(lblSalir);
+		JButton btnNewButton = new JButton("Volver");
+		btnNewButton.setBounds(new Rectangle(0, 0, 0, 50));
+		btnNewButton.setBackground(new Color(255, 204, 102));
+		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+		btnNewButton.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/volver-flecha (1).png")));
+		btnNewButton.setBounds(23, 756, 146, 25);
+		pnlContenido.add(btnNewButton);
+		
+		JTextArea txtrSomosUnGrupo = new JTextArea();
+		txtrSomosUnGrupo.setForeground(new Color(0, 0, 0));
+		txtrSomosUnGrupo.setFont(new Font("Verdana", Font.PLAIN, 22));
+		txtrSomosUnGrupo.setText("Somos un grupo de estudiantes de ingeniería infotmática en el desarrollo de los fundamentos teóricos, recogidos a lo largo del curso, en el desarrollo de un prototipo de aplicación interactiva de escritorio  con interfaz gráfica de usuario (GUI ) en Java. Dicha GUI deberá diseñarse teniendo en cuenta los aspectos de usabilidad y factores humanos impartidos en las sesiones de teoría de interacción persona ordenador.");
+		txtrSomosUnGrupo.setBackground(new Color(255, 228, 196));
+		txtrSomosUnGrupo.setLineWrap(true);
+		txtrSomosUnGrupo.setBounds(183, 72, 869, 186);
+		pnlContenido.add(txtrSomosUnGrupo);
+		
+		JLabel lblMAria = new JLabel("María Blanco González-Mohíno");
+		lblMAria.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMAria.setFont(new Font("Verdana", Font.PLAIN, 20));
+		lblMAria.setBounds(93, 565, 320, 79);
+		pnlContenido.add(lblMAria);
+		
+		JLabel lblAdrinRuizEsteban = new JLabel("Adrián Ruiz Esteban");
+		lblAdrinRuizEsteban.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAdrinRuizEsteban.setFont(new Font("Verdana", Font.PLAIN, 20));
+		lblAdrinRuizEsteban.setBounds(460, 565, 320, 79);
+		pnlContenido.add(lblAdrinRuizEsteban);
+		
+		JLabel lblMJ = new JLabel("María Jesús Dueñas Recuero");
+		lblMJ.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMJ.setFont(new Font("Verdana", Font.PLAIN, 20));
+		lblMJ.setBounds(879, 565, 320, 79);
+		pnlContenido.add(lblMJ);
+		
+		JLabel lblIconMaria = new JLabel("");
+		lblIconMaria.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/Maria.png")));
+		lblIconMaria.setBounds(97, 259, 327, 321);
+		pnlContenido.add(lblIconMaria);
+		
+		JLabel lblIconAdrian = new JLabel("");
+		lblIconAdrian.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/adrian.png")));
+		lblIconAdrian.setBounds(472, 259, 327, 321);
+		pnlContenido.add(lblIconAdrian);
+		
+		JLabel lblIconMJ = new JLabel("");
+		lblIconMJ.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/mj.png")));
+		lblIconMJ.setBounds(872, 259, 327, 321);
+		pnlContenido.add(lblIconMJ);
 		
 		
 
@@ -244,5 +256,4 @@ public class P_About extends JFrame {
 
 		});
 	}
-	
 }

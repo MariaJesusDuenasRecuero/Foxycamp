@@ -39,6 +39,8 @@ import javax.swing.border.MatteBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.ParseException;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class P_Login {
 
@@ -52,6 +54,7 @@ public class P_Login {
 	private JLabel lblIncorrectPassword;
 	private JLabel lblValidar;
 	private JLabel lblAyuda;
+	private JLabel lblLink;
 
 	private Color colorBlanco = new Color(255, 255, 255);
 	private Color colorResaltado = new Color(255, 255, 209);
@@ -182,7 +185,7 @@ public class P_Login {
 		GridBagLayout gbl_pnlLogin = new GridBagLayout();
 		gbl_pnlLogin.columnWidths = new int[] { 85, 10, 80, 0, 113, 30, 75, 0 };
 		gbl_pnlLogin.rowHeights = new int[] { 72, 48, 0, 30, 52, 0, 31, 26, 25, 23, 22, 45, 0 };
-		gbl_pnlLogin.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_pnlLogin.columnWeights = new double[] { 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_pnlLogin.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		pnlLogin.setLayout(gbl_pnlLogin);
@@ -293,7 +296,7 @@ public class P_Login {
 		lblValidar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblValidar.setForeground(new Color(255, 0, 0));
 		GridBagConstraints gbc_lblValidar = new GridBagConstraints();
-		gbc_lblValidar.fill = GridBagConstraints.VERTICAL;
+		gbc_lblValidar.fill = GridBagConstraints.BOTH;
 		gbc_lblValidar.gridwidth = 4;
 		gbc_lblValidar.insets = new Insets(0, 0, 5, 5);
 		gbc_lblValidar.gridx = 1;
@@ -301,6 +304,7 @@ public class P_Login {
 		pnlLogin.add(lblValidar, gbc_lblValidar);
 
 		JLabel lblLink = new JLabel("Crear cuenta");
+		lblLink.addKeyListener(new LblLinkKeyListener());
 		lblLink.setForeground(new Color(0, 0, 255));
 		lblLink.setFont(new Font("Verdana", Font.ITALIC, 14));
 		GridBagConstraints gbc_lblLink = new GridBagConstraints();
@@ -363,15 +367,15 @@ public class P_Login {
 
 	private class BtnAceptarLoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if ((txtFormattedDNI.getText().equals("00000000-I") && pwdIntroduzcaContrasea.getText().equals("man123")) || (txtFormattedDNI.getText().equals("05986680-X") && pwdIntroduzcaContrasea.getText().equals("man123"))) {
+			if ((txtFormattedDNI.getText().equals("00000016-A") && pwdIntroduzcaContrasea.getText().equals("man123")) || (txtFormattedDNI.getText().equals("00000011-M") && pwdIntroduzcaContrasea.getText().equals("man123"))|| (txtFormattedDNI.getText().equals("00000018-M") && pwdIntroduzcaContrasea.getText().equals("man123"))) {
 				P_Principal principal = new P_Principal();
 				principal.getFrame().setVisible(true);
 				frmLogin.dispose();
 			} else if (txtFormattedDNI.getText().equals("XXXXXXXXX-X")
 					&& pwdIntroduzcaContrasea.getText().equals(null)) {
-				lblValidar.setText("Por favor, introduzca datos");
 				lblIncorrectDNI.setVisible(true);
 				lblIncorrectPassword.setVisible(true);
+				lblValidar.setText("Por favor, introduzca datos");
 			} else {
 				lblIncorrectDNI.setVisible(true);
 				lblIncorrectPassword.setVisible(true);
@@ -404,6 +408,8 @@ public class P_Login {
 			frmRegistro.getFrame().setVisible(true);
 			frmLogin.dispose();
 		}
+		
+		
 	}
 
 	private class TxtDNIFocusListener extends FocusAdapter {
@@ -437,6 +443,12 @@ public class P_Login {
 			P_Ayuda ayuda = new P_Ayuda();
 			ayuda.getFrame().setVisible(true);
 
+		}
+	}
+	private class LblLinkKeyListener extends KeyAdapter {
+		@Override
+		public void keyTyped(KeyEvent e) {
+			lblLink.setForeground(new Color(0, 0, 400));
 		}
 	}
 

@@ -22,8 +22,7 @@ import javax.swing.JComboBox;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.SoftBevelBorder;
-
-
+import javax.swing.border.TitledBorder;
 
 import com.toedter.calendar.JCalendar;
 
@@ -37,15 +36,17 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.JTextArea;
 
 public class V_Bungalow extends JPanel {
-
+	private JTextField txtLlegada;
+	private JTextField txtSAlida;
+	private final JSeparator separator_3 = new JSeparator();
 	private JSlider sliderPrecio;
-	
+	private JScrollPane scrollPane;
 
 	/**
 	 * Create the panel.
 	 */
 	public V_Bungalow() {
-		setBackground(Color.WHITE);
+		setBackground(Color.LIGHT_GRAY);
 		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
 
@@ -59,23 +60,23 @@ public class V_Bungalow extends JPanel {
 		panel_2.setBounds(new Rectangle(0, 0, 75, 500));
 		panel.add(panel_2, BorderLayout.WEST);
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
-		gbl_panel_2.columnWidths = new int[] { 25, 155, 70, 35, 0 };
+		gbl_panel_2.columnWidths = new int[] { 25, 177, 70, 35, 0 };
 		gbl_panel_2.rowHeights = new int[] { 100, 0, 50, 0, 50, 0, 0, 50, 0, 0, 100, 0 };
 		gbl_panel_2.columnWeights = new double[] { 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_panel_2.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		panel_2.setLayout(gbl_panel_2);
 		
-		JSeparator separator_2 = new JSeparator();
-		separator_2.setOrientation(SwingConstants.VERTICAL);
-		GridBagConstraints gbc_separator_2 = new GridBagConstraints();
-		gbc_separator_2.gridheight = 11;
-		gbc_separator_2.insets = new Insets(0, 0, 5, 0);
-		gbc_separator_2.gridx = 3;
-		gbc_separator_2.gridy = 0;
-		panel_2.add(separator_2, gbc_separator_2);
+		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		GridBagConstraints gbc_separator = new GridBagConstraints();
+		gbc_separator.gridheight = 11;
+		gbc_separator.insets = new Insets(0, 0, 5, 0);
+		gbc_separator.gridx = 3;
+		gbc_separator.gridy = 0;
+		panel_2.add(separator, gbc_separator);
 
-		JLabel lblNewLabel = new JLabel("Fecha llegada");
+		JLabel lblNewLabel = new JLabel("Fecha entrada");
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
@@ -136,7 +137,7 @@ public class V_Bungalow extends JPanel {
 		panel_2.add(sliderPrecio, gbc_sliderPrecio);
 
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/IconEuro.png")));
+		lblNewLabel_4.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/IconEuro.png")));
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
 		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_4.gridx = 2;
@@ -164,104 +165,193 @@ public class V_Bungalow extends JPanel {
 		gbc_comboBox.gridy = 8;
 		panel_2.add(comboBox, gbc_comboBox);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+	    scrollPane = new JScrollPane();
+		scrollPane.setAutoscrolls(true);
+		scrollPane.setBackground(Color.WHITE);
 		panel.add(scrollPane, BorderLayout.CENTER);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
-		JPanel panelBungalow = new JPanel();
-		scrollPane.setViewportView(panelBungalow);
-		panelBungalow.setLayout(null);
+		JPanel pnlBungalows = new JPanel();
+		pnlBungalows.setBackground(Color.WHITE);
+		scrollPane.setViewportView(pnlBungalows);
+		GridBagLayout gbl_pnlBungalows = new GridBagLayout();
+		gbl_pnlBungalows.columnWidths = new int[]{40, 0, 0, 35, 0};
+		gbl_pnlBungalows.rowHeights = new int[]{35, 144, 35, 30, 144, 35, 30, 144, 35, 30, 144, 0, 25, 144, 0, 0, 0, 0};
+		gbl_pnlBungalows.columnWeights = new double[]{0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gbl_pnlBungalows.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		pnlBungalows.setLayout(gbl_pnlBungalows);
 		
 		JLabel lblBungalow1 = new JLabel("");
+		lblBungalow1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		lblBungalow1.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow1.jpg")));
-		lblBungalow1.setBounds(10, 11, 141, 133);
-		panelBungalow.add(lblBungalow1);
+		GridBagConstraints gbc_lblBungalow1 = new GridBagConstraints();
+		gbc_lblBungalow1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBungalow1.gridx = 1;
+		gbc_lblBungalow1.gridy = 1;
+		pnlBungalows.add(lblBungalow1, gbc_lblBungalow1);
 		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(10, 150, 569, 9);
-		panelBungalow.add(separator);
+		JTextArea txtABungalow1 = new JTextArea();
+		txtABungalow1.setFont(new Font("Verdana", Font.PLAIN, 13));
+		txtABungalow1.setText("Esta propiedad independiente tiene cocina con horno, toallas y ropa de cama.\r\n\r\nSe encuentra a 20 metros de la piscina, la grannja mas cercara queda a 500 metros y elas pistas Adolfo Suárez s. ");
+		txtABungalow1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtABungalow1.setEditable(false);
+		txtABungalow1.setLineWrap(true);
+		GridBagConstraints gbc_txtABungalow1 = new GridBagConstraints();
+		gbc_txtABungalow1.insets = new Insets(0, 0, 5, 5);
+		gbc_txtABungalow1.fill = GridBagConstraints.BOTH;
+		gbc_txtABungalow1.gridx = 2;
+		gbc_txtABungalow1.gridy = 1;
+		
+		pnlBungalows.add(txtABungalow1, gbc_txtABungalow1);
+		
+		JButton btnReservarBungalow1 = new JButton("Reservar");
+		btnReservarBungalow1.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_btnReservarBungalow1 = new GridBagConstraints();
+		gbc_btnReservarBungalow1.gridwidth = 2;
+		gbc_btnReservarBungalow1.fill = GridBagConstraints.BOTH;
+		gbc_btnReservarBungalow1.insets = new Insets(0, 0, 5, 5);
+		gbc_btnReservarBungalow1.gridx = 1;
+		gbc_btnReservarBungalow1.gridy = 2;
+		btnReservarBungalow1.setBackground(new Color(255, 165, 0));
+		pnlBungalows.add(btnReservarBungalow1, gbc_btnReservarBungalow1);
 		
 		JLabel lblBungalow2 = new JLabel("");
 		lblBungalow2.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow2.jpg")));
-		lblBungalow2.setBounds(10, 155, 141, 133);
-		panelBungalow.add(lblBungalow2);
+		GridBagConstraints gbc_lblBungalow2 = new GridBagConstraints();
+		gbc_lblBungalow2.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBungalow2.gridx = 1;
+		gbc_lblBungalow2.gridy = 4;
+		pnlBungalows.add(lblBungalow2, gbc_lblBungalow2);
 		
-		JSeparator separator1 = new JSeparator();
-		separator1.setBounds(10, 294, 561, 9);
-		panelBungalow.add(separator1);
+		JTextArea txtABungalow2 = new JTextArea();
+		txtABungalow2.setFont(new Font("Verdana", Font.PLAIN, 10));
+		txtABungalow2.setText("El Arco - Virgen Departamentos se encuentra en Conil de la Frontera. y. Habitación con conexión wifi gratis y vistas al mar, situada a 1,1 km de la playa de La Fontanilla.\r\n\r\nTodos los alojamientos están equipados con aire acondicionado y algunos tienen TV de pantalla plana, lavarropas, cafetera y cocina.\r\n\r\nEl departamento cuenta con solárium.");
+		txtABungalow2.setLineWrap(true);
+		txtABungalow2.setEditable(false);
+		txtABungalow2.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		GridBagConstraints gbc_txtABungalow2 = new GridBagConstraints();
+		gbc_txtABungalow2.insets = new Insets(0, 0, 5, 5);
+		gbc_txtABungalow2.fill = GridBagConstraints.BOTH;
+		gbc_txtABungalow2.gridx = 2;
+		gbc_txtABungalow2.gridy = 4;
+		pnlBungalows.add(txtABungalow2, gbc_txtABungalow2);
+		
+		JButton btnReservarBungalow2 = new JButton("Reservar");
+		btnReservarBungalow2.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_btnReservarBungalow2 = new GridBagConstraints();
+		gbc_btnReservarBungalow2.fill = GridBagConstraints.BOTH;
+		gbc_btnReservarBungalow2.gridwidth = 2;
+		gbc_btnReservarBungalow2.insets = new Insets(0, 0, 5, 5);
+		gbc_btnReservarBungalow2.gridx = 1;
+		gbc_btnReservarBungalow2.gridy = 5;
+		btnReservarBungalow2.setBackground(new Color(255, 165, 0));
+		pnlBungalows.add(btnReservarBungalow2, gbc_btnReservarBungalow2);
 		
 		JLabel lblBungalow3 = new JLabel("");
 		lblBungalow3.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow3.jpg")));
-		lblBungalow3.setBounds(10, 299, 141, 133);
-		panelBungalow.add(lblBungalow3);
+		GridBagConstraints gbc_lblBungalow3 = new GridBagConstraints();
+		gbc_lblBungalow3.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBungalow3.gridx = 1;
+		gbc_lblBungalow3.gridy = 7;
+		pnlBungalows.add(lblBungalow3, gbc_lblBungalow3);
 		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(10, 438, 561, 9);
-		panelBungalow.add(separator_1);
+		JTextArea txtABungalow3 = new JTextArea();
+		txtABungalow3.setFont(new Font("Verdana", Font.PLAIN, 10));
+		txtABungalow3.setText("El establecimiento Casas Elena-Conil dispone de pileta al aire libre durante todo el año y parrilla en la localidad andaluza de Conil de la Frontera, a 32 km de Cádiz. El establecimiento está a 43 km de Jerez de la Frontera. Proporciona WiFi gratis en todas las instalaciones y estacionamiento privado gratuito.");
+		txtABungalow3.setLineWrap(true);
+		txtABungalow3.setEditable(false);
+		txtABungalow3.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		GridBagConstraints gbc_txtABungalow3 = new GridBagConstraints();
+		gbc_txtABungalow3.insets = new Insets(0, 0, 5, 5);
+		gbc_txtABungalow3.fill = GridBagConstraints.BOTH;
+		gbc_txtABungalow3.gridx = 2;
+		gbc_txtABungalow3.gridy = 7;
+		
+		pnlBungalows.add(txtABungalow3, gbc_txtABungalow3);
+		
+		JButton btnReservarBungalow3 = new JButton("Reservar");
+		btnReservarBungalow3.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_btnReservarBungalow3 = new GridBagConstraints();
+		gbc_btnReservarBungalow3.fill = GridBagConstraints.BOTH;
+		gbc_btnReservarBungalow3.gridwidth = 2;
+		gbc_btnReservarBungalow3.insets = new Insets(0, 0, 5, 5);
+		gbc_btnReservarBungalow3.gridx = 1;
+		gbc_btnReservarBungalow3.gridy = 8;
+		btnReservarBungalow3.setBackground(new Color(255, 165, 0));
+		pnlBungalows.add(btnReservarBungalow3, gbc_btnReservarBungalow3);
 		
 		JLabel lblBungalow4 = new JLabel("");
 		lblBungalow4.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow4.jpg")));
-		lblBungalow4.setBounds(10, 443, 135, 133);
-		panelBungalow.add(lblBungalow4);
+		GridBagConstraints gbc_lblBungalow4 = new GridBagConstraints();
+		gbc_lblBungalow4.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBungalow4.gridx = 1;
+		gbc_lblBungalow4.gridy = 10;
+		pnlBungalows.add(lblBungalow4, gbc_lblBungalow4);
 		
-		JTextArea textAreaBungalow1 = new JTextArea();
-		textAreaBungalow1.setText("El RK Catalina Lofts se encuentra en Las Palmas de Gran Canaria, a 2,3 km de la playa del Confital .Ofrece WiFi gratuita y aire acondicionado. \r\nEl apartamento cuenta con 1 dormitorio, TV de pantalla plana, cocina equipada con microondas y nevera, lavadora y baño con ducha.Entre los lugares de interés cercanos al apartamento se incluyen el centro comercial El Muelle, el acuario Poema Del Mar y el puerto de Las Palmas.");
-		textAreaBungalow1.setLineWrap(true);
-		textAreaBungalow1.setFont(new Font("Verdana", Font.PLAIN, 10));
-		textAreaBungalow1.setEditable(false);
-		textAreaBungalow1.setAutoscrolls(false);
-		textAreaBungalow1.setBounds(161, 11, 418, 102);
-		panelBungalow.add(textAreaBungalow1);
+		JTextArea txtABungalow4 = new JTextArea();
+		txtABungalow4.setFont(new Font("Verdana", Font.PLAIN, 10));
+		txtABungalow4.setText("Todos los alojamientos incluyen TV vía satélite, cocina con lavavajillas, horno, microondas, tostadora y cafetera y baño privado con bañera, secador de pelo y toallas. Algunos de ellos ofrecen zona de estar o de comedor.");
+		txtABungalow4.setLineWrap(true);
+		txtABungalow4.setEditable(false);
+		txtABungalow4.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		GridBagConstraints gbc_txtABungalow4 = new GridBagConstraints();
+		gbc_txtABungalow4.insets = new Insets(0, 0, 5, 5);
+		gbc_txtABungalow4.fill = GridBagConstraints.BOTH;
+		gbc_txtABungalow4.gridx = 2;
+		gbc_txtABungalow4.gridy = 10;
+		pnlBungalows.add(txtABungalow4, gbc_txtABungalow4);
 		
-		JButton btnBungalow1 = new JButton("Reservar");
-		btnBungalow1.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnBungalow1.setBackground(new Color(255, 165, 0));
-		btnBungalow1.setBounds(161, 114, 418, 23);
-		panelBungalow.add(btnBungalow1);
+		JButton btnReservarBungalow4 = new JButton("Reservar");
+		btnReservarBungalow4.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_btnReservarBungalow4 = new GridBagConstraints();
+		gbc_btnReservarBungalow4.fill = GridBagConstraints.BOTH;
+		gbc_btnReservarBungalow4.gridwidth = 2;
+		gbc_btnReservarBungalow4.insets = new Insets(0, 0, 5, 5);
+		gbc_btnReservarBungalow4.gridx = 1;
+		gbc_btnReservarBungalow4.gridy = 11;
+		btnReservarBungalow4.setBackground(new Color(255, 165, 0));
+		pnlBungalows.add(btnReservarBungalow4, gbc_btnReservarBungalow4);
 		
-		JTextArea textAreaBungalow2 = new JTextArea();
-		textAreaBungalow2.setText("El RK Catalina Lofts se encuentra en Las Palmas de Gran Canaria, a 2,3 km de la playa del Confital .Ofrece WiFi gratuita y aire acondicionado. \r\nEl apartamento cuenta con 1 dormitorio, TV de pantalla plana, cocina equipada con microondas y nevera, lavadora y baño con ducha.Entre los lugares de interés cercanos al apartamento se incluyen el centro comercial El Muelle, el acuario Poema Del Mar y el puerto de Las Palmas.");
-		textAreaBungalow2.setLineWrap(true);
-		textAreaBungalow2.setFont(new Font("Verdana", Font.PLAIN, 10));
-		textAreaBungalow2.setEditable(false);
-		textAreaBungalow2.setAutoscrolls(false);
-		textAreaBungalow2.setBounds(161, 162, 418, 102);
-		panelBungalow.add(textAreaBungalow2);
+		JLabel lblBungalow5 = new JLabel("");
+		GridBagConstraints gbc_lblBungalow5 = new GridBagConstraints();
+		gbc_lblBungalow5.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBungalow5.gridx = 1;
+		gbc_lblBungalow5.gridy = 13;
+		pnlBungalows.add(lblBungalow5, gbc_lblBungalow5);
 		
-		JButton btnBungalow2 = new JButton("Reservar");
-		btnBungalow2.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnBungalow2.setBackground(new Color(255, 165, 0));
-		btnBungalow2.setBounds(161, 265, 418, 23);
-		panelBungalow.add(btnBungalow2);
+		JTextArea txtABungalow5 = new JTextArea();
+		txtABungalow5.setFont(new Font("Verdana", Font.PLAIN, 10));
+		txtABungalow5.setText("El Hostal Flor De Lis- Lojo ofrece alojamiento con WiFi gratuita en Conil de la Frontera, a 34 km de Cádiz. Este establecimiento alberga un bar.\r\n\r\nLas habitaciones disponen de aire acondicionado, TV de pantalla plana y baño privado. También incluyen secador de pelo y artículos de aseo gratuitos.\r\n\r\nLa recepción está abierta las 24 horas.\r\n\r\n");
+		txtABungalow5.setLineWrap(true);
+		txtABungalow5.setEditable(false);
+		txtABungalow5.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		GridBagConstraints gbc_txtABungalow5 = new GridBagConstraints();
+		gbc_txtABungalow5.insets = new Insets(0, 0, 5, 5);
+		gbc_txtABungalow5.fill = GridBagConstraints.BOTH;
+		gbc_txtABungalow5.gridx = 2;
+		gbc_txtABungalow5.gridy = 13;
+		pnlBungalows.add(txtABungalow5, gbc_txtABungalow5);
 		
-		JTextArea textAreaBungalow3 = new JTextArea();
-		textAreaBungalow3.setText("El RK Catalina Lofts se encuentra en Las Palmas de Gran Canaria, a 2,3 km de la playa del Confital .Ofrece WiFi gratuita y aire acondicionado. \r\nEl apartamento cuenta con 1 dormitorio, TV de pantalla plana, cocina equipada con microondas y nevera, lavadora y baño con ducha.Entre los lugares de interés cercanos al apartamento se incluyen el centro comercial El Muelle, el acuario Poema Del Mar y el puerto de Las Palmas.");
-		textAreaBungalow3.setLineWrap(true);
-		textAreaBungalow3.setFont(new Font("Verdana", Font.PLAIN, 10));
-		textAreaBungalow3.setEditable(false);
-		textAreaBungalow3.setAutoscrolls(false);
-		textAreaBungalow3.setBounds(161, 306, 418, 102);
-		panelBungalow.add(textAreaBungalow3);
+		JButton btnReservarBungalow5 = new JButton("Reservar");
+		btnReservarBungalow5.setFont(new Font("Verdana", Font.BOLD, 16));
+		GridBagConstraints gbc_btnReservarBungalow5 = new GridBagConstraints();
+		gbc_btnReservarBungalow5.fill = GridBagConstraints.BOTH;
+		gbc_btnReservarBungalow5.gridwidth = 2;
+		gbc_btnReservarBungalow5.insets = new Insets(0, 0, 5, 5);
+		gbc_btnReservarBungalow5.gridx = 1;
+		gbc_btnReservarBungalow5.gridy = 14;
+		btnReservarBungalow5.setBackground(new Color(255, 165, 0));
+		pnlBungalows.add(btnReservarBungalow5, gbc_btnReservarBungalow5);
 		
-		JButton btnBungalow2_1 = new JButton("Reservar");
-		btnBungalow2_1.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnBungalow2_1.setBackground(new Color(255, 165, 0));
-		btnBungalow2_1.setBounds(161, 409, 418, 23);
-		panelBungalow.add(btnBungalow2_1);
-		
-		JTextArea textAreaBungalow3_1 = new JTextArea();
-		textAreaBungalow3_1.setText("El RK Catalina Lofts se encuentra en Las Palmas de Gran Canaria, a 2,3 km de la playa del Confital .Ofrece WiFi gratuita y aire acondicionado. \r\nEl apartamento cuenta con 1 dormitorio, TV de pantalla plana, cocina equipada con microondas y nevera, lavadora y baño con ducha.Entre los lugares de interés cercanos al apartamento se incluyen el centro comercial El Muelle, el acuario Poema Del Mar y el puerto de Las Palmas.");
-		textAreaBungalow3_1.setLineWrap(true);
-		textAreaBungalow3_1.setFont(new Font("Verdana", Font.PLAIN, 10));
-		textAreaBungalow3_1.setEditable(false);
-		textAreaBungalow3_1.setAutoscrolls(false);
-		textAreaBungalow3_1.setBounds(161, 446, 418, 102);
-		panelBungalow.add(textAreaBungalow3_1);
 		GridBagConstraints gbc_separator_3 = new GridBagConstraints();
 		gbc_separator_3.anchor = GridBagConstraints.WEST;
 		gbc_separator_3.insets = new Insets(0, 0, 0, 5);
 		gbc_separator_3.gridx = 0;
 		gbc_separator_3.gridy = 3;
-
+	}
+	private static class __Tmp {
+		private static void __tmp() {
+			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
+		}
 	}
 }
