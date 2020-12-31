@@ -21,9 +21,18 @@ import java.awt.Graphics;
 
 import javax.swing.JEditorPane;
 import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
+import javax.swing.ImageIcon;
 
 public class V_RutaElegida extends JPanel {
-	private JLabel lblNUM;
+	private JTextField txtDia;
+	private JTextField txtHora;
+	private JTextField txtMonitor;
+	private JTextField txtPuntoEncuentro;
+	private JTextField txtNum;
+	private JTextField txtDificultad;
 
 	/**
 	 * Create the panel.
@@ -40,9 +49,9 @@ public class V_RutaElegida extends JPanel {
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1, BorderLayout.NORTH);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[]{55, 116, 82, 139, 55, 0, 260, 0, 55, 0};
-		gbl_panel_1.rowHeights = new int[]{31, 36, 298, 25, 25, 25, 25, 13, 21, 0};
-		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_1.columnWidths = new int[]{55, 116, 82, 139, 55, 0, 328, 101, 26, 0};
+		gbl_panel_1.rowHeights = new int[]{23, 36, 285, 25, 25, 25, 25, 13, 21, 0};
+		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_1.setLayout(gbl_panel_1);
 		
@@ -56,44 +65,56 @@ public class V_RutaElegida extends JPanel {
 		gbc_lblItinerarioRuta.gridy = 1;
 		panel_1.add(lblItinerarioRuta, gbc_lblItinerarioRuta);
 		
-		JLabel lblImagenRuta = new JLabel("New label");
-		GridBagConstraints gbc_lblImagenRuta = new GridBagConstraints();
-		gbc_lblImagenRuta.gridwidth = 6;
-		gbc_lblImagenRuta.insets = new Insets(0, 0, 5, 5);
-		gbc_lblImagenRuta.gridx = 1;
-		gbc_lblImagenRuta.gridy = 2;
-		panel_1.add(lblImagenRuta, gbc_lblImagenRuta);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportBorder(new TitledBorder(null, "Mapa ruta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
+		gbc_scrollPane.gridwidth = 7;
+		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
+		gbc_scrollPane.fill = GridBagConstraints.BOTH;
+		gbc_scrollPane.gridx = 1;
+		gbc_scrollPane.gridy = 2;
+		panel_1.add(scrollPane, gbc_scrollPane);
+		
+		JLabel lblImagenRuta = new JLabel("");
+		lblImagenRuta.setIcon(new ImageIcon(V_RutaElegida.class.getResource("/presentacion/Ruta2.jpg")));
+		scrollPane.setViewportView(lblImagenRuta);
 		
 		JLabel lblDiaRuta = new JLabel("Día");
 		GridBagConstraints gbc_lblDiaRuta = new GridBagConstraints();
-		gbc_lblDiaRuta.anchor = GridBagConstraints.WEST;
+		gbc_lblDiaRuta.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblDiaRuta.insets = new Insets(0, 0, 5, 5);
 		gbc_lblDiaRuta.gridx = 1;
 		gbc_lblDiaRuta.gridy = 3;
 		panel_1.add(lblDiaRuta, gbc_lblDiaRuta);
 		
-		JLabel lblDIA = new JLabel("16/07/2021");
-		GridBagConstraints gbc_lblDIA = new GridBagConstraints();
-		gbc_lblDIA.anchor = GridBagConstraints.WEST;
-		gbc_lblDIA.insets = new Insets(0, 0, 5, 5);
-		gbc_lblDIA.gridx = 2;
-		gbc_lblDIA.gridy = 3;
-		panel_1.add(lblDIA, gbc_lblDIA);
+		txtDia = new JTextField();
+		txtDia.setEditable(false);
+		GridBagConstraints gbc_txtDia = new GridBagConstraints();
+		gbc_txtDia.insets = new Insets(0, 0, 5, 5);
+		gbc_txtDia.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtDia.gridx = 2;
+		gbc_txtDia.gridy = 3;
+		panel_1.add(txtDia, gbc_txtDia);
+		txtDia.setColumns(10);
 		
 		JLabel lblNum = new JLabel("Núm máx - núm min. *");
 		GridBagConstraints gbc_lblNum = new GridBagConstraints();
-		gbc_lblNum.anchor = GridBagConstraints.WEST;
+		gbc_lblNum.anchor = GridBagConstraints.EAST;
 		gbc_lblNum.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNum.gridx = 3;
 		gbc_lblNum.gridy = 3;
 		panel_1.add(lblNum, gbc_lblNum);
 		
-		lblNUM = new JLabel("");
-		GridBagConstraints gbc_lblNUM = new GridBagConstraints();
-		gbc_lblNUM.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNUM.gridx = 4;
-		gbc_lblNUM.gridy = 3;
-		panel_1.add(lblNUM, gbc_lblNUM);
+		txtNum = new JTextField();
+		txtNum.setEditable(false);
+		GridBagConstraints gbc_txtNum = new GridBagConstraints();
+		gbc_txtNum.anchor = GridBagConstraints.NORTH;
+		gbc_txtNum.insets = new Insets(0, 0, 5, 5);
+		gbc_txtNum.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtNum.gridx = 4;
+		gbc_txtNum.gridy = 3;
+		panel_1.add(txtNum, gbc_txtNum);
+		txtNum.setColumns(10);
 		
 		JLabel lblDescripcion = new JLabel("Descripción de la ruta");
 		GridBagConstraints gbc_lblDescripcion = new GridBagConstraints();
@@ -106,33 +127,39 @@ public class V_RutaElegida extends JPanel {
 		
 		JLabel lblHora = new JLabel("Hora");
 		GridBagConstraints gbc_lblHora = new GridBagConstraints();
-		gbc_lblHora.anchor = GridBagConstraints.WEST;
+		gbc_lblHora.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblHora.insets = new Insets(0, 0, 5, 5);
 		gbc_lblHora.gridx = 1;
 		gbc_lblHora.gridy = 4;
 		panel_1.add(lblHora, gbc_lblHora);
 		
-		JLabel lblHORA = new JLabel("");
-		GridBagConstraints gbc_lblHORA = new GridBagConstraints();
-		gbc_lblHORA.insets = new Insets(0, 0, 5, 5);
-		gbc_lblHORA.gridx = 2;
-		gbc_lblHORA.gridy = 4;
-		panel_1.add(lblHORA, gbc_lblHORA);
+		txtHora = new JTextField();
+		txtHora.setEditable(false);
+		GridBagConstraints gbc_txtHora = new GridBagConstraints();
+		gbc_txtHora.insets = new Insets(0, 0, 5, 5);
+		gbc_txtHora.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtHora.gridx = 2;
+		gbc_txtHora.gridy = 4;
+		panel_1.add(txtHora, gbc_txtHora);
+		txtHora.setColumns(10);
 		
 		JLabel lblDificultad = new JLabel("Grado de dificultad");
 		GridBagConstraints gbc_lblDificultad = new GridBagConstraints();
-		gbc_lblDificultad.anchor = GridBagConstraints.WEST;
+		gbc_lblDificultad.anchor = GridBagConstraints.EAST;
 		gbc_lblDificultad.insets = new Insets(0, 0, 5, 5);
 		gbc_lblDificultad.gridx = 3;
 		gbc_lblDificultad.gridy = 4;
 		panel_1.add(lblDificultad, gbc_lblDificultad);
 		
-		JLabel lblDIFICULTAD = new JLabel("");
-		GridBagConstraints gbc_lblDIFICULTAD = new GridBagConstraints();
-		gbc_lblDIFICULTAD.insets = new Insets(0, 0, 5, 5);
-		gbc_lblDIFICULTAD.gridx = 4;
-		gbc_lblDIFICULTAD.gridy = 4;
-		panel_1.add(lblDIFICULTAD, gbc_lblDIFICULTAD);
+		txtDificultad = new JTextField();
+		txtDificultad.setEditable(false);
+		GridBagConstraints gbc_txtDificultad = new GridBagConstraints();
+		gbc_txtDificultad.insets = new Insets(0, 0, 5, 5);
+		gbc_txtDificultad.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtDificultad.gridx = 4;
+		gbc_txtDificultad.gridy = 4;
+		panel_1.add(txtDificultad, gbc_txtDificultad);
+		txtDificultad.setColumns(10);
 		
 		JEditorPane PaneDescripcionRuta = new JEditorPane();
 		GridBagConstraints gbc_PaneDescripcionRuta = new GridBagConstraints();
@@ -146,33 +173,39 @@ public class V_RutaElegida extends JPanel {
 		
 		JLabel lblMonitor = new JLabel("Monitor");
 		GridBagConstraints gbc_lblMonitor = new GridBagConstraints();
-		gbc_lblMonitor.anchor = GridBagConstraints.WEST;
+		gbc_lblMonitor.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblMonitor.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMonitor.gridx = 1;
 		gbc_lblMonitor.gridy = 5;
 		panel_1.add(lblMonitor, gbc_lblMonitor);
 		
-		JLabel lblMONITOR = new JLabel("");
-		GridBagConstraints gbc_lblMONITOR = new GridBagConstraints();
-		gbc_lblMONITOR.insets = new Insets(0, 0, 5, 5);
-		gbc_lblMONITOR.gridx = 2;
-		gbc_lblMONITOR.gridy = 5;
-		panel_1.add(lblMONITOR, gbc_lblMONITOR);
+		txtMonitor = new JTextField();
+		txtMonitor.setEditable(false);
+		GridBagConstraints gbc_txtMonitor = new GridBagConstraints();
+		gbc_txtMonitor.insets = new Insets(0, 0, 5, 5);
+		gbc_txtMonitor.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtMonitor.gridx = 2;
+		gbc_txtMonitor.gridy = 5;
+		panel_1.add(txtMonitor, gbc_txtMonitor);
+		txtMonitor.setColumns(10);
 		
 		JLabel lblEncuetro = new JLabel("Punto de encuentro");
 		GridBagConstraints gbc_lblEncuetro = new GridBagConstraints();
-		gbc_lblEncuetro.anchor = GridBagConstraints.WEST;
+		gbc_lblEncuetro.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblEncuetro.insets = new Insets(0, 0, 5, 5);
 		gbc_lblEncuetro.gridx = 1;
 		gbc_lblEncuetro.gridy = 6;
 		panel_1.add(lblEncuetro, gbc_lblEncuetro);
 		
-		JLabel lblENCUENTRO = new JLabel("");
-		GridBagConstraints gbc_lblENCUENTRO = new GridBagConstraints();
-		gbc_lblENCUENTRO.insets = new Insets(0, 0, 5, 5);
-		gbc_lblENCUENTRO.gridx = 2;
-		gbc_lblENCUENTRO.gridy = 6;
-		panel_1.add(lblENCUENTRO, gbc_lblENCUENTRO);
+		txtPuntoEncuentro = new JTextField();
+		txtPuntoEncuentro.setEditable(false);
+		GridBagConstraints gbc_txtPuntoEncuentro = new GridBagConstraints();
+		gbc_txtPuntoEncuentro.insets = new Insets(0, 0, 5, 5);
+		gbc_txtPuntoEncuentro.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtPuntoEncuentro.gridx = 2;
+		gbc_txtPuntoEncuentro.gridy = 6;
+		panel_1.add(txtPuntoEncuentro, gbc_txtPuntoEncuentro);
+		txtPuntoEncuentro.setColumns(10);
 		
 		JLabel lblInfo = new JLabel("*: Puede variar dependiendo de un posible estado de alarma");
 		GridBagConstraints gbc_lblInfo = new GridBagConstraints();
