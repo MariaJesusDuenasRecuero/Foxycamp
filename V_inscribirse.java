@@ -50,7 +50,7 @@ public class V_inscribirse extends JPanel {
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("18:00 a 20:00");
 		lblNewLabel_1_1_1.setFont(new Font("Verdana", Font.PLAIN, 16));
-		lblNewLabel_1_1_1.setBounds(383, 429, 121, 14);
+		lblNewLabel_1_1_1.setBounds(392, 429, 121, 14);
 		add(lblNewLabel_1_1_1);
 		
 		JLabel lblDatosPersonales = new JLabel("Datos personales");
@@ -102,19 +102,19 @@ public class V_inscribirse extends JPanel {
 		rdbtnYoga.setBounds(395, 282, 109, 23);
 		add(rdbtnYoga);
 		
-		JRadioButton rdbtnNewRadioButton_6 = new JRadioButton("Mañana");
+		JRadioButton rdbtnNewRadioButton_6 = new JRadioButton("Lunes ");
 		rdbtnNewRadioButton_6.setHorizontalAlignment(SwingConstants.LEFT);
 		rdbtnNewRadioButton_6.setFont(new Font("Verdana", Font.PLAIN, 16));
-		rdbtnNewRadioButton_6.setBounds(55, 399, 109, 23);
+		rdbtnNewRadioButton_6.setBounds(55, 399, 145, 23);
 		add(rdbtnNewRadioButton_6);
 		
-		JRadioButton rdbtnNewRadioButton_7 = new JRadioButton("Tarde");
+		JRadioButton rdbtnNewRadioButton_7 = new JRadioButton("Martes");
 		rdbtnNewRadioButton_7.setHorizontalAlignment(SwingConstants.LEFT);
 		rdbtnNewRadioButton_7.setFont(new Font("Verdana", Font.PLAIN, 16));
-		rdbtnNewRadioButton_7.setBounds(247, 399, 77, 23);
+		rdbtnNewRadioButton_7.setBounds(229, 399, 101, 23);
 		add(rdbtnNewRadioButton_7);
 		
-		JRadioButton rdbtnNewRadioButton_8 = new JRadioButton("Media tarde");
+		JRadioButton rdbtnNewRadioButton_8 = new JRadioButton("Jueves");
 		rdbtnNewRadioButton_8.setFont(new Font("Verdana", Font.PLAIN, 16));
 		rdbtnNewRadioButton_8.setBounds(382, 399, 122, 23);
 		add(rdbtnNewRadioButton_8);
@@ -163,20 +163,20 @@ public class V_inscribirse extends JPanel {
 		
 		JLabel lblHorarioYPrecio = new JLabel("Horarios ");
 		lblHorarioYPrecio.setForeground(new Color(255, 165, 0));
-		lblHorarioYPrecio.setFont(new Font("Verdana", Font.BOLD, 25));
+		lblHorarioYPrecio.setFont(new Font("Verdana", Font.BOLD, 30));
 		lblHorarioYPrecio.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHorarioYPrecio.setBounds(144, 334, 264, 48);
 		add(lblHorarioYPrecio);
 		
 		JLabel lblNewLabel_1 = new JLabel("12:00 a 14:00");
 		lblNewLabel_1.setFont(new Font("Verdana", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(53, 429, 121, 14);
+		lblNewLabel_1.setBounds(65, 429, 121, 14);
 		add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("16:00 a 18:00");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setFont(new Font("Verdana", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(229, 429, 121, 14);
+		lblNewLabel_1_1.setBounds(239, 429, 121, 14);
 		add(lblNewLabel_1_1);
 		
 		JLabel lblPrecioNatacion = new JLabel("15€");
@@ -201,7 +201,7 @@ public class V_inscribirse extends JPanel {
 		
 		JLabel lblPrecioFutbol = new JLabel("25€");
 		lblPrecioFutbol.setFont(new Font("Verdana", Font.PLAIN, 15));
-		lblPrecioFutbol.setBounds(417, 237, 46, 14);
+		lblPrecioFutbol.setBounds(417, 231, 46, 14);
 		add(lblPrecioFutbol);
 		
 		JLabel lblPrecioYoga = new JLabel("15€");
@@ -293,6 +293,7 @@ public class V_inscribirse extends JPanel {
 		}
 		
 		JTextArea textAreaInfoAdic = new JTextArea();
+		textAreaInfoAdic.setFont(new Font("Verdana", Font.PLAIN, 16));
 		textAreaInfoAdic.setBorder(new TitledBorder(null, "Informaci\u00F3n adicional", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		textAreaInfoAdic.setLineWrap(true);
 		textAreaInfoAdic.setBounds(594, 314, 355, 128);

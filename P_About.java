@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -21,12 +22,14 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
+import presentacion.P_Principal.RoundedBorder;
 
 
 @SuppressWarnings("serial")
@@ -44,7 +47,7 @@ public class P_About extends JFrame {
 		frmAbout.setIconImage(Toolkit.getDefaultToolkit().getImage(P_About.class.getResource("/presentacion/informacion.png")));
 		frmAbout.setTitle("Sobre nosotros");
 		//Propiedades generales de todos los frames
-		frmAbout.setBounds(new Rectangle(0, 0, 1300, 1000));
+		frmAbout.setBounds(new Rectangle(0, 0, 1375, 800));
 		frmAbout.setResizable(false);
 		frmAbout.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
@@ -177,6 +180,21 @@ public class P_About extends JFrame {
 		contentPane.add(pnlContenido, BorderLayout.CENTER);
 		pnlContenido.setLayout(null);
 		
+		JLabel lblIconMJ = new JLabel("");
+		lblIconMJ.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/mj.png")));
+		lblIconMJ.setBounds(910, 176, 327, 321);
+		pnlContenido.add(lblIconMJ);
+		
+		JLabel lblIconAdrian = new JLabel("");
+		lblIconAdrian.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/adrian.png")));
+		lblIconAdrian.setBounds(489, 176, 327, 321);
+		pnlContenido.add(lblIconAdrian);
+		
+		JLabel lblIconMaria = new JLabel("");
+		lblIconMaria.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/Maria.png")));
+		lblIconMaria.setBounds(103, 176, 327, 321);
+		pnlContenido.add(lblIconMaria);
+		
 		JLabel lblMiembros = new JLabel("Sobre nosotros...");
 		lblMiembros.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMiembros.setForeground(new Color(210, 105, 30));
@@ -192,50 +210,64 @@ public class P_About extends JFrame {
 		btnNewButton.setBounds(23, 756, 146, 25);
 		pnlContenido.add(btnNewButton);
 		
-		JTextArea txtrSomosUnGrupo = new JTextArea();
-		txtrSomosUnGrupo.setForeground(new Color(0, 0, 0));
-		txtrSomosUnGrupo.setFont(new Font("Verdana", Font.PLAIN, 22));
-		txtrSomosUnGrupo.setText("Somos un grupo de estudiantes de ingeniería infotmática en el desarrollo de los fundamentos teóricos, recogidos a lo largo del curso, en el desarrollo de un prototipo de aplicación interactiva de escritorio  con interfaz gráfica de usuario (GUI ) en Java. Dicha GUI deberá diseñarse teniendo en cuenta los aspectos de usabilidad y factores humanos impartidos en las sesiones de teoría de interacción persona ordenador.");
-		txtrSomosUnGrupo.setBackground(new Color(255, 228, 196));
-		txtrSomosUnGrupo.setLineWrap(true);
-		txtrSomosUnGrupo.setBounds(183, 72, 869, 186);
-		pnlContenido.add(txtrSomosUnGrupo);
-		
 		JLabel lblMAria = new JLabel("María Blanco González-Mohíno");
 		lblMAria.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMAria.setFont(new Font("Verdana", Font.PLAIN, 20));
-		lblMAria.setBounds(93, 565, 320, 79);
+		lblMAria.setBounds(93, 461, 320, 79);
 		pnlContenido.add(lblMAria);
+		
+		JTextArea txtrSomosUnGrupo = new JTextArea();
+		txtrSomosUnGrupo.setEditable(false);
+		txtrSomosUnGrupo.setForeground(new Color(0, 0, 0));
+		txtrSomosUnGrupo.setFont(new Font("Verdana", Font.PLAIN, 18));
+		txtrSomosUnGrupo.setText("Somos un grupo de estudiantes de ingeniería infotmática en el desarrollo de los fundamentos teóricos, recogidos a lo largo del curso, en el desarrollo de un prototipo de aplicación interactiva de escritorio  con interfaz gráfica de usuario (GUI ) en Java. Dicha GUI deberá diseñarse teniendo en cuenta los aspectos de usabilidad y factores humanos impartidos en las sesiones de teoría de interacción persona ordenador.");
+		txtrSomosUnGrupo.setBackground(new Color(255, 228, 196));
+		txtrSomosUnGrupo.setLineWrap(true);
+		txtrSomosUnGrupo.setBounds(93, 72, 1106, 111);
+		pnlContenido.add(txtrSomosUnGrupo);
 		
 		JLabel lblAdrinRuizEsteban = new JLabel("Adrián Ruiz Esteban");
 		lblAdrinRuizEsteban.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAdrinRuizEsteban.setFont(new Font("Verdana", Font.PLAIN, 20));
-		lblAdrinRuizEsteban.setBounds(460, 565, 320, 79);
+		lblAdrinRuizEsteban.setBounds(471, 461, 320, 79);
 		pnlContenido.add(lblAdrinRuizEsteban);
 		
 		JLabel lblMJ = new JLabel("María Jesús Dueñas Recuero");
 		lblMJ.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMJ.setFont(new Font("Verdana", Font.PLAIN, 20));
-		lblMJ.setBounds(879, 565, 320, 79);
+		lblMJ.setBounds(905, 461, 320, 79);
 		pnlContenido.add(lblMJ);
 		
-		JLabel lblIconMaria = new JLabel("");
-		lblIconMaria.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/Maria.png")));
-		lblIconMaria.setBounds(97, 259, 327, 321);
-		pnlContenido.add(lblIconMaria);
-		
-		JLabel lblIconAdrian = new JLabel("");
-		lblIconAdrian.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/adrian.png")));
-		lblIconAdrian.setBounds(472, 259, 327, 321);
-		pnlContenido.add(lblIconAdrian);
-		
-		JLabel lblIconMJ = new JLabel("");
-		lblIconMJ.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/mj.png")));
-		lblIconMJ.setBounds(872, 259, 327, 321);
-		pnlContenido.add(lblIconMJ);
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/volver-flecha (1).png")));
+		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
+		btnVolver.setBorder(new RoundedBorder(12));
+		btnVolver.setBackground(new Color(255, 165, 0));
+		btnVolver.setBounds(23, 534, 146, 33);
+		pnlContenido.add(btnVolver);
 		
 		
 
+	}
+	public class RoundedBorder implements Border {
+
+		private int radius;
+
+		RoundedBorder(int radius) {
+			this.radius = radius;
+		}
+
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius);
+		}
+
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
+		}
 	}
 	
 	private class LblAyudaMouseListener extends MouseAdapter {
