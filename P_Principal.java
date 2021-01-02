@@ -158,8 +158,8 @@ public class P_Principal extends JFrame implements ActionListener{
 				frmPrincipal.dispose();
 			}
 		});
-		btnAbout.setBounds(new Rectangle(0, 0, 50, 0));
-		btnAbout.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/informacion.png")));
+		btnAbout.setBounds(new Rectangle(0, 0, 70, 0));
+		btnAbout.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/IconAboutUs.png")));
 		pmFlecha.add(btnAbout);
 
 		JSeparator separator_1 = new JSeparator();
@@ -185,6 +185,10 @@ public class P_Principal extends JFrame implements ActionListener{
 				frmPrincipal.dispose();
 			}
 		});
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setForeground(new Color(255, 204, 51));
+		pmFlecha.add(separator_2);
 		btnDesconectar.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/desconectar.png")));
 		pmFlecha.add(btnDesconectar);
 

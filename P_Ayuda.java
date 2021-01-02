@@ -209,9 +209,9 @@ public class P_Ayuda extends JFrame {
 		contentPane.add(pnlContenido, BorderLayout.WEST);
 		GridBagLayout gbl_pnlContenido = new GridBagLayout();
 		gbl_pnlContenido.columnWidths = new int[] { 75, 200, 225, 200, 335, 100, 0 };
-		gbl_pnlContenido.rowHeights = new int[] { 75, 0, 77, 0, 50, 39, 75, 0, 50, 0 };
+		gbl_pnlContenido.rowHeights = new int[] { 75, 0, 77, 0, 50, 39, 75, 0, 50, 0, 0, 0 };
 		gbl_pnlContenido.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_pnlContenido.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_pnlContenido.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		pnlContenido.setLayout(gbl_pnlContenido);
 
 		JLabel lblFoxycamp_1 = new JLabel("FOXYCAMP");
@@ -230,7 +230,7 @@ public class P_Ayuda extends JFrame {
 		gbc_lblAtencionCliente.fill = GridBagConstraints.VERTICAL;
 		gbc_lblAtencionCliente.gridwidth = 2;
 		gbc_lblAtencionCliente.gridheight = 9;
-		gbc_lblAtencionCliente.insets = new Insets(0, 0, 0, 5);
+		gbc_lblAtencionCliente.insets = new Insets(0, 0, 5, 5);
 		gbc_lblAtencionCliente.gridx = 2;
 		gbc_lblAtencionCliente.gridy = 0;
 		pnlContenido.add(lblAtencionCliente, gbc_lblAtencionCliente);
@@ -278,6 +278,19 @@ public class P_Ayuda extends JFrame {
 		gbc_btnVideo.gridx = 4;
 		gbc_btnVideo.gridy = 6;
 		pnlContenido.add(btnVideo, gbc_btnVideo);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new BtnVolverActionListener());
+		btnVolver.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/volver-flecha (1).png")));
+		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
+		
+		btnVolver.setBackground(new Color(255, 165, 0));
+		GridBagConstraints gbc_btnVolver = new GridBagConstraints();
+		gbc_btnVolver.anchor = GridBagConstraints.WEST;
+		gbc_btnVolver.insets = new Insets(0, 0, 0, 5);
+		gbc_btnVolver.gridx = 1;
+		gbc_btnVolver.gridy = 10;
+		pnlContenido.add(btnVolver, gbc_btnVolver);
 
 	}
 
@@ -319,6 +332,13 @@ public class P_Ayuda extends JFrame {
 			frmAyuda2.getFrame().setVisible(true);
 			frmAyuda.dispose();
 
+		}
+	}
+	private class BtnVolverActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			P_Principal frmPrincipal = new P_Principal();
+			frmPrincipal.getFrame().setVisible(true);
+			frmAyuda.dispose();
 		}
 	}
 

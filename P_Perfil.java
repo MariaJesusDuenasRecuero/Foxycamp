@@ -259,9 +259,10 @@ public class P_Perfil extends JFrame {
 		btnCerrarCuenta.addActionListener(new BtnCerrarCuentaActionListener());
 
 		btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new BtnVolverActionListener());
 		btnVolver.setBounds(37, 498, 242, 33);
 		pnlBotones.add(btnVolver);
-		btnVolver.setIcon(null);
+		btnVolver.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/volver-flecha (1).png")));
 		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
 		btnVolver.setBackground(new Color(255, 165, 0));
 		btnVolver.setBorder(new RoundedBorder(12));
@@ -530,6 +531,13 @@ public class P_Perfil extends JFrame {
 		public void mouseClicked(MouseEvent e) {
 			P_Ayuda frmAyuda = new P_Ayuda();
 			frmAyuda.getFrame().setVisible(true);
+			frmPerfil.dispose();
+		}
+	}
+	private class BtnVolverActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			P_Principal frmPrincipal = new P_Principal();
+			frmPrincipal.getFrame().setVisible(true);
 			frmPerfil.dispose();
 		}
 	}

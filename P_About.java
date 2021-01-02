@@ -239,6 +239,7 @@ public class P_About extends JFrame {
 		pnlContenido.add(lblMJ);
 		
 		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new BtnVolverActionListener());
 		btnVolver.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/volver-flecha (1).png")));
 		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
 		btnVolver.setBorder(new RoundedBorder(12));
@@ -275,6 +276,13 @@ public class P_About extends JFrame {
 		public void mouseClicked(MouseEvent e) {
 			P_Ayuda frmAyuda = new P_Ayuda();
 			frmAyuda.getFrame().setVisible(true);
+			frmAbout.dispose();
+		}
+	}
+	private class BtnVolverActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			P_Principal frmPrincipal = new P_Principal();
+			frmPrincipal.getFrame().setVisible(true);
 			frmAbout.dispose();
 		}
 	}
