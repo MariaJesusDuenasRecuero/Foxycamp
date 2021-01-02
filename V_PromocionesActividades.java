@@ -1,32 +1,28 @@
 package presentacion;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Rectangle;
-
-import javax.swing.JPanel;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.JEditorPane;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
-import java.awt.event.ActionListener;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
-public class V_Actividades extends JPanel {
-private JPanel pnlContenido;
+//import presentacion.V_Actividades.BtnInscritosActionListener;
+
+public class V_PromocionesActividades extends JPanel {
+
 	/**
 	 * Create the panel.
 	 */
-	public V_Actividades() {
+	public V_PromocionesActividades() {
 		setBackground(Color.LIGHT_GRAY);
 		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
@@ -34,6 +30,17 @@ private JPanel pnlContenido;
 		JPanel pnlContenido = new JPanel();
 		add(pnlContenido, BorderLayout.CENTER);
 		pnlContenido.setLayout(null);
+		
+		JLabel lblIconOferta2 = new JLabel("");
+		lblIconOferta2.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconOferta2.png")));
+		lblIconOferta2.setBounds(521, 255, 53, 44);
+		pnlContenido.add(lblIconOferta2);
+		
+		JLabel lblIconOferta1 = new JLabel("");
+		lblIconOferta1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIconOferta1.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconCalendario.png")));
+		lblIconOferta1.setBounds(32, 367, 102, 93);
+		pnlContenido.add(lblIconOferta1);
 		
 		JLabel lblTiroConArco = new JLabel("");
 		lblTiroConArco.setHorizontalAlignment(SwingConstants.CENTER);
@@ -50,13 +57,13 @@ private JPanel pnlContenido;
 		JLabel lblkayak = new JLabel("");
 		lblkayak.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/kayakx64.png")));
 		lblkayak.setHorizontalAlignment(SwingConstants.CENTER);
-		lblkayak.setBounds(48, 326, 124, 119);
+		lblkayak.setBounds(77, 334, 77, 83);
 		pnlContenido.add(lblkayak);
 		
 		JSeparator separator = new JSeparator();
 		separator.setForeground(Color.ORANGE);
 		separator.setOrientation(SwingConstants.VERTICAL);
-		separator.setBounds(486, 24, 11, 421);
+		separator.setBounds(491, 22, 11, 421);
 		pnlContenido.add(separator);
 		
 		JSeparator separator_1 = new JSeparator();
@@ -90,7 +97,7 @@ private JPanel pnlContenido;
 		btnInscribirse.setBounds(new Rectangle(0, 0, 60, 50));
 		btnInscribirse.setFont(new Font("Verdana", Font.PLAIN, 16));
 		btnInscribirse.setBackground(new Color(255, 165, 0));
-		btnInscribirse.setBounds(511, 468, 124, 23);
+		btnInscribirse.setBounds(521, 468, 124, 23);
 		pnlContenido.add(btnInscribirse);
 		
 		JTextArea txtrComienzaElDa_2 = new JTextArea();
@@ -136,12 +143,6 @@ private JPanel pnlContenido;
 		txtrComienzaElDa_4.setBounds(627, 174, 302, 122);
 		pnlContenido.add(txtrComienzaElDa_4);
 		
-		JLabel lblTiroConArco_1 = new JLabel("");
-		lblTiroConArco_1.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/IconFutbol.png")));
-		lblTiroConArco_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTiroConArco_1.setBounds(511, 182, 124, 119);
-		pnlContenido.add(lblTiroConArco_1);
-		
 		JSeparator separator_1_1_1 = new JSeparator();
 		separator_1_1_1.setForeground(Color.ORANGE);
 		separator_1_1_1.setBounds(521, 307, 408, 18);
@@ -160,6 +161,12 @@ private JPanel pnlContenido;
 		lblkayak_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblkayak_1.setBounds(511, 328, 124, 119);
 		pnlContenido.add(lblkayak_1);
+		
+		JLabel lblTiroConArco_1 = new JLabel("");
+		lblTiroConArco_1.setIcon(new ImageIcon(V_Actividades.class.getResource("/presentacion/IconFutbol.png")));
+		lblTiroConArco_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTiroConArco_1.setBounds(511, 182, 124, 119);
+		pnlContenido.add(lblTiroConArco_1);
 		
 	}
 

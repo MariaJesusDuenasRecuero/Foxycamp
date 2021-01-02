@@ -18,7 +18,7 @@ import javax.swing.border.Border;
 import javax.swing.JButton;
 import presentacion.V_PerfilCerrarCuenta.RoundedBorder;
 
-public class V_PerfilContraseña extends JPanel {
+public class V_PerfilContraseÃ±a extends JPanel {
 	private JPasswordField _contrasenaActual;
 	private JPasswordField passwordField_NuevaContrasena;
 	private JPasswordField passwordField_RepitaContra;
@@ -26,7 +26,7 @@ public class V_PerfilContraseña extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public V_PerfilContraseña() {
+	public V_PerfilContraseÃ±a() {
 		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
 		
@@ -39,7 +39,7 @@ public class V_PerfilContraseña extends JPanel {
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JLabel lblCambioDeContrasea = new JLabel("Cambio de contraseña");
+		JLabel lblCambioDeContrasea = new JLabel("Cambio de contraseï¿½a");
 		lblCambioDeContrasea.setForeground(new Color(153, 0, 0));
 		lblCambioDeContrasea.setFont(new Font("Verdana", Font.BOLD, 32));
 		GridBagConstraints gbc_lblCambioDeContrasea = new GridBagConstraints();
@@ -49,15 +49,15 @@ public class V_PerfilContraseña extends JPanel {
 		gbc_lblCambioDeContrasea.gridy = 1;
 		panel.add(lblCambioDeContrasea, gbc_lblCambioDeContrasea);
 		
-		JLabel lblContraseñaActual = new JLabel("Introduzca contraseña actual");
-		lblContraseñaActual.setForeground(SystemColor.desktop);
-		lblContraseñaActual.setFont(new Font("Verdana", Font.PLAIN, 16));
-		GridBagConstraints gbc_lblContraseñaActual = new GridBagConstraints();
-		gbc_lblContraseñaActual.anchor = GridBagConstraints.WEST;
-		gbc_lblContraseñaActual.insets = new Insets(0, 0, 5, 5);
-		gbc_lblContraseñaActual.gridx = 1;
-		gbc_lblContraseñaActual.gridy = 3;
-		panel.add(lblContraseñaActual, gbc_lblContraseñaActual);
+		JLabel lblContraseÃ±aActual = new JLabel("Introduzca contraseï¿½a actual");
+		lblContraseÃ±aActual.setForeground(SystemColor.desktop);
+		lblContraseÃ±aActual.setFont(new Font("Verdana", Font.PLAIN, 16));
+		GridBagConstraints gbc_lblContraseÃ±aActual = new GridBagConstraints();
+		gbc_lblContraseÃ±aActual.anchor = GridBagConstraints.WEST;
+		gbc_lblContraseÃ±aActual.insets = new Insets(0, 0, 5, 5);
+		gbc_lblContraseÃ±aActual.gridx = 1;
+		gbc_lblContraseÃ±aActual.gridy = 3;
+		panel.add(lblContraseÃ±aActual, gbc_lblContraseÃ±aActual);
 		
 		_contrasenaActual = new JPasswordField();
 		GridBagConstraints gbc__contrasenaActual = new GridBagConstraints();
@@ -67,7 +67,7 @@ public class V_PerfilContraseña extends JPanel {
 		gbc__contrasenaActual.gridy = 4;
 		panel.add(_contrasenaActual, gbc__contrasenaActual);
 		
-		JLabel lblIntroduzcaNuevaContrasea = new JLabel("Introduzca nueva contraseña");
+		JLabel lblIntroduzcaNuevaContrasea = new JLabel("Introduzca nueva contraseï¿½a");
 		lblIntroduzcaNuevaContrasea.setForeground(Color.BLACK);
 		lblIntroduzcaNuevaContrasea.setFont(new Font("Verdana", Font.PLAIN, 16));
 		GridBagConstraints gbc_lblIntroduzcaNuevaContrasea = new GridBagConstraints();
@@ -84,7 +84,7 @@ public class V_PerfilContraseña extends JPanel {
 		gbc_passwordField_NuevaContrasena.gridy = 7;
 		panel.add(passwordField_NuevaContrasena, gbc_passwordField_NuevaContrasena);
 		
-		JLabel lblRepitaLaNueva = new JLabel("Repita la nueva contraseña");
+		JLabel lblRepitaLaNueva = new JLabel("Repita la nueva contraseï¿½a");
 		lblRepitaLaNueva.setForeground(Color.BLACK);
 		lblRepitaLaNueva.setFont(new Font("Verdana", Font.PLAIN, 16));
 		GridBagConstraints gbc_lblRepitaLaNueva = new GridBagConstraints();
@@ -101,7 +101,7 @@ public class V_PerfilContraseña extends JPanel {
 		gbc_passwordField_RepitaContra.gridy = 10;
 		panel.add(passwordField_RepitaContra, gbc_passwordField_RepitaContra);
 		
-		JButton btnCambiarContrasea = new JButton("Cambiar contraseña");
+		JButton btnCambiarContrasea = new JButton("Cambiar contraseï¿½a");
 		btnCambiarContrasea.setForeground(Color.WHITE);
 		btnCambiarContrasea.setFont(new Font("Verdana", Font.BOLD, 16));
 		btnCambiarContrasea.setBorder(new RoundedBorder(12));

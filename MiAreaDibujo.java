@@ -29,7 +29,7 @@ public class MiAreaDibujo extends JLabel
 						objg.getY(), null);
 			}
 			//Recibe esquina, ancho y alto
-			else if (objg instanceof RectanguloGrafico)
+			else if (objg instanceof DibujaLinea)
 			{
 				g.setColor(((DibujaLinea)objg).getColor());
 		//		int w = ((RectanguloGrafico)objg).getX1() - objg.getX();

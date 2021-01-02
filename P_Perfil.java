@@ -69,13 +69,15 @@ public class P_Perfil extends JFrame {
 	 */
 	public P_Perfil() {
 		frmPerfil = new JFrame();
+		frmPerfil.setBackground(Color.WHITE);
+		frmPerfil.getContentPane().setBackground(Color.WHITE);
 		frmPerfil.setTitle("Perfil");
 		frmPerfil.setIconImage(Toolkit.getDefaultToolkit().getImage(P_Perfil.class.getResource("/presentacion/usuario.png")));
 		frmPerfil.setBounds(new Rectangle(0, 0, 1375, 800));
 		frmPerfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(255, 153, 0));
-		contentPane.setBackground(new Color(255, 228, 196));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		frmPerfil.getContentPane().add(contentPane);
