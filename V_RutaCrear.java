@@ -128,6 +128,7 @@ public class V_RutaCrear extends JPanel {
 		scrollPane.setViewportView(MiAreaDibujo);
 		
 		JToolBar toolBar = new JToolBar();
+		toolBar.setEnabled(false);
 		toolBar.setOrientation(SwingConstants.VERTICAL);
 		GridBagConstraints gbc_toolBar = new GridBagConstraints();
 		gbc_toolBar.gridheight = 2;

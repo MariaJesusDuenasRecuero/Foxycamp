@@ -20,6 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -30,22 +31,27 @@ import java.awt.FlowLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Toolkit;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.border.CompoundBorder;
 
-public class P_Principal extends JFrame {
+public class P_Principal extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
-	private JButton btnParcela;
-	private JButton btnBungalows;
-	private JButton btnActividades;
 	private JPanel pnlContenido;
-	private JButton btnRutas;
 	private JButton btnVolver;
 	private JLabel lblZorroEligeOpcion;
 	private JFrame frmPrincipal;
 	private V_Actividades panelActividades;
 	private V_Bungalow panelBungalow;
 	private V_Parcela panelParcela;
+	private V_Ruta panelRuta;
+	private V_RutaInscritos panelRutaInscritos;
+	private V_RutaCrear panelRutaCrear;
+	private V_inscritos panelInscritosActividades;
 	private V_LogoZorro panelLogoZorro;
+	private JMenuItem menuitem1, menuitem2,menuitem3;
 
 
 	/**
@@ -212,56 +218,167 @@ public class P_Principal extends JFrame {
 		pnlPantallaPrincipal.setLayout(null);
 
 		JPanel pnlBotones = new JPanel();
+		pnlBotones.setFont(new Font("Verdana", Font.BOLD, 20));
 		pnlBotones.setBackground(new Color(255, 228, 196));
 		pnlBotones.setBounds(new Rectangle(0, 0, 293, 575));
 		pnlPantallaPrincipal.add(pnlBotones);
 		pnlBotones.setLayout(null);
 
-		btnParcela = new JButton("Parcelas");
-		btnParcela.setBounds(37, 11, 242, 65);
-		pnlBotones.add(btnParcela);
-		btnParcela.setHorizontalTextPosition(SwingConstants.RIGHT);
-		btnParcela.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/parcelas.png")));
-		btnParcela.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnParcela.setBackground(Color.WHITE);
-		btnParcela.setBorder(new RoundedBorder(12));
-		btnParcela.addActionListener(new BtnParcelaActionListener());
-
-		btnBungalows = new JButton("Bungalows");
-		btnBungalows.setBounds(37, 130, 242, 65);
-		pnlBotones.add(btnBungalows);
-		btnBungalows.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/bungalow.png")));
-		btnBungalows.setBackground(Color.WHITE);
-		btnBungalows.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnBungalows.setBorder(new RoundedBorder(12));
-		btnBungalows.addActionListener(new BtnBungalowActionListener());
-
-		btnActividades = new JButton("Actividades");
-		btnActividades.setBounds(37, 242, 242, 65);
-		pnlBotones.add(btnActividades);
-		btnActividades.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/actividades.png")));
-		btnActividades.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnActividades.setBackground(Color.WHITE);
-		btnActividades.setBorder(new RoundedBorder(12));
-		btnActividades.addActionListener(new BtnActividadesActionListener());
-
-		btnRutas = new JButton("Rutas");
-		// btnRutas.addActionListener(new BtnRutasActionListener());
-		btnRutas.setBounds(37, 355, 242, 65);
-		pnlBotones.add(btnRutas);
-		btnRutas.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/rutas.png")));
-		btnRutas.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnRutas.setBackground(Color.WHITE);
-		btnRutas.setBorder(new RoundedBorder(12));
-
 		btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new BtnVolverActionListener());
-		btnVolver.setBounds(37, 498, 242, 33);
+		btnVolver.setBounds(37, 542, 242, 33);
 		pnlBotones.add(btnVolver);
 		btnVolver.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/volver-flecha (1).png")));
 		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
 		btnVolver.setBackground(new Color(255, 165, 0));
 		btnVolver.setBorder(new RoundedBorder(12));
+		
+		JMenuBar menuRuta = new JMenuBar();
+		menuRuta.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		menuRuta.setBackground(Color.WHITE);
+		menuRuta.setForeground(Color.WHITE);
+		menuRuta.setBounds(37, 400, 242, 65);
+		pnlBotones.add(menuRuta);
+		
+		JLabel lblVacia = new JLabel("       ");
+		menuRuta.add(lblVacia);
+		
+		JMenu mnRuta_1 = new JMenu("Ruta         ");
+		mnRuta_1.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/rutas.png")));
+		mnRuta_1.setForeground(Color.BLACK);
+		mnRuta_1.setFont(new Font("Verdana", Font.BOLD, 20));
+		mnRuta_1.setBorder(null);
+		mnRuta_1.setBackground(Color.WHITE);
+		menuRuta.add(mnRuta_1);
+		
+		menuitem1 = new JMenuItem("Rutas disponibles");
+		menuitem1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelRuta = new V_Ruta();
+				pnlContenido.add(panelRuta, "Ruta");
+				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+				c1.show(pnlContenido, "Ruta");
+			}
+		});
+		mnRuta_1.add(menuitem1);
+		
+		menuitem2 = new JMenuItem("Crear ruta");
+		menuitem2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelRutaCrear = new V_RutaCrear();
+				pnlContenido.add(panelRutaCrear, "RutaCrear");
+				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+				c1.show(pnlContenido, "RutaCrear");
+			}
+		});
+		mnRuta_1.add(menuitem2);
+		
+		menuitem3 = new JMenuItem("Inscritos a la ruta");
+		menuitem3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelRutaInscritos = new V_RutaInscritos();
+				pnlContenido.add(panelRutaInscritos, "RutaInscritos");
+				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+				c1.show(pnlContenido, "RutaInscritos");
+			}
+		});
+		mnRuta_1.add(menuitem3);
+		
+		JMenuBar menuActividades = new JMenuBar();
+		menuActividades.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		menuActividades.setBackground(Color.WHITE);
+		menuActividades.setBounds(37, 270, 242, 65);
+		pnlBotones.add(menuActividades);
+		
+		JLabel lblVaciaAct = new JLabel("       ");
+		menuActividades.add(lblVaciaAct);
+		
+		JMenu mnActiv = new JMenu("Actividades");
+		mnActiv.setBorder(null);
+		mnActiv.setFont(new Font("Verdana", Font.BOLD, 20));
+		mnActiv.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/actividades.png")));
+		menuActividades.add(mnActiv);
+		
+		JMenuItem mntmVerActividades = new JMenuItem("Ver actividades");
+		mntmVerActividades.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelActividades = new V_Actividades();
+				pnlContenido.add(panelActividades, "Actividades");
+				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+				c1.show(pnlContenido, "Actividades");
+			}
+		});
+		mnActiv.add(mntmVerActividades);
+		
+		JMenuItem mntmPromocionesAct = new JMenuItem("Promociones");
+		mnActiv.add(mntmPromocionesAct);
+		
+		JMenuItem mntmHistorialAct = new JMenuItem("Historial");
+		mnActiv.add(mntmHistorialAct);
+		
+		JMenuItem mntmInscritosAct = new JMenuItem("Inscritos");
+		mntmInscritosAct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelInscritosActividades = new V_inscritos();
+				pnlContenido.add(panelInscritosActividades, "ActividadesInscritos");
+				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+				c1.show(pnlContenido, "ActividadesInscritos");
+			}
+		});
+		mnActiv.add(mntmInscritosAct);
+		
+		JMenuBar menuBungalows = new JMenuBar();
+		menuBungalows.setBackground(Color.WHITE);
+		menuBungalows.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		menuBungalows.setBounds(37, 140, 242, 65);
+		pnlBotones.add(menuBungalows);
+		
+		JLabel lblVaciaBunga = new JLabel("       ");
+		menuBungalows.add(lblVaciaBunga);
+		
+		JMenu mnBungalows = new JMenu("Bungalows");
+		mnBungalows.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/bungalow.png")));
+		mnBungalows.setFont(new Font("Verdana", Font.BOLD, 20));
+		menuBungalows.add(mnBungalows);
+		
+		JMenuItem mntmBungalows = new JMenuItem("Bungalows");
+		mntmBungalows.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelBungalow = new V_Bungalow();
+				pnlContenido.add(panelBungalow, "Bungalow");
+				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+				c1.show(pnlContenido, "Bungalow");
+			}
+		});
+		mnBungalows.add(mntmBungalows);
+		
+		JMenuItem mntmPromosBungalow = new JMenuItem("Promociones");
+		mnBungalows.add(mntmPromosBungalow);
+		
+		JMenuBar menuParcelas = new JMenuBar();
+		menuParcelas.setBackground(Color.WHITE);
+		menuParcelas.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		menuParcelas.setBounds(37, 10, 242, 65);
+		pnlBotones.add(menuParcelas);
+		
+		JLabel lblVaciaParcela = new JLabel("       ");
+		menuParcelas.add(lblVaciaParcela);
+		
+		JMenu mnParcela = new JMenu("Parcelas");
+		mnParcela.setFont(new Font("Verdana", Font.BOLD, 20));
+		mnParcela.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/parcelas.png")));
+		menuParcelas.add(mnParcela);
+		
+		JMenuItem mntmParcelas = new JMenuItem("Parcelas");
+		mntmParcelas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelParcela = new V_Parcela();
+				pnlContenido.add(panelParcela, "Parcela");
+				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+				c1.show(pnlContenido, "Parcela");
+			}
+		});
+		mnParcela.add(mntmParcelas);
 		btnVolver.addActionListener(new BtnLogoZorroActionListener());
 
 		pnlContenido = new JPanel();
@@ -275,8 +392,23 @@ public class P_Principal extends JFrame {
 		lblZorroEligeOpcion.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/zorroGrandeTransparencia.png")));
 		pnlContenido.add(lblZorroEligeOpcion, "lblZorro");
 		
+		
+		//Esto se tiene que borrar
+		//TODO
+		/*
+		 * private V_RutaInscritos panelRutaInscritos;
+		 */
 		panelParcela = new V_Parcela();
 		pnlContenido.add(panelParcela, "Parcela");
+		
+		panelRuta = new V_Ruta();
+		pnlContenido.add(panelRuta, "Ruta");
+		
+		panelRutaInscritos = new V_RutaInscritos();
+		pnlContenido.add(panelRutaInscritos, "RutaInscritos");
+		
+		panelInscritosActividades = new V_inscritos();
+		pnlContenido.add(panelInscritosActividades, "ActividadesInscritos");
 		
 		panelBungalow = new V_Bungalow();
 		pnlContenido.add(panelBungalow, "Bungalow");
@@ -290,27 +422,6 @@ public class P_Principal extends JFrame {
 		CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
 		c1.show(pnlContenido, "panellogoZorro");
 		
-	}
-	
-	private class BtnParcelaActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-			c1.show(pnlContenido, "Parcela");
-		}
-	}
-	
-	private class BtnBungalowActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-			c1.show(pnlContenido, "Bungalow");
-		}
-	}
-	
-	private class BtnActividadesActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-			c1.show(pnlContenido, "Actividades");
-		}
 	}
 	
 	private class BtnLogoZorroActionListener implements ActionListener {
@@ -341,6 +452,20 @@ public class P_Principal extends JFrame {
 		}
 	}
 
+	 public void actionPerformed(ActionEvent e){
+		 CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+		    if(e.getSource() == menuitem1){
+		    	panelActividades = new V_Actividades();
+				pnlContenido.add(panelActividades, "Actividades");
+		    	c1.show(pnlContenido, "Actividades");
+		    }
+		    if(e.getSource() == menuitem2){
+		     
+		    }
+		    if(e.getSource() == menuitem3){
+		      
+		    }
+		  }  
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
 
@@ -374,5 +499,4 @@ public class P_Principal extends JFrame {
 			frmPrincipal.dispose();
 		}
 	}
-
 }
