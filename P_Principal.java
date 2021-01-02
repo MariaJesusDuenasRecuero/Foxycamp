@@ -52,7 +52,9 @@ public class P_Principal extends JFrame implements ActionListener{
 	private V_inscritos panelInscritosActividades;
 	private V_LogoZorro panelLogoZorro;
 	private JMenuItem menuitem1, menuitem2,menuitem3;
-
+	private V_BungalowsPromociones panelBungalowsPromociones;
+	private V_ActHistorial panelHistorialActividades;
+	private V_PromocionesActividades panelActividadesPromociones;
 
 	/**
 	 * Create the frame.
@@ -311,9 +313,25 @@ public class P_Principal extends JFrame implements ActionListener{
 		mnActiv.add(mntmVerActividades);
 		
 		JMenuItem mntmPromocionesAct = new JMenuItem("Promociones");
+		mntmPromocionesAct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelActividadesPromociones = new V_PromocionesActividades();
+				pnlContenido.add(panelActividadesPromociones, "panelActividadesPromociones");
+				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+				c1.show(pnlContenido, "panelActividadesPromociones");
+			}
+		});
 		mnActiv.add(mntmPromocionesAct);
 		
 		JMenuItem mntmHistorialAct = new JMenuItem("Historial");
+		mntmHistorialAct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelHistorialActividades = new V_ActHistorial();
+				pnlContenido.add(panelHistorialActividades, "panelHistorialActividades");
+				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+				c1.show(pnlContenido, "panelHistorialActividades");
+			}
+		});
 		mnActiv.add(mntmHistorialAct);
 		
 		JMenuItem mntmInscritosAct = new JMenuItem("Inscritos");
@@ -353,6 +371,14 @@ public class P_Principal extends JFrame implements ActionListener{
 		mnBungalows.add(mntmBungalows);
 		
 		JMenuItem mntmPromosBungalow = new JMenuItem("Promociones");
+		mntmPromosBungalow.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelBungalowsPromociones = new V_BungalowsPromociones();
+				pnlContenido.add(panelBungalowsPromociones, "panelBungalowsPromociones");
+				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+				c1.show(pnlContenido, "panelBungalowsPromociones");
+			}
+		});
 		mnBungalows.add(mntmPromosBungalow);
 		
 		JMenuBar menuParcelas = new JMenuBar();
@@ -391,30 +417,6 @@ public class P_Principal extends JFrame implements ActionListener{
 		lblZorroEligeOpcion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblZorroEligeOpcion.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/zorroGrandeTransparencia.png")));
 		pnlContenido.add(lblZorroEligeOpcion, "lblZorro");
-		
-		
-		//Esto se tiene que borrar
-		//TODO
-		/*
-		 * private V_RutaInscritos panelRutaInscritos;
-		 */
-		panelParcela = new V_Parcela();
-		pnlContenido.add(panelParcela, "Parcela");
-		
-		panelRuta = new V_Ruta();
-		pnlContenido.add(panelRuta, "Ruta");
-		
-		panelRutaInscritos = new V_RutaInscritos();
-		pnlContenido.add(panelRutaInscritos, "RutaInscritos");
-		
-		panelInscritosActividades = new V_inscritos();
-		pnlContenido.add(panelInscritosActividades, "ActividadesInscritos");
-		
-		panelBungalow = new V_Bungalow();
-		pnlContenido.add(panelBungalow, "Bungalow");
-		
-		panelActividades = new V_Actividades();
-		pnlContenido.add(panelActividades, "Actividades");
 		
 		panelLogoZorro = new V_LogoZorro();
 		pnlContenido.add(panelLogoZorro, "panellogoZorro");
