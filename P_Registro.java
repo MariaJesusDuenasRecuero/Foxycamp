@@ -81,6 +81,7 @@ public class P_Registro extends JFrame {
 	private JTextField txtDNI;
 	private JTextField textConfirmarMail;
 	private JLabel lblNewLabel;
+	private JButton btnVolver;
 	//private Color botones = new Color(244, 164, 96);
 
 	/**
@@ -148,9 +149,9 @@ public class P_Registro extends JFrame {
 		pnlContenido.setBackground(new Color(255, 228, 196));
 		GridBagLayout gbl_pnlContenido = new GridBagLayout();
 		gbl_pnlContenido.columnWidths = new int[] { 300, 429, 300, 0 };
-		gbl_pnlContenido.rowHeights = new int[] { 84, 440, 0 };
+		gbl_pnlContenido.rowHeights = new int[] { 84, 440, 0, 0 };
 		gbl_pnlContenido.columnWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_pnlContenido.rowWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
+		gbl_pnlContenido.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		pnlContenido.setLayout(gbl_pnlContenido);
 		contentPane.add(pnlContenido);
 
@@ -168,15 +169,15 @@ public class P_Registro extends JFrame {
 		pnlLogin.setBackground(new Color(211, 211, 211));
 		GridBagConstraints gbc_pnlLogin = new GridBagConstraints();
 		gbc_pnlLogin.anchor = GridBagConstraints.WEST;
-		gbc_pnlLogin.insets = new Insets(0, 0, 0, 5);
+		gbc_pnlLogin.insets = new Insets(0, 0, 5, 5);
 		gbc_pnlLogin.gridx = 1;
 		gbc_pnlLogin.gridy = 1;
 		pnlContenido.add(pnlLogin, gbc_pnlLogin);
 		GridBagLayout gbl_pnlLogin = new GridBagLayout();
-		gbl_pnlLogin.columnWidths = new int[] { 20, 0, 20, 115, 101, 20, 20, 20, 35, 35, 0, 20, 0 };
-		gbl_pnlLogin.rowHeights = new int[] { 35, 35, 35, 35, 35, 35, 35, 35, 35, 34, 39, 10, 20, 0 };
+		gbl_pnlLogin.columnWidths = new int[] { 20, 0, 20, 115, 101, 20, 20, 20, 35, 145, 0, 20, 0 };
+		gbl_pnlLogin.rowHeights = new int[] { 35, 35, 35, 35, 35, 35, 35, 35, 35, 34, 39, 10, 20, 0, 0 };
 		gbl_pnlLogin.columnWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_pnlLogin.rowWeights = new double[] { 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
+		gbl_pnlLogin.rowWeights = new double[] { 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		pnlLogin.setLayout(gbl_pnlLogin);
 		
@@ -203,7 +204,7 @@ public class P_Registro extends JFrame {
 		scrollFoto = new JScrollPane();
 		scrollFoto.setBorder(new TitledBorder(null, "Foto", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GridBagConstraints gbc_scrollFoto = new GridBagConstraints();
-		gbc_scrollFoto.gridheight = 4;
+		gbc_scrollFoto.gridheight = 6;
 		gbc_scrollFoto.gridwidth = 3;
 		gbc_scrollFoto.insets = new Insets(0, 0, 5, 5);
 		gbc_scrollFoto.fill = GridBagConstraints.BOTH;
@@ -234,11 +235,6 @@ public class P_Registro extends JFrame {
 		gbc_textApellidos.gridy = 2;
 		pnlLogin.add(textApellidos, gbc_textApellidos);
 		textApellidos.setColumns(10);
-		
-		//textTelefono = new JTextField();
-		
-		lblImagenCarga = new JLabel("");
-		lblImagenCarga.addMouseListener(new LblImagenCargaMouseListener());
 		
 	
 		textEmail = new JTextField();
@@ -315,22 +311,6 @@ public class P_Registro extends JFrame {
 		gbc_textConfirmarMail.gridy = 5;
 		pnlLogin.add(textConfirmarMail, gbc_textConfirmarMail);
 		textConfirmarMail.setColumns(10);
-		lblImagenCarga.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/uploadImage.png")));
-		lblImagenCarga.setToolTipText("Pincha encima para subir archivo");
-		GridBagConstraints gbc_lblImagenCarga = new GridBagConstraints();
-		gbc_lblImagenCarga.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblImagenCarga.insets = new Insets(0, 0, 5, 5);
-		gbc_lblImagenCarga.gridx = 7;
-		gbc_lblImagenCarga.gridy = 5;
-		pnlLogin.add(lblImagenCarga, gbc_lblImagenCarga);
-		
-		lblImagen = new JLabel("Image");
-		lblImagen.setFont(new Font("Verdana", Font.PLAIN, 13));
-		GridBagConstraints gbc_lblImagen = new GridBagConstraints();
-		gbc_lblImagen.insets = new Insets(0, 0, 5, 5);
-		gbc_lblImagen.gridx = 8;
-		gbc_lblImagen.gridy = 5;
-		pnlLogin.add(lblImagen, gbc_lblImagen);
 		
 		lblTelefono = new JLabel("Telófono de contacto");
 		lblTelefono.setFont(new Font("Verdana", Font.BOLD, 16));
@@ -384,6 +364,27 @@ public class P_Registro extends JFrame {
 		gbc_textContrasena.gridy = 7;
 		pnlLogin.add(textContrasena, gbc_textContrasena);
 		textContrasena.setColumns(10);
+		
+		//textTelefono = new JTextField();
+		
+		lblImagenCarga = new JLabel("");
+		lblImagenCarga.addMouseListener(new LblImagenCargaMouseListener());
+		lblImagenCarga.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/uploadImage.png")));
+		lblImagenCarga.setToolTipText("Pincha encima para subir archivo");
+		GridBagConstraints gbc_lblImagenCarga = new GridBagConstraints();
+		gbc_lblImagenCarga.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblImagenCarga.insets = new Insets(0, 0, 5, 5);
+		gbc_lblImagenCarga.gridx = 7;
+		gbc_lblImagenCarga.gridy = 7;
+		pnlLogin.add(lblImagenCarga, gbc_lblImagenCarga);
+		
+		lblImagen = new JLabel("Image");
+		lblImagen.setFont(new Font("Verdana", Font.PLAIN, 13));
+		GridBagConstraints gbc_lblImagen = new GridBagConstraints();
+		gbc_lblImagen.insets = new Insets(0, 0, 5, 5);
+		gbc_lblImagen.gridx = 8;
+		gbc_lblImagen.gridy = 7;
+		pnlLogin.add(lblImagen, gbc_lblImagen);
 		
 		lblConfirmarContrasena = new JLabel("Confirmar contraseña*");
 		lblConfirmarContrasena.setToolTipText("Campo obligatorio");
@@ -440,17 +441,32 @@ public class P_Registro extends JFrame {
 		gbc_txtInfoAdicional.gridy = 10;
 		pnlLogin.add(txtInfoAdicional, gbc_txtInfoAdicional);
 		
-		btnConfirmar = new JButton("Confirmar suscripción");
-		btnConfirmar.setBounds(new Rectangle(0, 0, 0, 10));
-		btnConfirmar.setFont(new Font("Verdana", Font.BOLD, 9));
+		btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new BtnVolverActionListener());
+		btnVolver.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/volver-flecha (1).png")));
+		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
+		btnVolver.setBackground(new Color(255, 165, 0));
+		GridBagConstraints gbc_btnVolver = new GridBagConstraints();
+		gbc_btnVolver.anchor = GridBagConstraints.EAST;
+		gbc_btnVolver.insets = new Insets(0, 0, 0, 5);
+		gbc_btnVolver.gridx = 0;
+		gbc_btnVolver.gridy = 2;
+		pnlContenido.add(btnVolver, gbc_btnVolver);
+		
+		btnConfirmar = new JButton("Confirmar registro");
+		btnConfirmar.addActionListener(new BtnConfirmarActionListener());
 		GridBagConstraints gbc_btnConfirmar = new GridBagConstraints();
-		gbc_btnConfirmar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnConfirmar.gridx = 9;
-		gbc_btnConfirmar.gridy = 11;
+		gbc_btnConfirmar.fill = GridBagConstraints.VERTICAL;
+		gbc_btnConfirmar.anchor = GridBagConstraints.EAST;
+		gbc_btnConfirmar.insets = new Insets(0, 0, 0, 5);
+		gbc_btnConfirmar.gridx = 1;
+		gbc_btnConfirmar.gridy = 2;
+		pnlContenido.add(btnConfirmar, gbc_btnConfirmar);
+		btnConfirmar.setBounds(new Rectangle(0, 0, 0, 10));
+		btnConfirmar.setFont(new Font("Verdana", Font.BOLD, 16));
 		btnConfirmar.setBorder(new RoundedBorder(4));
 		btnConfirmar.setForeground(new Color(0,0,0));
 		btnConfirmar.setBackground(new Color(244, 164, 96));
-		pnlLogin.add(btnConfirmar, gbc_btnConfirmar);
 		
 		
 	}
@@ -591,6 +607,20 @@ public class P_Registro extends JFrame {
 					lblAviso.setVisible(true);
 					btnEntrar.setEnabled(false);}
 		*/
+		}
+	}
+	private class BtnConfirmarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			P_Principal principal = new P_Principal();
+			principal.getFrame().setVisible(true);
+			frmRegistro.dispose();
+		}
+	}
+	private class BtnVolverActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			P_Login frmLogin = new P_Login();
+			frmLogin.getFrame().setVisible(true);
+			frmRegistro.dispose();
 		}
 	}
 	

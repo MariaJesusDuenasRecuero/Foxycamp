@@ -292,7 +292,8 @@ public class P_Login {
 		pnlLogin.add(lblIncorrectPassword, gbc_lblInocrrectPassword);
 
 		lblValidar = new JLabel("");
-		lblValidar.setFont(new Font("Verdana", Font.PLAIN, 16));
+		lblValidar.setLabelFor(lblValidar);
+		lblValidar.setFont(new Font("Verdana", Font.PLAIN, 14));
 		lblValidar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblValidar.setForeground(new Color(255, 0, 0));
 		GridBagConstraints gbc_lblValidar = new GridBagConstraints();
