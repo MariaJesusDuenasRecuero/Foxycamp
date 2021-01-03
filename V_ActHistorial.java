@@ -17,6 +17,7 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.CompoundBorder;
+import java.awt.Cursor;
 
 public class V_ActHistorial extends JPanel {
 
@@ -33,6 +34,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel(" Actividades 2000");
+		lblNewLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel.setBackground(new Color(255, 204, 153));
 		lblNewLabel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -42,6 +44,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.add(lblNewLabel);
 		
 		JLabel lblActividades = new JLabel(" Actividades 2001");
+		lblActividades.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades.setBackground(new Color(255, 204, 153));
 		lblActividades.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblActividades.setHorizontalAlignment(SwingConstants.CENTER);
@@ -51,6 +54,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.add(lblActividades);
 		
 		JLabel lblActividades_1 = new JLabel(" Actividades 2002");
+		lblActividades_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1.setBackground(new Color(255, 204, 153));
 		lblActividades_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblActividades_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -60,6 +64,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.add(lblActividades_1);
 		
 		JLabel lblActividades_1_1 = new JLabel(" Actividades 2003");
+		lblActividades_1_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1_1.setBackground(new Color(255, 204, 153));
 		lblActividades_1_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblActividades_1_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,6 +74,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.add(lblActividades_1_1);
 		
 		JLabel lblActividades_3 = new JLabel(" Actividades 2004");
+		lblActividades_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_3.setBackground(new Color(255, 204, 153));
 		lblActividades_3.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblActividades_3.setIcon(new ImageIcon(V_ActHistorial.class.getResource("/presentacion/IconDescargaPDF.png")));
@@ -78,6 +84,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.add(lblActividades_3);
 		
 		JLabel lblActividades_4 = new JLabel(" Actividades 2005");
+		lblActividades_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_4.setBackground(new Color(255, 204, 153));
 		lblActividades_4.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblActividades_4.setHorizontalAlignment(SwingConstants.CENTER);
@@ -87,6 +94,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.add(lblActividades_4);
 		
 		JLabel lblActividades_1_2 = new JLabel(" Actividades 2006");
+		lblActividades_1_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1_2.setBackground(new Color(255, 204, 153));
 		lblActividades_1_2.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblActividades_1_2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -96,6 +104,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.add(lblActividades_1_2);
 		
 		JLabel lblActividades_1_1_1 = new JLabel(" Actividades 2007");
+		lblActividades_1_1_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1_1_1.setBackground(new Color(255, 204, 153));
 		lblActividades_1_1_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblActividades_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -105,6 +114,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.add(lblActividades_1_1_1);
 		
 		JLabel lblActividades_3_1 = new JLabel(" Actividades 2008");
+		lblActividades_3_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_3_1.setBackground(new Color(255, 204, 153));
 		lblActividades_3_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblActividades_3_1.setIcon(new ImageIcon(V_ActHistorial.class.getResource("/presentacion/IconDescargaPDF.png")));
@@ -114,6 +124,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.add(lblActividades_3_1);
 		
 		JLabel lblActividades_4_1 = new JLabel(" Actividades 2009");
+		lblActividades_4_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_4_1.setBackground(new Color(255, 204, 153));
 		lblActividades_4_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblActividades_4_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -123,6 +134,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.add(lblActividades_4_1);
 		
 		JLabel lblActividades_1_2_1 = new JLabel(" Actividades 2010");
+		lblActividades_1_2_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1_2_1.setBackground(new Color(255, 204, 153));
 		lblActividades_1_2_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblActividades_1_2_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -132,6 +144,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.add(lblActividades_1_2_1);
 		
 		JLabel lblActividades_1_1_1_1 = new JLabel(" Actividades 2011");
+		lblActividades_1_1_1_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1_1_1_1.setBackground(new Color(255, 204, 153));
 		lblActividades_1_1_1_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		lblActividades_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
