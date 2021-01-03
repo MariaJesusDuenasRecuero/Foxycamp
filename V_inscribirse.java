@@ -20,6 +20,8 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
+import presentacion.P_Registro.TxtDNIFocusListener;
+
 //import presentacion.P_Registro.TxtDNIFocusListener;
 
 import javax.swing.JButton;

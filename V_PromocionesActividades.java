@@ -32,13 +32,13 @@ public class V_PromocionesActividades extends JPanel {
 		pnlContenido.setLayout(null);
 		
 		JLabel lblIconOferta2 = new JLabel("");
-		lblIconOferta2.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconOferta2.png")));
-		lblIconOferta2.setBounds(521, 255, 53, 44);
+		lblIconOferta2.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconPromo2.png")));
+		lblIconOferta2.setBounds(531, 249, 42, 41);
 		pnlContenido.add(lblIconOferta2);
 		
 		JLabel lblIconOferta1 = new JLabel("");
 		lblIconOferta1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIconOferta1.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconCalendario.png")));
+		lblIconOferta1.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconPromo1.png")));
 		lblIconOferta1.setBounds(32, 367, 102, 93);
 		pnlContenido.add(lblIconOferta1);
 		
