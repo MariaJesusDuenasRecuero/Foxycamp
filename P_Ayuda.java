@@ -59,13 +59,13 @@ public class P_Ayuda extends JFrame {
 		frmAyuda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(255, 153, 0));
-		contentPane.setBackground(new Color(255, 228, 196));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		frmAyuda.getContentPane().add(contentPane);
 
 		JPanel pnlHeader = new JPanel();
-		pnlHeader.setBackground(new Color(255, 228, 196));
+		pnlHeader.setBackground(new Color(255, 228, 181));
 		contentPane.add(pnlHeader, BorderLayout.NORTH);
 		GridBagLayout gbl_pnlHeader = new GridBagLayout();
 		gbl_pnlHeader.columnWidths = new int[] { 50, 44, 64, 300, 0, 0, 358, 92, 50, 50, 64, 64, 0, 28, 0, 0 };
