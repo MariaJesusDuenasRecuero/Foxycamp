@@ -34,6 +34,7 @@ import javax.swing.border.Border;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Cursor;
 
 public class P_Ayuda extends JFrame {
 
@@ -93,6 +94,7 @@ public class P_Ayuda extends JFrame {
 		pnlHeader.add(lblFoxycamp, gbc_lblFoxycamp);
 
 		JLabel lblAyuda = new JLabel("");
+		lblAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblAyuda.setIcon(
 				new ImageIcon(P_Principal.class.getResource("/presentacion/signo-de-interrogacion-dibujar.png")));
 		lblAyuda.setToolTipText("Ayuda");
@@ -105,6 +107,7 @@ public class P_Ayuda extends JFrame {
 		lblAyuda.addMouseListener(new LblAyudaMouseListener());
 
 		JLabel lblTraductor = new JLabel("");
+		lblTraductor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblTraductor.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/traductor.png")));
 		lblTraductor.setToolTipText("Traductor");
 		GridBagConstraints gbc_lblTraductor = new GridBagConstraints();
@@ -115,6 +118,7 @@ public class P_Ayuda extends JFrame {
 		pnlHeader.add(lblTraductor, gbc_lblTraductor);
 
 		JLabel lblPerfil = new JLabel("");
+		lblPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblPerfil.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/usuario.png")));
 		GridBagConstraints gbc_lblPerfil = new GridBagConstraints();
 		gbc_lblPerfil.anchor = GridBagConstraints.SOUTH;
@@ -129,6 +133,7 @@ public class P_Ayuda extends JFrame {
 				new ImageIcon(P_Principal.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png")));
 
 		JPopupMenu pmFlecha = new JPopupMenu();
+		pmFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addPopup(lblFlecha, pmFlecha);
 
 		JLabel lblPerfilOption = new JLabel("    Adrián Ruiz");

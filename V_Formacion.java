@@ -28,6 +28,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.Cursor;
 
 public class V_Formacion extends JPanel {
 	private JTextField txtIdioma;
@@ -142,6 +143,7 @@ public class V_Formacion extends JPanel {
 		panel.add(lblActualizar, gbc_lblActualizar);
 		
 		JLabel lblCV = new JLabel("");
+		lblCV.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblCV.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

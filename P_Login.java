@@ -41,6 +41,7 @@ import java.awt.event.MouseEvent;
 import java.text.ParseException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Cursor;
 
 public class P_Login {
 
@@ -52,7 +53,7 @@ public class P_Login {
 	private JButton btnEntrarLogin;
 	private JLabel lblIncorrectDNI;
 	private JLabel lblIncorrectPassword;
-	private JLabel lblValidar;
+	private JLabel lblEstado;
 	private JLabel lblAyuda;
 	private JLabel lblLink;
 
@@ -124,6 +125,7 @@ public class P_Login {
 		pnlHeader.add(lblFoxycamp, gbc_lblFoxycamp);
 
 		lblAyuda = new JLabel("");
+		lblAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblAyuda.addMouseListener(new LblAyudaMouseListener_1());
 		lblAyuda.setOpaque(true);
 		lblAyuda.setBackground(new Color(255, 228, 196));
@@ -137,6 +139,7 @@ public class P_Login {
 		pnlHeader.add(lblAyuda, gbc_lblAyuda);
 
 		JLabel lblTraductor = new JLabel("");
+		lblTraductor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblTraductor.setToolTipText("Traductor");
 		lblTraductor.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/traductor.png")));
 		GridBagConstraints gbc_lblTraductor = new GridBagConstraints();
@@ -291,20 +294,21 @@ public class P_Login {
 		gbc_lblInocrrectPassword.gridy = 5;
 		pnlLogin.add(lblIncorrectPassword, gbc_lblInocrrectPassword);
 
-		lblValidar = new JLabel("");
-		lblValidar.setLabelFor(lblValidar);
-		lblValidar.setFont(new Font("Verdana", Font.PLAIN, 14));
-		lblValidar.setHorizontalAlignment(SwingConstants.CENTER);
-		lblValidar.setForeground(new Color(255, 0, 0));
-		GridBagConstraints gbc_lblValidar = new GridBagConstraints();
-		gbc_lblValidar.fill = GridBagConstraints.BOTH;
-		gbc_lblValidar.gridwidth = 4;
-		gbc_lblValidar.insets = new Insets(0, 0, 5, 5);
-		gbc_lblValidar.gridx = 1;
-		gbc_lblValidar.gridy = 6;
-		pnlLogin.add(lblValidar, gbc_lblValidar);
+		lblEstado = new JLabel("");
+		lblEstado.setLabelFor(lblEstado);
+		lblEstado.setFont(new Font("Verdana", Font.PLAIN, 14));
+		lblEstado.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEstado.setForeground(new Color(255, 0, 0));
+		GridBagConstraints gbc_lblEstado = new GridBagConstraints();
+		gbc_lblEstado.fill = GridBagConstraints.BOTH;
+		gbc_lblEstado.gridwidth = 4;
+		gbc_lblEstado.insets = new Insets(0, 0, 5, 5);
+		gbc_lblEstado.gridx = 1;
+		gbc_lblEstado.gridy = 6;
+		pnlLogin.add(lblEstado, gbc_lblEstado);
 
 		JLabel lblLink = new JLabel("Crear cuenta");
+		lblLink.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblLink.addKeyListener(new LblLinkKeyListener());
 		lblLink.setForeground(new Color(0, 0, 255));
 		lblLink.setFont(new Font("Verdana", Font.ITALIC, 14));
@@ -376,7 +380,7 @@ public class P_Login {
 					&& pwdIntroduzcaContrasea.getText().equals(null)) {
 				lblIncorrectDNI.setVisible(true);
 				lblIncorrectPassword.setVisible(true);
-				lblValidar.setText("Por favor, introduzca datos");
+				lblEstado.setText("Por favor, introduzca datos");
 			} else {
 				lblIncorrectDNI.setVisible(true);
 				lblIncorrectPassword.setVisible(true);

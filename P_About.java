@@ -30,6 +30,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import presentacion.P_Principal.RoundedBorder;
+import java.awt.Cursor;
 
 
 @SuppressWarnings("serial")
@@ -87,6 +88,7 @@ public class P_About extends JFrame {
 		pnlHeader.add(lblFoxycamp, gbc_lblFoxycamp);
 
 		JLabel lblAyuda = new JLabel("");
+		lblAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblAyuda.addMouseListener(new LblAyudaMouseListener());
 		lblAyuda.setToolTipText("Ayuda");
 		lblAyuda.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/signo-de-interrogacion-dibujar.png")));
@@ -98,6 +100,7 @@ public class P_About extends JFrame {
 		pnlHeader.add(lblAyuda, gbc_lblAyuda);
 
 		JLabel lblTraductor = new JLabel("");
+		lblTraductor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblTraductor.setToolTipText("Traductor");
 		lblTraductor.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/traductor.png")));
 		GridBagConstraints gbc_lblTraductor = new GridBagConstraints();
@@ -108,6 +111,7 @@ public class P_About extends JFrame {
 		pnlHeader.add(lblTraductor, gbc_lblTraductor);
 		
 		JLabel lblPerfil = new JLabel("");
+		lblPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblPerfil.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/usuario.png")));
 		GridBagConstraints gbc_lblPerfil = new GridBagConstraints();
 		gbc_lblPerfil.anchor = GridBagConstraints.SOUTH;
@@ -125,6 +129,7 @@ public class P_About extends JFrame {
 		gbc_lblFlechaPerfil.gridy = 1;
 		pnlHeader.add(lblFlechaPerfil, gbc_lblFlechaPerfil);
 		JPopupMenu pmFlecha = new JPopupMenu();
+		pmFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addPopup(lblFlechaPerfil, pmFlecha);
 		
 		JLabel lblPerfilOption = new JLabel("    Adrian Ruiz");
@@ -220,7 +225,7 @@ public class P_About extends JFrame {
 		txtrSomosUnGrupo.setEditable(false);
 		txtrSomosUnGrupo.setForeground(new Color(0, 0, 0));
 		txtrSomosUnGrupo.setFont(new Font("Verdana", Font.PLAIN, 18));
-		txtrSomosUnGrupo.setText("Somos un grupo de estudiantes de ingeniería infotmática en el desarrollo de los fundamentos teóricos, recogidos a lo largo del curso, en el desarrollo de un prototipo de aplicación interactiva de escritorio  con interfaz gráfica de usuario (GUI ) en Java. Dicha GUI deberá diseñarse teniendo en cuenta los aspectos de usabilidad y factores humanos impartidos en las sesiones de teoría de interacción persona ordenador.");
+		txtrSomosUnGrupo.setText("Somos un grupo de estudiantes de ingeniería informática en el desarrollo de los fundamentos teóricos, recogidos a lo largo del curso, en el desarrollo de un prototipo de aplicación interactiva de escritorio  con interfaz gráfica de usuario (GUI ) en Java. Dicha GUI deberá diseñarse teniendo en cuenta los aspectos de usabilidad y factores humanos impartidos en las sesiones de teoría de interacción persona ordenador.");
 		txtrSomosUnGrupo.setBackground(new Color(255, 228, 196));
 		txtrSomosUnGrupo.setLineWrap(true);
 		txtrSomosUnGrupo.setBounds(93, 72, 1106, 111);

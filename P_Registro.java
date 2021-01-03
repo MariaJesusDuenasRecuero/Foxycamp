@@ -39,6 +39,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JScrollPane;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.Cursor;
 
 public class P_Registro extends JFrame {
 
@@ -325,6 +326,7 @@ public class P_Registro extends JFrame {
 		txtInfoAdicional.addFocusListener(new TxtInfoAdicionalFocusListener());
 		
 		lblImagenCV = new JLabel("Cargar");
+		lblImagenCV.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblImagenCV.addMouseListener(new LblImagenCVMouseListener());
 		
 		MaskFormatter formatoTlfno;
@@ -368,6 +370,7 @@ public class P_Registro extends JFrame {
 		//textTelefono = new JTextField();
 		
 		lblImagenCarga = new JLabel("");
+		lblImagenCarga.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblImagenCarga.addMouseListener(new LblImagenCargaMouseListener());
 		lblImagenCarga.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/uploadImage.png")));
 		lblImagenCarga.setToolTipText("Pincha encima para subir archivo");
@@ -379,6 +382,7 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(lblImagenCarga, gbc_lblImagenCarga);
 		
 		lblImagen = new JLabel("Image");
+		lblImagen.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblImagen.setFont(new Font("Verdana", Font.PLAIN, 13));
 		GridBagConstraints gbc_lblImagen = new GridBagConstraints();
 		gbc_lblImagen.insets = new Insets(0, 0, 5, 5);
