@@ -54,7 +54,6 @@ public class P_Login {
 	private JLabel lblIncorrectDNI;
 	private JLabel lblIncorrectPassword;
 	private JLabel lblEstado;
-	private JLabel lblAyuda;
 	private JLabel lblLink;
 
 	private Color colorBlanco = new Color(255, 255, 255);
@@ -124,20 +123,6 @@ public class P_Login {
 		gbc_lblFoxycamp.gridy = 1;
 		pnlHeader.add(lblFoxycamp, gbc_lblFoxycamp);
 
-		lblAyuda = new JLabel("");
-		lblAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblAyuda.addMouseListener(new LblAyudaMouseListener_1());
-		lblAyuda.setOpaque(true);
-		lblAyuda.setBackground(new Color(255, 228, 196));
-		lblAyuda.setToolTipText("Ayuda");
-		lblAyuda.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/signo-de-interrogacion-dibujar.png")));
-		GridBagConstraints gbc_lblAyuda = new GridBagConstraints();
-		gbc_lblAyuda.anchor = GridBagConstraints.SOUTHEAST;
-		gbc_lblAyuda.insets = new Insets(0, 0, 5, 5);
-		gbc_lblAyuda.gridx = 8;
-		gbc_lblAyuda.gridy = 1;
-		pnlHeader.add(lblAyuda, gbc_lblAyuda);
-
 		JLabel lblTraductor = new JLabel("");
 		lblTraductor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblTraductor.setToolTipText("Traductor");
@@ -178,6 +163,7 @@ public class P_Login {
 		pnlLogin.setBorder(new LineBorder(new Color(253, 245, 230), 9, true));
 		pnlLogin.setBackground(new Color(211, 211, 211));
 		GridBagConstraints gbc_pnlLogin = new GridBagConstraints();
+		gbc_pnlLogin.gridwidth = 2;
 		gbc_pnlLogin.gridheight = 2;
 		gbc_pnlLogin.anchor = GridBagConstraints.SOUTH;
 		gbc_pnlLogin.insets = new Insets(0, 0, 5, 5);
@@ -296,8 +282,8 @@ public class P_Login {
 
 		lblEstado = new JLabel("");
 		lblEstado.setLabelFor(lblEstado);
-		lblEstado.setFont(new Font("Verdana", Font.PLAIN, 14));
-		lblEstado.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEstado.setFont(new Font("Verdana", Font.BOLD, 12));
+		lblEstado.setHorizontalAlignment(SwingConstants.LEFT);
 		lblEstado.setForeground(new Color(255, 0, 0));
 		GridBagConstraints gbc_lblEstado = new GridBagConstraints();
 		gbc_lblEstado.fill = GridBagConstraints.BOTH;
@@ -326,7 +312,7 @@ public class P_Login {
 		btnEntrarLogin.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/IconoEntrarLogin.png")));
 		btnEntrarLogin.setForeground(new Color(0, 0, 0));
 		btnEntrarLogin.addActionListener(new BtnAceptarLoginActionListener());
-		btnEntrarLogin.setBackground(new Color(255, 102, 51));
+		btnEntrarLogin.setBackground(new Color(244, 164, 96));
 		btnEntrarLogin.setToolTipText("Confirmar para acceder");
 		btnEntrarLogin.setBorder(new RoundedBorder(10));
 		btnEntrarLogin.setFont(new Font("Verdana", Font.BOLD, 16));
@@ -346,7 +332,7 @@ public class P_Login {
 		btnBorrarLogin.setForeground(Color.BLACK);
 		btnBorrarLogin.setToolTipText("Borrar datos");
 		btnBorrarLogin.setFont(new Font("Verdana", Font.BOLD, 16));
-		btnBorrarLogin.setBackground(new Color(255, 102, 51));
+		btnBorrarLogin.setBackground(new Color(244, 164, 96));
 		btnBorrarLogin.setBorder(new RoundedBorder(10));
 		GridBagConstraints gbc_btnBorrarLogin = new GridBagConstraints();
 		gbc_btnBorrarLogin.gridheight = 2;
@@ -356,12 +342,12 @@ public class P_Login {
 		gbc_btnBorrarLogin.gridx = 1;
 		gbc_btnBorrarLogin.gridy = 9;
 		pnlLogin.add(btnBorrarLogin, gbc_btnBorrarLogin);
-		
-				JLabel lblIngreseDatos = new JLabel("Introduzca sus datos");
-				lblIngreseDatos.setHorizontalAlignment(SwingConstants.CENTER);
-				frmLogin.getContentPane().add(lblIngreseDatos, BorderLayout.CENTER);
-				lblIngreseDatos.setFont(new Font("Verdana", Font.BOLD, 40));
-				lblIngreseDatos.setForeground(new Color(210, 105, 30));
+
+		JLabel lblIngreseDatos = new JLabel("Introduzca sus datos");
+		lblIngreseDatos.setHorizontalAlignment(SwingConstants.CENTER);
+		frmLogin.getContentPane().add(lblIngreseDatos, BorderLayout.CENTER);
+		lblIngreseDatos.setFont(new Font("Verdana", Font.BOLD, 40));
+		lblIngreseDatos.setForeground(new Color(210, 105, 30));
 		frmLogin.setResizable(false);
 		frmLogin.setBackground(Color.WHITE);
 		// frame.setForeground(new Color(255, 204, 102));
@@ -372,18 +358,22 @@ public class P_Login {
 
 	private class BtnAceptarLoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if ((txtFormattedDNI.getText().equals("00000016-A") && pwdIntroduzcaContrasea.getText().equals("man123")) || (txtFormattedDNI.getText().equals("00000011-M") && pwdIntroduzcaContrasea.getText().equals("man123"))|| (txtFormattedDNI.getText().equals("00000018-M") && pwdIntroduzcaContrasea.getText().equals("man123"))) {
+			if ((txtFormattedDNI.getText().equals("00000016-A") && pwdIntroduzcaContrasea.getText().equals("man123"))
+					|| (txtFormattedDNI.getText().equals("00000011-M")
+							&& pwdIntroduzcaContrasea.getText().equals("man123"))
+					|| (txtFormattedDNI.getText().equals("00000018-M")
+							&& pwdIntroduzcaContrasea.getText().equals("man123"))) {
 				P_Principal principal = new P_Principal();
 				principal.getFrame().setVisible(true);
 				frmLogin.dispose();
-			} else if (txtFormattedDNI.getText().equals("XXXXXXXXX-X")
-					&& pwdIntroduzcaContrasea.getText().equals(null)) {
+			} else if (txtFormattedDNI.getText().equals("XXXXXXXXX-X") || pwdIntroduzcaContrasea.getText().equals("")) {
 				lblIncorrectDNI.setVisible(true);
 				lblIncorrectPassword.setVisible(true);
 				lblEstado.setText("Por favor, introduzca datos");
 			} else {
 				lblIncorrectDNI.setVisible(true);
 				lblIncorrectPassword.setVisible(true);
+				lblEstado.setText("Datos incorrectos,inténtelo de nuevo");
 			}
 
 		}
@@ -395,17 +385,20 @@ public class P_Login {
 			pwdIntroduzcaContrasea.setText(null);
 			lblIncorrectDNI.setVisible(false);
 			lblIncorrectPassword.setVisible(false);
+			lblEstado.setText("");
+			lblEstado.setText("");
 
 		}
 	}
 
-	private class LblAyudaMouseListener extends MouseAdapter {
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			lblAyuda.setBackground(Color.ORANGE);
-
-		}
-	}
+	/*
+	 * private class LblAyudaMouseListener extends MouseAdapter {
+	 * 
+	 * @Override public void mouseClicked(MouseEvent e) {
+	 * lblAyuda.setBackground(Color.ORANGE);
+	 * 
+	 * } }
+	 */
 	private class LblLinkListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -413,8 +406,7 @@ public class P_Login {
 			frmRegistro.getFrame().setVisible(true);
 			frmLogin.dispose();
 		}
-		
-		
+
 	}
 
 	private class TxtDNIFocusListener extends FocusAdapter {
@@ -441,15 +433,6 @@ public class P_Login {
 		}
 	}
 
-	private class LblAyudaMouseListener_1 extends MouseAdapter {
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			frmLogin.setVisible(false);
-			P_Ayuda ayuda = new P_Ayuda();
-			ayuda.getFrame().setVisible(true);
-
-		}
-	}
 	private class LblLinkKeyListener extends KeyAdapter {
 		@Override
 		public void keyTyped(KeyEvent e) {
@@ -477,10 +460,9 @@ public class P_Login {
 			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
 		}
 	}
-	
+
 	public JFrame getFrame() {
 		return frmLogin;
 	}
-	
 
 }

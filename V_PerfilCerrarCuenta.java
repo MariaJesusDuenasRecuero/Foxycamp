@@ -22,9 +22,11 @@ import javax.swing.JEditorPane;
 import java.awt.SystemColor;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class V_PerfilCerrarCuenta extends JPanel {
-
+	private P_Perfil frmPerfil;
 	/**
 	 * Create the panel.
 	 */
@@ -76,6 +78,7 @@ public class V_PerfilCerrarCuenta extends JPanel {
 		panel.add(txtpnSiCierraLa, gbc_txtpnSiCierraLa);
 		
 		JButton btnCerrarCuenta = new JButton("Cerrar cuenta");
+		btnCerrarCuenta.addActionListener(new BtnCerrarCuentaActionListener());
 		btnCerrarCuenta.setBackground(new Color(153, 0, 0));
 		btnCerrarCuenta.setForeground(SystemColor.text);
 		btnCerrarCuenta.setFont(new Font("Verdana", Font.BOLD, 16));
@@ -106,5 +109,12 @@ public class V_PerfilCerrarCuenta extends JPanel {
 	    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
 	        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
 	    }
+	}
+	private class BtnCerrarCuentaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			P_Login frmLogin = new P_Login();
+			frmLogin.getFrame().setVisible(true);
+			frmPerfil.dispose();
+		}
 	}
 }

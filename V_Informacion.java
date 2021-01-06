@@ -270,6 +270,7 @@ public class V_Informacion extends JPanel {
 		txtTelefono.setColumns(10);
 		
 		JButton btnCargarFoto = new JButton("Cargar");
+		btnCargarFoto.setIcon(new ImageIcon(V_Informacion.class.getResource("/presentacion/uploadFile.png")));
 		btnCargarFoto.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnCargarFoto.addMouseListener(new MouseAdapter() {
 			@Override

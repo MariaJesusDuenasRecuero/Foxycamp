@@ -99,7 +99,7 @@ public class P_Registro extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
-		contentPane.setBackground(naranja);
+		contentPane.setBackground(Color.WHITE);
 		frmRegistro.getContentPane().add(contentPane);
 		
 		pnlHeader = new JPanel();
@@ -169,7 +169,7 @@ public class P_Registro extends JFrame {
 		pnlLogin.setBorder(new LineBorder(new Color(253, 245, 230), 4));
 		pnlLogin.setBackground(new Color(211, 211, 211));
 		GridBagConstraints gbc_pnlLogin = new GridBagConstraints();
-		gbc_pnlLogin.anchor = GridBagConstraints.WEST;
+		gbc_pnlLogin.anchor = GridBagConstraints.EAST;
 		gbc_pnlLogin.insets = new Insets(0, 0, 5, 5);
 		gbc_pnlLogin.gridx = 1;
 		gbc_pnlLogin.gridy = 1;
@@ -186,7 +186,8 @@ public class P_Registro extends JFrame {
 		lblNombre.setToolTipText("Campo obligatorio");
 		lblNombre.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblNombre = new GridBagConstraints();
-		gbc_lblNombre.anchor = GridBagConstraints.WEST;
+		gbc_lblNombre.gridwidth = 2;
+		gbc_lblNombre.anchor = GridBagConstraints.EAST;
 		gbc_lblNombre.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNombre.gridx = 1;
 		gbc_lblNombre.gridy = 1;
@@ -220,7 +221,8 @@ public class P_Registro extends JFrame {
 		lblApellidos = new JLabel("Apellidos");
 		lblApellidos.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblApellidos = new GridBagConstraints();
-		gbc_lblApellidos.anchor = GridBagConstraints.ABOVE_BASELINE_LEADING;
+		gbc_lblApellidos.gridwidth = 2;
+		gbc_lblApellidos.anchor = GridBagConstraints.ABOVE_BASELINE_TRAILING;
 		gbc_lblApellidos.insets = new Insets(0, 0, 5, 5);
 		gbc_lblApellidos.gridx = 1;
 		gbc_lblApellidos.gridy = 2;
@@ -246,7 +248,8 @@ public class P_Registro extends JFrame {
 		lblDNI.setToolTipText("Campo obligatorio");
 		lblDNI.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblDNI = new GridBagConstraints();
-		gbc_lblDNI.anchor = GridBagConstraints.WEST;
+		gbc_lblDNI.gridwidth = 2;
+		gbc_lblDNI.anchor = GridBagConstraints.EAST;
 		gbc_lblDNI.insets = new Insets(0, 0, 5, 5);
 		gbc_lblDNI.gridx = 1;
 		gbc_lblDNI.gridy = 3;
@@ -276,7 +279,8 @@ public class P_Registro extends JFrame {
 		lblEmail.setToolTipText("Campo obligatorio");
 		lblEmail.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblEmail = new GridBagConstraints();
-		gbc_lblEmail.anchor = GridBagConstraints.WEST;
+		gbc_lblEmail.gridwidth = 2;
+		gbc_lblEmail.anchor = GridBagConstraints.EAST;
 		gbc_lblEmail.insets = new Insets(0, 0, 5, 5);
 		gbc_lblEmail.gridx = 1;
 		gbc_lblEmail.gridy = 4;
@@ -299,7 +303,8 @@ public class P_Registro extends JFrame {
 		lblNewLabel.setHorizontalTextPosition(SwingConstants.LEFT);
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
+		gbc_lblNewLabel.gridwidth = 2;
+		gbc_lblNewLabel.anchor = GridBagConstraints.EAST;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel.gridx = 1;
 		gbc_lblNewLabel.gridy = 5;
@@ -316,7 +321,8 @@ public class P_Registro extends JFrame {
 		lblTelefono = new JLabel("Telófono de contacto");
 		lblTelefono.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblTelefono = new GridBagConstraints();
-		gbc_lblTelefono.anchor = GridBagConstraints.WEST;
+		gbc_lblTelefono.gridwidth = 2;
+		gbc_lblTelefono.anchor = GridBagConstraints.EAST;
 		gbc_lblTelefono.insets = new Insets(0, 0, 5, 5);
 		gbc_lblTelefono.gridx = 1;
 		gbc_lblTelefono.gridy = 6;
@@ -351,7 +357,8 @@ public class P_Registro extends JFrame {
 		lblContrasena.setToolTipText("Campo obligatorio");
 		lblContrasena.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblContrasena = new GridBagConstraints();
-		gbc_lblContrasena.anchor = GridBagConstraints.WEST;
+		gbc_lblContrasena.gridwidth = 2;
+		gbc_lblContrasena.anchor = GridBagConstraints.EAST;
 		gbc_lblContrasena.insets = new Insets(0, 0, 5, 5);
 		gbc_lblContrasena.gridx = 1;
 		gbc_lblContrasena.gridy = 7;
@@ -394,6 +401,8 @@ public class P_Registro extends JFrame {
 		lblConfirmarContrasena.setToolTipText("Campo obligatorio");
 		lblConfirmarContrasena.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblConfirmarContrasena = new GridBagConstraints();
+		gbc_lblConfirmarContrasena.gridwidth = 2;
+		gbc_lblConfirmarContrasena.anchor = GridBagConstraints.EAST;
 		gbc_lblConfirmarContrasena.insets = new Insets(0, 0, 5, 5);
 		gbc_lblConfirmarContrasena.gridx = 1;
 		gbc_lblConfirmarContrasena.gridy = 8;
@@ -414,7 +423,8 @@ public class P_Registro extends JFrame {
 		lblCV.setToolTipText("Campo obligatorio");
 		lblCV.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblCV = new GridBagConstraints();
-		gbc_lblCV.anchor = GridBagConstraints.WEST;
+		gbc_lblCV.gridwidth = 2;
+		gbc_lblCV.anchor = GridBagConstraints.EAST;
 		gbc_lblCV.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCV.gridx = 1;
 		gbc_lblCV.gridy = 9;
@@ -430,7 +440,8 @@ public class P_Registro extends JFrame {
 		lblInformacion = new JLabel("Información adicional");
 		lblInformacion.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblInformacion = new GridBagConstraints();
-		gbc_lblInformacion.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblInformacion.gridwidth = 2;
+		gbc_lblInformacion.anchor = GridBagConstraints.EAST;
 		gbc_lblInformacion.insets = new Insets(0, 0, 5, 5);
 		gbc_lblInformacion.gridx = 1;
 		gbc_lblInformacion.gridy = 10;
@@ -449,7 +460,7 @@ public class P_Registro extends JFrame {
 		btnVolver.addActionListener(new BtnVolverActionListener());
 		btnVolver.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/volver-flecha (1).png")));
 		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnVolver.setBackground(new Color(255, 165, 0));
+		btnVolver.setBackground(new Color(244, 164, 96));
 		GridBagConstraints gbc_btnVolver = new GridBagConstraints();
 		gbc_btnVolver.anchor = GridBagConstraints.EAST;
 		gbc_btnVolver.insets = new Insets(0, 0, 0, 5);
@@ -466,7 +477,7 @@ public class P_Registro extends JFrame {
 		gbc_btnConfirmar.gridx = 1;
 		gbc_btnConfirmar.gridy = 2;
 		pnlContenido.add(btnConfirmar, gbc_btnConfirmar);
-		btnConfirmar.setBounds(new Rectangle(0, 0, 0, 10));
+		btnConfirmar.setBounds(new Rectangle(0, 0, -3, 15));
 		btnConfirmar.setFont(new Font("Verdana", Font.BOLD, 16));
 		btnConfirmar.setBorder(new RoundedBorder(4));
 		btnConfirmar.setForeground(new Color(0,0,0));
