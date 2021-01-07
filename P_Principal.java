@@ -2,7 +2,6 @@ package presentacion;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -20,21 +19,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.border.Border;
 import javax.swing.JSeparator;
-import java.awt.FlowLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import java.awt.Toolkit;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.border.CompoundBorder;
 import java.awt.Cursor;
 
 public class P_Principal extends JFrame implements ActionListener{
@@ -52,10 +46,11 @@ public class P_Principal extends JFrame implements ActionListener{
 	private V_RutaCrear panelRutaCrear;
 	private V_inscritos panelInscritosActividades;
 	private V_LogoZorro panelLogoZorro;
-	private JMenuItem menuitem1, menuitem2,menuitem3;
+	private JMenuItem menuRutasDisponibles, RutaCrear,RutaInscritos;
 	private V_BungalowsPromociones panelBungalowsPromociones;
 	private V_ActHistorial panelHistorialActividades;
 	private V_PromocionesActividades panelActividadesPromociones;
+	private V_RutaElegida rutaElegida;
 
 	/**
 	 * Create the frame.
@@ -262,38 +257,17 @@ public class P_Principal extends JFrame implements ActionListener{
 		mnRuta_1.setBackground(Color.WHITE);
 		menuRuta.add(mnRuta_1);
 		
-		menuitem1 = new JMenuItem("Rutas disponibles");
-		menuitem1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelRuta = new V_Ruta();
-				pnlContenido.add(panelRuta, "Ruta");
-				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-				c1.show(pnlContenido, "Ruta");
-			}
-		});
-		mnRuta_1.add(menuitem1);
+		menuRutasDisponibles = new JMenuItem("Rutas disponibles");
+		menuRutasDisponibles.addActionListener(new BtnRutasDisponiblesActionListener());
+		mnRuta_1.add(menuRutasDisponibles);
 		
-		menuitem2 = new JMenuItem("Crear ruta");
-		menuitem2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelRutaCrear = new V_RutaCrear();
-				pnlContenido.add(panelRutaCrear, "RutaCrear");
-				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-				c1.show(pnlContenido, "RutaCrear");
-			}
-		});
-		mnRuta_1.add(menuitem2);
+		RutaCrear = new JMenuItem("Crear ruta");
+		RutaCrear.addActionListener(new BtnRutaCrearActionListener());
+		mnRuta_1.add(RutaCrear);
 		
-		menuitem3 = new JMenuItem("Inscritos a la ruta");
-		menuitem3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelRutaInscritos = new V_RutaInscritos();
-				pnlContenido.add(panelRutaInscritos, "RutaInscritos");
-				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-				c1.show(pnlContenido, "RutaInscritos");
-			}
-		});
-		mnRuta_1.add(menuitem3);
+		RutaInscritos = new JMenuItem("Inscritos a la ruta");
+		RutaInscritos.addActionListener(new BtnRutaInscritosActionListener());
+		mnRuta_1.add(RutaInscritos);
 		
 		JMenuBar menuActividades = new JMenuBar();
 		menuActividades.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
@@ -311,47 +285,19 @@ public class P_Principal extends JFrame implements ActionListener{
 		menuActividades.add(mnActiv);
 		
 		JMenuItem mntmVerActividades = new JMenuItem("Ver actividades");
-		mntmVerActividades.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelActividades = new V_Actividades();
-				pnlContenido.add(panelActividades, "Actividades");
-				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-				c1.show(pnlContenido, "Actividades");
-			}
-		});
+		mntmVerActividades.addActionListener(new BtnVerActividadeesActionListener());
 		mnActiv.add(mntmVerActividades);
 		
 		JMenuItem mntmPromocionesAct = new JMenuItem("Promociones");
-		mntmPromocionesAct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelActividadesPromociones = new V_PromocionesActividades();
-				pnlContenido.add(panelActividadesPromociones, "panelActividadesPromociones");
-				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-				c1.show(pnlContenido, "panelActividadesPromociones");
-			}
-		});
+		mntmPromocionesAct.addActionListener(new BtnPromocionesActActionListener());
 		mnActiv.add(mntmPromocionesAct);
 		
 		JMenuItem mntmHistorialAct = new JMenuItem("Historial");
-		mntmHistorialAct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelHistorialActividades = new V_ActHistorial();
-				pnlContenido.add(panelHistorialActividades, "panelHistorialActividades");
-				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-				c1.show(pnlContenido, "panelHistorialActividades");
-			}
-		});
+		mntmHistorialAct.addActionListener(new BtnHistorialActActionListener());
 		mnActiv.add(mntmHistorialAct);
 		
 		JMenuItem mntmInscritosAct = new JMenuItem("Inscritos");
-		mntmInscritosAct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelInscritosActividades = new V_inscritos();
-				pnlContenido.add(panelInscritosActividades, "ActividadesInscritos");
-				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-				c1.show(pnlContenido, "ActividadesInscritos");
-			}
-		});
+		mntmInscritosAct.addActionListener(new BtnInscritosActActionListener());
 		mnActiv.add(mntmInscritosAct);
 		
 		JMenuBar menuBungalows = new JMenuBar();
@@ -369,25 +315,11 @@ public class P_Principal extends JFrame implements ActionListener{
 		menuBungalows.add(mnBungalows);
 		
 		JMenuItem mntmBungalows = new JMenuItem("Bungalows");
-		mntmBungalows.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelBungalow = new V_Bungalow();
-				pnlContenido.add(panelBungalow, "Bungalow");
-				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-				c1.show(pnlContenido, "Bungalow");
-			}
-		});
+		mntmBungalows.addActionListener(new BtnBungalowsActionListener());
 		mnBungalows.add(mntmBungalows);
-		
 		JMenuItem mntmPromosBungalow = new JMenuItem("Promociones");
-		mntmPromosBungalow.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelBungalowsPromociones = new V_BungalowsPromociones();
-				pnlContenido.add(panelBungalowsPromociones, "panelBungalowsPromociones");
-				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-				c1.show(pnlContenido, "panelBungalowsPromociones");
-			}
-		});
+		mntmPromosBungalow.addActionListener(new BtnPromosBungalowsActionListener());
+		
 		mnBungalows.add(mntmPromosBungalow);
 		
 		JMenuBar menuParcelas = new JMenuBar();
@@ -405,14 +337,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		menuParcelas.add(mnParcela);
 		
 		JMenuItem mntmParcelas = new JMenuItem("Parcelas");
-		mntmParcelas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelParcela = new V_Parcela();
-				pnlContenido.add(panelParcela, "Parcela");
-				CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-				c1.show(pnlContenido, "Parcela");
-			}
-		});
+		mntmParcelas.addActionListener(new BtnParcelasActionListener());
 		mnParcela.add(mntmParcelas);
 		btnVolver.addActionListener(new BtnLogoZorroActionListener());
 
@@ -430,11 +355,105 @@ public class P_Principal extends JFrame implements ActionListener{
 		panelLogoZorro = new V_LogoZorro();
 		pnlContenido.add(panelLogoZorro, "panellogoZorro");
 		
+		rutaElegida = new V_RutaElegida();
+		pnlContenido.add(rutaElegida, "rutaElegida");
+
 		CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
 		c1.show(pnlContenido, "panellogoZorro");
-		
+
+	}
+	private class BtnRutaCrearActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			panelRutaCrear = new V_RutaCrear();
+			pnlContenido.add(panelRutaCrear, "RutaCrear");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "RutaCrear");
+		}
+	}
+	private class BtnRutasDisponiblesActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			panelRuta = new V_Ruta();
+			pnlContenido.add(panelRuta, "Ruta");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "Ruta");
+		}
+	}
+	private class BtnRutaInscritosActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			panelRutaInscritos = new V_RutaInscritos();
+			pnlContenido.add(panelRutaInscritos, "RutaInscritos");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "RutaInscritos");
+		}
+	}
+	private class BtnVerActividadeesActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			panelActividades = new V_Actividades();
+			pnlContenido.add(panelActividades, "Actividades");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "Actividades");
+		}
+	}
+	private class BtnHistorialActActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			panelHistorialActividades = new V_ActHistorial();
+			pnlContenido.add(panelHistorialActividades, "panelHistorialActividades");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "panelHistorialActividades");
+		}	
+	}
+
+	private class BtnBungalowsActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			panelBungalow = new V_Bungalow();
+			pnlContenido.add(panelBungalow, "Bungalow");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "Bungalow");
+		}
+	}
+	private class BtnPromocionesActActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			panelActividadesPromociones = new V_PromocionesActividades();
+			pnlContenido.add(panelActividadesPromociones, "panelActividadesPromociones");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "panelActividadesPromociones");
+		}
 	}
 	
+	private class BtnPromosBungalowsActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			panelBungalowsPromociones = new V_BungalowsPromociones();
+			pnlContenido.add(panelBungalowsPromociones, "panelBungalowsPromociones");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "panelBungalowsPromociones");
+		}
+	}
+	private class BtnInscritosActActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			panelInscritosActividades = new V_inscritos();
+			pnlContenido.add(panelInscritosActividades, "ActividadesInscritos");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "ActividadesInscritos");
+		}
+	}
+	
+	private class BtnParcelasActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			panelParcela = new V_Parcela();
+			pnlContenido.add(panelParcela, "Parcela");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "Parcela");
+		}
+	}
+	
+	public JPanel getPnlContenido() {
+		return pnlContenido;
+	}
+	
+	public void setPnlContenido(JPanel pnlContenido) {
+		this.pnlContenido = pnlContenido;
+	}
+
 	private class BtnLogoZorroActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
@@ -465,15 +484,15 @@ public class P_Principal extends JFrame implements ActionListener{
 
 	 public void actionPerformed(ActionEvent e){
 		 CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
-		    if(e.getSource() == menuitem1){
+		    if(e.getSource() == menuRutasDisponibles){
 		    	panelActividades = new V_Actividades();
 				pnlContenido.add(panelActividades, "Actividades");
 		    	c1.show(pnlContenido, "Actividades");
 		    }
-		    if(e.getSource() == menuitem2){
+		    if(e.getSource() == RutaCrear){
 		     
 		    }
-		    if(e.getSource() == menuitem3){
+		    if(e.getSource() == RutaInscritos){
 		      
 		    }
 		  }  
@@ -492,11 +511,6 @@ public class P_Principal extends JFrame implements ActionListener{
 
 		}
 	}
-	/*
-	 * private class BtnRutasActionListener implements ActionListener { public void
-	 * actionPerformed(ActionEvent e) { lblZorroEligeOpcion.show(false); V_Rutas
-	 * ruta = new V_Rutas(); pnlContenido.add(ruta); ruta.show(); } }
-	 */
 
 	public JFrame getFrame() {
 		return frmPrincipal;

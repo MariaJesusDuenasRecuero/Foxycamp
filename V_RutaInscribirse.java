@@ -4,6 +4,8 @@ import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -30,6 +32,8 @@ import java.text.ParseException;
 
 import javax.swing.ImageIcon;
 import javax.swing.border.EtchedBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class V_RutaInscribirse extends JPanel {
 	private Color colorResaltado = new Color (255,255,210);
@@ -54,6 +58,8 @@ public class V_RutaInscribirse extends JPanel {
 		add(lblDatosPersonales);
 
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new BtnAceptarActionListener());
+			
 		btnAceptar.setFont(new Font("Verdana", Font.PLAIN, 16));
 		btnAceptar.setBackground(new Color(255, 165, 0));
 		btnAceptar.setBounds(827, 473, 121, 23);
@@ -103,7 +109,6 @@ public class V_RutaInscribirse extends JPanel {
 			txtDNI= new JFormattedTextField(formatoDNI);
 			txtDNI.addFocusListener(new TxtDNIFocusListener());
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -138,7 +143,6 @@ public class V_RutaInscribirse extends JPanel {
 			formatoTlfno.setPlaceholderCharacter('*');
 			textTelefono= new JFormattedTextField(formatoTlfno);
 		}catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -160,6 +164,12 @@ public class V_RutaInscribirse extends JPanel {
 		lblCoste.setFont(new Font("Verdana", Font.BOLD, 16));
 		lblCoste.setBounds(631, 120, 177, 21);
 		add(lblCoste);
+	}
+
+	private class BtnAceptarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			 JOptionPane.showMessageDialog(null, "Operación realizada");
+		}
 	}
 	private class textAreaInfoAdicFocusListener extends FocusAdapter {
 		@Override

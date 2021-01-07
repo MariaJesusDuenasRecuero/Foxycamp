@@ -1,19 +1,19 @@
 package presentacion;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.Rectangle;
-import java.awt.font.TextAttribute;
-import java.util.Map;
 
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import presentacion.P_Registro.RoundedBorder;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Font;
@@ -25,6 +25,9 @@ import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 
 public class V_RutaElegida extends JPanel {
 	private JTextField txtDia;
@@ -217,6 +220,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblInfo, gbc_lblInfo);
 		
 		JButton btnInscribirse = new JButton("Inscribirse");
+		btnInscribirse.addActionListener(new BtnInscribirseActionListener());
 		GridBagConstraints gbc_btnInscribirse = new GridBagConstraints();
 		gbc_btnInscribirse.anchor = GridBagConstraints.EAST;
 		gbc_btnInscribirse.gridwidth = 2;
@@ -231,7 +235,11 @@ public class V_RutaElegida extends JPanel {
 		
 		
 	}
-
+	private class BtnInscribirseActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			//TODO -> lleva a V_RutaInscribirse
+		}
+	}
 	public class RoundedBorder implements Border {
 
 	    private int radius;
