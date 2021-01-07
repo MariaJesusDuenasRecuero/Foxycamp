@@ -4,6 +4,8 @@ import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -26,13 +28,14 @@ import javax.swing.text.MaskFormatter;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-import java.awt.SystemColor;
 import java.awt.TextArea;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.text.ParseException;
 
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class V_inscribirse extends JPanel {
 	private Color colorResaltado = new Color (255,255,210);
@@ -122,6 +125,8 @@ public class V_inscribirse extends JPanel {
 		add(rdbtnNewRadioButton_8);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new BtnAceptarActionListener());
+			
 		btnAceptar.setFont(new Font("Verdana", Font.PLAIN, 16));
 		btnAceptar.setBackground(new Color(255, 165, 0));
 		btnAceptar.setBounds(827, 473, 121, 23);
@@ -360,6 +365,11 @@ public class V_inscribirse extends JPanel {
 		@Override
 		public void focusLost(FocusEvent e) {
 			e.getComponent().setBackground(colorBlanco);
+		}
+	}
+	private class BtnAceptarActionListener implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			 JOptionPane.showMessageDialog(null, "Operación realizada");
 		}
 	}
 	

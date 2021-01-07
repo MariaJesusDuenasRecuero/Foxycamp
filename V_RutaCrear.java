@@ -1,6 +1,6 @@
 package presentacion;
 
-import java.awt.BorderLayout; 
+import java.awt.BorderLayout;  
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -13,6 +13,7 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import javax.swing.border.Border;
@@ -35,7 +36,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.io.File;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
-
+ 
 public class V_RutaCrear extends JPanel {
 	private JTextField txtHoraInicio;
 	private JTextField txtHoraFin;
@@ -124,6 +125,7 @@ public class V_RutaCrear extends JPanel {
 		panel_1.add(scrollPane, gbc_scrollPane);
 		
 		MiAreaDibujo = new MiAreaDibujo();
+		MiAreaDibujo.addMouseMotionListener(new MiAreaDibujoMouseMotionListener());
 		MiAreaDibujo.addMouseListener(new MiAreaDibujoMouseListener());
 		scrollPane.setViewportView(MiAreaDibujo);
 		
@@ -143,10 +145,10 @@ public class V_RutaCrear extends JPanel {
 		toolBar.add(btnMapa);
 		
 		JButton btnLapiz = new JButton("Marcar ruta");
-		btnLapiz.addMouseMotionListener(new BtnLapizMouseMotionListener());
 		btnLapiz.addActionListener(new BtnLapizActionListener());
 		btnLapiz.setIcon(new ImageIcon(V_RutaCrear.class.getResource("/presentacion/Lapiz.png")));
 		toolBar.add(btnLapiz);
+	
 		
 		JButton btnIglesia = new JButton("Monumento");
 		btnIglesia.addActionListener(new BtnIglesiaActionListener());
@@ -306,6 +308,7 @@ public class V_RutaCrear extends JPanel {
 		panel_1.add(btnCancelar, gbc_btnCancelar);
 		
 		JButton btnGuardar = new JButton("Guardar ruta");
+		btnGuardar.addActionListener(new BtnGuardarActionListener());
 		GridBagConstraints gbc_btnGuardar = new GridBagConstraints();
 		gbc_btnGuardar.gridwidth = 2;
 		gbc_btnGuardar.anchor = GridBagConstraints.EAST;
@@ -415,15 +418,16 @@ public class V_RutaCrear extends JPanel {
 			panel.setCursor(cursorAnimales);
 		}
 	}
+
 	
-	private class BtnLapizMouseMotionListener extends MouseMotionAdapter {
+	private class MiAreaDibujoMouseMotionListener extends MouseMotionAdapter {
 		@Override
 		public void mouseDragged(MouseEvent e) {
 			if (modo == LAPIZ && imagen!=null) {
 				((DibujaLinea)MiAreaDibujo.getUltimoObjetoGrafico()).setX1(e.getX());
 				((DibujaLinea)MiAreaDibujo.getUltimoObjetoGrafico()).setY1(e.getY());
 				MiAreaDibujo.repaint();
-			}
+				}
 		}
 	}
 	private class BtnMapaActionListener implements ActionListener {
@@ -497,6 +501,12 @@ public class V_RutaCrear extends JPanel {
 			e.getComponent().setBackground(colorBlanco);
 		}
 	}
+	private class BtnGuardarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			 JOptionPane.showMessageDialog(null, "Operación realizada");
+		}
+	}
+	
 	private class MiAreaDibujoMouseListener extends MouseAdapter {
 		@Override
 		public void mousePressed(MouseEvent e) {

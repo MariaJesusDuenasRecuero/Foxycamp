@@ -1,17 +1,15 @@
 package presentacion;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollBar;
+import javax.swing.JPanel;  
 
 import java.awt.Rectangle;
-import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.GridBagLayout;
-import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
@@ -19,28 +17,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import java.awt.Font;
-import javax.swing.JSlider;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerListModel;
-import javax.swing.JComboBox;
-import javax.swing.JEditorPane;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.SoftBevelBorder;
 
-import com.toedter.calendar.JDateChooser;
 
 public class V_Ruta extends JPanel {
-	private JTextField txtLlegada;
-	private JTextField txtSAlida;
-	private final JSeparator separator_3 = new JSeparator();
+	
+	private JPanel pnlContenido;
 
 	/**
 	 * Create the panel.
 	 */
-	public V_Ruta() {
+	public V_Ruta(JPanel referenciaPnlContenido) {
+		pnlContenido = referenciaPnlContenido;
 		setBackground(Color.LIGHT_GRAY);
 		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
@@ -82,10 +69,12 @@ public class V_Ruta extends JPanel {
 		gbc_lblRuta3.gridy = 1;
 		panel_1.add(lblRuta3, gbc_lblRuta3);
 		
-		JLabel lblNombreRuta1 = new JLabel("RUTA X");
+		JButton lblNombreRuta1 = new JButton("RUTA X");
+		lblNombreRuta1.addActionListener(new BtnReservarActionListener());
 		lblNombreRuta1.setForeground(new Color(218, 165, 32));
 		lblNombreRuta1.setFont(new Font("Verdana", Font.BOLD, 14));
 		GridBagConstraints gbc_lblNombreRuta1 = new GridBagConstraints();
+		gbc_lblNombreRuta1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblNombreRuta1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNombreRuta1.gridx = 1;
 		gbc_lblNombreRuta1.gridy = 2;
@@ -154,5 +143,12 @@ public class V_Ruta extends JPanel {
 		gbc_lblNombreRuta6.gridy = 5;
 		panel_1.add(lblNombreRuta6, gbc_lblNombreRuta6);
 		
+	}
+	
+	private class BtnReservarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout)(pnlContenido.getLayout());
+			cl.show(pnlContenido, "rutaElegida");
+		}
 	}
 }

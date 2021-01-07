@@ -26,7 +26,9 @@ private JPanel pnlContenido;
 	/**
 	 * Create the panel.
 	 */
-	public V_Actividades() {
+
+	public V_Actividades(JPanel referenciaPnlContenido) {
+		pnlContenido = referenciaPnlContenido;
 		setBackground(Color.LIGHT_GRAY);
 		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
@@ -78,7 +80,6 @@ private JPanel pnlContenido;
 		pnlContenido.add(txtrComienzaElDa_1);
 		
 		JButton btnInscritos = new JButton("Inscritos");
-		btnInscritos.addActionListener(new BtnInscritosActionListener());
 		btnInscritos.setBounds(new Rectangle(0, 0, 60, 50));
 		//btnInscritos.addActionListener(new BtnInscritosActionListener());
 		btnInscritos.setFont(new Font("Verdana", Font.PLAIN, 16));
@@ -87,6 +88,7 @@ private JPanel pnlContenido;
 		pnlContenido.add(btnInscritos);
 		
 		JButton btnInscribirse = new JButton("Inscribirse");
+		btnInscribirse.addActionListener(new BtnInscribirseActionListener());
 		btnInscribirse.setBounds(new Rectangle(0, 0, 60, 50));
 		btnInscribirse.setFont(new Font("Verdana", Font.PLAIN, 16));
 		btnInscribirse.setBackground(new Color(255, 165, 0));
@@ -165,9 +167,10 @@ private JPanel pnlContenido;
 
 	
 
-	private class BtnInscritosActionListener implements ActionListener {
+	private class BtnInscribirseActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			
+			CardLayout cl = (CardLayout)(pnlContenido.getLayout());
+			cl.show(pnlContenido, "actInscribirse");
 		}
 	}
 }

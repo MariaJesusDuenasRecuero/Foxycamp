@@ -36,11 +36,12 @@ public class V_RutaElegida extends JPanel {
 	private JTextField txtPuntoEncuentro;
 	private JTextField txtNum;
 	private JTextField txtDificultad;
-
+	private JPanel pnlContenido;
 	/**
 	 * Create the panel.
 	 */
-	public V_RutaElegida() {
+	public V_RutaElegida(JPanel referenciaPnlContenido) {
+		pnlContenido = referenciaPnlContenido;
 		setBackground(Color.LIGHT_GRAY);
 		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
@@ -220,7 +221,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblInfo, gbc_lblInfo);
 		
 		JButton btnInscribirse = new JButton("Inscribirse");
-		btnInscribirse.addActionListener(new BtnInscribirseActionListener());
+		btnInscribirse.addActionListener(new BtnActionListener());
 		GridBagConstraints gbc_btnInscribirse = new GridBagConstraints();
 		gbc_btnInscribirse.anchor = GridBagConstraints.EAST;
 		gbc_btnInscribirse.gridwidth = 2;
@@ -235,9 +236,11 @@ public class V_RutaElegida extends JPanel {
 		
 		
 	}
-	private class BtnInscribirseActionListener implements ActionListener {
+	
+	private class BtnActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//TODO -> lleva a V_RutaInscribirse
+			CardLayout cl = (CardLayout)(pnlContenido.getLayout());
+			cl.show(pnlContenido, "rutaInscribirse");
 		}
 	}
 	public class RoundedBorder implements Border {
