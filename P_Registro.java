@@ -83,6 +83,8 @@ public class P_Registro extends JFrame {
 	private JTextField textConfirmarMail;
 	private JLabel lblNewLabel;
 	private JButton btnVolver;
+	private JLabel lblAviso;
+	private JLabel lblFichero;
 	//private Color botones = new Color(244, 164, 96);
 
 	/**
@@ -176,9 +178,9 @@ public class P_Registro extends JFrame {
 		pnlContenido.add(pnlLogin, gbc_pnlLogin);
 		GridBagLayout gbl_pnlLogin = new GridBagLayout();
 		gbl_pnlLogin.columnWidths = new int[] { 20, 0, 20, 115, 101, 20, 20, 20, 35, 145, 0, 20, 0 };
-		gbl_pnlLogin.rowHeights = new int[] { 35, 35, 35, 35, 35, 35, 35, 35, 35, 34, 39, 10, 20, 0, 0 };
+		gbl_pnlLogin.rowHeights = new int[] { 35, 35, 35, 35, 35, 35, 35, 35, 35, 34, 39, 10, 20, 0 };
 		gbl_pnlLogin.columnWeights = new double[] { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_pnlLogin.rowWeights = new double[] { 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0,
+		gbl_pnlLogin.rowWeights = new double[] { 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		pnlLogin.setLayout(gbl_pnlLogin);
 		
@@ -194,6 +196,7 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(lblNombre, gbc_lblNombre);
 		
 		JTextField textNombre = new JTextField();
+		textNombre.addActionListener(new TextNombreActionListener());
 		textNombre.addFocusListener(new TextNombreFocusListener());
 		GridBagConstraints gbc_textNombre = new GridBagConstraints();
 		gbc_textNombre.insets = new Insets(0, 0, 5, 5);
@@ -229,6 +232,7 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(lblApellidos, gbc_lblApellidos);
 		
 		textApellidos = new JTextField();
+		textApellidos.setEnabled(false);
 		textApellidos.addFocusListener(new TextApellidosFocusListener());
 		GridBagConstraints gbc_textApellidos = new GridBagConstraints();
 		gbc_textApellidos.gridwidth = 2;
@@ -241,7 +245,9 @@ public class P_Registro extends JFrame {
 		
 	
 		textEmail = new JTextField();
-		textEmail.setFont(new Font("Verdana", Font.BOLD, 11));
+		textEmail.setEnabled(false);
+		textEmail.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		textEmail.addActionListener(new TxtMailActionListener());
 		textEmail.addFocusListener(new TextEmailFocusListener());
 		
 		lblDNI = new JLabel("DNI*");
@@ -261,9 +267,10 @@ public class P_Registro extends JFrame {
 			formatoDNI= new MaskFormatter("########'-U");
 			formatoDNI.setPlaceholderCharacter('X');
 			txtDNI= new JFormattedTextField(formatoDNI);
+			txtDNI.setEnabled(false);
+			txtDNI.addActionListener(new TxtDNIActionListener());
 			txtDNI.addFocusListener(new TxtDNIFocusListener());
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -295,6 +302,8 @@ public class P_Registro extends JFrame {
 		textEmail.setColumns(10);
 		
 		textConfirmarMail = new JTextField();
+		textConfirmarMail.setEnabled(false);
+		textConfirmarMail.addActionListener(new TxtConfirmarMailActionListener());
 		textConfirmarMail.addFocusListener(new TextConfirmarMailFocusListener());
 		
 		lblNewLabel = new JLabel("Confirmar email*");
@@ -329,10 +338,13 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(lblTelefono, gbc_lblTelefono);
 		
 		txtInfoAdicional = new JTextArea();
+		txtInfoAdicional.setEnabled(false);
 		txtInfoAdicional.addFocusListener(new TxtInfoAdicionalFocusListener());
 		
 		lblImagenCV = new JLabel("Cargar");
+		lblImagenCV.setEnabled(false);
 		lblImagenCV.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	
 		lblImagenCV.addMouseListener(new LblImagenCVMouseListener());
 		
 		MaskFormatter formatoTlfno;
@@ -340,8 +352,8 @@ public class P_Registro extends JFrame {
 			formatoTlfno= new MaskFormatter("'(###')' ###' ###' ###");
 			formatoTlfno.setPlaceholderCharacter('*');
 			textTelefono= new JFormattedTextField(formatoTlfno);
+			textTelefono.setEnabled(false);
 		}catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		textTelefono.addFocusListener(new TextTelefonoFocusListener());
@@ -365,6 +377,8 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(lblContrasena, gbc_lblContrasena);
 		
 		textContrasena = new JPasswordField();
+		textContrasena.setEnabled(false);
+		textContrasena.addActionListener(new PressContraseñaActionListener());
 		textContrasena.addFocusListener(new TextContrasenaFocusListener());
 		GridBagConstraints gbc_textContrasena = new GridBagConstraints();
 		gbc_textContrasena.insets = new Insets(0, 0, 5, 5);
@@ -409,6 +423,7 @@ public class P_Registro extends JFrame {
 		pnlLogin.add(lblConfirmarContrasena, gbc_lblConfirmarContrasena);
 		
 		textConfirmarContrasena = new JPasswordField();
+		textConfirmarContrasena.setEnabled(false);
 		textConfirmarContrasena.addActionListener(new TextConfirmarContrasenaActionListener());
 		textConfirmarContrasena.addFocusListener(new TextConfirmarContrasenaFocusListener());
 		GridBagConstraints gbc_textConfirmarContrasena = new GridBagConstraints();
@@ -437,6 +452,14 @@ public class P_Registro extends JFrame {
 		gbc_lblImagenCV.gridy = 9;
 		pnlLogin.add(lblImagenCV, gbc_lblImagenCV);
 		
+		lblFichero = new JLabel("");
+		GridBagConstraints gbc_lblFichero = new GridBagConstraints();
+		gbc_lblFichero.gridwidth = 8;
+		gbc_lblFichero.insets = new Insets(0, 0, 5, 0);
+		gbc_lblFichero.gridx = 4;
+		gbc_lblFichero.gridy = 9;
+		pnlLogin.add(lblFichero, gbc_lblFichero);
+		
 		lblInformacion = new JLabel("Información adicional");
 		lblInformacion.setFont(new Font("Verdana", Font.BOLD, 16));
 		GridBagConstraints gbc_lblInformacion = new GridBagConstraints();
@@ -456,6 +479,15 @@ public class P_Registro extends JFrame {
 		gbc_txtInfoAdicional.gridy = 10;
 		pnlLogin.add(txtInfoAdicional, gbc_txtInfoAdicional);
 		
+		lblAviso = new JLabel("");
+		lblAviso.setOpaque(true);
+		GridBagConstraints gbc_lblAviso = new GridBagConstraints();
+		gbc_lblAviso.gridwidth = 10;
+		gbc_lblAviso.insets = new Insets(0, 0, 0, 5);
+		gbc_lblAviso.gridx = 1;
+		gbc_lblAviso.gridy = 12;
+		pnlLogin.add(lblAviso, gbc_lblAviso);
+		
 		btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new BtnVolverActionListener());
 		btnVolver.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/volver-flecha (1).png")));
@@ -469,6 +501,7 @@ public class P_Registro extends JFrame {
 		pnlContenido.add(btnVolver, gbc_btnVolver);
 		
 		btnConfirmar = new JButton("Confirmar registro");
+		btnConfirmar.setEnabled(false);
 		btnConfirmar.addActionListener(new BtnConfirmarActionListener());
 		GridBagConstraints gbc_btnConfirmar = new GridBagConstraints();
 		gbc_btnConfirmar.fill = GridBagConstraints.VERTICAL;
@@ -485,7 +518,6 @@ public class P_Registro extends JFrame {
 		
 		
 	}
-	
 
 	private class LblImagenCargaMouseListener extends MouseAdapter {
 		@Override
@@ -496,7 +528,7 @@ public class P_Registro extends JFrame {
 			if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 				File file = fcAbrir.getSelectedFile();
 				//En este punto la aplicaci�n se deber�a encargar de realizar la operaci�n sobre el fichero
-				System.out.println("Fichero seleccionado: " + file.getName());
+				System.out.println(file.getName());
 				lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
 			}
 		}
@@ -510,8 +542,9 @@ public class P_Registro extends JFrame {
 			if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 				File file = fcAbrir.getSelectedFile();
 				//En este punto la aplicaci�n se deber�a encargar de realizar la operaci�n sobre el fichero
-				System.out.println("Fichero seleccionado: " + file.getName());
+				lblFichero.setText("Fichero seleccionado: " + file.getName());
 				lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
+				btnConfirmar.setEnabled(true);
 			}
 		}
 	}
@@ -607,21 +640,60 @@ public class P_Registro extends JFrame {
 	}
 	private class TextConfirmarContrasenaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//obtenemos la contrase�a introducida
-		/* Para dar funcionalidad
-			if(String.valueOf(pwdPassword.getPassword()).equals(password)){
+			if(textContrasena.getText().equals(textConfirmarContrasena.getText())){
 				lblAviso.setBackground(Color.GREEN);
-				lblAviso.setText("Contrase�a correcta. Puede entrar");
+				lblAviso.setText("Las contraseñas coinciden");
 				lblAviso.setVisible(true);
-				btnEntrar.setEnabled(true);
-				lblContrase�a.setEnabled(false);
-				pwdPassword.setEnabled(false);
+				lblImagenCV.setEnabled(true);
+				txtInfoAdicional.setEnabled(true);
 				} else{
 					lblAviso.setBackground(Color.RED);
-					lblAviso.setText("Contrase�a incorrecta. Vuelva a intentarlo");
+					lblAviso.setText("Las contraseñas no coinciden");
 					lblAviso.setVisible(true);
-					btnEntrar.setEnabled(false);}
-		*/
+					btnConfirmar.setEnabled(false);
+				}
+		}
+	}
+	private class TxtConfirmarMailActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if(textEmail.getText().equals(textConfirmarMail.getText())){
+				lblAviso.setBackground(Color.GREEN);
+				lblAviso.setText("Los emails coinciden");
+				lblAviso.setVisible(true);
+				textTelefono.setEnabled(true);
+				textContrasena.setEnabled(true);
+				textContrasena.requestFocus();
+				} else{
+					lblAviso.setBackground(Color.RED);
+					lblAviso.setText("Los emails no coinciden");
+					lblAviso.setVisible(true);
+				}
+		}
+	}
+	
+	private class TxtMailActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			textConfirmarMail.setEnabled(true);
+			textConfirmarMail.requestFocus();
+		}
+	}
+	private class TxtDNIActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			textEmail.setEnabled(true);
+			textEmail.requestFocus();
+		}
+	}
+	private class TextNombreActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			textApellidos.setEnabled(true);
+			txtDNI.setEnabled(true);
+			txtDNI.requestFocus();
+		}
+	}
+	private class PressContraseñaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			textConfirmarContrasena.setEnabled(true);
+			textConfirmarContrasena.requestFocus();
 		}
 	}
 	private class BtnConfirmarActionListener implements ActionListener {
@@ -663,6 +735,4 @@ public class P_Registro extends JFrame {
 	public JFrame getFrame() {
 		return frmRegistro;
 	}
-	
-	
 }
