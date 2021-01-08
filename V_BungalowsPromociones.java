@@ -1,12 +1,15 @@
 package presentacion;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -18,22 +21,20 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JSlider;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 
 import com.toedter.calendar.JDateChooser;
 
 public class V_BungalowsPromociones extends JPanel {
-	private JTextField txtLlegada;
-	private JTextField txtSAlida;
-	private final JSeparator separator_3 = new JSeparator();
 	private JSlider sliderPrecio;
 	private JScrollPane scrollPane;
+	private JPanel pnlContenido;
 	/**
 	 * Create the panel.
 	 */
-	public V_BungalowsPromociones() {
+	public V_BungalowsPromociones(JPanel referenciaPnlContenido) {
+		pnlContenido = referenciaPnlContenido;
 		setBackground(Color.LIGHT_GRAY);
 		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
@@ -202,6 +203,7 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_btnReservarBungalow1.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarBungalow1.gridx = 1;
 		gbc_btnReservarBungalow1.gridy = 2;
+		btnReservarBungalow1.addActionListener(new BtnActionListener());
 		btnReservarBungalow1.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow1, gbc_btnReservarBungalow1);
 
@@ -236,6 +238,7 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_btnReservarBungalow2.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarBungalow2.gridx = 1;
 		gbc_btnReservarBungalow2.gridy = 5;
+		btnReservarBungalow2.addActionListener(new BtnActionListener());
 		btnReservarBungalow2.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow2, gbc_btnReservarBungalow2);
 
@@ -269,6 +272,7 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_btnReservarBungalow3.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarBungalow3.gridx = 1;
 		gbc_btnReservarBungalow3.gridy = 8;
+		btnReservarBungalow3.addActionListener(new BtnActionListener());
 		btnReservarBungalow3.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow3, gbc_btnReservarBungalow3);
 
@@ -301,6 +305,7 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_btnReservarBungalow4.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarBungalow4.gridx = 1;
 		gbc_btnReservarBungalow4.gridy = 11;
+		btnReservarBungalow4.addActionListener(new BtnActionListener());
 		btnReservarBungalow4.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow4, gbc_btnReservarBungalow4);
 
@@ -334,6 +339,7 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_btnReservarBungalow5.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarBungalow5.gridx = 1;
 		gbc_btnReservarBungalow5.gridy = 14;
+		btnReservarBungalow5.addActionListener(new BtnActionListener());
 		btnReservarBungalow5.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow5, gbc_btnReservarBungalow5);
 
@@ -342,6 +348,13 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_separator_3.insets = new Insets(0, 0, 0, 5);
 		gbc_separator_3.gridx = 0;
 		gbc_separator_3.gridy = 3;
+	}
+	
+	private class BtnActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout)(pnlContenido.getLayout());
+			cl.show(pnlContenido, "reservar");
+		}
 	}
 	private static class __Tmp {
 		private static void __tmp() {
