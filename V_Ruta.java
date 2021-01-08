@@ -1,6 +1,7 @@
 package presentacion;
 
-import javax.swing.JPanel;  
+import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -9,7 +10,7 @@ import java.awt.GridBagLayout;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
-
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
@@ -17,6 +18,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import java.awt.Font;
+import java.awt.Graphics;
 
 
 public class V_Ruta extends JPanel {
@@ -69,34 +71,41 @@ public class V_Ruta extends JPanel {
 		gbc_lblRuta3.gridy = 1;
 		panel_1.add(lblRuta3, gbc_lblRuta3);
 		
-		JButton lblNombreRuta1 = new JButton("RUTA X");
-		lblNombreRuta1.addActionListener(new BtnReservarActionListener());
-		lblNombreRuta1.setForeground(new Color(218, 165, 32));
-		lblNombreRuta1.setFont(new Font("Verdana", Font.BOLD, 14));
-		GridBagConstraints gbc_lblNombreRuta1 = new GridBagConstraints();
-		gbc_lblNombreRuta1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblNombreRuta1.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNombreRuta1.gridx = 1;
-		gbc_lblNombreRuta1.gridy = 2;
-		panel_1.add(lblNombreRuta1, gbc_lblNombreRuta1);
+		JButton btnNombreRuta1 = new JButton("RUTA X");
+		btnNombreRuta1.setToolTipText("Click para acceder a la ruta");
+		btnNombreRuta1.addActionListener(new BtnReservarActionListener());
+		btnNombreRuta1.setBackground(new Color(244, 164, 96));
+		btnNombreRuta1.setFont(new Font("Verdana", Font.BOLD, 14));
+		GridBagConstraints gbc_btnNombreRuta1 = new GridBagConstraints();
+		gbc_btnNombreRuta1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnNombreRuta1.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNombreRuta1.gridx = 1;
+		gbc_btnNombreRuta1.gridy = 2;
+		panel_1.add(btnNombreRuta1, gbc_btnNombreRuta1);
 		
-		JLabel lblNombreRuta2 = new JLabel("RUTA Y");
-		lblNombreRuta2.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblNombreRuta2.setForeground(new Color(218, 165, 32));
-		GridBagConstraints gbc_lblNombreRuta2 = new GridBagConstraints();
-		gbc_lblNombreRuta2.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNombreRuta2.gridx = 3;
-		gbc_lblNombreRuta2.gridy = 2;
-		panel_1.add(lblNombreRuta2, gbc_lblNombreRuta2);
+		JButton btnNombreRuta2 = new JButton("RUTA Y");
+		btnNombreRuta2.setToolTipText("Click para acceder a la ruta");
+		btnNombreRuta2.setFont(new Font("Verdana", Font.BOLD, 14));
+		btnNombreRuta2.setBackground(new Color(244, 164, 96));
+		btnNombreRuta2.addActionListener(new BtnReservarActionListener());
+		GridBagConstraints gbc_btnNombreRuta2 = new GridBagConstraints();
+		gbc_btnNombreRuta2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnNombreRuta2.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNombreRuta2.gridx = 3;
+		gbc_btnNombreRuta2.gridy = 2;
+		panel_1.add(btnNombreRuta2, gbc_btnNombreRuta2);
 		
-		JLabel lblNombreRuta3 = new JLabel("RUTA O");
-		lblNombreRuta3.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblNombreRuta3.setForeground(new Color(218, 165, 32));
-		GridBagConstraints gbc_lblNombreRuta3 = new GridBagConstraints();
-		gbc_lblNombreRuta3.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNombreRuta3.gridx = 5;
-		gbc_lblNombreRuta3.gridy = 2;
-		panel_1.add(lblNombreRuta3, gbc_lblNombreRuta3);
+		JButton btnNombreRuta3 = new JButton("RUTA O");
+		btnNombreRuta3.setToolTipText("Click para acceder a la ruta");
+		btnNombreRuta3.setFont(new Font("Verdana", Font.BOLD, 14));
+		btnNombreRuta3.setBackground(new Color(244, 164, 96));
+		btnNombreRuta3.addActionListener(new BtnReservarActionListener());
+		GridBagConstraints gbc_btnNombreRuta3 = new GridBagConstraints();
+		gbc_btnNombreRuta3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnNombreRuta3.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNombreRuta3.gridx = 5;
+		gbc_btnNombreRuta3.gridy = 2;
+		panel_1.add(btnNombreRuta3, gbc_btnNombreRuta3);
 		
 		JLabel lblRuta4 = new JLabel("");
 		lblRuta4.setIcon(new ImageIcon(V_Ruta.class.getResource("/presentacion/Ruta5.png")));
@@ -120,14 +129,17 @@ public class V_Ruta extends JPanel {
 		gbc_lblRuta6.gridy = 4;
 		panel_1.add(lblRuta6, gbc_lblRuta6);
 		
-		JLabel lblNombreRuta4 = new JLabel("RUTA F");
-		lblNombreRuta4.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblNombreRuta4.setForeground(new Color(218, 165, 32));
-		GridBagConstraints gbc_lblNombreRuta4 = new GridBagConstraints();
-		gbc_lblNombreRuta4.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNombreRuta4.gridx = 1;
-		gbc_lblNombreRuta4.gridy = 5;
-		panel_1.add(lblNombreRuta4, gbc_lblNombreRuta4);
+		JButton btnNombreRuta4 = new JButton("RUTA F");
+		btnNombreRuta4.setToolTipText("Click para acceder a la ruta");
+		btnNombreRuta4.setFont(new Font("Verdana", Font.BOLD, 14));
+		btnNombreRuta4.setBackground(new Color(244, 164, 96));
+		btnNombreRuta4.addActionListener(new BtnReservarActionListener());
+		GridBagConstraints gbc_btnNombreRuta4 = new GridBagConstraints();
+		gbc_btnNombreRuta4.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnNombreRuta4.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNombreRuta4.gridx = 1;
+		gbc_btnNombreRuta4.gridy = 5;
+		panel_1.add(btnNombreRuta4, gbc_btnNombreRuta4);
 		
 		JLabel lblNombreRuta5 = new JLabel("");
 		GridBagConstraints gbc_lblNombreRuta5 = new GridBagConstraints();
@@ -144,7 +156,27 @@ public class V_Ruta extends JPanel {
 		panel_1.add(lblNombreRuta6, gbc_lblNombreRuta6);
 		
 	}
-	
+	public class RoundedBorder implements Border {
+
+		private int radius;
+
+		RoundedBorder(int radius) {
+			this.radius = radius;
+		}
+
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius);
+		}
+
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
+		}
+	}
+
 	private class BtnReservarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout)(pnlContenido.getLayout());

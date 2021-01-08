@@ -32,13 +32,13 @@ public class V_PromocionesActividades extends JPanel {
 		pnlContenido.setLayout(null);
 		
 		JLabel lblIconOferta2 = new JLabel("");
-		lblIconOferta2.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconPromo2.png")));
-		lblIconOferta2.setBounds(531, 249, 42, 41);
+		lblIconOferta2.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconPromo1.png")));
+		lblIconOferta2.setBounds(521, 255, 53, 44);
 		pnlContenido.add(lblIconOferta2);
 		
 		JLabel lblIconOferta1 = new JLabel("");
 		lblIconOferta1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIconOferta1.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconPromo1.png")));
+		lblIconOferta1.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconCalendario.png")));
 		lblIconOferta1.setBounds(32, 367, 102, 93);
 		pnlContenido.add(lblIconOferta1);
 		
@@ -84,20 +84,11 @@ public class V_PromocionesActividades extends JPanel {
 		txtrComienzaElDa_1.setBounds(164, 172, 302, 122);
 		pnlContenido.add(txtrComienzaElDa_1);
 		
-		JButton btnInscritos = new JButton("Inscritos");
-		btnInscritos.addActionListener(new BtnInscritosActionListener());
-		btnInscritos.setBounds(new Rectangle(0, 0, 60, 50));
-		//btnInscritos.addActionListener(new BtnInscritosActionListener());
-		btnInscritos.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnInscritos.setBackground(new Color(255, 165, 0));
-		btnInscritos.setBounds(341, 468, 124, 23);
-		pnlContenido.add(btnInscritos);
-		
 		JButton btnInscribirse = new JButton("Inscribirse");
 		btnInscribirse.setBounds(new Rectangle(0, 0, 60, 50));
 		btnInscribirse.setFont(new Font("Verdana", Font.PLAIN, 16));
 		btnInscribirse.setBackground(new Color(255, 165, 0));
-		btnInscribirse.setBounds(521, 468, 124, 23);
+		btnInscribirse.setBounds(433, 469, 124, 23);
 		pnlContenido.add(btnInscribirse);
 		
 		JTextArea txtrComienzaElDa_2 = new JTextArea();
@@ -168,13 +159,5 @@ public class V_PromocionesActividades extends JPanel {
 		lblTiroConArco_1.setBounds(511, 182, 124, 119);
 		pnlContenido.add(lblTiroConArco_1);
 		
-	}
-
-	
-
-	private class BtnInscritosActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			
-		}
 	}
 }
