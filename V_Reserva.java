@@ -11,9 +11,6 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
-import presentacion.P_Registro.RoundedBorder;
-
-import javax.swing.border.EtchedBorder;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagLayout;
@@ -21,13 +18,10 @@ import javax.swing.JSeparator;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
-import javax.swing.border.LineBorder;
-import javax.swing.SwingConstants;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
-import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -49,12 +43,9 @@ public class V_Reserva extends JPanel {
 	private JTextField textCodigoPostal;
 	private JTextField textTelefono;
 	private JTextField textEmail;
-	private JTextField txtFormattedDNI;
 	private JTextArea textAreaInfoAdic;
-	private ButtonModel rdbtnSiDesayuno;
 	private JRadioButton rdbtnSiMediaP;
 	private JRadioButton rdbtnSiPensionC;
-	private ButtonModel rdbtnNoDesayuno;
 	private AbstractButton rdbtnNoMediaP;
 	private JRadioButton rdbtnNoPensionC;
 
@@ -64,7 +55,6 @@ public class V_Reserva extends JPanel {
 	private JTextField textTarjcred2;
 	private JLabel lblEstado;
 
-	private V_LogoZorro lblZorroEligeOpcion;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	// private P_Principal pnlContenido;
@@ -455,11 +445,9 @@ public class V_Reserva extends JPanel {
 			textTelefono = new JFormattedTextField(formatoTlfno);
 			textTelefono.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		// textTelefono = new JTextField();
 		textTelefono.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		textTelefono.setFont(new Font("Verdana", Font.PLAIN, 16));
 		textTelefono.setColumns(10);
@@ -489,10 +477,8 @@ public class V_Reserva extends JPanel {
 			textTrajcred1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 			textTrajcred1.setFont(new Font("Verdana", Font.PLAIN, 14));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// textTrajcred1 = new JTextField();
 		textTrajcred1.setFont(new Font("Verdana", Font.PLAIN, 16));
 		textTrajcred1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		GridBagConstraints gbc_textTrajcred1 = new GridBagConstraints();
@@ -513,10 +499,8 @@ public class V_Reserva extends JPanel {
 			textTarjcred2.setFont(new Font("Verdana", Font.PLAIN, 14));
 			textTarjcred2.setToolTipText("Introduzca CVC");
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// textTarjcred2 = new JTextField();
 		textTarjcred2.setFont(new Font("Verdana", Font.PLAIN, 16));
 		textTarjcred2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		GridBagConstraints gbc_textTarjcred2 = new GridBagConstraints();
@@ -565,7 +549,7 @@ public class V_Reserva extends JPanel {
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new BtnCancelarActionListener());
 		btnCancelar.setFont(new Font("Verdana", Font.BOLD, 20));
-		btnCancelar.setBackground(new Color(244, 164, 96));
+		btnCancelar.setBackground(new Color(244, 165, 0));
 		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
 		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
 		btnCancelar.setBorder(new RoundedBorder(10));
