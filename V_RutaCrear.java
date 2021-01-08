@@ -1,6 +1,6 @@
 package presentacion;
 
-import java.awt.BorderLayout;   
+import java.awt.BorderLayout;    
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -18,9 +18,6 @@ import javax.swing.JPanel;
 
 import javax.swing.border.Border;
 import javax.swing.text.MaskFormatter;
-
-import presentacion.V_Parcela.RoundedBorder;
-
 import java.awt.Font;
 import java.awt.Graphics;
 
@@ -357,13 +354,13 @@ public class V_RutaCrear extends JPanel {
 		btnBorrar.setToolTipText("Pulsa para guardar ruta");
 		btnBorrar.setFont(new Font("Verdana", Font.BOLD, 15));
 		btnBorrar.setBackground(new Color(255, 165, 0));
-		btnBorrar.setBorder(new RoundedBorder(6));
+		btnBorrar.setBorder(new RoundedBorder(10));
 		panel_1.add(btnBorrar, gbc_btnBorrar);
 		
 		btnGuardar = new JButton("Guardar ruta");
 		btnGuardar.setEnabled(false);
 		btnGuardar.setToolTipText("Pulsa para guardar ruta");
-		btnGuardar.setBorder(new RoundedBorder(6));
+		btnGuardar.setBorder(new RoundedBorder(10));
 		btnGuardar.addActionListener(new BtnGuardarActionListener());
 		GridBagConstraints gbc_btnGuardar = new GridBagConstraints();
 		gbc_btnGuardar.gridwidth = 2;

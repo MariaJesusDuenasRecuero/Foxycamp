@@ -63,7 +63,7 @@ public class V_RutaInscribirse extends JPanel {
 		btnAceptar.setEnabled(false);
 		btnAceptar.setToolTipText("Pulsa para aceptar la inscripción");
 		btnAceptar.addActionListener(new BtnAceptarActionListener());
-		btnAceptar.setBorder(new RoundedBorder(6));
+		btnAceptar.setBorder(new RoundedBorder(10));
 		btnAceptar.setFont(new Font("Verdana", Font.PLAIN, 16));
 		btnAceptar.setBackground(new Color(244, 164, 96));
 		btnAceptar.setBounds(827, 473, 121, 23);

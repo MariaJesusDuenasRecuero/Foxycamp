@@ -1,6 +1,6 @@
 package presentacion;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -9,10 +9,7 @@ import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 import javax.swing.border.Border;
-
-
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -237,12 +234,10 @@ public class V_RutaElegida extends JPanel {
 		gbc_btnInscribirse.gridx = 7;
 		gbc_btnInscribirse.gridy = 8;
 		btnInscribirse.setBounds(new Rectangle(0, 0, 30, 10));
-		btnInscribirse.setBorder(new RoundedBorder(6));
+		btnInscribirse.setBorder(new RoundedBorder(10));
 		btnInscribirse.setForeground(new Color(0,0,0));
 		btnInscribirse.setBackground(new Color(244, 164, 96));
 		panel_1.add(btnInscribirse, gbc_btnInscribirse);
-		
-		
 	}
 	
 	private class BtnActionListener implements ActionListener {
