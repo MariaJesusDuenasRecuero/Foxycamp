@@ -8,6 +8,7 @@ import java.awt.GridBagLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
@@ -17,12 +18,18 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
 import javax.swing.JButton;
 import com.toedter.calendar.JDateChooser;
+
+import presentacion.V_Parcela.RoundedBorder;
+
 import javax.swing.JTextArea;
 
 public class V_Bungalow extends JPanel {
@@ -342,6 +349,13 @@ public class V_Bungalow extends JPanel {
 		gbc_separator_3.insets = new Insets(0, 0, 0, 5);
 		gbc_separator_3.gridx = 0;
 		gbc_separator_3.gridy = 3;
+		
+		
+		btnReservarBungalow1.setBorder(new RoundedBorder(10));
+		btnReservarBungalow2.setBorder(new RoundedBorder(10));
+		btnReservarBungalow3.setBorder(new RoundedBorder(10));
+		btnReservarBungalow4.setBorder(new RoundedBorder(10));
+		btnReservarBungalow5.setBorder(new RoundedBorder(10));
 	}
 	
 	private class BtnActionListener implements ActionListener {
@@ -354,6 +368,26 @@ public class V_Bungalow extends JPanel {
 	private static class __Tmp {
 		private static void __tmp() {
 			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
+		}
+	}
+	class RoundedBorder implements Border {
+
+		private int radius;
+
+		RoundedBorder(int radius) {
+			this.radius = radius;
+		}
+
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius);
+		}
+
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
 		}
 	}
 }

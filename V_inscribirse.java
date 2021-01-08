@@ -4,8 +4,6 @@ import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -22,20 +20,24 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
-
+import presentacion.P_Login.RoundedBorder;
 
 //import presentacion.P_Registro.TxtDNIFocusListener;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import java.awt.SystemColor;
 import java.awt.TextArea;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.text.ParseException;
 
 import javax.swing.ImageIcon;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.SoftBevelBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ButtonGroup;
 
 public class V_inscribirse extends JPanel {
 	private Color colorResaltado = new Color (255,255,210);
@@ -44,6 +46,16 @@ public class V_inscribirse extends JPanel {
 	private JTextField textApellidos;
 	private JTextField textEmail;
 	private TextArea textAreaInfoAdic;
+	private JTextField textTrajcred1;
+	private JTextField textTarjcred2;
+	private JTextField txtFormatedDNI;
+	private JFormattedTextField textTelefono;
+	private JRadioButton rdbtnCiclismo;
+	private JRadioButton rdbtnNatacion;
+	private JLabel lblEstadoAct;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
+	
 
 	/**
 	 * Create the panel.
@@ -55,7 +67,7 @@ public class V_inscribirse extends JPanel {
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("18:00 a 20:00");
 		lblNewLabel_1_1_1.setFont(new Font("Verdana", Font.PLAIN, 16));
-		lblNewLabel_1_1_1.setBounds(392, 429, 121, 14);
+		lblNewLabel_1_1_1.setBounds(392, 453, 121, 14);
 		add(lblNewLabel_1_1_1);
 		
 		JLabel lblDatosPersonales = new JLabel("Datos personales");
@@ -77,59 +89,78 @@ public class V_inscribirse extends JPanel {
 		lblActividades.setBounds(105, 51, 358, 32);
 		add(lblActividades);
 		
-		JRadioButton rdbtnNatacion = new JRadioButton("Natación");
+		rdbtnNatacion = new JRadioButton("Natación");
+		buttonGroup.add(rdbtnNatacion);
+		
+		rdbtnNatacion.setSelected(false);
 		rdbtnNatacion.setFont(new Font("Verdana", Font.PLAIN, 16));
 		rdbtnNatacion.setBounds(132, 122, 109, 23);
 		add(rdbtnNatacion);
 		
 		JRadioButton rdbtnTiroConArco = new JRadioButton("Tiro con arco");
+		buttonGroup.add(rdbtnTiroConArco);
+		
 		rdbtnTiroConArco.setFont(new Font("Verdana", Font.PLAIN, 16));
 		rdbtnTiroConArco.setBounds(132, 210, 131, 23);
 		add(rdbtnTiroConArco);
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Kayak");
+		buttonGroup.add(rdbtnNewRadioButton_2);
+		
 		rdbtnNewRadioButton_2.setFont(new Font("Verdana", Font.PLAIN, 16));
 		rdbtnNewRadioButton_2.setBounds(132, 282, 109, 23);
 		add(rdbtnNewRadioButton_2);
 		
 		JRadioButton rdbtnCiclismo = new JRadioButton("Ciclismo");
+		buttonGroup.add(rdbtnCiclismo);
+		
 		rdbtnCiclismo.setFont(new Font("Verdana", Font.PLAIN, 16));
 		rdbtnCiclismo.setBounds(395, 122, 109, 23);
 		add(rdbtnCiclismo);
 		
 		JRadioButton rdbtnFutbol = new JRadioButton("Fútbol");
+		buttonGroup.add(rdbtnFutbol);
+		
 		rdbtnFutbol.setFont(new Font("Verdana", Font.PLAIN, 16));
 		rdbtnFutbol.setBounds(395, 206, 109, 23);
 		add(rdbtnFutbol);
 		
 		JRadioButton rdbtnYoga = new JRadioButton("Yoga");
+		buttonGroup.add(rdbtnYoga);
+	
 		rdbtnYoga.setFont(new Font("Verdana", Font.PLAIN, 16));
 		rdbtnYoga.setBounds(395, 282, 109, 23);
 		add(rdbtnYoga);
 		
 		JRadioButton rdbtnNewRadioButton_6 = new JRadioButton("Lunes ");
+		buttonGroup_1.add(rdbtnNewRadioButton_6);
+	
 		rdbtnNewRadioButton_6.setHorizontalAlignment(SwingConstants.LEFT);
 		rdbtnNewRadioButton_6.setFont(new Font("Verdana", Font.PLAIN, 16));
-		rdbtnNewRadioButton_6.setBounds(55, 399, 145, 23);
+		rdbtnNewRadioButton_6.setBounds(55, 423, 145, 23);
 		add(rdbtnNewRadioButton_6);
 		
 		JRadioButton rdbtnNewRadioButton_7 = new JRadioButton("Martes");
+		buttonGroup_1.add(rdbtnNewRadioButton_7);
+	
 		rdbtnNewRadioButton_7.setHorizontalAlignment(SwingConstants.LEFT);
 		rdbtnNewRadioButton_7.setFont(new Font("Verdana", Font.PLAIN, 16));
-		rdbtnNewRadioButton_7.setBounds(229, 399, 101, 23);
+		rdbtnNewRadioButton_7.setBounds(229, 423, 101, 23);
 		add(rdbtnNewRadioButton_7);
 		
 		JRadioButton rdbtnNewRadioButton_8 = new JRadioButton("Jueves");
+		buttonGroup_1.add(rdbtnNewRadioButton_8);
+		
 		rdbtnNewRadioButton_8.setFont(new Font("Verdana", Font.PLAIN, 16));
-		rdbtnNewRadioButton_8.setBounds(382, 399, 122, 23);
+		rdbtnNewRadioButton_8.setBounds(382, 423, 122, 23);
 		add(rdbtnNewRadioButton_8);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new BtnAceptarActionListener());
-			
-		btnAceptar.setFont(new Font("Verdana", Font.PLAIN, 16));
+		btnAceptar.setFont(new Font("Verdana", Font.BOLD, 16));
 		btnAceptar.setBackground(new Color(255, 165, 0));
-		btnAceptar.setBounds(827, 473, 121, 23);
+		btnAceptar.setBorder(new RoundedBorder(10));
+		btnAceptar.setBounds(835, 462, 121, 32);
 		add(btnAceptar);
 		
 		JLabel lblNatacion = new JLabel("");
@@ -172,18 +203,18 @@ public class V_inscribirse extends JPanel {
 		lblHorarioYPrecio.setForeground(new Color(255, 165, 0));
 		lblHorarioYPrecio.setFont(new Font("Verdana", Font.BOLD, 30));
 		lblHorarioYPrecio.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHorarioYPrecio.setBounds(144, 334, 264, 48);
+		lblHorarioYPrecio.setBounds(144, 358, 264, 48);
 		add(lblHorarioYPrecio);
 		
 		JLabel lblNewLabel_1 = new JLabel("12:00 a 14:00");
 		lblNewLabel_1.setFont(new Font("Verdana", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(65, 429, 121, 14);
+		lblNewLabel_1.setBounds(65, 453, 121, 14);
 		add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("16:00 a 18:00");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setFont(new Font("Verdana", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(239, 429, 121, 14);
+		lblNewLabel_1_1.setBounds(239, 453, 121, 14);
 		add(lblNewLabel_1_1);
 		
 		JLabel lblPrecioNatacion = new JLabel("15€");
@@ -219,92 +250,187 @@ public class V_inscribirse extends JPanel {
 		JLabel lblNombre = new JLabel("Nombre*");
 		lblNombre.setToolTipText("Campo obligatorio");
 		lblNombre.setFont(new Font("Verdana", Font.BOLD, 16));
-		lblNombre.setBounds(633, 122, 81, 21);
+		lblNombre.setBounds(655, 123, 81, 21);
 		add(lblNombre);
 		
 		textNombre = new JTextField();
+		textNombre.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		textNombre.setFont(new Font("Dialog", Font.PLAIN, 14));
+		
 		textNombre.setColumns(10);
-		textNombre.setBounds(719, 123, 170, 20);
+		textNombre.setBounds(755, 122, 170, 20);
 		add(textNombre);
 		
-		JLabel lblApellidos = new JLabel("Apellidos");
+		JLabel lblApellidos = new JLabel("Apellidos*");
 		lblApellidos.setFont(new Font("Verdana", Font.BOLD, 16));
-		lblApellidos.setBounds(637, 157, 77, 21);
+		lblApellidos.setBounds(652, 155, 90, 21);
 		add(lblApellidos);
 		
 		textApellidos = new JTextField();
+		textApellidos.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		textApellidos.setFont(new Font("Dialog", Font.PLAIN, 14));
 		textApellidos.setColumns(10);
-		textApellidos.setBounds(719, 158, 170, 20);
+		textApellidos.setBounds(755, 157, 170, 20);
 		add(textApellidos);
 		
 		JLabel lblDNI = new JLabel("DNI*");
 		lblDNI.setToolTipText("Campo obligatorio");
 		lblDNI.setFont(new Font("Verdana", Font.BOLD, 16));
-		lblDNI.setBounds(669, 192, 45, 21);
+		lblDNI.setBounds(691, 191, 45, 21);
 		add(lblDNI);
 		
 
 		
-		JFormattedTextField txtDNI = new JFormattedTextField((AbstractFormatter) null);
-		txtDNI.setFont(new Font("Verdana", Font.PLAIN, 14));
-		txtDNI.setForeground(new Color(169, 169, 169));
-		txtDNI.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDNI.setText("XXXXXXXX-U");
-		txtDNI.setColumns(10);
-		txtDNI.setBounds(719, 193, 140, 20);
-		add(txtDNI);
+		//txtFormatedDNI= new JTextField();
+		
+		
 		MaskFormatter formatoDNI;
 		try {
 			formatoDNI= new MaskFormatter("########'-U");
 			formatoDNI.setPlaceholderCharacter('X');
-			txtDNI= new JFormattedTextField(formatoDNI);
-			txtDNI.addFocusListener(new TxtDNIFocusListener());
+			txtFormatedDNI= new JFormattedTextField(formatoDNI);
+			txtFormatedDNI.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			txtFormatedDNI.addFocusListener(new TxtDNIFocusListener());
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		txtFormatedDNI.setFont(new Font("Dialog", Font.PLAIN, 14));
+		txtFormatedDNI.setForeground(new Color(169, 169, 169));
+		txtFormatedDNI.setHorizontalAlignment(SwingConstants.CENTER);
+		txtFormatedDNI.setColumns(10);
+		txtFormatedDNI.setBounds(755, 192, 140, 20);
+		add(txtFormatedDNI);
 		
 		JLabel lblEmail = new JLabel("Email*");
 		lblEmail.setToolTipText("Campo obligatorio");
 		lblEmail.setFont(new Font("Verdana", Font.BOLD, 16));
-		lblEmail.setBounds(657, 227, 57, 21);
+		lblEmail.setBounds(679, 227, 57, 21);
 		add(lblEmail);
 		
 		textEmail = new JTextField();
-		textEmail.setFont(new Font("Verdana", Font.BOLD, 11));
+		textEmail.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		textEmail.setFont(new Font("Dialog", Font.PLAIN, 14));
 		textEmail.setColumns(10);
-		textEmail.setBounds(719, 227, 200, 21);
+		textEmail.setBounds(755, 226, 200, 21);
 		add(textEmail);
 		
-		JLabel lblTelefono_1 = new JLabel("Telefono ");
+		JLabel lblTelefono_1 = new JLabel("Teléfono ");
 		lblTelefono_1.setFont(new Font("Verdana", Font.BOLD, 16));
-		lblTelefono_1.setBounds(633, 266, 89, 21);
+		lblTelefono_1.setBounds(655, 261, 90, 21);
 		add(lblTelefono_1);
 		
-		JFormattedTextField textTelefono = new JFormattedTextField((AbstractFormatter) null);
-		textTelefono.setFont(new Font("Verdana", Font.PLAIN, 12));
-		textTelefono.setHorizontalAlignment(SwingConstants.CENTER);
-		textTelefono.setForeground(new Color(169, 169, 169));
-		textTelefono.setText("(---) ###  ### ###");
-		textTelefono.setColumns(10);
-		textTelefono.setBounds(719, 264, 140, 20);
-		add(textTelefono);
+		
 		MaskFormatter formatoTlfno;
 		try {
-			formatoTlfno= new MaskFormatter("'(###')' ###' ###' ###");
+			formatoTlfno= new MaskFormatter("'(###')' ###' ###'");
 			formatoTlfno.setPlaceholderCharacter('*');
 			textTelefono= new JFormattedTextField(formatoTlfno);
+			textTelefono.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		}catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//textTelefono = new JFormattedTextField((AbstractFormatter) null);
+		textTelefono.setFont(new Font("Dialog", Font.PLAIN, 14));
+		textTelefono.setHorizontalAlignment(SwingConstants.CENTER);
+		textTelefono.setForeground(new Color(169, 169, 169));
+		textTelefono.setColumns(10);
+		textTelefono.setBounds(755, 263, 140, 20);
+		add(textTelefono);
 		
 		JTextArea textAreaInfoAdic = new JTextArea();
 		textAreaInfoAdic.setFont(new Font("Verdana", Font.PLAIN, 16));
 		textAreaInfoAdic.setBorder(new TitledBorder(null, "Informaci\u00F3n adicional", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		textAreaInfoAdic.setLineWrap(true);
-		textAreaInfoAdic.setBounds(594, 314, 355, 128);
+		textAreaInfoAdic.setBounds(594, 348, 361, 94);
 		add(textAreaInfoAdic);
+		
+		JLabel lblTarjCredito = new JLabel("Tarjeta de crédito*");
+		lblTarjCredito.setFont(new Font("Verdana", Font.BOLD, 16));
+		lblTarjCredito.setBounds(572, 297, 173, 26);
+		add(lblTarjCredito);
+		
+		MaskFormatter formatoTarj1;
+		try {
+			formatoTarj1= new MaskFormatter(" ****' ****' ****' ****'");
+			formatoTarj1.setPlaceholderCharacter('*');
+			textTrajcred1 =new JFormattedTextField(formatoTarj1);
+			textTrajcred1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			textTrajcred1.setFont(new Font("Verdana", Font.PLAIN, 14));
+		}catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//textTrajcred1 = new JTextField();
+		textTrajcred1.setBounds(755, 302, 131, 20);
+		add(textTrajcred1);
+		textTrajcred1.setColumns(10);
+		
+		MaskFormatter formatoTarj12;
+		try {
+			formatoTarj12= new MaskFormatter(" ###'");
+			formatoTarj12.setPlaceholderCharacter('*');
+			textTarjcred2= new JFormattedTextField(formatoTarj12);
+			textTarjcred2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			textTarjcred2.setFont(new Font("Verdana", Font.PLAIN, 14));
+			textTarjcred2.setToolTipText("Introduzca CVC");
+		}catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		
+		//textTarjcred2 = new JTextField();
+		textTarjcred2.setColumns(10);
+		textTarjcred2.setBounds(898, 303, 57, 20);
+		add(textTarjcred2);
+		
+		lblEstadoAct = new JLabel("");
+		lblEstadoAct.setForeground(new Color(204, 0, 0));
+		lblEstadoAct.setFont(new Font("Verdana", Font.BOLD, 14));
+		lblEstadoAct.setBounds(594, 440, 377, 27);
+		add(lblEstadoAct);
+		
+		textAreaInfoAdic.addFocusListener(new textAreaInfoAdicFocusListener());
+		textApellidos.addFocusListener(new TextApellidosFocusListener()); 
+		textEmail.addFocusListener(new TextEmailFocusListener()); 
+		textTelefono.addFocusListener(new TextTelefonoFocusListener()); 
+		textNombre.addFocusListener(new TextNombreFocusListener());
+		textTrajcred1.addFocusListener(new textTrajcred1FocusListener());
+		textTarjcred2.addFocusListener(new textTrajcred2FocusListener());
+		
+	}
+	private class textTrajcred1FocusListener extends FocusAdapter {
+		@Override
+		public void focusGained(FocusEvent e) {
+			e.getComponent().setBackground(colorResaltado);
+		}
+		@Override
+		public void focusLost(FocusEvent e) {
+			e.getComponent().setBackground(colorBlanco);
+		}
+	}
+	private class textTrajcred2FocusListener extends FocusAdapter {
+		@Override
+		public void focusGained(FocusEvent e) {
+			e.getComponent().setBackground(colorResaltado);
+		}
+		@Override
+		public void focusLost(FocusEvent e) {
+			e.getComponent().setBackground(colorBlanco);
+		}
+	}
+	private class TextNombreFocusListener extends FocusAdapter {
+		@Override
+		public void focusGained(FocusEvent e) {
+			e.getComponent().setBackground(colorResaltado);
+		}
+		@Override
+		public void focusLost(FocusEvent e) {
+			e.getComponent().setBackground(colorBlanco);
+		}
 	}
 	private class textAreaInfoAdicFocusListener extends FocusAdapter {
 		@Override
@@ -346,17 +472,6 @@ public class V_inscribirse extends JPanel {
 			e.getComponent().setBackground(colorBlanco);
 		}
 	}
-	
-	private class TxtInfoAdicionalFocusListener extends FocusAdapter {
-		@Override
-		public void focusGained(FocusEvent e) {
-			e.getComponent().setBackground(colorResaltado);
-		}
-		@Override
-		public void focusLost(FocusEvent e) {
-			e.getComponent().setBackground(colorBlanco);
-		}
-	}
 	private class TxtDNIFocusListener extends FocusAdapter {
 		@Override
 		public void focusGained(FocusEvent e) {
@@ -367,11 +482,32 @@ public class V_inscribirse extends JPanel {
 			e.getComponent().setBackground(colorBlanco);
 		}
 	}
-	private class BtnAceptarActionListener implements ActionListener{
-		public void actionPerformed(ActionEvent arg0) {
-			 JOptionPane.showMessageDialog(null, "Operación realizada");
+	private class BtnAceptarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if(textNombre.getText().equals("") ||textApellidos.getText().equals("") || txtFormatedDNI.getText().equals("") || textEmail.getText().equals("") || textTarjcred2.getText().equals("") || textTrajcred1.getText().equals("")) {
+				
+				lblEstadoAct.setText("Introduzca los datos obligatorios");
+			}else {
+				
+				lblEstadoAct.setForeground(Color.GREEN);
+				lblEstadoAct.setText("Inscripción realizada");
+				txtFormatedDNI.setText(null);
+				textNombre.setText(null);
+				textApellidos.setText(null);
+				textTarjcred2.setText(null);
+				textTrajcred1.setText(null);
+				textEmail.setText(null);
+				textTelefono.setText(null);
+				textAreaInfoAdic.setText(null);
+				
+				
+
+			}
 		}
 	}
+	
+	
+	
 	
 	public class RoundedBorder implements Border {
 
@@ -393,5 +529,4 @@ public class V_inscribirse extends JPanel {
 	        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
 	    }
 	}
-	
 }

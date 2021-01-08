@@ -3,6 +3,7 @@ package presentacion;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Rectangle;
 
 import javax.swing.JPanel;
@@ -12,6 +13,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.Graphics;
+
 import javax.swing.JEditorPane;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
@@ -20,6 +23,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+
+import presentacion.P_Login.RoundedBorder;
 
 public class V_Actividades extends JPanel {
 private JPanel pnlContenido;
@@ -82,9 +88,10 @@ private JPanel pnlContenido;
 		JButton btnInscribirse = new JButton("Inscribirse");
 		btnInscribirse.addActionListener(new BtnInscribirseActionListener());
 		btnInscribirse.setBounds(new Rectangle(0, 0, 60, 50));
-		btnInscribirse.setFont(new Font("Verdana", Font.PLAIN, 16));
+		btnInscribirse.setFont(new Font("Verdana", Font.BOLD, 16));
 		btnInscribirse.setBackground(new Color(255, 165, 0));
-		btnInscribirse.setBounds(428, 468, 124, 23);
+		btnInscribirse.setBorder(new RoundedBorder(10));
+		btnInscribirse.setBounds(375, 465, 221, 43);
 		pnlContenido.add(btnInscribirse);
 		
 		JTextArea txtrComienzaElDa_2 = new JTextArea();
@@ -163,6 +170,26 @@ private JPanel pnlContenido;
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout)(pnlContenido.getLayout());
 			cl.show(pnlContenido, "actInscribirse");
+		}
+	}
+	class RoundedBorder implements Border {
+
+		private int radius;
+
+		RoundedBorder(int radius) {
+			this.radius = radius;
+		}
+
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius);
+		}
+
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
 		}
 	}
 }

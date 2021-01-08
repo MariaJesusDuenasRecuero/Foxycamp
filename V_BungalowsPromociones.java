@@ -2,7 +2,9 @@ package presentacion;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -20,9 +22,12 @@ import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import com.toedter.calendar.JDateChooser;
+
+import presentacion.V_Bungalow.RoundedBorder;
 
 public class V_BungalowsPromociones extends JPanel {
 	private JTextField txtLlegada;
@@ -342,10 +347,36 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_separator_3.insets = new Insets(0, 0, 0, 5);
 		gbc_separator_3.gridx = 0;
 		gbc_separator_3.gridy = 3;
+		
+		btnReservarBungalow1.setBorder(new RoundedBorder(10));
+		btnReservarBungalow2.setBorder(new RoundedBorder(10));
+		btnReservarBungalow3.setBorder(new RoundedBorder(10));
+		btnReservarBungalow4.setBorder(new RoundedBorder(10));
+		btnReservarBungalow5.setBorder(new RoundedBorder(10));
 	}
 	private static class __Tmp {
 		private static void __tmp() {
 			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
+		}
+	}
+	class RoundedBorder implements Border {
+
+		private int radius;
+
+		RoundedBorder(int radius) {
+			this.radius = radius;
+		}
+
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius);
+		}
+
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
 		}
 	}
 
