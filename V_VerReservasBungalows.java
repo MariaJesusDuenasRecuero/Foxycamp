@@ -2,7 +2,9 @@ package presentacion;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -16,16 +18,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
+import presentacion.V_Reserva.RoundedBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class V_VerReservasBungalows extends JPanel {
-	private JTextField txtFE;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
 
 	/**
 	 * Create the panel.
@@ -62,9 +63,10 @@ public class V_VerReservasBungalows extends JPanel {
 		panel.add(pnlReserva1, gbc_pnlReserva1);
 		
 		JButton btnCancelar = new JButton("Borrar");
-		btnCancelar.setBackground(new Color(248, 248, 255));
+		btnCancelar.setBackground(new Color(244, 165, 0));
 		btnCancelar.setIcon(new ImageIcon(V_VerReservasParcelas.class.getResource("/presentacion/IconoBorrar.png")));
 		btnCancelar.setBounds(713, 130, 124, 34);
+		btnCancelar.setBorder(new RoundedBorder(10));
 		pnlReserva1.add(btnCancelar);
 		
 		JLabel lblBungalow = new JLabel("Bungalow Los Hermanos");
@@ -116,9 +118,10 @@ public class V_VerReservasBungalows extends JPanel {
 		panel.add(pnlReserva2, gbc_pnlReserva2);
 		
 		JButton btnCancelar_1 = new JButton("Borrar");
-		btnCancelar_1.setBackground(new Color(248, 248, 255));
+		btnCancelar_1.setBackground(new Color(244, 165, 0));
 		btnCancelar_1.setIcon(new ImageIcon(V_VerReservasParcelas.class.getResource("/presentacion/IconoBorrar.png")));
 		btnCancelar_1.setBounds(724, 133, 113, 34);
+		btnCancelar_1.setBorder(new RoundedBorder(10));
 		pnlReserva2.add(btnCancelar_1);
 		
 		JPanel pnlReserva3 = new JPanel();
@@ -134,9 +137,31 @@ public class V_VerReservasBungalows extends JPanel {
 		panel.add(pnlReserva3, gbc_pnlReserva3);
 		
 		JButton btnCancelar_1_1 = new JButton("Borrar");
-		btnCancelar_1_1.setBackground(new Color(248, 248, 255));
+		btnCancelar_1_1.setBackground(new Color(244, 165, 0));
 		btnCancelar_1_1.setIcon(new ImageIcon(V_VerReservasParcelas.class.getResource("/presentacion/IconoBorrar.png")));
 		btnCancelar_1_1.setBounds(731, 173, 95, 34);
+		btnCancelar_1_1.setBorder(new RoundedBorder(10));
 		pnlReserva3.add(btnCancelar_1_1);
+	}
+	
+	public class RoundedBorder implements Border {
+
+	    private int radius;
+
+	    RoundedBorder(int radius) {
+	        this.radius = radius;
+	    }
+
+	    public Insets getBorderInsets(Component c) {
+	        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+	    }
+
+	    public boolean isBorderOpaque() {
+	        return true;
+	    }
+
+	    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+	        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+	    }
 	}
 }

@@ -3,23 +3,24 @@ package presentacion;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Rectangle;
 
 import javax.swing.JPanel;
-import java.awt.GridBagLayout;
 import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.JEditorPane;
+import java.awt.Graphics;
+
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+
 
 public class V_Actividades extends JPanel {
 private JPanel pnlContenido;
@@ -84,6 +85,7 @@ private JPanel pnlContenido;
 		btnInscribirse.setBounds(new Rectangle(0, 0, 60, 50));
 		btnInscribirse.setFont(new Font("Verdana", Font.PLAIN, 16));
 		btnInscribirse.setBackground(new Color(255, 165, 0));
+		btnInscribirse.setBorder(new RoundedBorder(10));
 		btnInscribirse.setBounds(428, 468, 124, 23);
 		pnlContenido.add(btnInscribirse);
 		
@@ -157,7 +159,26 @@ private JPanel pnlContenido;
 		
 	}
 
-	
+	public class RoundedBorder implements Border {
+
+		private int radius;
+
+		RoundedBorder(int radius) {
+			this.radius = radius;
+		}
+
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+		}
+
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+		}
+	}
 
 	private class BtnInscribirseActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {

@@ -2,7 +2,9 @@ package presentacion;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -13,7 +15,11 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
+
+import presentacion.V_Parcela.RoundedBorder;
+
 import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -67,7 +73,8 @@ public class V_VerReservasParcelas extends JPanel {
 		panel.add(pnlReserva1, gbc_pnlReserva1);
 		
 		JButton btnCancelar = new JButton("Borrar");
-		btnCancelar.setBackground(new Color(248, 248, 255));
+		btnCancelar.setBorder(new RoundedBorder(10));
+		btnCancelar.setBackground(new Color(255, 165, 0));
 		btnCancelar.setIcon(new ImageIcon(V_VerReservasParcelas.class.getResource("/presentacion/IconoBorrar.png")));
 		btnCancelar.setBounds(713, 130, 124, 34);
 		pnlReserva1.add(btnCancelar);
@@ -121,7 +128,8 @@ public class V_VerReservasParcelas extends JPanel {
 		panel.add(pnlReserva2, gbc_pnlReserva2);
 		
 		JButton btnCancelar_1 = new JButton("Borrar");
-		btnCancelar_1.setBackground(new Color(248, 248, 255));
+		btnCancelar_1.setBorder(new RoundedBorder(10));
+		btnCancelar_1.setBackground(new Color(255, 165, 0));
 		btnCancelar_1.setIcon(new ImageIcon(V_VerReservasParcelas.class.getResource("/presentacion/IconoBorrar.png")));
 		btnCancelar_1.setBounds(724, 133, 113, 34);
 		pnlReserva2.add(btnCancelar_1);
@@ -140,8 +148,30 @@ public class V_VerReservasParcelas extends JPanel {
 		
 		JButton btnCancelar_1_1 = new JButton("Borrar");
 		btnCancelar_1_1.setBackground(new Color(248, 248, 255));
+		btnCancelar_1_1.setBorder(new RoundedBorder(10));
 		btnCancelar_1_1.setIcon(new ImageIcon(V_VerReservasParcelas.class.getResource("/presentacion/IconoBorrar.png")));
 		btnCancelar_1_1.setBounds(731, 173, 95, 34);
 		pnlReserva3.add(btnCancelar_1_1);
+	}
+	
+	public class RoundedBorder implements Border {
+
+		private int radius;
+
+		RoundedBorder(int radius) {
+			this.radius = radius;
+		}
+
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+		}
+
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+		}
 	}
 }

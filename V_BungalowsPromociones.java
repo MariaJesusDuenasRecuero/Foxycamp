@@ -3,7 +3,9 @@ package presentacion;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -22,9 +24,12 @@ import javax.swing.JSeparator;
 import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import com.toedter.calendar.JDateChooser;
+
+import presentacion.V_PromocionesActividades.RoundedBorder;
 
 public class V_BungalowsPromociones extends JPanel {
 	private JSlider sliderPrecio;
@@ -203,6 +208,7 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_btnReservarBungalow1.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarBungalow1.gridx = 1;
 		gbc_btnReservarBungalow1.gridy = 2;
+		btnReservarBungalow1.setBorder(new RoundedBorder(10));
 		btnReservarBungalow1.addActionListener(new BtnActionListener());
 		btnReservarBungalow1.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow1, gbc_btnReservarBungalow1);
@@ -238,6 +244,7 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_btnReservarBungalow2.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarBungalow2.gridx = 1;
 		gbc_btnReservarBungalow2.gridy = 5;
+		btnReservarBungalow2.setBorder(new RoundedBorder(10));
 		btnReservarBungalow2.addActionListener(new BtnActionListener());
 		btnReservarBungalow2.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow2, gbc_btnReservarBungalow2);
@@ -272,6 +279,7 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_btnReservarBungalow3.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarBungalow3.gridx = 1;
 		gbc_btnReservarBungalow3.gridy = 8;
+		btnReservarBungalow3.setBorder(new RoundedBorder(10));
 		btnReservarBungalow3.addActionListener(new BtnActionListener());
 		btnReservarBungalow3.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow3, gbc_btnReservarBungalow3);
@@ -305,6 +313,7 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_btnReservarBungalow4.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarBungalow4.gridx = 1;
 		gbc_btnReservarBungalow4.gridy = 11;
+		btnReservarBungalow4.setBorder(new RoundedBorder(10));
 		btnReservarBungalow4.addActionListener(new BtnActionListener());
 		btnReservarBungalow4.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow4, gbc_btnReservarBungalow4);
@@ -339,6 +348,7 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_btnReservarBungalow5.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarBungalow5.gridx = 1;
 		gbc_btnReservarBungalow5.gridy = 14;
+		btnReservarBungalow5.setBorder(new RoundedBorder(10));
 		btnReservarBungalow5.addActionListener(new BtnActionListener());
 		btnReservarBungalow5.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow5, gbc_btnReservarBungalow5);
@@ -361,5 +371,24 @@ public class V_BungalowsPromociones extends JPanel {
 			javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
 		}
 	}
+	public class RoundedBorder implements Border {
 
+		private int radius;
+
+		RoundedBorder(int radius) {
+			this.radius = radius;
+		}
+
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+		}
+
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+		}
+	}
 }
