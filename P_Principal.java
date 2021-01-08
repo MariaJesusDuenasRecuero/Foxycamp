@@ -31,7 +31,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import java.awt.Cursor;
 
-@SuppressWarnings("serial")
 public class P_Principal extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
@@ -55,6 +54,8 @@ public class P_Principal extends JFrame implements ActionListener{
 	private V_RutaInscribirse rutaInscribirse;
 	private V_inscribirse actInscribirse;
 	private V_Reserva reservar;
+	private V_VerReservasParcelas reservasP;
+	private V_VerReservasBungalows reservasB;
 	/**
 	 * Create the frame.
 	 */
@@ -325,6 +326,10 @@ public class P_Principal extends JFrame implements ActionListener{
 		
 		mnBungalows.add(mntmPromosBungalow);
 		
+		JMenuItem mntmBungalowReservas = new JMenuItem("Reservas");
+		mntmBungalowReservas.addActionListener(new BtnReservasBungalowsActionListener());
+		mnBungalows.add(mntmBungalowReservas);
+		
 		JMenuBar menuParcelas = new JMenuBar();
 		menuParcelas.setBackground(Color.WHITE);
 		menuParcelas.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
@@ -342,6 +347,10 @@ public class P_Principal extends JFrame implements ActionListener{
 		JMenuItem mntmParcelas = new JMenuItem("Parcelas");
 		mntmParcelas.addActionListener(new BtnParcelasActionListener());
 		mnParcela.add(mntmParcelas);
+		
+		JMenuItem mntmReservasParcela = new JMenuItem("Reservas");
+		mntmReservasParcela.addActionListener(new BtnReservasParcelasActionListener());
+		mnParcela.add(mntmReservasParcela);
 		btnVolver.addActionListener(new BtnLogoZorroActionListener());
 
 		pnlContenido = new JPanel();
@@ -380,6 +389,25 @@ public class P_Principal extends JFrame implements ActionListener{
 		c1.show(pnlContenido, "panellogoZorro");
 
 	}
+	
+	private class BtnReservasParcelasActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			reservasP = new V_VerReservasParcelas();
+			pnlContenido.add(reservasP, "reservasP");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "reservasP");
+		}
+	}
+	
+	private class BtnReservasBungalowsActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			reservasB = new V_VerReservasBungalows();
+			pnlContenido.add(reservasB, "reservasB");
+			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
+			c1.show(pnlContenido, "reservasB");
+		}
+	}
+	
 	
 	private class BtnRutaCrearActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {

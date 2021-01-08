@@ -11,7 +11,6 @@ import java.awt.GridBagLayout;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Component;
 
 import javax.swing.JScrollPane;
 
@@ -22,8 +21,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import java.awt.Font;
-import java.awt.Graphics;
-
 import javax.swing.JSlider;
 import javax.swing.JComboBox;
 
@@ -31,11 +28,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import com.toedter.calendar.JDateChooser;
-
-import presentacion.V_Reserva.RoundedBorder;
-
 import javax.swing.JTextArea;
-import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 public class V_Parcela extends JPanel {
@@ -355,14 +348,6 @@ public class V_Parcela extends JPanel {
 		gbc_separator_3.insets = new Insets(0, 0, 0, 5);
 		gbc_separator_3.gridx = 0;
 		gbc_separator_3.gridy = 3;
-		
-		btnReservarParcela1.setBorder(new RoundedBorder(10));
-		btnReservarParcela2.setBorder(new RoundedBorder(10));
-		btnReservarParcela3.setBorder(new RoundedBorder(10));
-		btnReservarParcela4.setBorder(new RoundedBorder(10));
-		btnReservarParcela5.setBorder(new RoundedBorder(10));
-		
-		
 	}
 	private class BtnActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
@@ -376,25 +361,4 @@ public class V_Parcela extends JPanel {
 			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();
 		}
 	}
-	public class RoundedBorder implements Border {
-
-	    private int radius;
-
-	    RoundedBorder(int radius) {
-	        this.radius = radius;
-	    }
-
-	    public Insets getBorderInsets(Component c) {
-	        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-	    }
-
-	    public boolean isBorderOpaque() {
-	        return true;
-	    }
-
-	    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-	        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
-	    }
-	}
-	
 }

@@ -15,8 +15,6 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
-import presentacion.V_BungalowsPromociones.RoundedBorder;
-
 import java.awt.Toolkit;
 import java.awt.GridBagLayout;
 import java.awt.Font;
@@ -76,10 +74,10 @@ public class P_Registro extends JFrame {
 	private JPasswordField textConfirmarContrasena;
 	private JFrame frmRegistro;
 	
-	private Color colorBlanco = new Color (255,255,255);
+	
 	private Color colorResaltado = new Color (255,255,210);
 	private Color naranja = new Color(255, 228, 196);
-	
+	private Color colorBlanco = new Color (255,255,255);
 	private JLabel lblDNI;
 	private JTextField txtDNI;
 	private JTextField textConfirmarMail;
@@ -518,8 +516,6 @@ public class P_Registro extends JFrame {
 		btnConfirmar.setForeground(new Color(0,0,0));
 		btnConfirmar.setBackground(new Color(244, 164, 96));
 		
-		btnConfirmar.setBorder(new RoundedBorder(10));
-		btnVolver.setBorder(new RoundedBorder(10));
 		
 	}
 
