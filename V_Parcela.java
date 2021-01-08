@@ -213,7 +213,7 @@ public class V_Parcela extends JPanel {
 		gbc_btnReservarParcela1.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarParcela1.gridx = 1;
 		gbc_btnReservarParcela1.gridy = 2;
-		btnReservarParcela1.setBorder(new RoundedBorder(6));
+		btnReservarParcela1.setBorder(new RoundedBorder(10));
 		btnReservarParcela1.addActionListener(new BtnActionListener());
 		btnReservarParcela1.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela1, gbc_btnReservarParcela1);
@@ -247,7 +247,8 @@ public class V_Parcela extends JPanel {
 		gbc_btnReservarParcela2.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarParcela2.gridx = 1;
 		gbc_btnReservarParcela2.gridy = 5;
-		btnReservarParcela2.setBorder(new RoundedBorder(6));
+		btnReservarParcela2.setBorder(new RoundedBorder(10));
+		btnReservarParcela2.addActionListener(new BtnActionListener());
 		btnReservarParcela2.addActionListener(new BtnActionListener());
 		btnReservarParcela2.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela2, gbc_btnReservarParcela2);
@@ -282,7 +283,8 @@ public class V_Parcela extends JPanel {
 		gbc_btnReservarParcela3.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarParcela3.gridx = 1;
 		gbc_btnReservarParcela3.gridy = 8;
-		btnReservarParcela3.setBorder(new RoundedBorder(6));
+		btnReservarParcela3.setBorder(new RoundedBorder(10));
+		btnReservarParcela3.addActionListener(new BtnActionListener());
 		btnReservarParcela3.addActionListener(new BtnActionListener());
 		btnReservarParcela3.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela3, gbc_btnReservarParcela3);
@@ -316,7 +318,8 @@ public class V_Parcela extends JPanel {
 		gbc_btnReservarParcela4.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarParcela4.gridx = 1;
 		gbc_btnReservarParcela4.gridy = 11;
-		btnReservarParcela4.setBorder(new RoundedBorder(6));
+		btnReservarParcela4.setBorder(new RoundedBorder(10));
+		btnReservarParcela4.addActionListener(new BtnActionListener());
 		btnReservarParcela4.addActionListener(new BtnActionListener());
 		btnReservarParcela4.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela4, gbc_btnReservarParcela4);
@@ -350,7 +353,8 @@ public class V_Parcela extends JPanel {
 		gbc_btnReservarParcela5.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarParcela5.gridx = 1;
 		gbc_btnReservarParcela5.gridy = 14;
-		btnReservarParcela5.setBorder(new RoundedBorder(6));
+		btnReservarParcela5.setBorder(new RoundedBorder(10));
+		btnReservarParcela1.addActionListener(new BtnActionListener());
 		btnReservarParcela5.setBackground(new Color(255, 165, 0));
 		btnReservarParcela5.addActionListener(new BtnActionListener());
 		pnlParcelas.add(btnReservarParcela5, gbc_btnReservarParcela5);
