@@ -6,42 +6,47 @@ import javax.swing.JLabel;
 
 public class MiAreaDibujo extends JLabel	
 {
+
+	private static final long serialVersionUID = 1L;
 	private ArrayList<ObjetoGrafico> objetosGraficos = new ArrayList<ObjetoGrafico>();
 
-	public MiAreaDibujo(){
+	public MiAreaDibujo() {
 	}
+	
 	void addObjetoGrafico(ObjetoGrafico objg) {
 		objetosGraficos.add(objg);
 	}
-	public ObjetoGrafico getUltimoObjetoGrafico()
-	{
+
+	public ObjetoGrafico getUltimoObjetoGrafico(){
 		return objetosGraficos.get(objetosGraficos.size()-1);
 	}
 
-	//Aqui es donde se van a realizar todo lo que tiene q ver con pitar 
 	public void paint(Graphics g){
 		super.paint(g);
+		int w, h;
 		for (int i = 0; i < objetosGraficos.size(); i++) {
 			ObjetoGrafico objg = objetosGraficos.get(i);
-			if (objg instanceof ImagenGrafico)
-			{
-				g.drawImage(((ImagenGrafico)objg).getImagen(), objg.getX(),
-						objg.getY(), null);
+			if (objg instanceof ImagenGrafico){
+				g.drawImage(((ImagenGrafico)objg).getImagen(), objg.getX(),objg.getY(), null);
 			}
-			//Recibe esquina, ancho y alto
-			else if (objg instanceof DibujaLinea)
-			{
+			else if(objg instanceof DibujaLinea){
 				g.setColor(((DibujaLinea)objg).getColor());
-		//		int w = ((RectanguloGrafico)objg).getX1() - objg.getX();
-				int h = ((DibujaLinea)objg).getY1() - objg.getY();
-				g.drawLine(objg.getX(),objg.getY(), 3, h);
-			}
-			else { //Es un objeto de tipo TextoGrafico
+				if(((DibujaLinea)objg).getX1()>=objg.getX()) {
+					w = ((DibujaLinea)objg).getX1() - objg.getX();
+				}else {
+					w = objg.getX() - ((DibujaLinea)objg).getX1();
+				}
+				if(((DibujaLinea)objg).getY2()>=objg.getY()) {
+					h = ((DibujaLinea)objg).getY2() - objg.getY();
+				}else {
+					h = objg.getY() - ((DibujaLinea)objg).getY2();
+				}
+				g.drawLine(objg.getX(), objg.getY(), objg.getX1(),  objg.getY2());
+			}else { 
 				g.setColor(((TextoGrafico)objg).getColor());
 				g.drawString(((TextoGrafico)objg).getTexto(),objg.getX(),objg.getY());
 			}
-
-		} 
+		}
 	}
-}
 
+}
