@@ -79,20 +79,12 @@ private JPanel pnlContenido;
 		txtrComienzaElDa_1.setBounds(164, 172, 302, 122);
 		pnlContenido.add(txtrComienzaElDa_1);
 		
-		JButton btnInscritos = new JButton("Inscritos");
-		btnInscritos.setBounds(new Rectangle(0, 0, 60, 50));
-		//btnInscritos.addActionListener(new BtnInscritosActionListener());
-		btnInscritos.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnInscritos.setBackground(new Color(255, 165, 0));
-		btnInscritos.setBounds(341, 468, 124, 23);
-		pnlContenido.add(btnInscritos);
-		
 		JButton btnInscribirse = new JButton("Inscribirse");
 		btnInscribirse.addActionListener(new BtnInscribirseActionListener());
 		btnInscribirse.setBounds(new Rectangle(0, 0, 60, 50));
 		btnInscribirse.setFont(new Font("Verdana", Font.PLAIN, 16));
 		btnInscribirse.setBackground(new Color(255, 165, 0));
-		btnInscribirse.setBounds(511, 468, 124, 23);
+		btnInscribirse.setBounds(428, 468, 124, 23);
 		pnlContenido.add(btnInscribirse);
 		
 		JTextArea txtrComienzaElDa_2 = new JTextArea();
