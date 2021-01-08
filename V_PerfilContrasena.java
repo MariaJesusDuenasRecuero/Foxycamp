@@ -182,26 +182,8 @@ public class V_PerfilContrasena extends JPanel {
 		passwordField_RepitaContra.addFocusListener(new passwordField_RepitaContraFocusListener());
 		passwordField_NuevaContrasena.addFocusListener(new passwordField_NuevaContrasenaFocusListener());
 		_contrasenaActual.addFocusListener(new _contrasenaActualFocusListener());
-	}
-	public class RoundedBorder implements Border {
-
-	    private int radius;
-
-	    RoundedBorder(int radius) {
-	        this.radius = radius;
-	    }
-
-	    public Insets getBorderInsets(Component c) {
-	        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-	    }
-
-	    public boolean isBorderOpaque() {
-	        return true;
-	    }
-
-	    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-	        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
-	    }
+		btnBorrarLogin.setBorder(new RoundedBorder(10));
+		btnCambiarContrasea.setBorder(new RoundedBorder(10));
 	}
 	private class BtnCambiarContraseaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
@@ -256,5 +238,25 @@ public class V_PerfilContrasena extends JPanel {
 		public void focusLost(FocusEvent e) {
 			passwordField_NuevaContrasena.setBackground(colorBlanco);
 		}
+	}
+	class RoundedBorder implements Border {
+
+	    private int radius;
+
+	    RoundedBorder(int radius) {
+	        this.radius = radius;
+	    }
+
+	    public Insets getBorderInsets(Component c) {
+	        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+	    }
+
+	    public boolean isBorderOpaque() {
+	        return true;
+	    }
+
+	    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+	        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+	    }
 	}
 }
