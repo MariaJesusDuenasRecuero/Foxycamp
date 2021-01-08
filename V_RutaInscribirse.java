@@ -20,6 +20,8 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
+import presentacion.V_Ruta.RoundedBorder;
+
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.TextArea;
@@ -57,12 +59,13 @@ public class V_RutaInscribirse extends JPanel {
 		add(lblDatosPersonales);
 
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setForeground(Color.BLACK);
 		btnAceptar.setEnabled(false);
 		btnAceptar.setToolTipText("Pulsa para aceptar la inscripción");
 		btnAceptar.addActionListener(new BtnAceptarActionListener());
-			
+		btnAceptar.setBorder(new RoundedBorder(6));
 		btnAceptar.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnAceptar.setBackground(new Color(255, 165, 0));
+		btnAceptar.setBackground(new Color(244, 164, 96));
 		btnAceptar.setBounds(827, 473, 121, 23);
 		add(btnAceptar);
 

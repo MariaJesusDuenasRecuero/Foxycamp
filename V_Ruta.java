@@ -3,6 +3,8 @@ package presentacion;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import presentacion.P_Registro.RoundedBorder;
+
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -74,6 +76,7 @@ public class V_Ruta extends JPanel {
 		JButton btnNombreRuta1 = new JButton("RUTA X");
 		btnNombreRuta1.setToolTipText("Pulsa para acceder a la ruta");
 		btnNombreRuta1.addActionListener(new BtnReservarActionListener());
+		btnNombreRuta1.setBorder(new RoundedBorder(6));
 		btnNombreRuta1.setBackground(new Color(244, 164, 96));
 		btnNombreRuta1.setFont(new Font("Verdana", Font.BOLD, 14));
 		GridBagConstraints gbc_btnNombreRuta1 = new GridBagConstraints();
@@ -86,6 +89,7 @@ public class V_Ruta extends JPanel {
 		JButton btnNombreRuta2 = new JButton("RUTA Y");
 		btnNombreRuta2.setToolTipText("Pulsa para acceder a la ruta");
 		btnNombreRuta2.setFont(new Font("Verdana", Font.BOLD, 14));
+		btnNombreRuta2.setBorder(new RoundedBorder(6));
 		btnNombreRuta2.setBackground(new Color(244, 164, 96));
 		btnNombreRuta2.addActionListener(new BtnReservarActionListener());
 		GridBagConstraints gbc_btnNombreRuta2 = new GridBagConstraints();
@@ -99,6 +103,7 @@ public class V_Ruta extends JPanel {
 		btnNombreRuta3.setToolTipText("Pulsa para acceder a la ruta");
 		btnNombreRuta3.setFont(new Font("Verdana", Font.BOLD, 14));
 		btnNombreRuta3.setBackground(new Color(244, 164, 96));
+		btnNombreRuta3.setBorder(new RoundedBorder(6));
 		btnNombreRuta3.addActionListener(new BtnReservarActionListener());
 		GridBagConstraints gbc_btnNombreRuta3 = new GridBagConstraints();
 		gbc_btnNombreRuta3.fill = GridBagConstraints.HORIZONTAL;
@@ -133,12 +138,14 @@ public class V_Ruta extends JPanel {
 		btnNombreRuta4.setToolTipText("Pulsa para acceder a la ruta");
 		btnNombreRuta4.setFont(new Font("Verdana", Font.BOLD, 14));
 		btnNombreRuta4.setBackground(new Color(244, 164, 96));
+		btnNombreRuta4.setBorder(new RoundedBorder(6));
 		btnNombreRuta4.addActionListener(new BtnReservarActionListener());
 		GridBagConstraints gbc_btnNombreRuta4 = new GridBagConstraints();
 		gbc_btnNombreRuta4.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnNombreRuta4.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNombreRuta4.gridx = 1;
 		gbc_btnNombreRuta4.gridy = 5;
+		
 		panel_1.add(btnNombreRuta4, gbc_btnNombreRuta4);
 		
 		JLabel lblNombreRuta5 = new JLabel("");

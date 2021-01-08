@@ -232,13 +232,12 @@ public class V_RutaElegida extends JPanel {
 		btnInscribirse.setToolTipText("Pulsa para inscribir");
 		btnInscribirse.addActionListener(new BtnActionListener());
 		GridBagConstraints gbc_btnInscribirse = new GridBagConstraints();
-		gbc_btnInscribirse.anchor = GridBagConstraints.EAST;
-		gbc_btnInscribirse.gridwidth = 2;
+		gbc_btnInscribirse.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnInscribirse.insets = new Insets(0, 0, 0, 5);
-		gbc_btnInscribirse.gridx = 6;
+		gbc_btnInscribirse.gridx = 7;
 		gbc_btnInscribirse.gridy = 8;
 		btnInscribirse.setBounds(new Rectangle(0, 0, 30, 10));
-		btnInscribirse.setBorder(new RoundedBorder(7));
+		btnInscribirse.setBorder(new RoundedBorder(6));
 		btnInscribirse.setForeground(new Color(0,0,0));
 		btnInscribirse.setBackground(new Color(244, 164, 96));
 		panel_1.add(btnInscribirse, gbc_btnInscribirse);

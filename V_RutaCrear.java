@@ -19,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.text.MaskFormatter;
 
+import presentacion.V_Parcela.RoundedBorder;
+
 import java.awt.Font;
 import java.awt.Graphics;
 
@@ -352,14 +354,16 @@ public class V_RutaCrear extends JPanel {
 		gbc_btnBorrar.insets = new Insets(0, 0, 5, 5);
 		gbc_btnBorrar.gridx = 1;
 		gbc_btnBorrar.gridy = 11;
+		btnBorrar.setToolTipText("Pulsa para guardar ruta");
 		btnBorrar.setFont(new Font("Verdana", Font.BOLD, 15));
 		btnBorrar.setBackground(new Color(255, 165, 0));
-		btnBorrar.setBorder(new RoundedBorder(3));
+		btnBorrar.setBorder(new RoundedBorder(6));
 		panel_1.add(btnBorrar, gbc_btnBorrar);
 		
 		btnGuardar = new JButton("Guardar ruta");
 		btnGuardar.setEnabled(false);
 		btnGuardar.setToolTipText("Pulsa para guardar ruta");
+		btnGuardar.setBorder(new RoundedBorder(6));
 		btnGuardar.addActionListener(new BtnGuardarActionListener());
 		GridBagConstraints gbc_btnGuardar = new GridBagConstraints();
 		gbc_btnGuardar.gridwidth = 2;
@@ -369,7 +373,6 @@ public class V_RutaCrear extends JPanel {
 		gbc_btnGuardar.gridy = 11;
 		btnGuardar.setFont(new Font("Verdana", Font.BOLD, 15));
 		btnGuardar.setBackground(new Color(255, 165, 0));
-		btnGuardar.setBorder(new RoundedBorder(3));
 		panel_1.add(btnGuardar, gbc_btnGuardar);
 
 		
@@ -398,8 +401,6 @@ public class V_RutaCrear extends JPanel {
 		cursorRio = toolkit.createCustomCursor(imagRio,new Point(0,0),"CURSOR_RIO");
 		cursorFuente = toolkit.createCustomCursor(imagFuente,new Point(0,0),"CURSOR_FUENTE");
 		cursorAnimales = toolkit.createCustomCursor(imagAnimales,new Point(0,0),"CURSOR_ANIMALES");
-		
-		
 	}
 
 	public class RoundedBorder implements Border {
@@ -476,7 +477,7 @@ public class V_RutaCrear extends JPanel {
 		public void mouseDragged(MouseEvent e) {
 			if (modo == LAPIZ && imagen!=null) {
 				((DibujaLinea)MiAreaDibujo.getUltimoObjetoGrafico()).setX1(e.getX());
-				((DibujaLinea)MiAreaDibujo.getUltimoObjetoGrafico()).setY1(e.getY());
+				((DibujaLinea)MiAreaDibujo.getUltimoObjetoGrafico()).setY2(e.getY());
 				MiAreaDibujo.repaint();
 				}
 		}
@@ -632,8 +633,8 @@ public class V_RutaCrear extends JPanel {
 					MiAreaDibujo.repaint();
 					break;
 				case LAPIZ:
-					MiAreaDibujo.addObjetoGrafico(new DibujaLinea(x,y,x,y,
-							Color.RED));
+					MiAreaDibujo.addObjetoGrafico(new DibujaLinea(x,y,x,y, Color.RED));
+					MiAreaDibujo.repaint();
 					break;
 				case TEXTO:
 					txtTexto.setBounds(x, y, 200,30);
