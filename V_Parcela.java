@@ -1,17 +1,19 @@
 package presentacion;
 
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
+
 
 import java.awt.Rectangle;
-import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.GridBagLayout;
-import javax.swing.BoxLayout;
+
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
@@ -20,33 +22,24 @@ import javax.swing.JButton;
 
 import java.awt.Font;
 import javax.swing.JSlider;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerListModel;
 import javax.swing.JComboBox;
-import javax.swing.JEditorPane;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.SoftBevelBorder;
-
 import com.toedter.calendar.JDateChooser;
-import javax.swing.JTextPane;
 import javax.swing.JTextArea;
-import java.awt.CardLayout;
 import javax.swing.border.TitledBorder;
 
 public class V_Parcela extends JPanel {
-	private JTextField txtLlegada;
-	private JTextField txtSAlida;
-	private final JSeparator separator_3 = new JSeparator();
 	private JSlider sliderPrecio;
 	private JScrollPane scrollPane;
-
+	private JPanel pnlContenido;
 	/**
 	 * Create the panel.
 	 */
-	public V_Parcela() {
+	public V_Parcela(JPanel referenciaPnlContenido) {
+		pnlContenido = referenciaPnlContenido;
 		setBackground(Color.LIGHT_GRAY);
 		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
@@ -213,6 +206,7 @@ public class V_Parcela extends JPanel {
 		gbc_btnReservarParcela1.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarParcela1.gridx = 1;
 		gbc_btnReservarParcela1.gridy = 2;
+		btnReservarParcela1.addActionListener(new BtnActionListener());
 		btnReservarParcela1.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela1, gbc_btnReservarParcela1);
 		
@@ -245,6 +239,7 @@ public class V_Parcela extends JPanel {
 		gbc_btnReservarParcela2.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarParcela2.gridx = 1;
 		gbc_btnReservarParcela2.gridy = 5;
+		btnReservarParcela2.addActionListener(new BtnActionListener());
 		btnReservarParcela2.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela2, gbc_btnReservarParcela2);
 		
@@ -278,6 +273,7 @@ public class V_Parcela extends JPanel {
 		gbc_btnReservarParcela3.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarParcela3.gridx = 1;
 		gbc_btnReservarParcela3.gridy = 8;
+		btnReservarParcela3.addActionListener(new BtnActionListener());
 		btnReservarParcela3.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela3, gbc_btnReservarParcela3);
 		
@@ -310,6 +306,7 @@ public class V_Parcela extends JPanel {
 		gbc_btnReservarParcela4.insets = new Insets(0, 0, 5, 5);
 		gbc_btnReservarParcela4.gridx = 1;
 		gbc_btnReservarParcela4.gridy = 11;
+		btnReservarParcela4.addActionListener(new BtnActionListener());
 		btnReservarParcela4.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela4, gbc_btnReservarParcela4);
 		
@@ -343,6 +340,7 @@ public class V_Parcela extends JPanel {
 		gbc_btnReservarParcela5.gridx = 1;
 		gbc_btnReservarParcela5.gridy = 14;
 		btnReservarParcela5.setBackground(new Color(255, 165, 0));
+		btnReservarParcela5.addActionListener(new BtnActionListener());
 		pnlParcelas.add(btnReservarParcela5, gbc_btnReservarParcela5);
 		
 		GridBagConstraints gbc_separator_3 = new GridBagConstraints();
@@ -351,6 +349,13 @@ public class V_Parcela extends JPanel {
 		gbc_separator_3.gridx = 0;
 		gbc_separator_3.gridy = 3;
 	}
+	private class BtnActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout)(pnlContenido.getLayout());
+			cl.show(pnlContenido, "reservar");
+		}
+	}
+	
 	private static class __Tmp {
 		private static void __tmp() {
 			  javax.swing.JPanel __wbp_panel = new javax.swing.JPanel();

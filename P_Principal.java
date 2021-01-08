@@ -53,6 +53,7 @@ public class P_Principal extends JFrame implements ActionListener{
 	private V_RutaElegida rutaElegida;
 	private V_RutaInscribirse rutaInscribirse;
 	private V_inscribirse actInscribirse;
+	private V_Reserva reservar;
 	/**
 	 * Create the frame.
 	 */
@@ -370,18 +371,15 @@ public class P_Principal extends JFrame implements ActionListener{
 		
 		rutaInscribirse = new V_RutaInscribirse();
 		pnlContenido.add(rutaInscribirse, "rutaInscribirse");
+		
+		reservar = new V_Reserva();
+		pnlContenido.add(reservar, "reservar");
 
 		CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
 		c1.show(pnlContenido, "panellogoZorro");
 
 	}
 	
-	private class BtnActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent arg0) {
-			CardLayout cl = (CardLayout)(pnlContenido.getLayout());
-			cl.show(pnlContenido, arg0.getActionCommand());
-		}
-	}
 	private class BtnRutaCrearActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			panelRutaCrear = new V_RutaCrear();
@@ -427,7 +425,7 @@ public class P_Principal extends JFrame implements ActionListener{
 
 	private class BtnBungalowsActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			panelBungalow = new V_Bungalow();
+			panelBungalow = new V_Bungalow(pnlContenido);
 			pnlContenido.add(panelBungalow, "Bungalow");
 			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
 			c1.show(pnlContenido, "Bungalow");
@@ -461,7 +459,7 @@ public class P_Principal extends JFrame implements ActionListener{
 	
 	private class BtnParcelasActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			panelParcela = new V_Parcela();
+			panelParcela = new V_Parcela(pnlContenido);
 			pnlContenido.add(panelParcela, "Parcela");
 			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
 			c1.show(pnlContenido, "Parcela");
