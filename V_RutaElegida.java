@@ -53,7 +53,7 @@ public class V_RutaElegida extends JPanel {
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1, BorderLayout.NORTH);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[]{55, 116, 82, 139, 55, 0, 328, 101, 26, 0};
+		gbl_panel_1.columnWidths = new int[]{55, 116, 98, 139, 55, 0, 328, 101, 26, 0};
 		gbl_panel_1.rowHeights = new int[]{23, 36, 285, 25, 25, 25, 25, 13, 21, 0};
 		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
@@ -92,6 +92,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblDiaRuta, gbc_lblDiaRuta);
 		
 		txtDia = new JTextField();
+		txtDia.setText("12/01/2021");
 		txtDia.setEditable(false);
 		GridBagConstraints gbc_txtDia = new GridBagConstraints();
 		gbc_txtDia.insets = new Insets(0, 0, 5, 5);
@@ -110,6 +111,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblNum, gbc_lblNum);
 		
 		txtNum = new JTextField();
+		txtNum.setText("13");
 		txtNum.setEditable(false);
 		GridBagConstraints gbc_txtNum = new GridBagConstraints();
 		gbc_txtNum.anchor = GridBagConstraints.NORTH;
@@ -138,6 +140,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblHora, gbc_lblHora);
 		
 		txtHora = new JTextField();
+		txtHora.setText("12:00");
 		txtHora.setEditable(false);
 		GridBagConstraints gbc_txtHora = new GridBagConstraints();
 		gbc_txtHora.insets = new Insets(0, 0, 5, 5);
@@ -156,6 +159,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblDificultad, gbc_lblDificultad);
 		
 		txtDificultad = new JTextField();
+		txtDificultad.setText("Medio");
 		txtDificultad.setEditable(false);
 		GridBagConstraints gbc_txtDificultad = new GridBagConstraints();
 		gbc_txtDificultad.insets = new Insets(0, 0, 5, 5);
@@ -166,6 +170,8 @@ public class V_RutaElegida extends JPanel {
 		txtDificultad.setColumns(10);
 		
 		JEditorPane PaneDescripcionRuta = new JEditorPane();
+		PaneDescripcionRuta.setEditable(false);
+		PaneDescripcionRuta.setText("Ruta senderística con grado de dificultad medio, ideal para principiantes, se aconseja llevar mascarilla de repuesto, abundante agua y algun tipo de comida, imprescindible llevar algún caramelo azucarado por posibles bajas de tensión. Ropa de deporte.\r\n");
 		GridBagConstraints gbc_PaneDescripcionRuta = new GridBagConstraints();
 		gbc_PaneDescripcionRuta.gridwidth = 2;
 		gbc_PaneDescripcionRuta.gridheight = 3;
@@ -184,6 +190,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblMonitor, gbc_lblMonitor);
 		
 		txtMonitor = new JTextField();
+		txtMonitor.setText("Julian");
 		txtMonitor.setEditable(false);
 		GridBagConstraints gbc_txtMonitor = new GridBagConstraints();
 		gbc_txtMonitor.insets = new Insets(0, 0, 5, 5);
@@ -202,6 +209,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblEncuetro, gbc_lblEncuetro);
 		
 		txtPuntoEncuentro = new JTextField();
+		txtPuntoEncuentro.setText("Jardín de Europa");
 		txtPuntoEncuentro.setEditable(false);
 		GridBagConstraints gbc_txtPuntoEncuentro = new GridBagConstraints();
 		gbc_txtPuntoEncuentro.insets = new Insets(0, 0, 5, 5);
@@ -221,6 +229,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblInfo, gbc_lblInfo);
 		
 		JButton btnInscribirse = new JButton("Inscribirse");
+		btnInscribirse.setToolTipText("Pulsa para inscribir");
 		btnInscribirse.addActionListener(new BtnActionListener());
 		GridBagConstraints gbc_btnInscribirse = new GridBagConstraints();
 		gbc_btnInscribirse.anchor = GridBagConstraints.EAST;

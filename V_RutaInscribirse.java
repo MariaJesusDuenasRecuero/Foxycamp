@@ -1,6 +1,6 @@
 package presentacion;
 
-import java.awt.Rectangle; 
+import java.awt.Rectangle;  
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -15,22 +15,18 @@ import java.awt.Component;
 import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFormattedTextField.AbstractFormatter;
-import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-import javax.swing.JRadioButton;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-import java.awt.SystemColor;
 import java.awt.TextArea;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.text.ParseException;
 
-import javax.swing.ImageIcon;
 import javax.swing.border.EtchedBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -41,7 +37,10 @@ public class V_RutaInscribirse extends JPanel {
 	private JTextField textNombre;
 	private JTextField textApellidos;
 	private JTextField textEmail;
-	private TextArea textAreaInfoAdic;
+	private JTextArea textAreaInfoAdic;
+	private JTextField txtDNI;
+	private JTextField textTelefono;
+	private JButton btnAceptar;
 	/**
 	 * Create the panel.
 	 */
@@ -57,7 +56,9 @@ public class V_RutaInscribirse extends JPanel {
 		lblDatosPersonales.setBounds(40, 47, 312, 32);
 		add(lblDatosPersonales);
 
-		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setEnabled(false);
+		btnAceptar.setToolTipText("Pulsa para aceptar la inscripción");
 		btnAceptar.addActionListener(new BtnAceptarActionListener());
 			
 		btnAceptar.setFont(new Font("Verdana", Font.PLAIN, 16));
@@ -72,8 +73,10 @@ public class V_RutaInscribirse extends JPanel {
 		add(lblNombre);
 
 		textNombre = new JTextField();
+		textNombre.setToolTipText("Pulsa enter cuando el nombre este escrito");
 		textNombre.setColumns(10);
 		textNombre.setBounds(152, 123, 170, 20);
+		textNombre.addActionListener(new TextNombreActionListener());
 		add(textNombre);
 
 		JLabel lblApellidos = new JLabel("Apellidos");
@@ -92,25 +95,24 @@ public class V_RutaInscribirse extends JPanel {
 		lblDNI.setBounds(55, 262, 45, 21);
 		add(lblDNI);
 
-
-
-		JFormattedTextField txtDNI = new JFormattedTextField((AbstractFormatter) null);
-		txtDNI.setFont(new Font("Verdana", Font.PLAIN, 14));
-		txtDNI.setForeground(new Color(169, 169, 169));
-		txtDNI.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDNI.setText("XXXXXXXX-U");
-		txtDNI.setColumns(10);
-		txtDNI.setBounds(152, 263, 140, 20);
-		add(txtDNI);
 		MaskFormatter formatoDNI;
 		try {
 			formatoDNI= new MaskFormatter("########'-U");
 			formatoDNI.setPlaceholderCharacter('X');
 			txtDNI= new JFormattedTextField(formatoDNI);
+			txtDNI.setToolTipText("Pulsa enter cuando se haya escrito");
+			txtDNI.setEnabled(false);
+			txtDNI.addActionListener(new TextDNIActionListener());
 			txtDNI.addFocusListener(new TxtDNIFocusListener());
-		} catch (ParseException e) {
+		}catch (ParseException e) {
 			e.printStackTrace();
 		}
+		txtDNI.setFont(new Font("Verdana", Font.PLAIN, 14));
+		txtDNI.setForeground(Color.BLACK);
+		txtDNI.setHorizontalAlignment(SwingConstants.CENTER);
+		txtDNI.setColumns(10);
+		txtDNI.setBounds(152, 263, 140, 20);
+		add(txtDNI);
 
 		JLabel lblEmail = new JLabel("Email*");
 		lblEmail.setToolTipText("Campo obligatorio");
@@ -119,9 +121,12 @@ public class V_RutaInscribirse extends JPanel {
 		add(lblEmail);
 
 		textEmail = new JTextField();
+		textEmail.setToolTipText("Pulsa enter cuando se haya escrito");
+		textEmail.setEnabled(false);
 		textEmail.setFont(new Font("Verdana", Font.BOLD, 11));
 		textEmail.setColumns(10);
 		textEmail.setBounds(152, 332, 200, 21);
+		textEmail.addActionListener(new TextEmailActionListener());
 		add(textEmail);
 
 		JLabel lblTelefono_1 = new JLabel("Telefono ");
@@ -129,24 +134,24 @@ public class V_RutaInscribirse extends JPanel {
 		lblTelefono_1.setBounds(55, 399, 89, 21);
 		add(lblTelefono_1);
 
-		JFormattedTextField textTelefono = new JFormattedTextField((AbstractFormatter) null);
-		textTelefono.setFont(new Font("Verdana", Font.PLAIN, 12));
-		textTelefono.setHorizontalAlignment(SwingConstants.CENTER);
-		textTelefono.setForeground(new Color(169, 169, 169));
-		textTelefono.setText("(---) ###  ### ###");
-		textTelefono.setColumns(10);
-		textTelefono.setBounds(152, 401, 140, 20);
-		add(textTelefono);
+		
 		MaskFormatter formatoTlfno;
 		try {
 			formatoTlfno= new MaskFormatter("'(###')' ###' ###' ###");
 			formatoTlfno.setPlaceholderCharacter('*');
 			textTelefono= new JFormattedTextField(formatoTlfno);
+			textTelefono.setEnabled(false);
 		}catch (ParseException e) {
 			e.printStackTrace();
 		}
+		textTelefono.setFont(new Font("Verdana", Font.PLAIN, 12));
+		textTelefono.setHorizontalAlignment(SwingConstants.CENTER);
+		textTelefono.setForeground(new Color(169, 169, 169));
+		textTelefono.setColumns(10);
+		textTelefono.setBounds(152, 401, 140, 20);
+		add(textTelefono);
 
-		JTextArea textAreaInfoAdic = new JTextArea();
+		 textAreaInfoAdic = new JTextArea();
 		textAreaInfoAdic.setFont(new Font("Verdana", Font.PLAIN, 16));
 		textAreaInfoAdic.setBorder(new TitledBorder(null, "Informaci\u00F3n adicional", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		textAreaInfoAdic.setLineWrap(true);
@@ -232,7 +237,29 @@ public class V_RutaInscribirse extends JPanel {
 			e.getComponent().setBackground(colorBlanco);
 		}
 	}
+	private class TextNombreActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			txtDNI.setEnabled(true);
+			txtDNI.requestFocus();
+		}
+	}
 	
+	private class TextDNIActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			textEmail.setEnabled(true);
+			textEmail.requestFocus();
+		}
+	}
+	
+	private class TextEmailActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			textTelefono.setEnabled(true);
+			textTelefono.requestFocus();
+			
+			btnAceptar.setEnabled(true);
+		}
+	}
+
 
 	public class RoundedBorder implements Border {
 

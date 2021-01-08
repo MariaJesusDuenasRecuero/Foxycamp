@@ -1,6 +1,6 @@
 package presentacion;
 
-import java.awt.BorderLayout;  
+import java.awt.BorderLayout;   
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import javax.swing.border.Border;
+import javax.swing.text.MaskFormatter;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -24,6 +25,7 @@ import java.awt.Graphics;
 import javax.swing.JScrollPane;
 import javax.swing.JEditorPane;
 import javax.swing.JFileChooser;
+import javax.swing.JFormattedTextField;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
@@ -34,6 +36,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.io.File;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
  
@@ -45,6 +48,8 @@ public class V_RutaCrear extends JPanel {
 	private ImageIcon imagen;
 	private JPanel panel;
 	private MiAreaDibujo MiAreaDibujo;
+	JButton btnBorrar;
+	JButton btnGuardar;
 	//Area de dibujo personalizada (creada extendiendo de JLabel)
 	
 	int modo = -1;
@@ -58,7 +63,7 @@ public class V_RutaCrear extends JPanel {
 	private Cursor cursorFuente;
 	private Cursor cursorAnimales;
 	private Cursor cursor;
-	
+	private JEditorPane Anotaciones;
 	private Image imagTexto;
 	private Image imagIglesia;
 	private Image imagLapiz;
@@ -67,6 +72,7 @@ public class V_RutaCrear extends JPanel {
 	private Image imagFuente;
 	private Image imagAnimales;
 	private Image imagCursor;
+	private JEditorPane Descripcion;
 	
 	private final int LAPIZ = 1;
 	private final int IGLESIA = 2;
@@ -140,42 +146,50 @@ public class V_RutaCrear extends JPanel {
 		panel_1.add(toolBar, gbc_toolBar);
 		
 		JButton btnMapa = new JButton(" Cargar mapa");
+		btnMapa.setToolTipText("Pulsa para cargar mapa");
 		btnMapa.addActionListener(new BtnMapaActionListener());
 		btnMapa.setIcon(new ImageIcon(V_RutaCrear.class.getResource("/presentacion/mapa.png")));
 		toolBar.add(btnMapa);
 		
 		JButton btnLapiz = new JButton("Marcar ruta");
+		btnLapiz.setToolTipText("Pulsa para marcar la ruta");
 		btnLapiz.addActionListener(new BtnLapizActionListener());
 		btnLapiz.setIcon(new ImageIcon(V_RutaCrear.class.getResource("/presentacion/Lapiz.png")));
 		toolBar.add(btnLapiz);
 	
 		
 		JButton btnIglesia = new JButton("Monumento");
+		btnIglesia.setToolTipText("Pulsa para añadir un monumento");
 		btnIglesia.addActionListener(new BtnIglesiaActionListener());
 		btnIglesia.setIcon(new ImageIcon(V_RutaCrear.class.getResource("/presentacion/iglesia.png")));
 		toolBar.add(btnIglesia);
 		
 		JButton btnFuente = new JButton("Fuente");
+		btnFuente.setToolTipText("Pulsa para añadir fuente/area de descanso");
 		btnFuente.addActionListener(new BtnFuenteActionListener());
 		btnFuente.setIcon(new ImageIcon(V_RutaCrear.class.getResource("/presentacion/fuente.png")));
 		toolBar.add(btnFuente);
 		
 		JButton btnRio = new JButton("Paraje natural");
+		btnRio.setToolTipText("Pulsa para añadir un paraje natural");
 		btnRio.addActionListener(new BtnRioActionListener());
 		btnRio.setIcon(new ImageIcon(V_RutaCrear.class.getResource("/presentacion/rio.png")));
 		toolBar.add(btnRio);
 		
 		JButton btnTexto = new JButton("Añadir texto");
+		btnTexto.setToolTipText("Pulsa para añadir texto");
 		btnTexto.addActionListener(new BtnTextoActionListener());
 		btnTexto.setIcon(new ImageIcon(V_RutaCrear.class.getResource("/presentacion/Texto.png")));
 		toolBar.add(btnTexto);
 		
 		JButton btnAnimales = new JButton("Animales salvajes");
+		btnAnimales.setToolTipText("Pulsa para insertar alerta por animal");
 		btnAnimales.addActionListener(new BtnAnimalesActionListener());
 		btnAnimales.setIcon(new ImageIcon(V_RutaCrear.class.getResource("/presentacion/huella.png")));
 		toolBar.add(btnAnimales);
 		
 		JButton btnCursor = new JButton("");
+		btnCursor.setToolTipText("Pulsa para volver al cursor por defecto");
 		btnCursor.addActionListener(new BtnCursorActionListener());
 		btnCursor.setIcon(new ImageIcon(V_RutaCrear.class.getResource("/presentacion/cursor.png")));
 		toolBar.add(btnCursor);
@@ -190,7 +204,7 @@ public class V_RutaCrear extends JPanel {
 		gbc_lblDescripcion.gridy = 4;
 		panel_1.add(lblDescripcion, gbc_lblDescripcion);
 		
-		JEditorPane Descripcion = new JEditorPane();
+		Descripcion = new JEditorPane();
 		GridBagConstraints gbc_Descripcion = new GridBagConstraints();
 		Descripcion.addFocusListener(new DescripcionFocusListener());
 		gbc_Descripcion.gridwidth = 6;
@@ -209,7 +223,7 @@ public class V_RutaCrear extends JPanel {
 		gbc_lblAnotaciones.gridy = 6;
 		panel_1.add(lblAnotaciones, gbc_lblAnotaciones);
 		
-		JEditorPane Anotaciones = new JEditorPane();
+		 Anotaciones = new JEditorPane();
 		GridBagConstraints gbc_Anotaciones = new GridBagConstraints();
 		Anotaciones.addFocusListener(new AnotacionesFocusListener());
 		gbc_Anotaciones.gridwidth = 2;
@@ -228,17 +242,28 @@ public class V_RutaCrear extends JPanel {
 		gbc_lblHoraRuta.gridx = 3;
 		gbc_lblHoraRuta.gridy = 7;
 		panel_1.add(lblHoraRuta, gbc_lblHoraRuta);
+
+
+		MaskFormatter formatoHoraInicio;
+		try {
+			formatoHoraInicio = new MaskFormatter("##':##'");
+			formatoHoraInicio.setPlaceholderCharacter('h');
+			txtHoraInicio= new JFormattedTextField(formatoHoraInicio);
+			txtHoraInicio.setEnabled(false);
 		
-		txtHoraInicio = new JTextField();
+		}catch (ParseException e) {
+			e.printStackTrace();
+		}
 		GridBagConstraints gbc_txtHoraInicio = new GridBagConstraints();
 		txtHoraInicio.addFocusListener(new txtHoraInicioFocusListener());
 		gbc_txtHoraInicio.insets = new Insets(0, 0, 5, 5);
 		gbc_txtHoraInicio.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtHoraInicio.gridx = 4;
 		gbc_txtHoraInicio.gridy = 7;
+		txtHoraInicio.addActionListener(new TxtHoraInicioActionListener());
 		panel_1.add(txtHoraInicio, gbc_txtHoraInicio);
 		txtHoraInicio.setColumns(10);
-		
+
 		JLabel lblHoraFinRuta = new JLabel("Hora de fin de la ruta");
 		lblHoraFinRuta.setFont(new Font("Verdana", Font.BOLD, 11));
 		GridBagConstraints gbc_lblHoraFinRuta = new GridBagConstraints();
@@ -247,17 +272,27 @@ public class V_RutaCrear extends JPanel {
 		gbc_lblHoraFinRuta.gridx = 3;
 		gbc_lblHoraFinRuta.gridy = 8;
 		panel_1.add(lblHoraFinRuta, gbc_lblHoraFinRuta);
+
+		MaskFormatter formatoHoraFin;
+		try {
+			formatoHoraFin = new MaskFormatter("##':##'");
+			formatoHoraFin.setPlaceholderCharacter('h');
+			txtHoraFin= new JFormattedTextField(formatoHoraFin);
+			txtHoraFin.setEnabled(false);
 		
-		txtHoraFin = new JTextField();
+		}catch (ParseException e) {
+			e.printStackTrace();
+		}
 		GridBagConstraints gbc_txtHoraFin = new GridBagConstraints();
 		gbc_txtHoraFin.insets = new Insets(0, 0, 5, 5);
+		txtHoraFin.addActionListener(new TxtHoraFinActionListener());
 		txtHoraFin.addFocusListener(new txtHoraFinFocusListener());
 		gbc_txtHoraFin.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtHoraFin.gridx = 4;
 		gbc_txtHoraFin.gridy = 8;
 		panel_1.add(txtHoraFin, gbc_txtHoraFin);
 		txtHoraFin.setColumns(10);
-		
+
 		JLabel lblAltitud = new JLabel("Altitud de la ruta");
 		lblAltitud.setFont(new Font("Verdana", Font.BOLD, 11));
 		GridBagConstraints gbc_lblAltitud = new GridBagConstraints();
@@ -268,7 +303,9 @@ public class V_RutaCrear extends JPanel {
 		panel_1.add(lblAltitud, gbc_lblAltitud);
 		
 		txtAltitud = new JTextField();
+		txtAltitud.setEnabled(false);
 		GridBagConstraints gbc_txtAltitud = new GridBagConstraints();
+		txtAltitud.addActionListener(new TxtAltitudActionListener());
 		txtAltitud.addFocusListener(new txtAltitudFocusListener());
 		gbc_txtAltitud.insets = new Insets(0, 0, 5, 5);
 		gbc_txtAltitud.fill = GridBagConstraints.HORIZONTAL;
@@ -286,8 +323,19 @@ public class V_RutaCrear extends JPanel {
 		gbc_lblDia.gridy = 10;
 		panel_1.add(lblDia, gbc_lblDia);
 		
-		txtDia = new JTextField();
+		MaskFormatter DiaRuta;
+		try {
+			DiaRuta = new MaskFormatter("##'/##'/####'");
+			DiaRuta.setPlaceholderCharacter('-');
+			txtDia= new JFormattedTextField(DiaRuta);
+			txtDia.setEnabled(false);
+			txtDia.setToolTipText("dd/mm/yyyy");
+			
+		}catch (ParseException e) {
+			e.printStackTrace();
+		}
 		GridBagConstraints gbc_txtDia = new GridBagConstraints();
+		txtDia.addActionListener(new TxtDiaActionListener());
 		txtDia.addFocusListener(new txtDiaFocusListener());
 		gbc_txtDia.insets = new Insets(0, 0, 5, 5);
 		gbc_txtDia.fill = GridBagConstraints.HORIZONTAL;
@@ -296,18 +344,22 @@ public class V_RutaCrear extends JPanel {
 		panel_1.add(txtDia, gbc_txtDia);
 		txtDia.setColumns(10);
 		
-		JButton btnCancelar = new JButton("Cancelar ruta");
-		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
-		gbc_btnCancelar.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnCancelar.gridx = 1;
-		gbc_btnCancelar.gridy = 11;
-		btnCancelar.setFont(new Font("Verdana", Font.BOLD, 15));
-		btnCancelar.setBackground(new Color(255, 165, 0));
-		btnCancelar.setBorder(new RoundedBorder(3));
-		panel_1.add(btnCancelar, gbc_btnCancelar);
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.setToolTipText("Pulsa para borrar los elementos de la ruta introducidos");
+		btnBorrar.addActionListener(new BtnBorrarActionListener());
+		GridBagConstraints gbc_btnBorrar = new GridBagConstraints();
+		gbc_btnBorrar.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnBorrar.insets = new Insets(0, 0, 5, 5);
+		gbc_btnBorrar.gridx = 1;
+		gbc_btnBorrar.gridy = 11;
+		btnBorrar.setFont(new Font("Verdana", Font.BOLD, 15));
+		btnBorrar.setBackground(new Color(255, 165, 0));
+		btnBorrar.setBorder(new RoundedBorder(3));
+		panel_1.add(btnBorrar, gbc_btnBorrar);
 		
-		JButton btnGuardar = new JButton("Guardar ruta");
+		btnGuardar = new JButton("Guardar ruta");
+		btnGuardar.setEnabled(false);
+		btnGuardar.setToolTipText("Pulsa para guardar ruta");
 		btnGuardar.addActionListener(new BtnGuardarActionListener());
 		GridBagConstraints gbc_btnGuardar = new GridBagConstraints();
 		gbc_btnGuardar.gridwidth = 2;
@@ -343,11 +395,10 @@ public class V_RutaCrear extends JPanel {
 		cursorHuella = toolkit.createCustomCursor(imagHuella,new Point(0,0),"CURSOR_HUELLA");
 		cursorTexto= toolkit.createCustomCursor(imagTexto,new Point(0,0),"CURSOR_TEXTO");
 		cursorIglesia = toolkit.createCustomCursor(imagIglesia,new Point(0,0),"CURSOR_IGLESIA");
-		cursorLapiz = toolkit.createCustomCursor(imagLapiz,new Point(0,0),"CURSOR_LAPIZ");
 		cursorRio = toolkit.createCustomCursor(imagRio,new Point(0,0),"CURSOR_RIO");
 		cursorFuente = toolkit.createCustomCursor(imagFuente,new Point(0,0),"CURSOR_FUENTE");
 		cursorAnimales = toolkit.createCustomCursor(imagAnimales,new Point(0,0),"CURSOR_ANIMALES");
-		cursor = toolkit.createCustomCursor(imagCursor,new Point(0,0),"CURSOR_CURSOR");
+		
 		
 	}
 
@@ -438,6 +489,7 @@ public class V_RutaCrear extends JPanel {
 				File file = fcAbrir.getSelectedFile();
 				imagen = new ImageIcon(file.getAbsolutePath());
 				MiAreaDibujo.setIcon(imagen);
+				txtHoraInicio.setEnabled(true);
 			}
 		}
 	}
@@ -504,6 +556,53 @@ public class V_RutaCrear extends JPanel {
 	private class BtnGuardarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			 JOptionPane.showMessageDialog(null, "Operación realizada");
+		}
+	}
+	private class BtnBorrarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			 txtHoraInicio.setText(null);
+			 txtHoraInicio.setEnabled(false);
+			 
+			 txtHoraFin.setText(null);
+			 txtHoraFin.setEnabled(false);
+			 
+			 txtDia.setText(null);
+			 txtDia.setEnabled(false);
+			 
+			 txtAltitud.setText(null);
+			 txtAltitud.setEnabled(false);
+			 
+			 Anotaciones.setText(null);
+			 Descripcion.setText(null);
+			 
+			 MiAreaDibujo.setIcon(null);
+			 
+		}
+	}
+	
+	private class TxtHoraInicioActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			txtHoraFin.setEnabled(true);
+			txtHoraFin.requestFocus();
+		}
+	}
+	
+	private class TxtHoraFinActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			txtAltitud.setEnabled(true);
+			txtAltitud.requestFocus();
+		}
+	}
+	private class TxtAltitudActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			txtDia.setEnabled(true);
+			txtDia.requestFocus();
+		}
+	}
+	
+	private class TxtDiaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			btnGuardar.setEnabled(true);
 		}
 	}
 	

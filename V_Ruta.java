@@ -72,7 +72,7 @@ public class V_Ruta extends JPanel {
 		panel_1.add(lblRuta3, gbc_lblRuta3);
 		
 		JButton btnNombreRuta1 = new JButton("RUTA X");
-		btnNombreRuta1.setToolTipText("Click para acceder a la ruta");
+		btnNombreRuta1.setToolTipText("Pulsa para acceder a la ruta");
 		btnNombreRuta1.addActionListener(new BtnReservarActionListener());
 		btnNombreRuta1.setBackground(new Color(244, 164, 96));
 		btnNombreRuta1.setFont(new Font("Verdana", Font.BOLD, 14));
@@ -84,7 +84,7 @@ public class V_Ruta extends JPanel {
 		panel_1.add(btnNombreRuta1, gbc_btnNombreRuta1);
 		
 		JButton btnNombreRuta2 = new JButton("RUTA Y");
-		btnNombreRuta2.setToolTipText("Click para acceder a la ruta");
+		btnNombreRuta2.setToolTipText("Pulsa para acceder a la ruta");
 		btnNombreRuta2.setFont(new Font("Verdana", Font.BOLD, 14));
 		btnNombreRuta2.setBackground(new Color(244, 164, 96));
 		btnNombreRuta2.addActionListener(new BtnReservarActionListener());
@@ -96,7 +96,7 @@ public class V_Ruta extends JPanel {
 		panel_1.add(btnNombreRuta2, gbc_btnNombreRuta2);
 		
 		JButton btnNombreRuta3 = new JButton("RUTA O");
-		btnNombreRuta3.setToolTipText("Click para acceder a la ruta");
+		btnNombreRuta3.setToolTipText("Pulsa para acceder a la ruta");
 		btnNombreRuta3.setFont(new Font("Verdana", Font.BOLD, 14));
 		btnNombreRuta3.setBackground(new Color(244, 164, 96));
 		btnNombreRuta3.addActionListener(new BtnReservarActionListener());
@@ -130,7 +130,7 @@ public class V_Ruta extends JPanel {
 		panel_1.add(lblRuta6, gbc_lblRuta6);
 		
 		JButton btnNombreRuta4 = new JButton("RUTA F");
-		btnNombreRuta4.setToolTipText("Click para acceder a la ruta");
+		btnNombreRuta4.setToolTipText("Pulsa para acceder a la ruta");
 		btnNombreRuta4.setFont(new Font("Verdana", Font.BOLD, 14));
 		btnNombreRuta4.setBackground(new Color(244, 164, 96));
 		btnNombreRuta4.addActionListener(new BtnReservarActionListener());
