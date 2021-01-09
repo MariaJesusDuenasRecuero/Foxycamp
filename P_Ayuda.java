@@ -12,11 +12,15 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JSeparator;
@@ -24,6 +28,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+
+import presentacion.P_Registro.RoundedBorder;
 
 import java.awt.Component;
 import java.awt.Graphics;
@@ -43,12 +49,10 @@ public class P_Ayuda extends JFrame {
 	private JButton btnManual;
 	private JButton btnVideo;
 	private JFrame frmAyuda;
+	private String nombreAux;
 
-
-	/**
-	 * Create the frame.
-	 */
-	public P_Ayuda() {
+	public P_Ayuda(String nombre) {
+		nombreAux = nombre;
 		frmAyuda = new JFrame();
 		frmAyuda.setBackground(Color.WHITE);
 		frmAyuda.setIconImage(Toolkit.getDefaultToolkit()
@@ -136,9 +140,9 @@ public class P_Ayuda extends JFrame {
 		pmFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addPopup(lblFlecha, pmFlecha);
 
-		JLabel lblPerfilOption = new JLabel("    Adrián Ruiz");
+		JLabel lblPerfilOption = new JLabel(nombre);
 		lblPerfilOption.setFont(new Font("Verdana", Font.PLAIN, 14));
-		lblPerfilOption.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/PerfilAdri.png")));
+		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
 
 		JSeparator separator = new JSeparator();
@@ -148,7 +152,7 @@ public class P_Ayuda extends JFrame {
 		JButton btnAbout = new JButton("   Sobre nosotros");
 		btnAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_About frmAbout = new P_About();
+				P_About frmAbout = new P_About(nombre);
 				frmAbout.getFrame().setVisible(true);
 				frmAyuda.dispose();
 			}
@@ -164,7 +168,7 @@ public class P_Ayuda extends JFrame {
 		JButton btnAjustes = new JButton("   Ajustes               ");
 		btnAjustes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_Perfil frmPerfil = new P_Perfil();
+				P_Perfil frmPerfil = new P_Perfil(nombre);
 				frmPerfil.getFrame().setVisible(true);
 				frmAyuda.dispose();
 			}
@@ -241,6 +245,7 @@ public class P_Ayuda extends JFrame {
 		pnlContenido.add(lblAtencionCliente, gbc_lblAtencionCliente);
 
 		btnContactos = new JButton("Contáctenos");
+		btnContactos.addActionListener(new BtnContactarActionListener());
 		btnContactos.setBackground(new Color(255, 140, 0));
 		btnContactos.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/llamada-telefonica.png")));
 		btnContactos.setFont(new Font("Verdana", Font.BOLD, 20));
@@ -249,6 +254,7 @@ public class P_Ayuda extends JFrame {
 		gbc_btnContactos.insets = new Insets(0, 0, 5, 5);
 		gbc_btnContactos.gridx = 4;
 		gbc_btnContactos.gridy = 2;
+		btnContactos.setBorder(new RoundedBorder(10));
 		pnlContenido.add(btnContactos, gbc_btnContactos);
 
 		JLabel lblAtencionC = new JLabel("Atención al cliente");
@@ -265,11 +271,13 @@ public class P_Ayuda extends JFrame {
 		btnManual.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/instrucciones.png")));
 		btnManual.setFont(new Font("Verdana", Font.BOLD, 20));
 		btnManual.setBackground(new Color(255, 140, 0));
+		btnManual.addActionListener(new BtnManualActionListener());
 		GridBagConstraints gbc_btnManual = new GridBagConstraints();
 		gbc_btnManual.fill = GridBagConstraints.BOTH;
 		gbc_btnManual.insets = new Insets(0, 0, 5, 5);
 		gbc_btnManual.gridx = 4;
 		gbc_btnManual.gridy = 4;
+		btnManual.setBorder(new RoundedBorder(10));
 		pnlContenido.add(btnManual, gbc_btnManual);
 
 		btnVideo = new JButton(" Video ayuda");
@@ -277,11 +285,13 @@ public class P_Ayuda extends JFrame {
 		btnVideo.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/boton-de-play.png")));
 		btnVideo.setFont(new Font("Verdana", Font.BOLD, 20));
 		btnVideo.setBorder(new RoundedBorder(12));
+		btnVideo.addActionListener(new BtnVideoActionListener());
 		GridBagConstraints gbc_btnVideo = new GridBagConstraints();
 		gbc_btnVideo.fill = GridBagConstraints.BOTH;
 		gbc_btnVideo.insets = new Insets(0, 0, 5, 5);
 		gbc_btnVideo.gridx = 4;
 		gbc_btnVideo.gridy = 6;
+		btnVideo.setBorder(new RoundedBorder(10));
 		pnlContenido.add(btnVideo, gbc_btnVideo);
 		
 		JButton btnVolver = new JButton("Volver");
@@ -290,6 +300,7 @@ public class P_Ayuda extends JFrame {
 		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
 		
 		btnVolver.setBackground(new Color(255, 165, 0));
+		btnVolver.setBorder(new RoundedBorder(10));
 		GridBagConstraints gbc_btnVolver = new GridBagConstraints();
 		gbc_btnVolver.anchor = GridBagConstraints.WEST;
 		gbc_btnVolver.insets = new Insets(0, 0, 0, 5);
@@ -298,7 +309,15 @@ public class P_Ayuda extends JFrame {
 		pnlContenido.add(btnVolver, gbc_btnVolver);
 
 	}
-
+	private Icon nuevoIcono(String nombre) {
+		Icon icon = null;
+		if(nombre == "Adrián Ruiz")icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png"));
+		if(nombre == "María Jesús") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png"));
+		if(nombre == "María Blanco") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png"));
+		
+		return icon;
+	}
+	
 	public class RoundedBorder implements Border {
 
 		private int radius;
@@ -333,15 +352,66 @@ public class P_Ayuda extends JFrame {
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda2 = new P_Ayuda();
+			P_Ayuda frmAyuda2 = new P_Ayuda(nombreAux);
 			frmAyuda2.getFrame().setVisible(true);
 			frmAyuda.dispose();
 
 		}
 	}
+	
+	private class BtnVideoActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			//TODO : Poner aqui la dir del videeo
+			String direccion = " ";
+			try {
+				String osName = System.getProperty("os.name");
+				 if(osName.contains("Windows")) {
+				 	Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + direccion);
+				 }else if(osName.contains("Linux")) {
+					 Runtime.getRuntime().exec("open " + direccion);
+				 }else if(osName.contains("Mac OS X")) {
+					 Runtime.getRuntime().exec("open " + direccion);
+			} else{ 
+					 System.out.println("Sistema no soportado");
+				 }
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+	 	
+	
+	private class BtnManualActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			String direccion = "https://docs.google.com/document/d/1IZFfm1B2IFfjRn9QCIsnC97dpqEssj0fT-w4kyYJeAY/edit?usp=sharing";
+			try {
+				String osName = System.getProperty("os.name");
+				 if(osName.contains("Windows")) {
+				 	Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + direccion);
+				 }else if(osName.contains("Linux")) {
+					 Runtime.getRuntime().exec("open " + direccion);
+				 }else if(osName.contains("Mac OS X")) {
+					 Runtime.getRuntime().exec("open " + direccion);
+			} else{ 
+					 System.out.println("Sistema no soportado");
+				 }
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+	private class BtnContactarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			String formato = "Número de contacto: +034 926 831 231\n"
+					+ "Email: foxyCamp@gmail.com\n"
+					+ "Disponibilidad: Lunes a viernes de 9:00 a 18:00\n";
+
+			JOptionPane.showMessageDialog(null, formato, "Contactenos", JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
 	private class BtnVolverActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal frmPrincipal = new P_Principal();
+			P_Principal frmPrincipal = new P_Principal(nombreAux);
 			frmPrincipal.getFrame().setVisible(true);
 			frmAyuda.dispose();
 		}

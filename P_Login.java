@@ -363,7 +363,8 @@ public class P_Login {
 							&& pwdIntroduzcaContrasea.getText().equals("man123"))
 					|| (txtFormattedDNI.getText().equals("00000018-M")
 							&& pwdIntroduzcaContrasea.getText().equals("man123"))) {
-				P_Principal principal = new P_Principal();
+				String login = getLogin(txtFormattedDNI.getText());
+				P_Principal principal = new P_Principal(login);
 				principal.getFrame().setVisible(true);
 				frmLogin.dispose();
 			} else if (txtFormattedDNI.getText().equals("XXXXXXXXX-X") || pwdIntroduzcaContrasea.getText().equals("")) {
@@ -377,7 +378,15 @@ public class P_Login {
 			}
 
 		}
+		public String getLogin(String login) {
+			String nombre = "F";
+			if(txtFormattedDNI.getText().equals("00000016-A")) nombre = "Adrián Ruiz";
+			if(txtFormattedDNI.getText().equals("00000011-M")) nombre = "María Jesús";
+			if(txtFormattedDNI.getText().equals("00000018-M")) nombre = "María Blanco";
+			return nombre;
+		}
 	}
+
 
 	private class BtnBorrarLoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {

@@ -14,6 +14,7 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -35,7 +36,7 @@ import java.awt.Cursor;
 
 @SuppressWarnings("serial")
 public class P_About extends JFrame {
-
+	private String nombreAux;
 	private JPanel contentPane;
 	JFrame frmAbout;
 
@@ -43,7 +44,8 @@ public class P_About extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public P_About() {
+	public P_About(String nombre) {
+		nombreAux = nombre;
 		frmAbout = new JFrame();
 		frmAbout.setIconImage(Toolkit.getDefaultToolkit().getImage(P_About.class.getResource("/presentacion/informacion.png")));
 		frmAbout.setTitle("Sobre nosotros");
@@ -132,14 +134,14 @@ public class P_About extends JFrame {
 		pmFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addPopup(lblFlechaPerfil, pmFlecha);
 		
-		JLabel lblPerfilOption = new JLabel("    Adrian Ruiz");
-		lblPerfilOption.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/PerfilAdri.png")));
+		JLabel lblPerfilOption = new JLabel(nombre);
+		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
 		
 		JButton btnAjustes = new JButton("   Ajustes               ");
 		btnAjustes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_Perfil frmPerfil = new P_Perfil();
+				P_Perfil frmPerfil = new P_Perfil(nombre);
 				frmPerfil.getFrame().setVisible(true);
 				frmAbout.dispose();
 			}
@@ -255,6 +257,16 @@ public class P_About extends JFrame {
 		
 
 	}
+	
+	private Icon nuevoIcono(String nombre) {
+		Icon icon = null;
+		if(nombre == "Adrián Ruiz")icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png"));
+		if(nombre == "María Jesús") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png"));
+		if(nombre == "María Blanco") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png"));
+		
+		return icon;
+	}
+	
 	public class RoundedBorder implements Border {
 
 		private int radius;
@@ -279,14 +291,14 @@ public class P_About extends JFrame {
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda = new P_Ayuda();
+			P_Ayuda frmAyuda = new P_Ayuda(nombreAux);
 			frmAyuda.getFrame().setVisible(true);
 			frmAbout.dispose();
 		}
 	}
 	private class BtnVolverActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal frmPrincipal = new P_Principal();
+			P_Principal frmPrincipal = new P_Principal(nombreAux);
 			frmPrincipal.getFrame().setVisible(true);
 			frmAbout.dispose();
 		}

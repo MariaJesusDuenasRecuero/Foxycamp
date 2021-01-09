@@ -20,6 +20,7 @@ import javax.swing.border.LineBorder;
 import presentacion.P_Perfil.RoundedBorder;
 
 import javax.swing.SwingConstants;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -62,12 +63,13 @@ public class P_Perfil extends JFrame {
 	JPanel panel;
 	V_Formacion panelFormacion;
 	V_PerfilCerrarCuenta panelCerrarCuenta;
-	
+	private String nombreAux;
 
 	/**
 	 * Create the frame.
 	 */
-	public P_Perfil() {
+	public P_Perfil(String nombre) {
+		nombreAux = nombre;
 		frmPerfil = new JFrame();
 		frmPerfil.setBackground(Color.WHITE);
 		frmPerfil.getContentPane().setBackground(Color.WHITE);
@@ -147,9 +149,9 @@ public class P_Perfil extends JFrame {
 		JPopupMenu pmFlecha = new JPopupMenu();
 		addPopup(lblFlecha, pmFlecha);
 
-		JLabel lblPerfilOption = new JLabel("    Adrián Ruiz");
+		JLabel lblPerfilOption = new JLabel(nombre);
 		lblPerfilOption.setFont(new Font("Verdana", Font.PLAIN, 14));
-		lblPerfilOption.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/PerfilAdri.png")));
+		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
 
 		JSeparator separator = new JSeparator();
@@ -159,7 +161,7 @@ public class P_Perfil extends JFrame {
 		JButton btnAbout = new JButton("   Sobre nosotros");
 		btnAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_About frmAbout = new P_About();
+				P_About frmAbout = new P_About(nombre);
 				frmAbout.getFrame().setVisible(true);
 				frmPerfil.dispose();
 			}
@@ -465,6 +467,14 @@ public class P_Perfil extends JFrame {
 		panelCerrarCuenta = new V_PerfilCerrarCuenta();
 		panel.add(panelCerrarCuenta, "CerrarCuenta");
 	}
+	private Icon nuevoIcono(String nombre) {
+		Icon icon = null;
+		if(nombre == "Adrián Ruiz")icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png"));
+		if(nombre == "María Jesús") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png"));
+		if(nombre == "María Blanco") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png"));
+		
+		return icon;
+	}
 	
 	private class BtnInformacionActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
@@ -529,14 +539,14 @@ public class P_Perfil extends JFrame {
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda = new P_Ayuda();
+			P_Ayuda frmAyuda = new P_Ayuda(nombreAux);
 			frmAyuda.getFrame().setVisible(true);
 			frmPerfil.dispose();
 		}
 	}
 	private class BtnVolverActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal frmPrincipal = new P_Principal();
+			P_Principal frmPrincipal = new P_Principal(nombreAux);
 			frmPrincipal.getFrame().setVisible(true);
 			frmPerfil.dispose();
 		}

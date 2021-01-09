@@ -73,6 +73,7 @@ public class P_Registro extends JFrame {
 	private JPasswordField textContrasena;
 	private JPasswordField textConfirmarContrasena;
 	private JFrame frmRegistro;
+	private JTextField textNombre;
 	
 	
 	private Color colorResaltado = new Color (255,255,210);
@@ -85,7 +86,6 @@ public class P_Registro extends JFrame {
 	private JButton btnVolver;
 	private JLabel lblAviso;
 	private JLabel lblFichero;
-	//private Color botones = new Color(244, 164, 96);
 
 	/**
 	 * Create the frame.
@@ -195,7 +195,7 @@ public class P_Registro extends JFrame {
 		gbc_lblNombre.gridy = 1;
 		pnlLogin.add(lblNombre, gbc_lblNombre);
 		
-		JTextField textNombre = new JTextField();
+		textNombre = new JTextField();
 		textNombre.addActionListener(new TextNombreActionListener());
 		textNombre.addFocusListener(new TextNombreFocusListener());
 		GridBagConstraints gbc_textNombre = new GridBagConstraints();
@@ -493,6 +493,7 @@ public class P_Registro extends JFrame {
 		btnVolver.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/volver-flecha (1).png")));
 		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
 		btnVolver.setBackground(new Color(244, 164, 96));
+		btnVolver.setBorder(new RoundedBorder(6));
 		GridBagConstraints gbc_btnVolver = new GridBagConstraints();
 		gbc_btnVolver.anchor = GridBagConstraints.EAST;
 		gbc_btnVolver.insets = new Insets(0, 0, 0, 5);
@@ -512,7 +513,7 @@ public class P_Registro extends JFrame {
 		pnlContenido.add(btnConfirmar, gbc_btnConfirmar);
 		btnConfirmar.setBounds(new Rectangle(0, 0, -3, 15));
 		btnConfirmar.setFont(new Font("Verdana", Font.BOLD, 16));
-		btnConfirmar.setBorder(new RoundedBorder(4));
+		btnConfirmar.setBorder(new RoundedBorder(10));
 		btnConfirmar.setForeground(new Color(0,0,0));
 		btnConfirmar.setBackground(new Color(244, 164, 96));
 		
@@ -698,7 +699,7 @@ public class P_Registro extends JFrame {
 	}
 	private class BtnConfirmarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal principal = new P_Principal();
+			P_Principal principal = new P_Principal(textNombre.getText());
 			principal.getFrame().setVisible(true);
 			frmRegistro.dispose();
 		}
