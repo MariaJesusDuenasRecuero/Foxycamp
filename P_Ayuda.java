@@ -12,6 +12,8 @@ import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -40,8 +42,10 @@ public class P_Ayuda extends JFrame {
 	private JButton btnVideo;
 	private JFrame frmAyuda;
 	private String nombreAux;
+	private Icon iconAux;
 
-	public P_Ayuda(String nombre) {
+	public P_Ayuda(String nombre, Icon icon) {
+		iconAux = icon;
 		nombreAux = nombre;
 		frmAyuda = new JFrame();
 		frmAyuda.setBackground(Color.WHITE);
@@ -129,12 +133,19 @@ public class P_Ayuda extends JFrame {
 		JPopupMenu pmFlecha = new JPopupMenu();
 		pmFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addPopup(lblFlecha, pmFlecha);
+	
 
 		JLabel lblPerfilOption = new JLabel(nombre);
 		lblPerfilOption.setFont(new Font("Verdana", Font.PLAIN, 14));
 		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
 
+		LocalDate date = LocalDate.now(); // Gets the current date
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		String date_cu = date.format(formatter);
+		JLabel lblUltimaFecha = new JLabel("Última fecha: " + date_cu);
+		pmFlecha.add(lblUltimaFecha);
+		
 		JSeparator separator = new JSeparator();
 		separator.setBorder(new LineBorder(new Color(255, 200, 0), 10));
 		pmFlecha.add(separator);
@@ -142,7 +153,7 @@ public class P_Ayuda extends JFrame {
 		JButton btnAbout = new JButton("   Sobre nosotros");
 		btnAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_About frmAbout = new P_About(nombre);
+				P_About frmAbout = new P_About(nombre, iconAux);
 				frmAbout.getFrame().setVisible(true);
 				frmAyuda.dispose();
 			}
@@ -158,7 +169,7 @@ public class P_Ayuda extends JFrame {
 		JButton btnAjustes = new JButton("   Ajustes               ");
 		btnAjustes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_Perfil frmPerfil = new P_Perfil(nombre);
+				P_Perfil frmPerfil = new P_Perfil(nombre, icon);
 				frmPerfil.getFrame().setVisible(true);
 				frmAyuda.dispose();
 			}
@@ -342,7 +353,7 @@ public class P_Ayuda extends JFrame {
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda2 = new P_Ayuda(nombreAux);
+			P_Ayuda frmAyuda2 = new P_Ayuda(nombreAux, iconAux);
 			frmAyuda2.getFrame().setVisible(true);
 			frmAyuda.dispose();
 
@@ -401,7 +412,7 @@ public class P_Ayuda extends JFrame {
 	}
 	private class BtnVolverActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal frmPrincipal = new P_Principal(nombreAux);
+			P_Principal frmPrincipal = new P_Principal(nombreAux, iconAux);
 			frmPrincipal.getFrame().setVisible(true);
 			frmAyuda.dispose();
 		}

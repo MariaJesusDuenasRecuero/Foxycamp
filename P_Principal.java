@@ -24,6 +24,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.swing.border.Border;
 import javax.swing.JSeparator;
 import java.awt.Toolkit;
@@ -58,11 +61,13 @@ public class P_Principal extends JFrame implements ActionListener{
 	private V_VerReservasParcelas reservasP;
 	private V_VerReservasBungalows reservasB;
 	private String nombreAux;
+	private Icon iconAux;
 	/**
 	 * Create the frame.
 	 */
-	public P_Principal(String nombre) {
+	public P_Principal(String nombre, Icon icon) {
 		nombreAux= nombre;
+		iconAux = icon;
 		frmPrincipal = new JFrame();
 		frmPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage(P_Principal.class.getResource("/presentacion/casa-de-perro.png")));
 		frmPrincipal.setTitle("Menú principal");
@@ -147,11 +152,16 @@ public class P_Principal extends JFrame implements ActionListener{
 		JPopupMenu pmFlecha = new JPopupMenu();
 		pmFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addPopup(lblFlecha, pmFlecha);
-		//TODO
 		JLabel lblPerfilOption = new JLabel(nombre);
 		lblPerfilOption.setFont(new Font("Verdana", Font.PLAIN, 14));
 		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
+		
+		LocalDate date = LocalDate.now(); // Gets the current date
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		String date_cu = date.format(formatter);
+		JLabel lblUltimaFecha = new JLabel("Última fecha: " + date_cu);
+		pmFlecha.add(lblUltimaFecha);
 
 		JSeparator separator = new JSeparator();
 		separator.setBorder(new LineBorder(new Color(255, 200, 0), 10));
@@ -160,7 +170,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		JButton btnAbout = new JButton("   Sobre nosotros");
 		btnAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_About frmAbout = new P_About(nombre);
+				P_About frmAbout = new P_About(nombre, icon);
 				frmAbout.getFrame().setVisible(true);
 				frmPrincipal.dispose();
 			}
@@ -176,7 +186,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		JButton btnAjustes = new JButton("   Ajustes               ");
 		btnAjustes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_Perfil frmPerfil = new P_Perfil(nombre);
+				P_Perfil frmPerfil = new P_Perfil(nombre, icon);
 				frmPerfil.getFrame().setVisible(true);
 				frmPrincipal.dispose();
 			}
@@ -398,7 +408,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		if(nombre == "Adrián Ruiz")icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png"));
 		if(nombre == "María Jesús") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png"));
 		if(nombre == "María Blanco") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png"));
-		
+		if(nombre != "Adrián Ruiz" && nombre != "María Jesús" && nombre != "María Blanco") icon = iconAux;
 		return icon;
 	}
 
@@ -474,7 +484,7 @@ public class P_Principal extends JFrame implements ActionListener{
 	}
 	private class BtnPromocionesActActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			panelActividadesPromociones = new V_PromocionesActividades();
+			panelActividadesPromociones = new V_PromocionesActividades(pnlContenido);
 			pnlContenido.add(panelActividadesPromociones, "panelActividadesPromociones");
 			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
 			c1.show(pnlContenido, "panelActividadesPromociones");
@@ -580,7 +590,7 @@ public class P_Principal extends JFrame implements ActionListener{
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda = new P_Ayuda(nombreAux);
+			P_Ayuda frmAyuda = new P_Ayuda(nombreAux, iconAux);
 			frmAyuda.getFrame().setVisible(true);
 			frmPrincipal.dispose();
 		}

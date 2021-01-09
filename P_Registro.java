@@ -1,6 +1,6 @@
 package presentacion;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.Color;
 import java.awt.Component;
 
@@ -14,7 +14,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
-
 import java.awt.Toolkit;
 import java.awt.GridBagLayout;
 import java.awt.Font;
@@ -25,6 +24,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Rectangle;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -528,9 +528,8 @@ public class P_Registro extends JFrame {
 			//Recoger el nombre del fichero seleccionado por el usuario
 			if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 				File file = fcAbrir.getSelectedFile();
-				//En este punto la aplicaci�n se deber�a encargar de realizar la operaci�n sobre el fichero
-				System.out.println(file.getName());
-				lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
+				icon = new ImageIcon(file.getAbsolutePath());
+				lblFoto.setIcon(icon);
 			}
 		}
 	}
@@ -699,7 +698,7 @@ public class P_Registro extends JFrame {
 	}
 	private class BtnConfirmarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal principal = new P_Principal(textNombre.getText());
+			P_Principal principal = new P_Principal(textNombre.getText(), icon);
 			principal.getFrame().setVisible(true);
 			frmRegistro.dispose();
 		}
@@ -732,6 +731,8 @@ public class P_Registro extends JFrame {
 	        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
 	    }
 	}
+
+	private Icon icon;
 	
 	public JFrame getFrame() {
 		return frmRegistro;

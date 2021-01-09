@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.GridBagLayout;
@@ -55,7 +56,7 @@ public class P_Login {
 	private JLabel lblIncorrectPassword;
 	private JLabel lblEstado;
 	private JLabel lblLink;
-
+	private Icon iconAux = null;
 	private Color colorBlanco = new Color(255, 255, 255);
 	private Color colorResaltado = new Color(255, 255, 209);
 
@@ -364,7 +365,7 @@ public class P_Login {
 					|| (txtFormattedDNI.getText().equals("00000018-M")
 							&& pwdIntroduzcaContrasea.getText().equals("man123"))) {
 				String login = getLogin(txtFormattedDNI.getText());
-				P_Principal principal = new P_Principal(login);
+				P_Principal principal = new P_Principal(login, iconAux);
 				principal.getFrame().setVisible(true);
 				frmLogin.dispose();
 			} else if (txtFormattedDNI.getText().equals("XXXXXXXXX-X") || pwdIntroduzcaContrasea.getText().equals("")) {
