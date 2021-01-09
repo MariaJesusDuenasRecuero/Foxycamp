@@ -13,8 +13,6 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -39,7 +37,6 @@ import java.awt.Cursor;
 @SuppressWarnings("serial")
 public class P_About extends JFrame {
 	private String nombreAux;
-	private Icon iconAux;
 	private JPanel contentPane;
 	JFrame frmAbout;
 
@@ -47,11 +44,10 @@ public class P_About extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public P_About(String nombre, Icon icon) {
+	public P_About(String nombre) {
 		nombreAux = nombre;
-		iconAux = icon;
 		frmAbout = new JFrame();
-		frmAbout.setIconImage(Toolkit.getDefaultToolkit().getImage(P_About.class.getResource("/presentacion/informacion.png")));
+		frmAbout.setIconImage(Toolkit.getDefaultToolkit().getImage(P_About.class.getResource("/presentacion/IconAboutUs.png")));
 		frmAbout.setTitle("Sobre nosotros");
 		//Propiedades generales de todos los frames
 		frmAbout.setBounds(new Rectangle(0, 0, 1375, 800));
@@ -138,22 +134,14 @@ public class P_About extends JFrame {
 		pmFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addPopup(lblFlechaPerfil, pmFlecha);
 		
-		
 		JLabel lblPerfilOption = new JLabel(nombre);
 		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
 		
-
-		LocalDate date = LocalDate.now(); // Gets the current date
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		String date_cu = date.format(formatter);
-		JLabel lblUltimaFecha = new JLabel("Última fecha: " + date_cu);
-		pmFlecha.add(lblUltimaFecha);
-		
 		JButton btnAjustes = new JButton("   Ajustes               ");
 		btnAjustes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_Perfil frmPerfil = new P_Perfil(nombre,icon);
+				P_Perfil frmPerfil = new P_Perfil(nombre);
 				frmPerfil.getFrame().setVisible(true);
 				frmAbout.dispose();
 			}
@@ -303,14 +291,14 @@ public class P_About extends JFrame {
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda = new P_Ayuda(nombreAux, iconAux);
+			P_Ayuda frmAyuda = new P_Ayuda(nombreAux);
 			frmAyuda.getFrame().setVisible(true);
 			frmAbout.dispose();
 		}
 	}
 	private class BtnVolverActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal frmPrincipal = new P_Principal(nombreAux, iconAux);
+			P_Principal frmPrincipal = new P_Principal(nombreAux);
 			frmPrincipal.getFrame().setVisible(true);
 			frmAbout.dispose();
 		}
