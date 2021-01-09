@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
@@ -56,10 +57,12 @@ public class P_Principal extends JFrame implements ActionListener{
 	private V_Reserva reservar;
 	private V_VerReservasParcelas reservasP;
 	private V_VerReservasBungalows reservasB;
+	private String nombreAux;
 	/**
 	 * Create the frame.
 	 */
-	public P_Principal() {
+	public P_Principal(String nombre) {
+		nombreAux= nombre;
 		frmPrincipal = new JFrame();
 		frmPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage(P_Principal.class.getResource("/presentacion/casa-de-perro.png")));
 		frmPrincipal.setTitle("Menú principal");
@@ -144,10 +147,10 @@ public class P_Principal extends JFrame implements ActionListener{
 		JPopupMenu pmFlecha = new JPopupMenu();
 		pmFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addPopup(lblFlecha, pmFlecha);
-
-		JLabel lblPerfilOption = new JLabel("    Adrián Ruiz");
+		//TODO
+		JLabel lblPerfilOption = new JLabel(nombre);
 		lblPerfilOption.setFont(new Font("Verdana", Font.PLAIN, 14));
-		lblPerfilOption.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png")));
+		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
 
 		JSeparator separator = new JSeparator();
@@ -157,7 +160,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		JButton btnAbout = new JButton("   Sobre nosotros");
 		btnAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_About frmAbout = new P_About();
+				P_About frmAbout = new P_About(nombre);
 				frmAbout.getFrame().setVisible(true);
 				frmPrincipal.dispose();
 			}
@@ -173,7 +176,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		JButton btnAjustes = new JButton("   Ajustes               ");
 		btnAjustes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_Perfil frmPerfil = new P_Perfil();
+				P_Perfil frmPerfil = new P_Perfil(nombre);
 				frmPerfil.getFrame().setVisible(true);
 				frmPrincipal.dispose();
 			}
@@ -390,6 +393,15 @@ public class P_Principal extends JFrame implements ActionListener{
 
 	}
 	
+	private Icon nuevoIcono(String nombre) {
+		Icon icon = null;
+		if(nombre == "Adrián Ruiz")icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png"));
+		if(nombre == "María Jesús") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png"));
+		if(nombre == "María Blanco") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png"));
+		
+		return icon;
+	}
+
 	private class BtnReservasParcelasActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			reservasP = new V_VerReservasParcelas();
@@ -471,7 +483,7 @@ public class P_Principal extends JFrame implements ActionListener{
 	
 	private class BtnPromosBungalowsActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			panelBungalowsPromociones = new V_BungalowsPromociones();
+			panelBungalowsPromociones = new V_BungalowsPromociones(pnlContenido);
 			pnlContenido.add(panelBungalowsPromociones, "panelBungalowsPromociones");
 			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
 			c1.show(pnlContenido, "panelBungalowsPromociones");
@@ -568,7 +580,7 @@ public class P_Principal extends JFrame implements ActionListener{
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda = new P_Ayuda();
+			P_Ayuda frmAyuda = new P_Ayuda(nombreAux);
 			frmAyuda.getFrame().setVisible(true);
 			frmPrincipal.dispose();
 		}
