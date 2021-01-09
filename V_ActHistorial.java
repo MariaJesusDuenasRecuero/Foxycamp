@@ -1,24 +1,20 @@
 package presentacion;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Rectangle;
 
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.CompoundBorder;
 import java.awt.Cursor;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
 
 public class V_ActHistorial extends JPanel {
 
@@ -35,6 +31,7 @@ public class V_ActHistorial extends JPanel {
 		pnlContenido.setLayout(null);
 		
 		JButton lblNewLabel = new JButton(" Actividades 2000");
+		lblNewLabel.addActionListener(new BtnActionListener());
 		lblNewLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel.setBackground(new Color(255, 204, 153));
 		lblNewLabel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -51,6 +48,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades.setHorizontalAlignment(SwingConstants.CENTER);
 		lblActividades.setIcon(new ImageIcon(V_ActHistorial.class.getResource("/presentacion/IconDescargaPDF.png")));
 		lblActividades.setFont(new Font("Verdana", Font.PLAIN, 20));
+		lblActividades.addActionListener(new BtnActionListener());
 		lblActividades.setBounds(68, 171, 229, 69);
 		pnlContenido.add(lblActividades);
 		
@@ -62,6 +60,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1.setIcon(new ImageIcon(V_ActHistorial.class.getResource("/presentacion/IconDescargaPDF.png")));
 		lblActividades_1.setFont(new Font("Verdana", Font.PLAIN, 20));
 		lblActividades_1.setBounds(68, 273, 229, 69);
+		lblActividades_1.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_1);
 		
 		JButton lblActividades_1_1 = new JButton(" Actividades 2003");
@@ -72,6 +71,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1_1.setIcon(new ImageIcon(V_ActHistorial.class.getResource("/presentacion/IconDescargaPDF.png")));
 		lblActividades_1_1.setFont(new Font("Verdana", Font.PLAIN, 20));
 		lblActividades_1_1.setBounds(68, 366, 229, 69);
+		lblActividades_1_1.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_1_1);
 		
 		JButton lblActividades_3 = new JButton(" Actividades 2004");
@@ -82,6 +82,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblActividades_3.setFont(new Font("Verdana", Font.PLAIN, 20));
 		lblActividades_3.setBounds(384, 75, 229, 69);
+		lblActividades_3.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_3);
 		
 		JButton lblActividades_4 = new JButton(" Actividades 2005");
@@ -92,6 +93,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_4.setIcon(new ImageIcon(V_ActHistorial.class.getResource("/presentacion/IconDescargaPDF.png")));
 		lblActividades_4.setFont(new Font("Verdana", Font.PLAIN, 20));
 		lblActividades_4.setBounds(384, 171, 229, 69);
+		lblActividades_4.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_4);
 		
 		JButton lblActividades_1_2 = new JButton(" Actividades 2006");
@@ -102,6 +104,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1_2.setIcon(new ImageIcon(V_ActHistorial.class.getResource("/presentacion/IconDescargaPDF.png")));
 		lblActividades_1_2.setFont(new Font("Verdana", Font.PLAIN, 20));
 		lblActividades_1_2.setBounds(384, 273, 229, 69);
+		lblActividades_1_2.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_1_2);
 		
 		JButton lblActividades_1_1_1 = new JButton(" Actividades 2007");
@@ -112,6 +115,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1_1_1.setIcon(new ImageIcon(V_ActHistorial.class.getResource("/presentacion/IconDescargaPDF.png")));
 		lblActividades_1_1_1.setFont(new Font("Verdana", Font.PLAIN, 20));
 		lblActividades_1_1_1.setBounds(384, 366, 229, 69);
+		lblActividades_1_1_1.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_1_1_1);
 		
 		JButton lblActividades_3_1 = new JButton(" Actividades 2008");
@@ -122,9 +126,10 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_3_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblActividades_3_1.setFont(new Font("Verdana", Font.PLAIN, 20));
 		lblActividades_3_1.setBounds(702, 75, 223, 69);
+		lblActividades_3_1.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_3_1);
 		
-		JLabel lblActividades_4_1 = new JLabel(" Actividades 2009");
+		JButton lblActividades_4_1 = new JButton(" Actividades 2009");
 		lblActividades_4_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_4_1.setBackground(new Color(255, 204, 153));
 		lblActividades_4_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -132,6 +137,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_4_1.setIcon(new ImageIcon(V_ActHistorial.class.getResource("/presentacion/IconDescargaPDF.png")));
 		lblActividades_4_1.setFont(new Font("Verdana", Font.PLAIN, 20));
 		lblActividades_4_1.setBounds(702, 171, 223, 69);
+		lblActividades_4_1.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_4_1);
 		
 		JButton lblActividades_1_2_1 = new JButton(" Actividades 2010");
@@ -141,6 +147,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1_2_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblActividades_1_2_1.setIcon(new ImageIcon(V_ActHistorial.class.getResource("/presentacion/IconDescargaPDF.png")));
 		lblActividades_1_2_1.setFont(new Font("Verdana", Font.PLAIN, 20));
+		lblActividades_1_2_1.addActionListener(new BtnActionListener());
 		lblActividades_1_2_1.setBounds(702, 273, 223, 69);
 		pnlContenido.add(lblActividades_1_2_1);
 		
@@ -151,6 +158,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblActividades_1_1_1_1.setIcon(new ImageIcon(V_ActHistorial.class.getResource("/presentacion/IconDescargaPDF.png")));
 		lblActividades_1_1_1_1.setFont(new Font("Verdana", Font.PLAIN, 20));
+		lblActividades_1_1_1_1.addActionListener(new BtnActionListener());
 		lblActividades_1_1_1_1.setBounds(702, 366, 223, 69);
 		pnlContenido.add(lblActividades_1_1_1_1);
 		
@@ -160,5 +168,25 @@ public class V_ActHistorial extends JPanel {
 		lblNewLabel_1.setBounds(212, 470, 563, 31);
 		pnlContenido.add(lblNewLabel_1);
 		
+	}
+	private class BtnActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			//TODO : poner dir
+			String direccion = " ";
+			try {
+				String osName = System.getProperty("os.name");
+				 if(osName.contains("Windows")) {
+				 	Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + direccion);
+				 }else if(osName.contains("Linux")) {
+					 Runtime.getRuntime().exec("open " + direccion);
+				 }else if(osName.contains("Mac OS X")) {
+					 Runtime.getRuntime().exec("open " + direccion);
+			} else{ 
+					JOptionPane.showMessageDialog(null, "OS no soportado");
+				 }
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
 	}
 }

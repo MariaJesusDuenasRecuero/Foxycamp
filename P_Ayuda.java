@@ -1,9 +1,8 @@
 package presentacion;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
@@ -12,7 +11,6 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
 import java.io.IOException;
 
 import javax.swing.Icon;
@@ -28,14 +26,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-
-import presentacion.P_Registro.RoundedBorder;
-
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Insets;
-
-import javax.swing.border.Border;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -393,7 +383,7 @@ public class P_Ayuda extends JFrame {
 				 }else if(osName.contains("Mac OS X")) {
 					 Runtime.getRuntime().exec("open " + direccion);
 			} else{ 
-					 System.out.println("Sistema no soportado");
+					JOptionPane.showMessageDialog(null, "OS no soportado");
 				 }
 			} catch (IOException e1) {
 				e1.printStackTrace();
