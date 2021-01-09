@@ -2,7 +2,10 @@ package presentacion;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +17,9 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+
+import presentacion.V_VerReservasParcelas.RoundedBorder;
 
 //import presentacion.V_Actividades.BtnInscritosActionListener;
 
@@ -89,6 +95,7 @@ public class V_PromocionesActividades extends JPanel {
 		btnInscribirse.setFont(new Font("Verdana", Font.PLAIN, 16));
 		btnInscribirse.setBackground(new Color(255, 165, 0));
 		btnInscribirse.setBounds(433, 469, 124, 23);
+		btnInscribirse.setBorder(new RoundedBorder(10));
 		pnlContenido.add(btnInscribirse);
 		
 		JTextArea txtrComienzaElDa_2 = new JTextArea();
@@ -159,5 +166,26 @@ public class V_PromocionesActividades extends JPanel {
 		lblTiroConArco_1.setBounds(511, 182, 124, 119);
 		pnlContenido.add(lblTiroConArco_1);
 		
+	}
+	
+	public class RoundedBorder implements Border {
+
+		private int radius;
+
+		RoundedBorder(int radius) {
+			this.radius = radius;
+		}
+
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+		}
+
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+		}
 	}
 }
