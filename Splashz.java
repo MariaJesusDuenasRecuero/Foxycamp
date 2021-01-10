@@ -12,6 +12,8 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JProgressBar;
 import java.awt.Font;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 
 public class Splashz extends JFrame  {
 
@@ -30,7 +32,7 @@ public class Splashz extends JFrame  {
 		setUndecorated(true);
 		setBounds(100, 100, 894, 607);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new LineBorder(Color.WHITE, 5, true));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
@@ -47,14 +49,19 @@ public class Splashz extends JFrame  {
 		pnlcontenido.add(lblCargando);
 		
 		progressBar = new JProgressBar();
+		progressBar.setBorderPainted(false);
+		progressBar.setOpaque(true);
+		progressBar.setIgnoreRepaint(true);
 		progressBar.setStringPainted(true);
+		progressBar.setFont(new Font("Verdana", Font.PLAIN, 16));
 		progressBar.setBackground(new Color(255, 228, 196));
-		progressBar.setForeground(new Color(255, 102, 0));
+		progressBar.setForeground(new Color(255, 153, 102));
 		progressBar.setBounds(183, 527, 520, 45);
 		pnlcontenido.add(progressBar);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setForeground(new Color(255, 69, 0));
+		lblNewLabel.setBorder(null);
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 22));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setIcon(new ImageIcon(Splashz.class.getResource("/presentacion/SplashFoxycamp.png")));
