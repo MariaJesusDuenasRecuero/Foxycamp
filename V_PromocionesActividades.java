@@ -85,12 +85,12 @@ public class V_PromocionesActividades extends JPanel {
 		JTextArea txtrComienzaElDa_1 = new JTextArea();
 		txtrComienzaElDa_1.setLineWrap(true);
 		txtrComienzaElDa_1.setFont(new Font("Verdana", Font.PLAIN, 10));
-		txtrComienzaElDa_1.setText("Comienza el día 5 de septiembre.\r\n\r\nPara la inscripción en los grupos no indicados en el  formulario se requiere una prueba de nivel, excepto para aquellos que ya estuvieran apuntados al final de la temporada pasada.\r\nLas pruebas se realizarán del 5 al 7 de septiembre, de 18:00 a 20:00 horas.");
+		txtrComienzaElDa_1.setText(MessagesV_PromocionesActividades.getString("V_PromocionesActividades.txtrComienzaElDa_1.text")); //$NON-NLS-1$
 		txtrComienzaElDa_1.setEditable(false);
 		txtrComienzaElDa_1.setBounds(164, 172, 302, 122);
 		pnlContenido.add(txtrComienzaElDa_1);
 		
-		JButton btnInscribirse = new JButton("Inscribirse");
+		JButton btnInscribirse = new JButton(MessagesV_PromocionesActividades.getString("V_PromocionesActividades.btnInscribirse.text")); //$NON-NLS-1$
 		btnInscribirse.setBounds(new Rectangle(0, 0, 60, 50));
 		btnInscribirse.setFont(new Font("Verdana", Font.PLAIN, 16));
 		btnInscribirse.setBackground(new Color(255, 165, 0));
@@ -101,14 +101,14 @@ public class V_PromocionesActividades extends JPanel {
 		JTextArea txtrComienzaElDa_2 = new JTextArea();
 		txtrComienzaElDa_2.setFont(new Font("Verdana", Font.PLAIN, 10));
 		txtrComienzaElDa_2.setLineWrap(true);
-		txtrComienzaElDa_2.setText("Comienza el día 23 de septiembre.\r\nEn la escuela de niños, para la inscripción en los grupos no indicadosen el  formulario se requiere una prueba de nivel, excepto para aquellos que ya estuvieran apuntados al final de la temporada pasada.\r\nLas pruebas se realizarán del 23 al 27 de septiembre, de 18:00 a 20:00 horas.");
+		txtrComienzaElDa_2.setText(MessagesV_PromocionesActividades.getString("V_PromocionesActividades.txtrComienzaElDa_2.text")); //$NON-NLS-1$
 		txtrComienzaElDa_2.setEditable(false);
 		txtrComienzaElDa_2.setBounds(164, 323, 302, 122);
 		pnlContenido.add(txtrComienzaElDa_2);
 		
 		JTextArea txtrComienzaElDa = new JTextArea();
 		txtrComienzaElDa.setLineWrap(true);
-		txtrComienzaElDa.setText("Comienza el día 3 de septiembre.\r\nEn la escuela de niños, para la inscripción en los grupos no indicadosen el  formulario se requiere una prueba de nivel, excepto para aquellos que ya estuvieran apuntados al final de la temporada pasada.\r\nLas pruebas se realizarán del 3 al 7 de septiembre, de 18:00 a 20:00 horas.");
+		txtrComienzaElDa.setText(MessagesV_PromocionesActividades.getString("V_PromocionesActividades.txtrComienzaElDa.text")); //$NON-NLS-1$
 		txtrComienzaElDa.setFont(new Font("Verdana", Font.PLAIN, 10));
 		txtrComienzaElDa.setEditable(false);
 		txtrComienzaElDa.setBounds(164, 22, 302, 122);
@@ -123,7 +123,7 @@ public class V_PromocionesActividades extends JPanel {
 		JTextArea txtrComienzaElDa_3 = new JTextArea();
 		txtrComienzaElDa_3.setLineWrap(true);
 		txtrComienzaElDa_3.setFont(new Font("Verdana", Font.PLAIN, 10));
-		txtrComienzaElDa_3.setText("Comienza el día 13 de septiembre.\r\nEn la escuela de niños, para la inscripción en los grupos no indicadosen el  formulario se requiere una prueba de nivel, excepto para aquellos que ya estuvieran apuntados al final de la temporada pasada.\r\nLas pruebas se realizarán del 13 al 17 de septiembre, de 18:00 a 20:00 horas.");
+		txtrComienzaElDa_3.setText(MessagesV_PromocionesActividades.getString("V_PromocionesActividades.txtrComienzaElDa_3.text")); //$NON-NLS-1$
 		txtrComienzaElDa_3.setEditable(false);
 		txtrComienzaElDa_3.setBounds(627, 24, 302, 122);
 		pnlContenido.add(txtrComienzaElDa_3);
@@ -135,7 +135,7 @@ public class V_PromocionesActividades extends JPanel {
 		
 		JTextArea txtrComienzaElDa_4 = new JTextArea();
 		txtrComienzaElDa_4.setFont(new Font("Verdana", Font.PLAIN, 10));
-		txtrComienzaElDa_4.setText("Comienza el día 12 de septiembre.\r\nEn la escuela de niños, para la inscripción en los grupos no indicadosen el  formulario se requiere una prueba de nivel, excepto para aquellos que ya estuvieran apuntados al final de la temporada pasada.\r\nLas pruebas se realizarán del 12 al 15 de septiembre, de 18:00 a 20:00 horas.");
+		txtrComienzaElDa_4.setText(MessagesV_PromocionesActividades.getString("V_PromocionesActividades.txtrComienzaElDa_4.text")); //$NON-NLS-1$
 		txtrComienzaElDa_4.setLineWrap(true);
 		txtrComienzaElDa_4.setEditable(false);
 		txtrComienzaElDa_4.setBounds(627, 174, 302, 122);
@@ -149,7 +149,7 @@ public class V_PromocionesActividades extends JPanel {
 		JTextArea txtrComienzaElDa_5 = new JTextArea();
 		txtrComienzaElDa_5.setFont(new Font("Verdana", Font.PLAIN, 10));
 		txtrComienzaElDa_5.setLineWrap(true);
-		txtrComienzaElDa_5.setText("Comienza el día 23 de septiembre.\r\nEn la escuela de niños, para la inscripción en los grupos no indicadosen el  formulario se requiere una prueba de nivel, excepto para aquellos que ya estuvieran apuntados al final de la temporada pasada.\r\nLas pruebas se realizarán del 23 al 30 de septiembre, de 18:00 a 20:00 horas.");
+		txtrComienzaElDa_5.setText(MessagesV_PromocionesActividades.getString("V_PromocionesActividades.txtrComienzaElDa_5.text")); //$NON-NLS-1$
 		txtrComienzaElDa_5.setEditable(false);
 		txtrComienzaElDa_5.setBounds(627, 325, 302, 122);
 		pnlContenido.add(txtrComienzaElDa_5);

@@ -56,7 +56,7 @@ public class V_RutaElegida extends JPanel {
 		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_1.setLayout(gbl_panel_1);
 		
-		JLabel lblItinerarioRuta = new JLabel("Itinerario de la ruta");
+		JLabel lblItinerarioRuta = new JLabel(MessagesV_RutaElegida.getString("V_RutaElegida.lblItinerarioRuta.text")); //$NON-NLS-1$
 		lblItinerarioRuta.setFont(new Font("Verdana", Font.BOLD, 25));
 		lblItinerarioRuta.setForeground(new Color(255, 140, 0));
 		GridBagConstraints gbc_lblItinerarioRuta = new GridBagConstraints();
@@ -67,7 +67,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblItinerarioRuta, gbc_lblItinerarioRuta);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportBorder(new TitledBorder(null, "Mapa ruta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		scrollPane.setViewportBorder(new TitledBorder(null, MessagesV_RutaElegida.getString("V_RutaElegida.scrollPane.viewportBorderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.gridwidth = 7;
 		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
@@ -80,7 +80,7 @@ public class V_RutaElegida extends JPanel {
 		lblImagenRuta.setIcon(new ImageIcon(V_RutaElegida.class.getResource("/presentacion/Ruta2.jpg")));
 		scrollPane.setViewportView(lblImagenRuta);
 		
-		JLabel lblDiaRuta = new JLabel("Día");
+		JLabel lblDiaRuta = new JLabel(MessagesV_RutaElegida.getString("V_RutaElegida.lblDiaRuta.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblDiaRuta = new GridBagConstraints();
 		gbc_lblDiaRuta.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblDiaRuta.insets = new Insets(0, 0, 5, 5);
@@ -89,7 +89,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblDiaRuta, gbc_lblDiaRuta);
 		
 		txtDia = new JTextField();
-		txtDia.setText("12/01/2021");
+		txtDia.setText(MessagesV_RutaElegida.getString("V_RutaElegida.txtDia.text")); //$NON-NLS-1$
 		txtDia.setEditable(false);
 		GridBagConstraints gbc_txtDia = new GridBagConstraints();
 		gbc_txtDia.insets = new Insets(0, 0, 5, 5);
@@ -99,7 +99,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(txtDia, gbc_txtDia);
 		txtDia.setColumns(10);
 		
-		JLabel lblNum = new JLabel("Núm máx - núm min. *");
+		JLabel lblNum = new JLabel(MessagesV_RutaElegida.getString("V_RutaElegida.lblNum.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNum = new GridBagConstraints();
 		gbc_lblNum.anchor = GridBagConstraints.EAST;
 		gbc_lblNum.insets = new Insets(0, 0, 5, 5);
@@ -108,7 +108,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblNum, gbc_lblNum);
 		
 		txtNum = new JTextField();
-		txtNum.setText("13");
+		txtNum.setText(MessagesV_RutaElegida.getString("V_RutaElegida.txtNum.text")); //$NON-NLS-1$
 		txtNum.setEditable(false);
 		GridBagConstraints gbc_txtNum = new GridBagConstraints();
 		gbc_txtNum.anchor = GridBagConstraints.NORTH;
@@ -119,7 +119,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(txtNum, gbc_txtNum);
 		txtNum.setColumns(10);
 		
-		JLabel lblDescripcion = new JLabel("Descripción de la ruta");
+		JLabel lblDescripcion = new JLabel(MessagesV_RutaElegida.getString("V_RutaElegida.lblDescripcion.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblDescripcion = new GridBagConstraints();
 		gbc_lblDescripcion.anchor = GridBagConstraints.WEST;
 		gbc_lblDescripcion.insets = new Insets(0, 0, 5, 5);
@@ -128,7 +128,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblDescripcion, gbc_lblDescripcion);
 		
 		
-		JLabel lblHora = new JLabel("Hora");
+		JLabel lblHora = new JLabel(MessagesV_RutaElegida.getString("V_RutaElegida.lblHora.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblHora = new GridBagConstraints();
 		gbc_lblHora.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblHora.insets = new Insets(0, 0, 5, 5);
@@ -137,7 +137,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblHora, gbc_lblHora);
 		
 		txtHora = new JTextField();
-		txtHora.setText("12:00");
+		txtHora.setText(MessagesV_RutaElegida.getString("V_RutaElegida.txtHora.text")); //$NON-NLS-1$
 		txtHora.setEditable(false);
 		GridBagConstraints gbc_txtHora = new GridBagConstraints();
 		gbc_txtHora.insets = new Insets(0, 0, 5, 5);
@@ -147,7 +147,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(txtHora, gbc_txtHora);
 		txtHora.setColumns(10);
 		
-		JLabel lblDificultad = new JLabel("Grado de dificultad");
+		JLabel lblDificultad = new JLabel(MessagesV_RutaElegida.getString("V_RutaElegida.lblDificultad.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblDificultad = new GridBagConstraints();
 		gbc_lblDificultad.anchor = GridBagConstraints.EAST;
 		gbc_lblDificultad.insets = new Insets(0, 0, 5, 5);
@@ -156,7 +156,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblDificultad, gbc_lblDificultad);
 		
 		txtDificultad = new JTextField();
-		txtDificultad.setText("Medio");
+		txtDificultad.setText(MessagesV_RutaElegida.getString("V_RutaElegida.txtDificultad.text")); //$NON-NLS-1$
 		txtDificultad.setEditable(false);
 		GridBagConstraints gbc_txtDificultad = new GridBagConstraints();
 		gbc_txtDificultad.insets = new Insets(0, 0, 5, 5);
@@ -168,7 +168,7 @@ public class V_RutaElegida extends JPanel {
 		
 		JEditorPane PaneDescripcionRuta = new JEditorPane();
 		PaneDescripcionRuta.setEditable(false);
-		PaneDescripcionRuta.setText("Ruta senderística con grado de dificultad medio, ideal para principiantes, se aconseja llevar mascarilla de repuesto, abundante agua y algun tipo de comida, imprescindible llevar algún caramelo azucarado por posibles bajas de tensión. Ropa de deporte.\r\n");
+		PaneDescripcionRuta.setText(MessagesV_RutaElegida.getString("V_RutaElegida.PaneDescripcionRuta.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_PaneDescripcionRuta = new GridBagConstraints();
 		gbc_PaneDescripcionRuta.gridwidth = 2;
 		gbc_PaneDescripcionRuta.gridheight = 3;
@@ -178,7 +178,7 @@ public class V_RutaElegida extends JPanel {
 		gbc_PaneDescripcionRuta.gridy = 4;
 		panel_1.add(PaneDescripcionRuta, gbc_PaneDescripcionRuta);
 		
-		JLabel lblMonitor = new JLabel("Monitor");
+		JLabel lblMonitor = new JLabel(MessagesV_RutaElegida.getString("V_RutaElegida.lblMonitor.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblMonitor = new GridBagConstraints();
 		gbc_lblMonitor.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblMonitor.insets = new Insets(0, 0, 5, 5);
@@ -187,7 +187,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblMonitor, gbc_lblMonitor);
 		
 		txtMonitor = new JTextField();
-		txtMonitor.setText("Julian");
+		txtMonitor.setText(MessagesV_RutaElegida.getString("V_RutaElegida.txtMonitor.text")); //$NON-NLS-1$
 		txtMonitor.setEditable(false);
 		GridBagConstraints gbc_txtMonitor = new GridBagConstraints();
 		gbc_txtMonitor.insets = new Insets(0, 0, 5, 5);
@@ -197,7 +197,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(txtMonitor, gbc_txtMonitor);
 		txtMonitor.setColumns(10);
 		
-		JLabel lblEncuetro = new JLabel("Punto de encuentro");
+		JLabel lblEncuetro = new JLabel(MessagesV_RutaElegida.getString("V_RutaElegida.lblEncuetro.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblEncuetro = new GridBagConstraints();
 		gbc_lblEncuetro.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblEncuetro.insets = new Insets(0, 0, 5, 5);
@@ -206,7 +206,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblEncuetro, gbc_lblEncuetro);
 		
 		txtPuntoEncuentro = new JTextField();
-		txtPuntoEncuentro.setText("Jardín de Europa");
+		txtPuntoEncuentro.setText(MessagesV_RutaElegida.getString("V_RutaElegida.txtPuntoEncuentro.text")); //$NON-NLS-1$
 		txtPuntoEncuentro.setEditable(false);
 		GridBagConstraints gbc_txtPuntoEncuentro = new GridBagConstraints();
 		gbc_txtPuntoEncuentro.insets = new Insets(0, 0, 5, 5);
@@ -216,7 +216,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(txtPuntoEncuentro, gbc_txtPuntoEncuentro);
 		txtPuntoEncuentro.setColumns(10);
 		
-		JLabel lblInfo = new JLabel("*: Puede variar dependiendo de un posible estado de alarma");
+		JLabel lblInfo = new JLabel(MessagesV_RutaElegida.getString("V_RutaElegida.lblInfo.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblInfo = new GridBagConstraints();
 		gbc_lblInfo.anchor = GridBagConstraints.WEST;
 		gbc_lblInfo.gridwidth = 3;
@@ -225,8 +225,8 @@ public class V_RutaElegida extends JPanel {
 		gbc_lblInfo.gridy = 8;
 		panel_1.add(lblInfo, gbc_lblInfo);
 		
-		JButton btnInscribirse = new JButton("Inscribirse");
-		btnInscribirse.setToolTipText("Pulsa para inscribir");
+		JButton btnInscribirse = new JButton(MessagesV_RutaElegida.getString("V_RutaElegida.btnInscribirse.text")); //$NON-NLS-1$
+		btnInscribirse.setToolTipText(MessagesV_RutaElegida.getString("V_RutaElegida.btnInscribirse.toolTipText")); //$NON-NLS-1$
 		btnInscribirse.addActionListener(new BtnActionListener());
 		GridBagConstraints gbc_btnInscribirse = new GridBagConstraints();
 		gbc_btnInscribirse.fill = GridBagConstraints.HORIZONTAL;

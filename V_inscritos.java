@@ -66,7 +66,7 @@ public class V_inscritos extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 
 		panel = new JPanel();
-		panel.setBorder(new TitledBorder(null, "Inscritos a las actividades", TitledBorder.LEADING, TitledBorder.TOP,
+		panel.setBorder(new TitledBorder(null, MessagesV_Inscritos.getString("V_inscritos.panel.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, //$NON-NLS-1$
 				null, null));
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BorderLayout(0, 0));
@@ -74,7 +74,7 @@ public class V_inscritos extends JPanel {
 		panel_1 = new JPanel();
 		panel.add(panel_1, BorderLayout.SOUTH);
 
-		btnBorrarFila = new JButton("Borrar");
+		btnBorrarFila = new JButton(MessagesV_Inscritos.getString("V_inscritos.btnBorrarFila.text")); //$NON-NLS-1$
 		btnBorrarFila.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MiModeloTabla modeloTabla = (MiModeloTabla) miTabla.getModel();
@@ -83,24 +83,24 @@ public class V_inscritos extends JPanel {
 				modeloTabla.fireTableDataChanged();
 			}
 		});
-		btnBorrarFila.setIcon(new ImageIcon(V_inscritos.class.getResource("/presentacion/IconoBorrar.png")));
+		btnBorrarFila.setIcon(new ImageIcon(V_inscritos.class.getResource("/presentacion/IconoBorrar.png"))); //$NON-NLS-1$
 		btnBorrarFila.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnBorrarFila.setForeground(Color.BLACK);
-		btnBorrarFila.setToolTipText("Borrar datos");
-		btnBorrarFila.setFont(new Font("Verdana", Font.BOLD, 16));
+		btnBorrarFila.setToolTipText(MessagesV_Inscritos.getString("V_inscritos.btnBorrarFila.toolTipText")); //$NON-NLS-1$
+		btnBorrarFila.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		btnBorrarFila.setBackground(new Color(244, 164, 96));
 		btnBorrarFila.setBorder(new RoundedBorder(10));
 
 		panel_1.add(btnBorrarFila);
 
-		btnAniadirFila = new JButton("Añadir");
+		btnAniadirFila = new JButton(MessagesV_Inscritos.getString("V_inscritos.btnAniadirFila.text")); //$NON-NLS-1$
 		
 
-		btnAniadirFila.setIcon(new ImageIcon(V_inscritos.class.getResource("/presentacion/IconAnadir.png")));
+		btnAniadirFila.setIcon(new ImageIcon(V_inscritos.class.getResource("/presentacion/IconAnadir.png"))); //$NON-NLS-1$
 		btnAniadirFila.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		btnAniadirFila.setForeground(Color.BLACK);
-		btnAniadirFila.setToolTipText("Añadir fila");
-		btnAniadirFila.setFont(new Font("Verdana", Font.BOLD, 12));
+		btnAniadirFila.setToolTipText(MessagesV_Inscritos.getString("V_inscritos.btnAniadirFila.toolTipText")); //$NON-NLS-1$
+		btnAniadirFila.setFont(new Font("Verdana", Font.BOLD, 12)); //$NON-NLS-1$
 		btnAniadirFila.setBackground(new Color(244, 164, 96));
 		btnAniadirFila.setBorder(new RoundedBorder(10));
 
@@ -119,8 +119,8 @@ public class V_inscritos extends JPanel {
 		miTabla.setSelectionBackground(new Color(255, 228, 181));
         miTabla.setFocusable(true);
         miTabla.setGridColor(Color.GRAY);
-        miTabla.setFont(new Font("Verdana", Font.PLAIN, 16));
-        miTabla.getTableHeader().setFont(new Font("Verdana", Font.BOLD, 16));
+        miTabla.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
+        miTabla.getTableHeader().setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
         miTabla.getTableHeader().setBackground(new Color(255, 165, 0));
         miTabla.getTableHeader().setForeground(Color.BLACK);
 		miTabla.setRowHeight(100);
@@ -142,19 +142,19 @@ public class V_inscritos extends JPanel {
 
         columnaPago = miTabla.getColumnModel().getColumn(6);
         comboBoxP = new JComboBox();
-        comboBoxP.addItem("Pagado");
-        comboBoxP.addItem("Pendiente de pago");
+        comboBoxP.addItem(MessagesV_Inscritos.getString("V_inscritos.6")); //$NON-NLS-1$
+        comboBoxP.addItem(MessagesV_Inscritos.getString("V_inscritos.0")); //$NON-NLS-1$
         columnaPago.setCellEditor(new DefaultCellEditor(comboBoxP));
 
         columnaActividad = miTabla.getColumnModel().getColumn(3);
         columnaFoto.setCellEditor(new ColumnaFotoEditor());
         comboBoxA = new JComboBox();
-        comboBoxA.addItem("Natación");
-        comboBoxA.addItem("Tiro con arco");
-        comboBoxA.addItem("Kayak");
-        comboBoxA.addItem("Ciclismo");
-        comboBoxA.addItem("Fútbol");
-        comboBoxA.addItem("Yoga");
+        comboBoxA.addItem(MessagesV_Inscritos.getString("V_inscritos.8")); //$NON-NLS-1$
+        comboBoxA.addItem(MessagesV_Inscritos.getString("V_inscritos.9")); //$NON-NLS-1$
+        comboBoxA.addItem(MessagesV_Inscritos.getString("V_inscritos.10")); //$NON-NLS-1$
+        comboBoxA.addItem(MessagesV_Inscritos.getString("V_inscritos.11")); //$NON-NLS-1$
+        comboBoxA.addItem(MessagesV_Inscritos.getString("V_inscritos.12")); //$NON-NLS-1$
+        comboBoxA.addItem(MessagesV_Inscritos.getString("V_inscritos.13")); //$NON-NLS-1$
         columnaActividad.setCellEditor(new DefaultCellEditor(comboBoxA));
 		
 		
@@ -165,20 +165,20 @@ public class V_inscritos extends JPanel {
 		btnAniadirFila.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MiModeloTabla modeloTabla = (MiModeloTabla) miTabla.getModel();
-				Object[] nuevaFila = {new ImageIcon(getClass().getClassLoader().getResource("presentacion/iconFilaFox.png")) , "", "", "", "", 0, "", "", ""};
+				Object[] nuevaFila = {new ImageIcon(getClass().getClassLoader().getResource("presentacion/iconFilaFox.png")) , "", "", "", "", 0, "", "", ""}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 				modeloTabla.aniadeFila(nuevaFila);
 				modeloTabla.fireTableDataChanged();
 			}
 		});
 		
-		Object[] fila_ejemplo= {new ImageIcon(getClass().getClassLoader().getResource("presentacion/iconFilaFox.png")), "Adrián", "Ruiz Esteban", "Natación", "05724093Z", "666-666-666", "Pagado", "mi_usuario@ejemplo.com", "Mírame, esto poniendo información adicional."};
+		Object[] fila_ejemplo= {new ImageIcon(getClass().getClassLoader().getResource("presentacion/iconFilaFox.png")), "Adrián", "Ruiz Esteban", MessagesV_Inscritos.getString("V_inscritos.1"), "05724093Z", "666-666-666", MessagesV_Inscritos.getString("V_inscritos.28"), MessagesV_Inscritos.getString("V_inscritos.29"), MessagesV_Inscritos.getString("V_inscritos.30")}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
 		modeloTabla.aniadeFila(fila_ejemplo);
 		
 	}
 
 	class MiModeloTabla extends AbstractTableModel {
-		private String[] nombreColumnas = { "Foto", "Nombre", "Apellidos", "Actividad", "DNI", "Teléfono", "Pago",
-				"Correo electrónico", "Información adicional" };
+		private String[] nombreColumnas = { MessagesV_Inscritos.getString("V_inscritos.2"), MessagesV_Inscritos.getString("V_inscritos.3"), MessagesV_Inscritos.getString("V_inscritos.4"), MessagesV_Inscritos.getString("V_inscritos.5"), MessagesV_Inscritos.getString("V_inscritos.7"), MessagesV_Inscritos.getString("V_inscritos.15"), MessagesV_Inscritos.getString("V_inscritos.14"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+				MessagesV_Inscritos.getString("V_inscritos.38"), MessagesV_Inscritos.getString("V_inscritos.39") }; //$NON-NLS-1$ //$NON-NLS-2$
 		private Class[] columnTypes = new Class[] {Object.class, String.class, String.class, String.class, String.class, Integer.class, String.class, String.class, String.class};
 
 		private Vector datos = new Vector();
@@ -254,7 +254,7 @@ public class V_inscritos extends JPanel {
 			boton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent actionEvent) {
 					JFileChooser fcAbrir = new JFileChooser();
-					int valorDevuelto = fcAbrir.showDialog(boton, "Cargar foto");
+					int valorDevuelto = fcAbrir.showDialog(boton, MessagesV_Inscritos.getString("V_inscritos.40")); //$NON-NLS-1$
 					if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 						File file = fcAbrir.getSelectedFile();
 						cambiarFoto(new ImageIcon(file.getAbsolutePath()));

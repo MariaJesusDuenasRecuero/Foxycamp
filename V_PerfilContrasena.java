@@ -39,7 +39,7 @@ public class V_PerfilContrasena extends JPanel {
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JLabel lblCambioDeContrasea = new JLabel("Cambio de contrase�a");
+		JLabel lblCambioDeContrasea = new JLabel(MessagesV_PerfilContrasena.getString("V_PerfilContrasena.lblCambioDeContrasea.text")); //$NON-NLS-1$
 		lblCambioDeContrasea.setForeground(new Color(153, 0, 0));
 		lblCambioDeContrasea.setFont(new Font("Verdana", Font.BOLD, 32));
 		GridBagConstraints gbc_lblCambioDeContrasea = new GridBagConstraints();
@@ -49,7 +49,7 @@ public class V_PerfilContrasena extends JPanel {
 		gbc_lblCambioDeContrasea.gridy = 1;
 		panel.add(lblCambioDeContrasea, gbc_lblCambioDeContrasea);
 		
-		JLabel lblContraseñaActual = new JLabel("Introduzca contrase�a actual");
+		JLabel lblContraseñaActual = new JLabel(MessagesV_PerfilContrasena.getString("V_PerfilContrasena.lblContraseñaActual.text")); //$NON-NLS-1$
 		lblContraseñaActual.setForeground(SystemColor.desktop);
 		lblContraseñaActual.setFont(new Font("Verdana", Font.PLAIN, 16));
 		GridBagConstraints gbc_lblContraseñaActual = new GridBagConstraints();
@@ -67,7 +67,7 @@ public class V_PerfilContrasena extends JPanel {
 		gbc__contrasenaActual.gridy = 4;
 		panel.add(_contrasenaActual, gbc__contrasenaActual);
 		
-		JLabel lblIntroduzcaNuevaContrasea = new JLabel("Introduzca nueva contrase�a");
+		JLabel lblIntroduzcaNuevaContrasea = new JLabel(MessagesV_PerfilContrasena.getString("V_PerfilContrasena.lblIntroduzcaNuevaContrasea.text")); //$NON-NLS-1$
 		lblIntroduzcaNuevaContrasea.setForeground(Color.BLACK);
 		lblIntroduzcaNuevaContrasea.setFont(new Font("Verdana", Font.PLAIN, 16));
 		GridBagConstraints gbc_lblIntroduzcaNuevaContrasea = new GridBagConstraints();
@@ -84,7 +84,7 @@ public class V_PerfilContrasena extends JPanel {
 		gbc_passwordField_NuevaContrasena.gridy = 7;
 		panel.add(passwordField_NuevaContrasena, gbc_passwordField_NuevaContrasena);
 		
-		JLabel lblRepitaLaNueva = new JLabel("Repita la nueva contrase�a");
+		JLabel lblRepitaLaNueva = new JLabel(MessagesV_PerfilContrasena.getString("V_PerfilContrasena.lblRepitaLaNueva.text")); //$NON-NLS-1$
 		lblRepitaLaNueva.setForeground(Color.BLACK);
 		lblRepitaLaNueva.setFont(new Font("Verdana", Font.PLAIN, 16));
 		GridBagConstraints gbc_lblRepitaLaNueva = new GridBagConstraints();
@@ -101,7 +101,7 @@ public class V_PerfilContrasena extends JPanel {
 		gbc_passwordField_RepitaContra.gridy = 10;
 		panel.add(passwordField_RepitaContra, gbc_passwordField_RepitaContra);
 		
-		JButton btnCambiarContrasea = new JButton("Cambiar contrase�a");
+		JButton btnCambiarContrasea = new JButton(MessagesV_PerfilContrasena.getString("V_PerfilContrasena.btnCambiarContrasea.text")); //$NON-NLS-1$
 		btnCambiarContrasea.setForeground(Color.WHITE);
 		btnCambiarContrasea.setFont(new Font("Verdana", Font.BOLD, 16));
 		btnCambiarContrasea.setBorder(new RoundedBorder(12));

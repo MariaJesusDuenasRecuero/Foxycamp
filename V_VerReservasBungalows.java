@@ -37,7 +37,7 @@ public class V_VerReservasBungalows extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBorder(new TitledBorder(null, "Reservas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		scrollPane.setBorder(new TitledBorder(null, MessagesV_VerReservasBungalows.getString("V_VerReservasBungalows.scrollPane.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		add(scrollPane, BorderLayout.CENTER);
 		
@@ -62,29 +62,29 @@ public class V_VerReservasBungalows extends JPanel {
 		gbc_pnlReserva1.gridy = 1;
 		panel.add(pnlReserva1, gbc_pnlReserva1);
 		
-		JButton btnCancelar = new JButton("Borrar");
+		JButton btnCancelar = new JButton(MessagesV_VerReservasBungalows.getString("V_VerReservasBungalows.btnCancelar.text")); //$NON-NLS-1$
 		btnCancelar.setBackground(new Color(244, 165, 0));
 		btnCancelar.setIcon(new ImageIcon(V_VerReservasParcelas.class.getResource("/presentacion/IconoBorrar.png")));
 		btnCancelar.setBounds(713, 130, 124, 34);
 		btnCancelar.setBorder(new RoundedBorder(10));
 		pnlReserva1.add(btnCancelar);
 		
-		JLabel lblBungalow = new JLabel("Bungalow Los Hermanos");
+		JLabel lblBungalow = new JLabel(MessagesV_VerReservasBungalows.getString("V_VerReservasBungalows.lblBungalow.text")); //$NON-NLS-1$
 		lblBungalow.setFont(new Font("Verdana", Font.BOLD, 16));
 		lblBungalow.setBounds(42, 11, 236, 20);
 		pnlReserva1.add(lblBungalow);
 		
-		JLabel lblNewLabel = new JLabel("x2 coches");
+		JLabel lblNewLabel = new JLabel(MessagesV_VerReservasBungalows.getString("V_VerReservasBungalows.lblNewLabel.text")); //$NON-NLS-1$
 		lblNewLabel.setFont(new Font("Verdana", Font.PLAIN, 14));
 		lblNewLabel.setBounds(42, 134, 95, 23);
 		pnlReserva1.add(lblNewLabel);
 		
-		JLabel lblCabaña = new JLabel("Cabaña mediana");
+		JLabel lblCabaña = new JLabel(MessagesV_VerReservasBungalows.getString("V_VerReservasBungalows.lblCabaña.text")); //$NON-NLS-1$
 		lblCabaña.setFont(new Font("Verdana", Font.PLAIN, 14));
 		lblCabaña.setBounds(288, 8, 183, 23);
 		pnlReserva1.add(lblCabaña);
 		
-		JLabel lblPagado = new JLabel("Pagado");
+		JLabel lblPagado = new JLabel(MessagesV_VerReservasBungalows.getString("V_VerReservasBungalows.lblPagado.text")); //$NON-NLS-1$
 		lblPagado.setIcon(new ImageIcon(V_VerReservasParcelas.class.getResource("/presentacion/checked.png")));
 		lblPagado.setFont(new Font("Verdana", Font.PLAIN, 14));
 		lblPagado.setBounds(626, 141, 77, 23);
@@ -100,7 +100,7 @@ public class V_VerReservasBungalows extends JPanel {
 		lblJuanmanuelruizmerinogmailcom.setBounds(42, 98, 288, 23);
 		pnlReserva1.add(lblJuanmanuelruizmerinogmailcom);
 		
-		JLabel lblPersonas = new JLabel("4 personas");
+		JLabel lblPersonas = new JLabel(MessagesV_VerReservasBungalows.getString("V_VerReservasBungalows.lblPersonas.text")); //$NON-NLS-1$
 		lblPersonas.setFont(new Font("Verdana", Font.PLAIN, 14));
 		lblPersonas.setBounds(42, 36, 200, 23);
 		pnlReserva1.add(lblPersonas);
@@ -117,7 +117,7 @@ public class V_VerReservasBungalows extends JPanel {
 		gbc_pnlReserva2.gridy = 9;
 		panel.add(pnlReserva2, gbc_pnlReserva2);
 		
-		JButton btnCancelar_1 = new JButton("Borrar");
+		JButton btnCancelar_1 = new JButton(MessagesV_VerReservasBungalows.getString("V_VerReservasBungalows.btnCancelar_1.text")); //$NON-NLS-1$
 		btnCancelar_1.setBackground(new Color(244, 165, 0));
 		btnCancelar_1.setIcon(new ImageIcon(V_VerReservasParcelas.class.getResource("/presentacion/IconoBorrar.png")));
 		btnCancelar_1.setBounds(724, 133, 113, 34);
@@ -136,7 +136,7 @@ public class V_VerReservasBungalows extends JPanel {
 		gbc_pnlReserva3.gridy = 17;
 		panel.add(pnlReserva3, gbc_pnlReserva3);
 		
-		JButton btnCancelar_1_1 = new JButton("Borrar");
+		JButton btnCancelar_1_1 = new JButton(MessagesV_VerReservasBungalows.getString("V_VerReservasBungalows.btnCancelar_1_1.text")); //$NON-NLS-1$
 		btnCancelar_1_1.setBackground(new Color(244, 165, 0));
 		btnCancelar_1_1.setIcon(new ImageIcon(V_VerReservasParcelas.class.getResource("/presentacion/IconoBorrar.png")));
 		btnCancelar_1_1.setBounds(731, 173, 95, 34);

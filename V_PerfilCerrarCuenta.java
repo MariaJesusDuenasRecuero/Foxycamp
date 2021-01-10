@@ -45,7 +45,7 @@ public class V_PerfilCerrarCuenta extends JPanel {
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JLabel lblCierreCuenta = new JLabel("Cierre de cuenta");
+		JLabel lblCierreCuenta = new JLabel(MessagesV_PerfilCerrarCuenta.getString("V_PerfilCerrarCuenta.lblCierreCuenta.text")); //$NON-NLS-1$
 		lblCierreCuenta.setForeground(new Color(153, 0, 0));
 		lblCierreCuenta.setFont(new Font("Verdana", Font.BOLD, 32));
 		GridBagConstraints gbc_lblCierreCuenta = new GridBagConstraints();
@@ -68,7 +68,7 @@ public class V_PerfilCerrarCuenta extends JPanel {
 		JTextPane txtpnSiCierraLa = new JTextPane();
 		txtpnSiCierraLa.setFont(new Font("Verdana", Font.PLAIN, 16));
 		txtpnSiCierraLa.setEditable(false);
-		txtpnSiCierraLa.setText("Si cierra la cuenta sus datos serán borrados de \r\nnuestra base de datos y no podrá volver a acceder \r\nsin volver a darse de alta.");
+		txtpnSiCierraLa.setText(MessagesV_PerfilCerrarCuenta.getString("V_PerfilCerrarCuenta.txtpnSiCierraLa.text")); //$NON-NLS-1$
 		txtpnSiCierraLa.setBackground(SystemColor.menu);
 		GridBagConstraints gbc_txtpnSiCierraLa = new GridBagConstraints();
 		gbc_txtpnSiCierraLa.anchor = GridBagConstraints.WEST;
@@ -78,7 +78,7 @@ public class V_PerfilCerrarCuenta extends JPanel {
 		gbc_txtpnSiCierraLa.gridy = 3;
 		panel.add(txtpnSiCierraLa, gbc_txtpnSiCierraLa);
 		
-		JButton btnCerrarCuenta = new JButton("Cerrar cuenta");
+		JButton btnCerrarCuenta = new JButton(MessagesV_PerfilCerrarCuenta.getString("V_PerfilCerrarCuenta.btnCerrarCuenta.text")); //$NON-NLS-1$
 		btnCerrarCuenta.addActionListener(new BtnCerrarCuentaActionListener());
 		btnCerrarCuenta.setBackground(new Color(153, 0, 0));
 		btnCerrarCuenta.setForeground(SystemColor.text);

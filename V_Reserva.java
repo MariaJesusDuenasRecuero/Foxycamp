@@ -67,7 +67,7 @@ public class V_Reserva extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBorder(new TitledBorder(null, "Reservar", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		scrollPane.setBorder(new TitledBorder(null, MessagesV_Reservas.getString("V_Reserva.scrollPane.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		add(scrollPane, BorderLayout.CENTER);
 
@@ -93,9 +93,9 @@ public class V_Reserva extends JPanel {
 		gbc_separator_1.gridy = 1;
 		pnlReserva.add(separator_1, gbc_separator_1);
 
-		JLabel lblInformacionReserva = new JLabel("INFORMACIÓN DE ESTANCIA");
+		JLabel lblInformacionReserva = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblInformacionReserva.text")); //$NON-NLS-1$
 		lblInformacionReserva.setForeground(new Color(210, 105, 30));
-		lblInformacionReserva.setFont(new Font("Verdana", Font.BOLD, 15));
+		lblInformacionReserva.setFont(new Font("Verdana", Font.BOLD, 15)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblInformacionReserva = new GridBagConstraints();
 		gbc_lblInformacionReserva.anchor = GridBagConstraints.WEST;
 		gbc_lblInformacionReserva.fill = GridBagConstraints.VERTICAL;
@@ -114,8 +114,8 @@ public class V_Reserva extends JPanel {
 		gbc_separator.gridy = 1;
 		pnlReserva.add(separator, gbc_separator);
 
-		JLabel lblNewLabel = new JLabel("Número de personas");
-		lblNewLabel.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblNewLabel = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblNewLabel.text")); //$NON-NLS-1$
+		lblNewLabel.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.EAST;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
@@ -125,7 +125,7 @@ public class V_Reserva extends JPanel {
 
 		JSpinner spinnerPersona = new JSpinner();
 		spinnerPersona.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spinnerPersona.setFont(new Font("Verdana", Font.PLAIN, 16));
+		spinnerPersona.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_spinnerPersona = new GridBagConstraints();
 		gbc_spinnerPersona.fill = GridBagConstraints.HORIZONTAL;
 		gbc_spinnerPersona.insets = new Insets(0, 0, 5, 5);
@@ -133,8 +133,8 @@ public class V_Reserva extends JPanel {
 		gbc_spinnerPersona.gridy = 3;
 		pnlReserva.add(spinnerPersona, gbc_spinnerPersona);
 
-		JLabel lblTipoVehculo = new JLabel("Tipo vehículo");
-		lblTipoVehculo.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblTipoVehculo = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblTipoVehculo.text")); //$NON-NLS-1$
+		lblTipoVehculo.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblTipoVehculo = new GridBagConstraints();
 		gbc_lblTipoVehculo.anchor = GridBagConstraints.EAST;
 		gbc_lblTipoVehculo.gridwidth = 3;
@@ -145,7 +145,7 @@ public class V_Reserva extends JPanel {
 
 		JSpinner spinnerCoche = new JSpinner();
 		spinnerCoche.setModel(new SpinnerNumberModel(0, 0, 5, 1));
-		spinnerCoche.setFont(new Font("Verdana", Font.PLAIN, 16));
+		spinnerCoche.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_spinnerCoche = new GridBagConstraints();
 		gbc_spinnerCoche.fill = GridBagConstraints.HORIZONTAL;
 		gbc_spinnerCoche.insets = new Insets(0, 0, 5, 5);
@@ -153,8 +153,8 @@ public class V_Reserva extends JPanel {
 		gbc_spinnerCoche.gridy = 5;
 		pnlReserva.add(spinnerCoche, gbc_spinnerCoche);
 
-		JLabel lblCoche = new JLabel("Coche");
-		lblCoche.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblCoche = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblCoche.text")); //$NON-NLS-1$
+		lblCoche.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblCoche = new GridBagConstraints();
 		gbc_lblCoche.anchor = GridBagConstraints.WEST;
 		gbc_lblCoche.insets = new Insets(0, 0, 5, 5);
@@ -164,7 +164,7 @@ public class V_Reserva extends JPanel {
 
 		JSpinner spinnerMoto = new JSpinner();
 		spinnerMoto.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spinnerMoto.setFont(new Font("Verdana", Font.PLAIN, 16));
+		spinnerMoto.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_spinnerMoto = new GridBagConstraints();
 		gbc_spinnerMoto.fill = GridBagConstraints.HORIZONTAL;
 		gbc_spinnerMoto.insets = new Insets(0, 0, 5, 5);
@@ -172,8 +172,8 @@ public class V_Reserva extends JPanel {
 		gbc_spinnerMoto.gridy = 6;
 		pnlReserva.add(spinnerMoto, gbc_spinnerMoto);
 
-		JLabel lblMoto = new JLabel("Moto     42€ /vehiculo adicional");
-		lblMoto.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblMoto = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblMoto.text")); //$NON-NLS-1$
+		lblMoto.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblMoto = new GridBagConstraints();
 		gbc_lblMoto.gridwidth = 2;
 		gbc_lblMoto.anchor = GridBagConstraints.WEST;
@@ -184,7 +184,7 @@ public class V_Reserva extends JPanel {
 
 		JSpinner spinnerFurgoneta = new JSpinner();
 		spinnerFurgoneta.setModel(new SpinnerNumberModel(0, 0, 5, 1));
-		spinnerFurgoneta.setFont(new Font("Verdana", Font.PLAIN, 16));
+		spinnerFurgoneta.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_spinnerFurgoneta = new GridBagConstraints();
 		gbc_spinnerFurgoneta.fill = GridBagConstraints.HORIZONTAL;
 		gbc_spinnerFurgoneta.insets = new Insets(0, 0, 5, 5);
@@ -192,8 +192,8 @@ public class V_Reserva extends JPanel {
 		gbc_spinnerFurgoneta.gridy = 7;
 		pnlReserva.add(spinnerFurgoneta, gbc_spinnerFurgoneta);
 
-		JLabel lblFurgoneta = new JLabel("Furgoneta ");
-		lblFurgoneta.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblFurgoneta = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblFurgoneta.text")); //$NON-NLS-1$
+		lblFurgoneta.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblFurgoneta = new GridBagConstraints();
 		gbc_lblFurgoneta.anchor = GridBagConstraints.WEST;
 		gbc_lblFurgoneta.insets = new Insets(0, 0, 5, 5);
@@ -201,8 +201,8 @@ public class V_Reserva extends JPanel {
 		gbc_lblFurgoneta.gridy = 7;
 		pnlReserva.add(lblFurgoneta, gbc_lblFurgoneta);
 
-		JLabel lblOtros = new JLabel("Otros");
-		lblOtros.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblOtros = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblOtros.text")); //$NON-NLS-1$
+		lblOtros.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblOtros = new GridBagConstraints();
 		gbc_lblOtros.gridwidth = 3;
 		gbc_lblOtros.anchor = GridBagConstraints.EAST;
@@ -213,7 +213,7 @@ public class V_Reserva extends JPanel {
 
 		JSpinner spinnerMacota = new JSpinner();
 		spinnerMacota.setModel(new SpinnerNumberModel(0, 0, 3, 1));
-		spinnerMacota.setFont(new Font("Verdana", Font.PLAIN, 16));
+		spinnerMacota.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_spinnerMacota = new GridBagConstraints();
 		gbc_spinnerMacota.fill = GridBagConstraints.HORIZONTAL;
 		gbc_spinnerMacota.insets = new Insets(0, 0, 5, 5);
@@ -221,8 +221,8 @@ public class V_Reserva extends JPanel {
 		gbc_spinnerMacota.gridy = 10;
 		pnlReserva.add(spinnerMacota, gbc_spinnerMacota);
 
-		JLabel lblMascota = new JLabel("Mascota     10€ por  mascota");
-		lblMascota.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblMascota = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblMascota.text")); //$NON-NLS-1$
+		lblMascota.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblMascota = new GridBagConstraints();
 		gbc_lblMascota.gridwidth = 2;
 		gbc_lblMascota.anchor = GridBagConstraints.WEST;
@@ -233,7 +233,7 @@ public class V_Reserva extends JPanel {
 
 		JSpinner spinnerCuna = new JSpinner();
 		spinnerCuna.setModel(new SpinnerNumberModel(0, 0, 7, 1));
-		spinnerCuna.setFont(new Font("Verdana", Font.PLAIN, 16));
+		spinnerCuna.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_spinnerCuna = new GridBagConstraints();
 		gbc_spinnerCuna.fill = GridBagConstraints.HORIZONTAL;
 		gbc_spinnerCuna.insets = new Insets(0, 0, 5, 5);
@@ -241,8 +241,8 @@ public class V_Reserva extends JPanel {
 		gbc_spinnerCuna.gridy = 11;
 		pnlReserva.add(spinnerCuna, gbc_spinnerCuna);
 
-		JLabel lblCuna = new JLabel("Cuna          5€ por  cuna");
-		lblCuna.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblCuna = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblCuna.text")); //$NON-NLS-1$
+		lblCuna.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblCuna = new GridBagConstraints();
 		gbc_lblCuna.gridwidth = 2;
 		gbc_lblCuna.anchor = GridBagConstraints.WEST;
@@ -251,20 +251,20 @@ public class V_Reserva extends JPanel {
 		gbc_lblCuna.gridy = 11;
 		pnlReserva.add(lblCuna, gbc_lblCuna);
 
-		rdbtnNoPensionC = new JRadioButton("No");
+		rdbtnNoPensionC = new JRadioButton(MessagesV_Reservas.getString("V_Reserva.rdbtnNoPensionC.text")); //$NON-NLS-1$
 		buttonGroup.add(rdbtnNoPensionC);
 
-		rdbtnNoPensionC.setFont(new Font("Verdana", Font.PLAIN, 16));
+		rdbtnNoPensionC.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_rdbtnNoPensionC = new GridBagConstraints();
 		gbc_rdbtnNoPensionC.insets = new Insets(0, 0, 5, 5);
 		gbc_rdbtnNoPensionC.gridx = 5;
 		gbc_rdbtnNoPensionC.gridy = 12;
 		pnlReserva.add(rdbtnNoPensionC, gbc_rdbtnNoPensionC);
 
-		rdbtnSiPensionC = new JRadioButton("Si           Pension completa");
+		rdbtnSiPensionC = new JRadioButton(MessagesV_Reservas.getString("V_Reserva.rdbtnSiPensionC.text")); //$NON-NLS-1$
 		buttonGroup.add(rdbtnSiPensionC);
 
-		rdbtnSiPensionC.setFont(new Font("Verdana", Font.PLAIN, 16));
+		rdbtnSiPensionC.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_rdbtnSiPensionC = new GridBagConstraints();
 		gbc_rdbtnSiPensionC.gridwidth = 2;
 		gbc_rdbtnSiPensionC.anchor = GridBagConstraints.WEST;
@@ -273,20 +273,20 @@ public class V_Reserva extends JPanel {
 		gbc_rdbtnSiPensionC.gridy = 12;
 		pnlReserva.add(rdbtnSiPensionC, gbc_rdbtnSiPensionC);
 
-		rdbtnNoMediaP = new JRadioButton("No");
+		rdbtnNoMediaP = new JRadioButton(MessagesV_Reservas.getString("V_Reserva.rdbtnNoMediaP.text")); //$NON-NLS-1$
 		buttonGroup.add(rdbtnNoMediaP);
 
-		rdbtnNoMediaP.setFont(new Font("Verdana", Font.PLAIN, 16));
+		rdbtnNoMediaP.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_rdbtnNoMediaP = new GridBagConstraints();
 		gbc_rdbtnNoMediaP.insets = new Insets(0, 0, 5, 5);
 		gbc_rdbtnNoMediaP.gridx = 5;
 		gbc_rdbtnNoMediaP.gridy = 13;
 		pnlReserva.add(rdbtnNoMediaP, gbc_rdbtnNoMediaP);
 
-		rdbtnSiMediaP = new JRadioButton("Si           Media pension");
+		rdbtnSiMediaP = new JRadioButton(MessagesV_Reservas.getString("V_Reserva.rdbtnSiMediaP.text")); //$NON-NLS-1$
 		buttonGroup.add(rdbtnSiMediaP);
 
-		rdbtnSiMediaP.setFont(new Font("Verdana", Font.PLAIN, 16));
+		rdbtnSiMediaP.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_rdbtnSiMediaP = new GridBagConstraints();
 		gbc_rdbtnSiMediaP.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnSiMediaP.insets = new Insets(0, 0, 5, 5);
@@ -294,20 +294,20 @@ public class V_Reserva extends JPanel {
 		gbc_rdbtnSiMediaP.gridy = 13;
 		pnlReserva.add(rdbtnSiMediaP, gbc_rdbtnSiMediaP);
 
-		rdbtnNoMediaP = new JRadioButton("No");
+		rdbtnNoMediaP = new JRadioButton(MessagesV_Reservas.getString("V_Reserva.rdbtnNoMediaP.text")); //$NON-NLS-1$
 		buttonGroup.add(rdbtnNoMediaP);
 
-		rdbtnNoMediaP.setFont(new Font("Verdana", Font.PLAIN, 16));
+		rdbtnNoMediaP.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_rdbtnNoMediaPension = new GridBagConstraints();
 		gbc_rdbtnNoMediaPension.insets = new Insets(0, 0, 5, 5);
 		gbc_rdbtnNoMediaPension.gridx = 5;
 		gbc_rdbtnNoMediaPension.gridy = 14;
 		pnlReserva.add(rdbtnNoMediaP, gbc_rdbtnNoMediaPension);
 
-		JRadioButton rdbtnSiDesayuno = new JRadioButton("Si           Con desayuno");
+		JRadioButton rdbtnSiDesayuno = new JRadioButton(MessagesV_Reservas.getString("V_Reserva.rdbtnSiDesayuno.text")); //$NON-NLS-1$
 		buttonGroup.add(rdbtnSiDesayuno);
 
-		rdbtnSiDesayuno.setFont(new Font("Verdana", Font.PLAIN, 16));
+		rdbtnSiDesayuno.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_rdbtnSiDesayuno = new GridBagConstraints();
 		gbc_rdbtnSiDesayuno.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnSiDesayuno.insets = new Insets(0, 0, 5, 5);
@@ -316,10 +316,10 @@ public class V_Reserva extends JPanel {
 		pnlReserva.add(rdbtnSiDesayuno, gbc_rdbtnSiDesayuno);
 
 		textAreaInfoAdic = new JTextArea();
-		textAreaInfoAdic.setBorder(new TitledBorder(null, "Informaci\u00F3n adicional", TitledBorder.LEADING,
+		textAreaInfoAdic.setBorder(new TitledBorder(null, MessagesV_Reservas.getString("V_Reserva.textAreaInfoAdic.borderTitle"), TitledBorder.LEADING, //$NON-NLS-1$
 				TitledBorder.TOP, null, null));
 		textAreaInfoAdic.setLineWrap(true);
-		textAreaInfoAdic.setFont(new Font("Verdana", Font.PLAIN, 16));
+		textAreaInfoAdic.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_textAreaInfoAdic = new GridBagConstraints();
 		gbc_textAreaInfoAdic.gridheight = 6;
 		gbc_textAreaInfoAdic.gridwidth = 3;
@@ -338,9 +338,9 @@ public class V_Reserva extends JPanel {
 		gbc_separator_1_1.gridy = 24;
 		pnlReserva.add(separator_1_1, gbc_separator_1_1);
 
-		JLabel lblDatosPersonales = new JLabel("DATOS PERSONALES");
+		JLabel lblDatosPersonales = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblDatosPersonales.text")); //$NON-NLS-1$
 		lblDatosPersonales.setForeground(new Color(210, 105, 30));
-		lblDatosPersonales.setFont(new Font("Verdana", Font.BOLD, 16));
+		lblDatosPersonales.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblDatosPersonales = new GridBagConstraints();
 		gbc_lblDatosPersonales.anchor = GridBagConstraints.WEST;
 		gbc_lblDatosPersonales.gridwidth = 2;
@@ -358,9 +358,9 @@ public class V_Reserva extends JPanel {
 		gbc_separator_2.gridy = 24;
 		pnlReserva.add(separator_2, gbc_separator_2);
 
-		JLabel lblNewLabel_1 = new JLabel("*Campo obligatorio");
+		JLabel lblNewLabel_1 = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblNewLabel_1.text")); //$NON-NLS-1$
 		lblNewLabel_1.setForeground(new Color(204, 0, 0));
-		lblNewLabel_1.setFont(new Font("Verdana", Font.PLAIN, 16));
+		lblNewLabel_1.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.gridwidth = 4;
 		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
@@ -368,8 +368,8 @@ public class V_Reserva extends JPanel {
 		gbc_lblNewLabel_1.gridy = 26;
 		pnlReserva.add(lblNewLabel_1, gbc_lblNewLabel_1);
 
-		JLabel lblNombre = new JLabel("Nombre*");
-		lblNombre.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblNombre = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblNombre.text")); //$NON-NLS-1$
+		lblNombre.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNombre = new GridBagConstraints();
 		gbc_lblNombre.anchor = GridBagConstraints.EAST;
 		gbc_lblNombre.gridwidth = 2;
@@ -380,7 +380,7 @@ public class V_Reserva extends JPanel {
 
 		textNombre = new JTextField();
 		textNombre.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		textNombre.setFont(new Font("Verdana", Font.PLAIN, 16));
+		textNombre.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_textNombre = new GridBagConstraints();
 		gbc_textNombre.insets = new Insets(0, 0, 5, 5);
 		gbc_textNombre.fill = GridBagConstraints.HORIZONTAL;
@@ -389,8 +389,8 @@ public class V_Reserva extends JPanel {
 		pnlReserva.add(textNombre, gbc_textNombre);
 		textNombre.setColumns(10);
 
-		JLabel lblPrimerApellido = new JLabel("Apellidos*");
-		lblPrimerApellido.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblPrimerApellido = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblPrimerApellido.text")); //$NON-NLS-1$
+		lblPrimerApellido.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblPrimerApellido = new GridBagConstraints();
 		gbc_lblPrimerApellido.anchor = GridBagConstraints.EAST;
 		gbc_lblPrimerApellido.gridwidth = 2;
@@ -401,7 +401,7 @@ public class V_Reserva extends JPanel {
 
 		textApellidos = new JTextField();
 		textApellidos.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		textApellidos.setFont(new Font("Verdana", Font.PLAIN, 16));
+		textApellidos.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		textApellidos.setColumns(10);
 		GridBagConstraints gbc_textApellidos = new GridBagConstraints();
 		gbc_textApellidos.insets = new Insets(0, 0, 5, 5);
@@ -410,8 +410,8 @@ public class V_Reserva extends JPanel {
 		gbc_textApellidos.gridy = 28;
 		pnlReserva.add(textApellidos, gbc_textApellidos);
 
-		JLabel lblCdi = new JLabel("Código postal");
-		lblCdi.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblCdi = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblCdi.text")); //$NON-NLS-1$
+		lblCdi.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblCdi = new GridBagConstraints();
 		gbc_lblCdi.anchor = GridBagConstraints.EAST;
 		gbc_lblCdi.gridwidth = 3;
@@ -422,7 +422,7 @@ public class V_Reserva extends JPanel {
 
 		textCodigoPostal = new JTextField();
 		textCodigoPostal.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		textCodigoPostal.setFont(new Font("Verdana", Font.PLAIN, 16));
+		textCodigoPostal.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		textCodigoPostal.setColumns(10);
 		GridBagConstraints gbc_textCodigoPostal = new GridBagConstraints();
 		gbc_textCodigoPostal.insets = new Insets(0, 0, 5, 5);
@@ -431,8 +431,8 @@ public class V_Reserva extends JPanel {
 		gbc_textCodigoPostal.gridy = 29;
 		pnlReserva.add(textCodigoPostal, gbc_textCodigoPostal);
 
-		JLabel lblTlefono = new JLabel("Teléfono");
-		lblTlefono.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblTlefono = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblTlefono.text")); //$NON-NLS-1$
+		lblTlefono.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblTlefono = new GridBagConstraints();
 		gbc_lblTlefono.insets = new Insets(0, 0, 5, 5);
 		gbc_lblTlefono.gridx = 4;
@@ -440,7 +440,7 @@ public class V_Reserva extends JPanel {
 		pnlReserva.add(lblTlefono, gbc_lblTlefono);
 		MaskFormatter formatoTlfno;
 		try {
-			formatoTlfno = new MaskFormatter("'(###')' ###' ###'");
+			formatoTlfno = new MaskFormatter("'(###')' ###' ###'"); //$NON-NLS-1$
 			formatoTlfno.setPlaceholderCharacter('*');
 			textTelefono = new JFormattedTextField(formatoTlfno);
 			textTelefono.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -449,7 +449,7 @@ public class V_Reserva extends JPanel {
 		}
 
 		textTelefono.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		textTelefono.setFont(new Font("Verdana", Font.PLAIN, 16));
+		textTelefono.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		textTelefono.setColumns(10);
 		GridBagConstraints gbc_textTelefono = new GridBagConstraints();
 		gbc_textTelefono.insets = new Insets(0, 0, 5, 5);
@@ -459,8 +459,8 @@ public class V_Reserva extends JPanel {
 		pnlReserva.add(textTelefono, gbc_textTelefono);
 		textTelefono.addFocusListener(new TextTelefonoFocusListener());
 
-		JLabel lblTarjetaDeCredito = new JLabel("Tarjeta de crédito");
-		lblTarjetaDeCredito.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblTarjetaDeCredito = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblTarjetaDeCredito.text")); //$NON-NLS-1$
+		lblTarjetaDeCredito.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblTarjetaDeCredito = new GridBagConstraints();
 		gbc_lblTarjetaDeCredito.anchor = GridBagConstraints.EAST;
 		gbc_lblTarjetaDeCredito.gridwidth = 2;
@@ -471,15 +471,15 @@ public class V_Reserva extends JPanel {
 
 		MaskFormatter formatoTarj1;
 		try {
-			formatoTarj1 = new MaskFormatter(" ****' ****' ****' ****'");
+			formatoTarj1 = new MaskFormatter(" ****' ****' ****' ****'"); //$NON-NLS-1$
 			formatoTarj1.setPlaceholderCharacter('*');
 			textTrajcred1 = new JFormattedTextField(formatoTarj1);
 			textTrajcred1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-			textTrajcred1.setFont(new Font("Verdana", Font.PLAIN, 14));
+			textTrajcred1.setFont(new Font("Verdana", Font.PLAIN, 14)); //$NON-NLS-1$
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		textTrajcred1.setFont(new Font("Verdana", Font.PLAIN, 16));
+		textTrajcred1.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		textTrajcred1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		GridBagConstraints gbc_textTrajcred1 = new GridBagConstraints();
 		gbc_textTrajcred1.anchor = GridBagConstraints.WEST;
@@ -492,16 +492,16 @@ public class V_Reserva extends JPanel {
 
 		MaskFormatter formatoTarj12;
 		try {
-			formatoTarj12 = new MaskFormatter(" ###'");
+			formatoTarj12 = new MaskFormatter(" ###'"); //$NON-NLS-1$
 			formatoTarj12.setPlaceholderCharacter('*');
 			textTarjcred2 = new JFormattedTextField(formatoTarj12);
 			textTarjcred2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-			textTarjcred2.setFont(new Font("Verdana", Font.PLAIN, 14));
-			textTarjcred2.setToolTipText("Introduzca CVC");
+			textTarjcred2.setFont(new Font("Verdana", Font.PLAIN, 14)); //$NON-NLS-1$
+			textTarjcred2.setToolTipText(MessagesV_Reservas.getString("V_Reserva.textTarjcred2.toolTipText")); //$NON-NLS-1$
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		textTarjcred2.setFont(new Font("Verdana", Font.PLAIN, 16));
+		textTarjcred2.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		textTarjcred2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		GridBagConstraints gbc_textTarjcred2 = new GridBagConstraints();
 		gbc_textTarjcred2.fill = GridBagConstraints.VERTICAL;
@@ -512,8 +512,8 @@ public class V_Reserva extends JPanel {
 		textTarjcred2.setColumns(10);
 		textTarjcred2.addFocusListener(new textTrajcred2FocusListener());
 
-		JLabel lblCorreoElectrnico = new JLabel("Correo electrónico*");
-		lblCorreoElectrnico.setFont(new Font("Verdana", Font.PLAIN, 16));
+		JLabel lblCorreoElectrnico = new JLabel(MessagesV_Reservas.getString("V_Reserva.lblCorreoElectrnico.text")); //$NON-NLS-1$
+		lblCorreoElectrnico.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblCorreoElectrnico = new GridBagConstraints();
 		gbc_lblCorreoElectrnico.anchor = GridBagConstraints.EAST;
 		gbc_lblCorreoElectrnico.gridwidth = 4;
@@ -524,7 +524,7 @@ public class V_Reserva extends JPanel {
 
 		textEmail = new JTextField();
 		textEmail.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		textEmail.setFont(new Font("Verdana", Font.PLAIN, 16));
+		textEmail.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		textEmail.setColumns(10);
 		GridBagConstraints gbc_textEmail = new GridBagConstraints();
 		gbc_textEmail.gridwidth = 2;
@@ -535,9 +535,9 @@ public class V_Reserva extends JPanel {
 		pnlReserva.add(textEmail, gbc_textEmail);
 		textEmail.addFocusListener(new TextEmailFocusListener());
 
-		lblEstado = new JLabel("");
+		lblEstado = new JLabel(""); //$NON-NLS-1$
 		lblEstado.setForeground(new Color(204, 0, 0));
-		lblEstado.setFont(new Font("Verdana", Font.BOLD, 16));
+		lblEstado.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblEstado = new GridBagConstraints();
 		gbc_lblEstado.gridheight = 2;
 		gbc_lblEstado.gridwidth = 3;
@@ -546,9 +546,9 @@ public class V_Reserva extends JPanel {
 		gbc_lblEstado.gridy = 33;
 		pnlReserva.add(lblEstado, gbc_lblEstado);
 
-		JButton btnCancelar = new JButton("Cancelar");
+		JButton btnCancelar = new JButton(MessagesV_Reservas.getString("V_Reserva.btnCancelar.text")); //$NON-NLS-1$
 		btnCancelar.addActionListener(new BtnCancelarActionListener());
-		btnCancelar.setFont(new Font("Verdana", Font.BOLD, 20));
+		btnCancelar.setFont(new Font("Verdana", Font.BOLD, 20)); //$NON-NLS-1$
 		btnCancelar.setBackground(new Color(244, 165, 0));
 		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
 		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
@@ -557,9 +557,9 @@ public class V_Reserva extends JPanel {
 		gbc_btnCancelar.gridy = 35;
 		pnlReserva.add(btnCancelar, gbc_btnCancelar);
 
-		JButton btnReservar = new JButton("Reservar");
+		JButton btnReservar = new JButton(MessagesV_Reservas.getString("V_Reserva.btnReservar.text")); //$NON-NLS-1$
 		btnReservar.addActionListener(new BtnReservarActionListener());
-		btnReservar.setFont(new Font("Verdana", Font.BOLD, 20));
+		btnReservar.setFont(new Font("Verdana", Font.BOLD, 20)); //$NON-NLS-1$
 		btnReservar.setBackground(new Color(244, 164, 96));
 		GridBagConstraints gbc_btnReservar = new GridBagConstraints();
 		gbc_btnReservar.anchor = GridBagConstraints.EAST;
@@ -686,12 +686,12 @@ public class V_Reserva extends JPanel {
 
 	private class BtnReservarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if (textNombre.getText().equals("") || textApellidos.getText().equals("") || textEmail.getText().equals("")
-					|| textTarjcred2.getText().equals("") || textTrajcred1.getText().equals("")) {
-				lblEstado.setText("Introduzca los datos obligatorios");
+			if (textNombre.getText().equals("") || textApellidos.getText().equals("") || textEmail.getText().equals("") //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| textTarjcred2.getText().equals("") || textTrajcred1.getText().equals("")) { //$NON-NLS-1$ //$NON-NLS-2$
+				lblEstado.setText(MessagesV_Reservas.getString("V_Reserva.51")); //$NON-NLS-1$
 			} else {
 				lblEstado.setForeground(Color.GREEN);
-				lblEstado.setText("Reserva realizada");
+				lblEstado.setText(MessagesV_Reservas.getString("V_Reserva.52")); //$NON-NLS-1$
 				textNombre.setText(null);
 				textApellidos.setText(null);
 				textTarjcred2.setText(null);

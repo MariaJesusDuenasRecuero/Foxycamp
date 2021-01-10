@@ -77,8 +77,8 @@ public class V_Parcela extends JPanel {
 		gbc_separator.gridy = 0;
 		panel_2.add(separator, gbc_separator);
 
-		JLabel lblNewLabel = new JLabel("Fecha entrada");
-		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 16));
+		JLabel lblNewLabel = new JLabel(MessagesV_Parcela.getString("V_Parcela.lblNewLabel.text")); //$NON-NLS-1$
+		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
@@ -94,8 +94,8 @@ public class V_Parcela extends JPanel {
 		gbc_dateChooser.gridy = 1;
 		panel_2.add(dateChooser, gbc_dateChooser);
 
-		JLabel lblSalida = new JLabel("Fecha salida");
-		lblSalida.setFont(new Font("Verdana", Font.BOLD, 16));
+		JLabel lblSalida = new JLabel(MessagesV_Parcela.getString("V_Parcela.lblSalida.text")); //$NON-NLS-1$
+		lblSalida.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblSalida = new GridBagConstraints();
 		gbc_lblSalida.anchor = GridBagConstraints.WEST;
 		gbc_lblSalida.insets = new Insets(0, 0, 5, 5);
@@ -111,8 +111,8 @@ public class V_Parcela extends JPanel {
 		gbc_dateChooser_1.gridy = 3;
 		panel_2.add(dateChooser_1, gbc_dateChooser_1);
 
-		JLabel lblPrecio = new JLabel("Precio");
-		lblPrecio.setFont(new Font("Verdana", Font.BOLD, 14));
+		JLabel lblPrecio = new JLabel(MessagesV_Parcela.getString("V_Parcela.lblPrecio.text")); //$NON-NLS-1$
+		lblPrecio.setFont(new Font("Verdana", Font.BOLD, 14)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblPrecio = new GridBagConstraints();
 		gbc_lblPrecio.anchor = GridBagConstraints.WEST;
 		gbc_lblPrecio.insets = new Insets(0, 0, 5, 5);
@@ -129,7 +129,7 @@ public class V_Parcela extends JPanel {
 		sliderPrecio.setSnapToTicks(true);
 		sliderPrecio.setPaintTicks(true);
 		sliderPrecio.setPaintLabels(true);
-		sliderPrecio.setFont(new Font("Verdana", Font.PLAIN, 16));
+		sliderPrecio.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_sliderPrecio = new GridBagConstraints();
 		gbc_sliderPrecio.fill = GridBagConstraints.HORIZONTAL;
 		gbc_sliderPrecio.insets = new Insets(0, 0, 5, 5);
@@ -137,16 +137,16 @@ public class V_Parcela extends JPanel {
 		gbc_sliderPrecio.gridy = 6;
 		panel_2.add(sliderPrecio, gbc_sliderPrecio);
 
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/IconEuro.png")));
+		JLabel lblNewLabel_4 = new JLabel(""); //$NON-NLS-1$
+		lblNewLabel_4.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/IconEuro.png"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
 		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_4.gridx = 2;
 		gbc_lblNewLabel_4.gridy = 6;
 		panel_2.add(lblNewLabel_4, gbc_lblNewLabel_4);
 
-		JLabel lblNewLabel_3 = new JLabel("Tipo");
-		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD, 14));
+		JLabel lblNewLabel_3 = new JLabel(MessagesV_Parcela.getString("V_Parcela.lblNewLabel_3.text")); //$NON-NLS-1$
+		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD, 14)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
 		gbc_lblNewLabel_3.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_3.fill = GridBagConstraints.VERTICAL;
@@ -157,8 +157,8 @@ public class V_Parcela extends JPanel {
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(
-				new DefaultComboBoxModel(new String[] {"Pequeña", "Mediana", "Grande", "Deluxe", "Con auto"}));
-		comboBox.setFont(new Font("Verdana", Font.PLAIN, 14));
+				new DefaultComboBoxModel(new String[] {MessagesV_Parcela.getString("V_Parcela.6"), MessagesV_Parcela.getString("V_Parcela.7"), MessagesV_Parcela.getString("V_Parcela.8"), MessagesV_Parcela.getString("V_Parcela.9"), MessagesV_Parcela.getString("V_Parcela.10")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+		comboBox.setFont(new Font("Verdana", Font.PLAIN, 14)); //$NON-NLS-1$
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -182,9 +182,9 @@ public class V_Parcela extends JPanel {
 		gbl_pnlParcelas.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		pnlParcelas.setLayout(gbl_pnlParcelas);
 		
-		JLabel lblParcela1 = new JLabel("");
-		lblParcela1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		lblParcela1.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela1.jpg")));
+		JLabel lblParcela1 = new JLabel(""); //$NON-NLS-1$
+		lblParcela1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
+		lblParcela1.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela1.jpg"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblParcela1 = new GridBagConstraints();
 		gbc_lblParcela1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblParcela1.gridx = 1;
@@ -192,9 +192,9 @@ public class V_Parcela extends JPanel {
 		pnlParcelas.add(lblParcela1, gbc_lblParcela1);
 		
 		JTextArea txtAParcela1 = new JTextArea();
-		txtAParcela1.setFont(new Font("Verdana", Font.PLAIN, 9));
-		txtAParcela1.setText("El RK Catalina Lofts se encuentra en Las Palmas de Gran Canaria, a 2,3 km de la playa del Confital y a 200 metros del parque de Santa Catalina, y ofrece WiFi gratuita y aire acondicionado. Este apartamento ocupa un edificio que data de 2018 y se encuentra a 1,7 km del parque Romano y a 2 km del auditorio Alfredo Kraus.\r\n\r\nEl apartamento cuenta con 1 dormitorio, TV de pantalla plana, cocina equipada con microondas y nevera, lavadora y baño con ducha.\r\n\r\nEntre los lugares de interés cercanos al apartamento se incluyen el centro comercial El Muelle, el acuario Poema Del Mar y el puerto de Las Palmas.");
-		txtAParcela1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtAParcela1.setFont(new Font("Verdana", Font.PLAIN, 9)); //$NON-NLS-1$
+		txtAParcela1.setText(MessagesV_Parcela.getString("V_Parcela.txtAParcela1.text")); //$NON-NLS-1$
+		txtAParcela1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		txtAParcela1.setEditable(false);
 		txtAParcela1.setLineWrap(true);
 		GridBagConstraints gbc_txtAParcela1 = new GridBagConstraints();
@@ -205,8 +205,8 @@ public class V_Parcela extends JPanel {
 		
 		pnlParcelas.add(txtAParcela1, gbc_txtAParcela1);
 		
-		JButton btnReservarParcela1 = new JButton("Reservar");
-		btnReservarParcela1.setFont(new Font("Verdana", Font.BOLD, 16));
+		JButton btnReservarParcela1 = new JButton(MessagesV_Parcela.getString("V_Parcela.btnReservarParcela1.text")); //$NON-NLS-1$
+		btnReservarParcela1.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_btnReservarParcela1 = new GridBagConstraints();
 		gbc_btnReservarParcela1.gridwidth = 2;
 		gbc_btnReservarParcela1.fill = GridBagConstraints.BOTH;
@@ -218,8 +218,8 @@ public class V_Parcela extends JPanel {
 		btnReservarParcela1.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela1, gbc_btnReservarParcela1);
 		
-		JLabel lblParcela2 = new JLabel("");
-		lblParcela2.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela2.jpg")));
+		JLabel lblParcela2 = new JLabel(""); //$NON-NLS-1$
+		lblParcela2.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela2.jpg"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblParcela2 = new GridBagConstraints();
 		gbc_lblParcela2.insets = new Insets(0, 0, 5, 5);
 		gbc_lblParcela2.gridx = 1;
@@ -227,11 +227,11 @@ public class V_Parcela extends JPanel {
 		pnlParcelas.add(lblParcela2, gbc_lblParcela2);
 		
 		JTextArea txtAParcela2 = new JTextArea();
-		txtAParcela2.setFont(new Font("Verdana", Font.PLAIN, 9));
-		txtAParcela2.setText("La Casa El Mirador se encuentra en Teruel, Aragón, y ofrece patio y vistas al jardín. El establecimiento se encuentra a 2,7 km del parque Dinópolis y dispone de jardín y aparcamiento privado gratuito.\r\nLa casa cuenta con 3 dormitorios independientes y cocina con lavavajillas, microondas y zona de comedor.\r\n\r\nEn las inmediaciones se puede practicar ciclismo. Además, hay solárium.");
+		txtAParcela2.setFont(new Font("Verdana", Font.PLAIN, 9)); //$NON-NLS-1$
+		txtAParcela2.setText(MessagesV_Parcela.getString("V_Parcela.txtAParcela2.text")); //$NON-NLS-1$
 		txtAParcela2.setLineWrap(true);
 		txtAParcela2.setEditable(false);
-		txtAParcela2.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtAParcela2.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		GridBagConstraints gbc_txtAParcela2 = new GridBagConstraints();
 		gbc_txtAParcela2.insets = new Insets(0, 0, 5, 5);
 		gbc_txtAParcela2.fill = GridBagConstraints.BOTH;
@@ -239,8 +239,8 @@ public class V_Parcela extends JPanel {
 		gbc_txtAParcela2.gridy = 4;
 		pnlParcelas.add(txtAParcela2, gbc_txtAParcela2);
 		
-		JButton btnReservarParcela2 = new JButton("Reservar");
-		btnReservarParcela2.setFont(new Font("Verdana", Font.BOLD, 16));
+		JButton btnReservarParcela2 = new JButton(MessagesV_Parcela.getString("V_Parcela.btnReservarParcela2.text")); //$NON-NLS-1$
+		btnReservarParcela2.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_btnReservarParcela2 = new GridBagConstraints();
 		gbc_btnReservarParcela2.fill = GridBagConstraints.BOTH;
 		gbc_btnReservarParcela2.gridwidth = 2;
@@ -253,8 +253,8 @@ public class V_Parcela extends JPanel {
 		btnReservarParcela2.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela2, gbc_btnReservarParcela2);
 		
-		JLabel lblParcela3 = new JLabel("");
-		lblParcela3.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela3.jpg")));
+		JLabel lblParcela3 = new JLabel(""); //$NON-NLS-1$
+		lblParcela3.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela3.jpg"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblParcela3 = new GridBagConstraints();
 		gbc_lblParcela3.insets = new Insets(0, 0, 5, 5);
 		gbc_lblParcela3.gridx = 1;
@@ -262,11 +262,11 @@ public class V_Parcela extends JPanel {
 		pnlParcelas.add(lblParcela3, gbc_lblParcela3);
 		
 		JTextArea txtAParcela3 = new JTextArea();
-		txtAParcela3.setFont(new Font("Verdana", Font.PLAIN, 9));
-		txtAParcela3.setText("La Casa La Finca se encuentra en Vigo y ofrece jardín, zona de barbacoa, WiFi gratuita y vistas al jardín. El establecimiento tiene vistas a la montaña y está a 500 metros de la playa de Samil y a 8 km de la estación marítima.\r\n\r\nEsta casa cuenta con 2 dormitorios, cocina con microondas, TV de pantalla plana, zona de estar y baño con ducha.\r\n\r\nEn los alrededores se puede pescar.\r\n\r\nEl Museo del Mar de Galicia se encuentra a 2,5 km de la casa, mientras que la sede de Comisiones Obreras está a 2,7 km. El aeropuerto más cercano es el de Vigo, ubicado a 12 km de la Casa La Finca. El establecimiento ofrece un servicio de enlace con el aeropuerto por un suplemento.");
+		txtAParcela3.setFont(new Font("Verdana", Font.PLAIN, 9)); //$NON-NLS-1$
+		txtAParcela3.setText(MessagesV_Parcela.getString("V_Parcela.txtAParcela3.text")); //$NON-NLS-1$
 		txtAParcela3.setLineWrap(true);
 		txtAParcela3.setEditable(false);
-		txtAParcela3.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtAParcela3.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		GridBagConstraints gbc_txtAParcela3 = new GridBagConstraints();
 		gbc_txtAParcela3.insets = new Insets(0, 0, 5, 5);
 		gbc_txtAParcela3.fill = GridBagConstraints.BOTH;
@@ -275,8 +275,8 @@ public class V_Parcela extends JPanel {
 		
 		pnlParcelas.add(txtAParcela3, gbc_txtAParcela3);
 		
-		JButton btnReservarParcela3 = new JButton("Reservar");
-		btnReservarParcela3.setFont(new Font("Verdana", Font.BOLD, 16));
+		JButton btnReservarParcela3 = new JButton(MessagesV_Parcela.getString("V_Parcela.btnReservarParcela3.text")); //$NON-NLS-1$
+		btnReservarParcela3.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_btnReservarParcela3 = new GridBagConstraints();
 		gbc_btnReservarParcela3.fill = GridBagConstraints.BOTH;
 		gbc_btnReservarParcela3.gridwidth = 2;
@@ -289,8 +289,8 @@ public class V_Parcela extends JPanel {
 		btnReservarParcela3.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela3, gbc_btnReservarParcela3);
 		
-		JLabel lblParcela4 = new JLabel("");
-		lblParcela4.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela4.jpg")));
+		JLabel lblParcela4 = new JLabel(""); //$NON-NLS-1$
+		lblParcela4.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/Parcela4.jpg"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblParcela4 = new GridBagConstraints();
 		gbc_lblParcela4.insets = new Insets(0, 0, 5, 5);
 		gbc_lblParcela4.gridx = 1;
@@ -298,11 +298,11 @@ public class V_Parcela extends JPanel {
 		pnlParcelas.add(lblParcela4, gbc_lblParcela4);
 		
 		JTextArea txtAParcela4 = new JTextArea();
-		txtAParcela4.setFont(new Font("Verdana", Font.PLAIN, 9));
-		txtAParcela4.setText("El CAN JOAN está situado en Palma de Mallorca, a 1,5 km de la playa de Es Calonet des Fornàs y a 12 km del puerto de Palma, y ofrece alojamiento con conexión WiFi gratuita, aire acondicionado, piscina al aire libre de temporada y jardín. El establecimiento cuenta con piscina privada.\r\n\r\nLa casa cuenta con 5 dormitorios, TV de pantalla plana con canales vía satélite, cocina equipada con lavavajillas y microondas, lavadora y 3 baños con bidet.\r\n\r\nLa casa cuenta con barbacoa y terraza.");
+		txtAParcela4.setFont(new Font("Verdana", Font.PLAIN, 9)); //$NON-NLS-1$
+		txtAParcela4.setText(MessagesV_Parcela.getString("V_Parcela.txtAParcela4.text")); //$NON-NLS-1$
 		txtAParcela4.setLineWrap(true);
 		txtAParcela4.setEditable(false);
-		txtAParcela4.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtAParcela4.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		GridBagConstraints gbc_txtAParcela4 = new GridBagConstraints();
 		gbc_txtAParcela4.insets = new Insets(0, 0, 5, 5);
 		gbc_txtAParcela4.fill = GridBagConstraints.BOTH;
@@ -310,8 +310,8 @@ public class V_Parcela extends JPanel {
 		gbc_txtAParcela4.gridy = 10;
 		pnlParcelas.add(txtAParcela4, gbc_txtAParcela4);
 		
-		JButton btnReservarParcela4 = new JButton("Reservar");
-		btnReservarParcela4.setFont(new Font("Verdana", Font.BOLD, 16));
+		JButton btnReservarParcela4 = new JButton(MessagesV_Parcela.getString("V_Parcela.btnReservarParcela4.text")); //$NON-NLS-1$
+		btnReservarParcela4.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_btnReservarParcela4 = new GridBagConstraints();
 		gbc_btnReservarParcela4.fill = GridBagConstraints.BOTH;
 		gbc_btnReservarParcela4.gridwidth = 2;
@@ -324,8 +324,8 @@ public class V_Parcela extends JPanel {
 		btnReservarParcela4.setBackground(new Color(255, 165, 0));
 		pnlParcelas.add(btnReservarParcela4, gbc_btnReservarParcela4);
 		
-		JLabel lblParcela5 = new JLabel("");
-		lblParcela5.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/101.jpg")));
+		JLabel lblParcela5 = new JLabel(""); //$NON-NLS-1$
+		lblParcela5.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/101.jpg"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblParcela5 = new GridBagConstraints();
 		gbc_lblParcela5.insets = new Insets(0, 0, 5, 5);
 		gbc_lblParcela5.gridx = 1;
@@ -333,11 +333,11 @@ public class V_Parcela extends JPanel {
 		pnlParcelas.add(lblParcela5, gbc_lblParcela5);
 		
 		JTextArea txtAParcela5 = new JTextArea();
-		txtAParcela5.setText("La Casa cercana a Santa Catalina se encuentra en Palma de Mallorca y ofrece alojamiento con aire acondicionado y patio. Esta casa cuenta con jardín, zona de barbacoa, conexión WiFi gratuita y aparcamiento privado gratuito.\r\nEsta casa cuenta con 2 dormitorios, sala de estar, TV de pantalla plana, cocina equipada con zona de comedor y 2 baños con ducha y lavadora.\r\nLa casa tiene terraza.\r\n\r\n");
-		txtAParcela5.setFont(new Font("Verdana", Font.PLAIN, 9));
+		txtAParcela5.setText(MessagesV_Parcela.getString("V_Parcela.txtAParcela5.text")); //$NON-NLS-1$
+		txtAParcela5.setFont(new Font("Verdana", Font.PLAIN, 9)); //$NON-NLS-1$
 		txtAParcela5.setLineWrap(true);
 		txtAParcela5.setEditable(false);
-		txtAParcela5.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtAParcela5.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		GridBagConstraints gbc_txtAParcela5 = new GridBagConstraints();
 		gbc_txtAParcela5.insets = new Insets(0, 0, 5, 5);
 		gbc_txtAParcela5.fill = GridBagConstraints.BOTH;
@@ -345,8 +345,8 @@ public class V_Parcela extends JPanel {
 		gbc_txtAParcela5.gridy = 13;
 		pnlParcelas.add(txtAParcela5, gbc_txtAParcela5);
 		
-		JButton btnReservarParcela5 = new JButton("Reservar");
-		btnReservarParcela5.setFont(new Font("Verdana", Font.BOLD, 16));
+		JButton btnReservarParcela5 = new JButton(MessagesV_Parcela.getString("V_Parcela.btnReservarParcela5.text")); //$NON-NLS-1$
+		btnReservarParcela5.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_btnReservarParcela5 = new GridBagConstraints();
 		gbc_btnReservarParcela5.fill = GridBagConstraints.BOTH;
 		gbc_btnReservarParcela5.gridwidth = 2;
@@ -368,7 +368,7 @@ public class V_Parcela extends JPanel {
 	private class BtnActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout)(pnlContenido.getLayout());
-			cl.show(pnlContenido, "reservar");
+			cl.show(pnlContenido, "reservar"); //$NON-NLS-1$
 		}
 	}
 	
