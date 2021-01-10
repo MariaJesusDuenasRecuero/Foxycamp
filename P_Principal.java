@@ -71,6 +71,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		nombreAux= nombre;
 		iconAux = icon;
 		frmPrincipal = new JFrame();
+		frmPrincipal.getContentPane().setBackground(Color.WHITE);
 		frmPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage(P_Principal.class.getResource("/presentacion/casa-de-perro.png"))); //$NON-NLS-1$
 		frmPrincipal.setTitle(MessagesPrincipal.getString("P_Principal.frmPrincipal.title")); //$NON-NLS-1$
 		frmPrincipal.setResizable(false);
@@ -78,7 +79,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		frmPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(255, 153, 0));
-		contentPane.setBackground(new Color(255, 228, 196));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		frmPrincipal.getContentPane().add(contentPane);
@@ -266,7 +267,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		lblUltimaFecha.setFont(new Font("Verdana", Font.PLAIN, 9));
 		pmFlecha.add(lblUltimaFecha);
 		
-		JButton btnAbout = new JButton("   Sobre nosotros");
+		JButton btnAbout = new JButton(MessagesPrincipal.getString("P_Principal.btnAbout.text")); //$NON-NLS-1$
         btnAbout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 P_About frmAbout = new P_About(nombre, icon);

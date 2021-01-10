@@ -92,7 +92,7 @@ public class P_Perfil extends JFrame {
 		contentPane.add(pnlHeader, BorderLayout.NORTH);
 		
 		GridBagLayout gbl_pnlHeader = new GridBagLayout();
-		gbl_pnlHeader.columnWidths = new int[] { 50, 44, 64, 300, 0, 0, 358, 92, 50, 50, 64, 46, 18, 0, 0, 0, 0 };
+		gbl_pnlHeader.columnWidths = new int[] { 50, 44, 64, 300, 0, 0, 358, 55, 50, 50, 64, 46, 18, 0, 0, 0, 0 };
 		gbl_pnlHeader.rowHeights = new int[] { 50, 0, 50, 0 };
 		gbl_pnlHeader.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, Double.MIN_VALUE };
@@ -264,7 +264,7 @@ public class P_Perfil extends JFrame {
 		lblUltimaFecha.setFont(new Font("Verdana", Font.PLAIN, 9));
 		pmFlecha.add(lblUltimaFecha);
 		
-		JButton btnAbout = new JButton("   Sobre nosotros");
+		JButton btnAbout = new JButton(MessagesP_Perfil.getString("P_Perfil.btnAbout.text_1")); //$NON-NLS-1$
         btnAbout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 P_About frmAbout = new P_About(nombre, icon);

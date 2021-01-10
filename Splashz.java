@@ -80,8 +80,8 @@ public class Splashz extends JFrame  {
 				splash.progressBar.setValue(i);
 				if(i==100) {
 					P_Login login = new P_Login();
-					splash.setVisible(false);
-					login.setVisible(true);
+					splash.dispose();
+					login.getFrame().setVisible(true);
 					
 				}
 			}

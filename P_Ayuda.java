@@ -67,9 +67,9 @@ public class P_Ayuda extends JFrame {
 		contentPane.add(pnlHeader, BorderLayout.NORTH);
 		
 		GridBagLayout gbl_pnlHeader = new GridBagLayout();
-		gbl_pnlHeader.columnWidths = new int[] { 50, 44, 64, 300, 0, 0, 358, 92, 50, 50, 64, 46, 18, 0, 0, 0, 0 };
+		gbl_pnlHeader.columnWidths = new int[] { 50, 44, 64, 300, 0, 0, 358, 50, 50, 64, 46, 18, 0, 0, 0, 0 };
 		gbl_pnlHeader.rowHeights = new int[] { 50, 0, 50, 0 };
-		gbl_pnlHeader.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+		gbl_pnlHeader.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, Double.MIN_VALUE };
 		gbl_pnlHeader.rowWeights = new double[] { 0.0, 1.0, 0.0, Double.MIN_VALUE };
 		pnlHeader.setLayout(gbl_pnlHeader);
@@ -100,7 +100,7 @@ public class P_Ayuda extends JFrame {
 		GridBagConstraints gbc_lblAyuda = new GridBagConstraints();
 		gbc_lblAyuda.anchor = GridBagConstraints.SOUTH;
 		gbc_lblAyuda.insets = new Insets(0, 0, 5, 5);
-		gbc_lblAyuda.gridx = 10;
+		gbc_lblAyuda.gridx = 9;
 		gbc_lblAyuda.gridy = 1;
 		pnlHeader.add(lblAyuda, gbc_lblAyuda);
 		
@@ -111,7 +111,7 @@ public class P_Ayuda extends JFrame {
 				GridBagConstraints gbc_lblTraductor = new GridBagConstraints();
 				gbc_lblTraductor.anchor = GridBagConstraints.SOUTH;
 				gbc_lblTraductor.insets = new Insets(0, 0, 5, 5);
-				gbc_lblTraductor.gridx = 11;
+				gbc_lblTraductor.gridx = 10;
 				gbc_lblTraductor.gridy = 1;
 				pnlHeader.add(lblTraductor, gbc_lblTraductor);
 		
@@ -203,7 +203,7 @@ public class P_Ayuda extends JFrame {
 		gbc_lblFlechaTraductor.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblFlechaTraductor.anchor = GridBagConstraints.SOUTH;
 		gbc_lblFlechaTraductor.insets = new Insets(0, 0, 5, 5);
-		gbc_lblFlechaTraductor.gridx = 12;
+		gbc_lblFlechaTraductor.gridx = 11;
 		gbc_lblFlechaTraductor.gridy = 1;
 		pnlHeader.add(lblFlechaTraductor, gbc_lblFlechaTraductor);
 		
@@ -213,7 +213,7 @@ public class P_Ayuda extends JFrame {
 		GridBagConstraints gbc_lblPerfil = new GridBagConstraints();
 		gbc_lblPerfil.anchor = GridBagConstraints.SOUTH;
 		gbc_lblPerfil.insets = new Insets(0, 0, 5, 5);
-		gbc_lblPerfil.gridx = 13;
+		gbc_lblPerfil.gridx = 12;
 		gbc_lblPerfil.gridy = 1;
 		pnlHeader.add(lblPerfil, gbc_lblPerfil);
 		
@@ -222,7 +222,7 @@ public class P_Ayuda extends JFrame {
 		GridBagConstraints gbc_lblFlechaPerfil = new GridBagConstraints();
 		gbc_lblFlechaPerfil.anchor = GridBagConstraints.SOUTHWEST;
 		gbc_lblFlechaPerfil.insets = new Insets(0, 0, 5, 5);
-		gbc_lblFlechaPerfil.gridx = 14;
+		gbc_lblFlechaPerfil.gridx = 13;
 		gbc_lblFlechaPerfil.gridy = 1;
 		pnlHeader.add(lblFlechaPerfil, gbc_lblFlechaPerfil);
 		JPopupMenu pmFlecha = new JPopupMenu();
@@ -241,7 +241,7 @@ public class P_Ayuda extends JFrame {
 		pmFlecha.add(lblUltimaFecha);
 
 		
-		JButton btnAbout = new JButton("   Sobre nosotros");
+		JButton btnAbout = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnAbout.text_1")); //$NON-NLS-1$
         btnAbout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 P_About frmAbout = new P_About(nombre, icon);
@@ -296,19 +296,19 @@ public class P_Ayuda extends JFrame {
 		lblLeftLine.setBorder(new LineBorder(new Color(210, 105, 30), 2, true));
 		GridBagConstraints gbc_lblLeftLine = new GridBagConstraints();
 		gbc_lblLeftLine.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblLeftLine.gridwidth = 13;
+		gbc_lblLeftLine.gridwidth = 12;
 		gbc_lblLeftLine.insets = new Insets(0, 0, 0, 5);
 		gbc_lblLeftLine.gridx = 1;
 		gbc_lblLeftLine.gridy = 2;
 		pnlHeader.add(lblLeftLine, gbc_lblLeftLine);
 
 		JPanel pnlContenido = new JPanel();
-		pnlContenido.setBackground(new Color(255, 228, 181));
+		pnlContenido.setBackground(new Color(255, 228, 196));
 		contentPane.add(pnlContenido, BorderLayout.WEST);
 		GridBagLayout gbl_pnlContenido = new GridBagLayout();
-		gbl_pnlContenido.columnWidths = new int[] { 75, 200, 225, 200, 335, 100, 0 };
+		gbl_pnlContenido.columnWidths = new int[] { 75, 200, 225, 200, 335, 85, 0, 0 };
 		gbl_pnlContenido.rowHeights = new int[] { 75, 0, 77, 0, 50, 39, 75, 0, 50, 0, 0, 0 };
-		gbl_pnlContenido.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_pnlContenido.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_pnlContenido.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		pnlContenido.setLayout(gbl_pnlContenido);
 
