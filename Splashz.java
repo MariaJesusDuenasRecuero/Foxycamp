@@ -30,7 +30,7 @@ public class Splashz extends JFrame  {
 	 */
 	public Splashz() {
 		setUndecorated(true);
-		setBounds(100, 100, 894, 607);
+		setBounds(100, 100, 897, 508);
 		contentPane = new JPanel();
 		contentPane.setBorder(new LineBorder(Color.WHITE, 5, true));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -45,7 +45,7 @@ public class Splashz extends JFrame  {
 		lblCargando = new JLabel("");
 		lblCargando.setIcon(new ImageIcon(Splashz.class.getResource("/presentacion/Vanilla-1.7s-267px.gif")));
 		lblCargando.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCargando.setBounds(183, 456, 520, 71);
+		lblCargando.setBounds(183, 363, 520, 71);
 		pnlcontenido.add(lblCargando);
 		
 		progressBar = new JProgressBar();
@@ -56,7 +56,7 @@ public class Splashz extends JFrame  {
 		progressBar.setFont(new Font("Verdana", Font.PLAIN, 16));
 		progressBar.setBackground(new Color(255, 228, 196));
 		progressBar.setForeground(new Color(255, 153, 102));
-		progressBar.setBounds(183, 527, 520, 45);
+		progressBar.setBounds(183, 431, 520, 45);
 		pnlcontenido.add(progressBar);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -65,7 +65,7 @@ public class Splashz extends JFrame  {
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 22));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setIcon(new ImageIcon(Splashz.class.getResource("/presentacion/SplashFoxycamp.png")));
-		lblNewLabel.setBounds(0, 0, 884, 597);
+		lblNewLabel.setBounds(0, -20, 874, 518);
 		pnlcontenido.add(lblNewLabel);
 		
 	}
