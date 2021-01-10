@@ -12,8 +12,6 @@ import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -42,16 +40,14 @@ public class P_Ayuda extends JFrame {
 	private JButton btnVideo;
 	private JFrame frmAyuda;
 	private String nombreAux;
-	private Icon iconAux;
 
-	public P_Ayuda(String nombre, Icon icon) {
-		iconAux = icon;
+	public P_Ayuda(String nombre) {
 		nombreAux = nombre;
 		frmAyuda = new JFrame();
 		frmAyuda.setBackground(Color.WHITE);
 		frmAyuda.setIconImage(Toolkit.getDefaultToolkit()
-				.getImage(P_Ayuda.class.getResource("/presentacion/servicio-al-cliente.png")));
-		frmAyuda.setTitle("Ayuda");
+				.getImage(P_Ayuda.class.getResource("/presentacion/servicio-al-cliente.png"))); //$NON-NLS-1$
+		frmAyuda.setTitle(MessagesP_Ayuda.getString("P_Ayuda.frmAyuda.title")); //$NON-NLS-1$
 		frmAyuda.setResizable(false);
 		frmAyuda.setBounds(new Rectangle(0, 0, 1375, 800));
 		frmAyuda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,156 +59,177 @@ public class P_Ayuda extends JFrame {
 		frmAyuda.getContentPane().add(contentPane);
 
 		JPanel pnlHeader = new JPanel();
-		pnlHeader.setBackground(new Color(255, 228, 181));
+		pnlHeader.setBackground(new Color(255, 228, 196));
 		contentPane.add(pnlHeader, BorderLayout.NORTH);
+		
 		GridBagLayout gbl_pnlHeader = new GridBagLayout();
-		gbl_pnlHeader.columnWidths = new int[] { 50, 44, 64, 300, 0, 0, 358, 92, 50, 50, 64, 64, 0, 28, 0, 0 };
+		gbl_pnlHeader.columnWidths = new int[] { 50, 44, 64, 300, 0, 0, 358, 92, 50, 50, 64, 46, 18, 0, 0, 0, 0 };
 		gbl_pnlHeader.rowHeights = new int[] { 50, 0, 50, 0 };
-		gbl_pnlHeader.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+		gbl_pnlHeader.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, Double.MIN_VALUE };
-		gbl_pnlHeader.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_pnlHeader.rowWeights = new double[] { 0.0, 1.0, 0.0, Double.MIN_VALUE };
 		pnlHeader.setLayout(gbl_pnlHeader);
 
-		JLabel lblLogoZorro = new JLabel("");
-		lblLogoZorro.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/fox.png")));
+		JLabel lblLogoZorro = new JLabel(""); //$NON-NLS-1$
 		lblLogoZorro.setBackground(new Color(255, 228, 181));
+		lblLogoZorro.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/fox.png"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblLogoZorro = new GridBagConstraints();
 		gbc_lblLogoZorro.insets = new Insets(0, 0, 5, 5);
 		gbc_lblLogoZorro.gridx = 2;
 		gbc_lblLogoZorro.gridy = 1;
 		pnlHeader.add(lblLogoZorro, gbc_lblLogoZorro);
 
-		JLabel lblFoxycamp = new JLabel("FOXYCAMP");
+		JLabel lblFoxycamp = new JLabel("FOXYCAMP"); //$NON-NLS-1$
 		lblFoxycamp.setForeground(new Color(210, 105, 30));
-		lblFoxycamp.setFont(new Font("Verdana", Font.BOLD, 40));
+		lblFoxycamp.setFont(new Font("Verdana", Font.BOLD, 40)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblFoxycamp = new GridBagConstraints();
 		gbc_lblFoxycamp.insets = new Insets(0, 0, 5, 5);
 		gbc_lblFoxycamp.gridx = 3;
 		gbc_lblFoxycamp.gridy = 1;
 		pnlHeader.add(lblFoxycamp, gbc_lblFoxycamp);
 
-		JLabel lblAyuda = new JLabel("");
+		JLabel lblAyuda = new JLabel(""); //$NON-NLS-1$
 		lblAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblAyuda.setIcon(
-				new ImageIcon(P_Principal.class.getResource("/presentacion/signo-de-interrogacion-dibujar.png")));
-		lblAyuda.setToolTipText("Ayuda");
+		lblAyuda.addMouseListener(new LblAyudaMouseListener());
+		lblAyuda.setToolTipText(""); //$NON-NLS-1$
+		lblAyuda.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/signo-de-interrogacion-dibujar.png"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblAyuda = new GridBagConstraints();
 		gbc_lblAyuda.anchor = GridBagConstraints.SOUTH;
 		gbc_lblAyuda.insets = new Insets(0, 0, 5, 5);
 		gbc_lblAyuda.gridx = 10;
 		gbc_lblAyuda.gridy = 1;
 		pnlHeader.add(lblAyuda, gbc_lblAyuda);
-		lblAyuda.addMouseListener(new LblAyudaMouseListener());
-
-		JLabel lblTraductor = new JLabel("");
-		lblTraductor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblTraductor.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/traductor.png")));
-		lblTraductor.setToolTipText("Traductor");
-		GridBagConstraints gbc_lblTraductor = new GridBagConstraints();
-		gbc_lblTraductor.anchor = GridBagConstraints.SOUTH;
-		gbc_lblTraductor.insets = new Insets(0, 0, 5, 5);
-		gbc_lblTraductor.gridx = 11;
-		gbc_lblTraductor.gridy = 1;
-		pnlHeader.add(lblTraductor, gbc_lblTraductor);
-
-		JLabel lblPerfil = new JLabel("");
+		
+				JLabel lblTraductor = new JLabel(""); //$NON-NLS-1$
+				lblTraductor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				lblTraductor.setToolTipText(""); //$NON-NLS-1$
+				lblTraductor.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/traductor.png"))); //$NON-NLS-1$
+				GridBagConstraints gbc_lblTraductor = new GridBagConstraints();
+				gbc_lblTraductor.anchor = GridBagConstraints.SOUTH;
+				gbc_lblTraductor.insets = new Insets(0, 0, 5, 5);
+				gbc_lblTraductor.gridx = 11;
+				gbc_lblTraductor.gridy = 1;
+				pnlHeader.add(lblTraductor, gbc_lblTraductor);
+		
+		JLabel lblFlechaTraductor = new JLabel(""); //$NON-NLS-1$
+		lblFlechaTraductor.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png"))); //$NON-NLS-1$
+		
+		JPopupMenu pmFlecha2 = new JPopupMenu();
+		addPopup(lblFlechaTraductor, pmFlecha2);
+		
+		JButton btnEspanol = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnEspanol.text")); //$NON-NLS-1$ //$NON-NLS-1$
+		btnEspanol.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MessagesP_About.setIdioma("español"); //$NON-NLS-1$
+				MessagesP_Ayuda.setIdioma("español");
+				MessagesP_Login.setIdioma("español");
+				MessagesP_Perfil.setIdioma("español");
+				MessagesP_Registro.setIdioma("español");
+				MessagesPrincipal.setIdioma("español");
+				P_Ayuda frm = new P_Ayuda(nombre);
+				frmAyuda.dispose();
+				frm.getFrame().setVisible(true);
+			}
+		});
+		pmFlecha2.add(btnEspanol);
+		
+		JButton btnIngles = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnIngles.text")); //$NON-NLS-1$ //$NON-NLS-1$
+		btnIngles.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MessagesP_About.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesP_Ayuda.setIdioma("inglés");
+				MessagesP_Login.setIdioma("inglés");
+				MessagesP_Perfil.setIdioma("inglés");
+				MessagesP_Registro.setIdioma("inglés");
+				MessagesPrincipal.setIdioma("inglés");
+				P_Ayuda frm = new P_Ayuda(nombre);
+				frmAyuda.dispose();
+				frm.getFrame().setVisible(true);
+			}
+		});
+		pmFlecha2.add(btnIngles);
+		GridBagConstraints gbc_lblFlechaTraductor = new GridBagConstraints();
+		gbc_lblFlechaTraductor.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblFlechaTraductor.anchor = GridBagConstraints.SOUTH;
+		gbc_lblFlechaTraductor.insets = new Insets(0, 0, 5, 5);
+		gbc_lblFlechaTraductor.gridx = 12;
+		gbc_lblFlechaTraductor.gridy = 1;
+		pnlHeader.add(lblFlechaTraductor, gbc_lblFlechaTraductor);
+		
+		JLabel lblPerfil = new JLabel(""); //$NON-NLS-1$
 		lblPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblPerfil.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/usuario.png")));
+		lblPerfil.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/usuario.png"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblPerfil = new GridBagConstraints();
 		gbc_lblPerfil.anchor = GridBagConstraints.SOUTH;
 		gbc_lblPerfil.insets = new Insets(0, 0, 5, 5);
-		gbc_lblPerfil.gridx = 12;
+		gbc_lblPerfil.gridx = 13;
 		gbc_lblPerfil.gridy = 1;
 		pnlHeader.add(lblPerfil, gbc_lblPerfil);
-
-		JLabel lblFlecha = new JLabel("");
-
-		lblFlecha.setIcon(
-				new ImageIcon(P_Principal.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png")));
-
+		
+		JLabel lblFlechaPerfil = new JLabel(""); //$NON-NLS-1$
+		lblFlechaPerfil.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png"))); //$NON-NLS-1$
+		GridBagConstraints gbc_lblFlechaPerfil = new GridBagConstraints();
+		gbc_lblFlechaPerfil.anchor = GridBagConstraints.SOUTHWEST;
+		gbc_lblFlechaPerfil.insets = new Insets(0, 0, 5, 5);
+		gbc_lblFlechaPerfil.gridx = 14;
+		gbc_lblFlechaPerfil.gridy = 1;
+		pnlHeader.add(lblFlechaPerfil, gbc_lblFlechaPerfil);
 		JPopupMenu pmFlecha = new JPopupMenu();
 		pmFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		addPopup(lblFlecha, pmFlecha);
-	
-
+		addPopup(lblFlechaPerfil, pmFlecha);
+		
 		JLabel lblPerfilOption = new JLabel(nombre);
-		lblPerfilOption.setFont(new Font("Verdana", Font.PLAIN, 14));
 		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
-
-		LocalDate date = LocalDate.now(); // Gets the current date
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		String date_cu = date.format(formatter);
-		JLabel lblUltimaFecha = new JLabel("Última fecha: " + date_cu);
-		pmFlecha.add(lblUltimaFecha);
 		
-		JSeparator separator = new JSeparator();
-		separator.setBorder(new LineBorder(new Color(255, 200, 0), 10));
-		pmFlecha.add(separator);
-
-		JButton btnAbout = new JButton("   Sobre nosotros");
-		btnAbout.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				P_About frmAbout = new P_About(nombre, iconAux);
-				frmAbout.getFrame().setVisible(true);
-				frmAyuda.dispose();
-			}
-		});
-		btnAbout.setBounds(new Rectangle(0, 0, 50, 0));
-		btnAbout.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/informacion.png")));
-		pmFlecha.add(btnAbout);
-
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBorder(new LineBorder(Color.ORANGE, 10));
-		pmFlecha.add(separator_1);
-
-		JButton btnAjustes = new JButton("   Ajustes               ");
+		JButton btnAjustes = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnAjustes.text_1")); //$NON-NLS-1$ //$NON-NLS-1$
 		btnAjustes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_Perfil frmPerfil = new P_Perfil(nombre, icon);
+				P_Perfil frmPerfil = new P_Perfil(nombre);
 				frmPerfil.getFrame().setVisible(true);
 				frmAyuda.dispose();
 			}
 		});
-		btnAjustes.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/configuraciones.png")));
+		btnAjustes.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/configuraciones.png"))); //$NON-NLS-1$
 		pmFlecha.add(btnAjustes);
-
-		JButton btnDesconectar = new JButton("   Salir                     ");
+		
+		JButton btnDesconectar = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnDesconectar.text_1")); //$NON-NLS-1$ //$NON-NLS-1$
 		btnDesconectar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_Login frmLogin = new P_Login(); 
+				P_Login frmLogin = new P_Login();
 				frmLogin.getFrame().setVisible(true);
 				frmAyuda.dispose();
 			}
 		});
-		btnDesconectar.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/desconectar.png")));
+		btnDesconectar.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/desconectar.png"))); //$NON-NLS-1$
 		pmFlecha.add(btnDesconectar);
-
-		lblFlecha.addMouseListener(new MouseAdapter() {
+		
+		lblFlechaPerfil.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				pmFlecha.show(e.getComponent(), e.getX(), e.getY());
 			}
 		});
-		GridBagConstraints gbc_lblFlecha = new GridBagConstraints();
-		gbc_lblFlecha.anchor = GridBagConstraints.SOUTH;
-		gbc_lblFlecha.insets = new Insets(0, 0, 5, 5);
-		gbc_lblFlecha.gridx = 13;
-		gbc_lblFlecha.gridy = 1;
-		pnlHeader.add(lblFlecha, gbc_lblFlecha);
+		
+		lblFlechaTraductor.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				pmFlecha2.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
 
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1.setBorder(new LineBorder(new Color(210, 105, 30), 2, true));
-		lblNewLabel_1.setAlignmentX(0.5f);
-		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-		gbc_lblNewLabel_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblNewLabel_1.gridwidth = 14;
-		gbc_lblNewLabel_1.insets = new Insets(0, 0, 0, 5);
-		gbc_lblNewLabel_1.gridx = 1;
-		gbc_lblNewLabel_1.gridy = 2;
-		pnlHeader.add(lblNewLabel_1, gbc_lblNewLabel_1);
+		JLabel lblLeftLine = new JLabel(""); //$NON-NLS-1$
+		lblLeftLine.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblLeftLine.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblLeftLine.setHorizontalAlignment(SwingConstants.LEFT);
+		lblLeftLine.setBorder(new LineBorder(new Color(210, 105, 30), 2, true));
+		GridBagConstraints gbc_lblLeftLine = new GridBagConstraints();
+		gbc_lblLeftLine.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblLeftLine.gridwidth = 13;
+		gbc_lblLeftLine.insets = new Insets(0, 0, 0, 5);
+		gbc_lblLeftLine.gridx = 1;
+		gbc_lblLeftLine.gridy = 2;
+		pnlHeader.add(lblLeftLine, gbc_lblLeftLine);
 
 		JPanel pnlContenido = new JPanel();
 		pnlContenido.setBackground(new Color(255, 228, 181));
@@ -224,9 +241,9 @@ public class P_Ayuda extends JFrame {
 		gbl_pnlContenido.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		pnlContenido.setLayout(gbl_pnlContenido);
 
-		JLabel lblFoxycamp_1 = new JLabel("FOXYCAMP");
+		JLabel lblFoxycamp_1 = new JLabel("FOXYCAMP"); //$NON-NLS-1$
 		lblFoxycamp_1.setForeground(new Color(210, 105, 30));
-		lblFoxycamp_1.setFont(new Font("Verdana", Font.BOLD, 40));
+		lblFoxycamp_1.setFont(new Font("Verdana", Font.BOLD, 40)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblFoxycamp_1 = new GridBagConstraints();
 		gbc_lblFoxycamp_1.anchor = GridBagConstraints.SOUTHWEST;
 		gbc_lblFoxycamp_1.insets = new Insets(0, 0, 5, 5);
@@ -234,8 +251,8 @@ public class P_Ayuda extends JFrame {
 		gbc_lblFoxycamp_1.gridy = 2;
 		pnlContenido.add(lblFoxycamp_1, gbc_lblFoxycamp_1);
 
-		JLabel lblAtencionCliente = new JLabel("");
-		lblAtencionCliente.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/servicio-al-cliente.png")));
+		JLabel lblAtencionCliente = new JLabel(""); //$NON-NLS-1$
+		lblAtencionCliente.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/servicio-al-cliente.png"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblAtencionCliente = new GridBagConstraints();
 		gbc_lblAtencionCliente.fill = GridBagConstraints.VERTICAL;
 		gbc_lblAtencionCliente.gridwidth = 2;
@@ -245,11 +262,11 @@ public class P_Ayuda extends JFrame {
 		gbc_lblAtencionCliente.gridy = 0;
 		pnlContenido.add(lblAtencionCliente, gbc_lblAtencionCliente);
 
-		btnContactos = new JButton("Contáctenos");
+		btnContactos = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnContactos.text")); //$NON-NLS-1$
 		btnContactos.addActionListener(new BtnContactarActionListener());
 		btnContactos.setBackground(new Color(255, 140, 0));
-		btnContactos.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/llamada-telefonica.png")));
-		btnContactos.setFont(new Font("Verdana", Font.BOLD, 20));
+		btnContactos.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/llamada-telefonica.png"))); //$NON-NLS-1$
+		btnContactos.setFont(new Font("Verdana", Font.BOLD, 20)); //$NON-NLS-1$
 		GridBagConstraints gbc_btnContactos = new GridBagConstraints();
 		gbc_btnContactos.fill = GridBagConstraints.BOTH;
 		gbc_btnContactos.insets = new Insets(0, 0, 5, 5);
@@ -258,9 +275,9 @@ public class P_Ayuda extends JFrame {
 		btnContactos.setBorder(new RoundedBorder(10));
 		pnlContenido.add(btnContactos, gbc_btnContactos);
 
-		JLabel lblAtencionC = new JLabel("Atención al cliente");
+		JLabel lblAtencionC = new JLabel(MessagesP_Ayuda.getString("P_Ayuda.lblAtencionC.text")); //$NON-NLS-1$
 		lblAtencionC.setForeground(new Color(255, 165, 0));
-		lblAtencionC.setFont(new Font("Verdana", Font.BOLD, 30));
+		lblAtencionC.setFont(new Font("Verdana", Font.BOLD, 30)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblAtencionC = new GridBagConstraints();
 		gbc_lblAtencionC.anchor = GridBagConstraints.NORTH;
 		gbc_lblAtencionC.insets = new Insets(0, 0, 5, 5);
@@ -268,9 +285,9 @@ public class P_Ayuda extends JFrame {
 		gbc_lblAtencionC.gridy = 3;
 		pnlContenido.add(lblAtencionC, gbc_lblAtencionC);
 
-		btnManual = new JButton("Manual de usuario");
-		btnManual.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/instrucciones.png")));
-		btnManual.setFont(new Font("Verdana", Font.BOLD, 20));
+		btnManual = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnManual.text")); //$NON-NLS-1$
+		btnManual.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/instrucciones.png"))); //$NON-NLS-1$
+		btnManual.setFont(new Font("Verdana", Font.BOLD, 20)); //$NON-NLS-1$
 		btnManual.setBackground(new Color(255, 140, 0));
 		btnManual.addActionListener(new BtnManualActionListener());
 		GridBagConstraints gbc_btnManual = new GridBagConstraints();
@@ -281,10 +298,10 @@ public class P_Ayuda extends JFrame {
 		btnManual.setBorder(new RoundedBorder(10));
 		pnlContenido.add(btnManual, gbc_btnManual);
 
-		btnVideo = new JButton(" Video ayuda");
+		btnVideo = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnVideo.text")); //$NON-NLS-1$
 		btnVideo.setBackground(new Color(255, 140, 0));
-		btnVideo.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/boton-de-play.png")));
-		btnVideo.setFont(new Font("Verdana", Font.BOLD, 20));
+		btnVideo.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/boton-de-play.png"))); //$NON-NLS-1$
+		btnVideo.setFont(new Font("Verdana", Font.BOLD, 20)); //$NON-NLS-1$
 		btnVideo.setBorder(new RoundedBorder(12));
 		btnVideo.addActionListener(new BtnVideoActionListener());
 		GridBagConstraints gbc_btnVideo = new GridBagConstraints();
@@ -295,10 +312,10 @@ public class P_Ayuda extends JFrame {
 		btnVideo.setBorder(new RoundedBorder(10));
 		pnlContenido.add(btnVideo, gbc_btnVideo);
 		
-		JButton btnVolver = new JButton("Volver");
+		JButton btnVolver = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnVolver.text")); //$NON-NLS-1$
 		btnVolver.addActionListener(new BtnVolverActionListener());
-		btnVolver.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/volver-flecha (1).png")));
-		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20));
+		btnVolver.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/volver-flecha (1).png"))); //$NON-NLS-1$
+		btnVolver.setFont(new Font("Verdana", Font.BOLD, 20)); //$NON-NLS-1$
 		
 		btnVolver.setBackground(new Color(255, 165, 0));
 		btnVolver.setBorder(new RoundedBorder(10));
@@ -312,9 +329,9 @@ public class P_Ayuda extends JFrame {
 	}
 	private Icon nuevoIcono(String nombre) {
 		Icon icon = null;
-		if(nombre == "Adrián Ruiz")icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png"));
-		if(nombre == "María Jesús") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png"));
-		if(nombre == "María Blanco") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png"));
+		if(nombre == "Adrián Ruiz")icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png")); //$NON-NLS-1$ //$NON-NLS-2$
+		if(nombre == "María Jesús") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png")); //$NON-NLS-1$ //$NON-NLS-2$
+		if(nombre == "María Blanco") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png")); //$NON-NLS-1$ //$NON-NLS-2$
 		
 		return icon;
 	}
@@ -353,7 +370,7 @@ public class P_Ayuda extends JFrame {
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda2 = new P_Ayuda(nombreAux, iconAux);
+			P_Ayuda frmAyuda2 = new P_Ayuda(nombreAux);
 			frmAyuda2.getFrame().setVisible(true);
 			frmAyuda.dispose();
 
@@ -363,17 +380,17 @@ public class P_Ayuda extends JFrame {
 	private class BtnVideoActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			//TODO : Poner aqui la dir del videeo
-			String direccion = " ";
+			String direccion = " "; //$NON-NLS-1$
 			try {
-				String osName = System.getProperty("os.name");
-				 if(osName.contains("Windows")) {
-				 	Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + direccion);
-				 }else if(osName.contains("Linux")) {
-					 Runtime.getRuntime().exec("open " + direccion);
-				 }else if(osName.contains("Mac OS X")) {
-					 Runtime.getRuntime().exec("open " + direccion);
+				String osName = System.getProperty("os.name"); //$NON-NLS-1$
+				 if(osName.contains("Windows")) { //$NON-NLS-1$
+				 	Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + direccion); //$NON-NLS-1$
+				 }else if(osName.contains("Linux")) { //$NON-NLS-1$
+					 Runtime.getRuntime().exec("open " + direccion); //$NON-NLS-1$
+				 }else if(osName.contains("Mac OS X")) { //$NON-NLS-1$
+					 Runtime.getRuntime().exec("open " + direccion); //$NON-NLS-1$
 			} else{ 
-					 System.out.println("Sistema no soportado");
+					 System.out.println("Sistema no soportado"); //$NON-NLS-1$
 				 }
 			} catch (IOException e1) {
 				e1.printStackTrace();
@@ -384,17 +401,17 @@ public class P_Ayuda extends JFrame {
 	
 	private class BtnManualActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			String direccion = "https://docs.google.com/document/d/1IZFfm1B2IFfjRn9QCIsnC97dpqEssj0fT-w4kyYJeAY/edit?usp=sharing";
+			String direccion = "https://docs.google.com/document/d/1IZFfm1B2IFfjRn9QCIsnC97dpqEssj0fT-w4kyYJeAY/edit?usp=sharing"; //$NON-NLS-1$
 			try {
-				String osName = System.getProperty("os.name");
-				 if(osName.contains("Windows")) {
-				 	Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + direccion);
-				 }else if(osName.contains("Linux")) {
-					 Runtime.getRuntime().exec("open " + direccion);
-				 }else if(osName.contains("Mac OS X")) {
-					 Runtime.getRuntime().exec("open " + direccion);
+				String osName = System.getProperty("os.name"); //$NON-NLS-1$
+				 if(osName.contains("Windows")) { //$NON-NLS-1$
+				 	Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + direccion); //$NON-NLS-1$
+				 }else if(osName.contains("Linux")) { //$NON-NLS-1$
+					 Runtime.getRuntime().exec("open " + direccion); //$NON-NLS-1$
+				 }else if(osName.contains("Mac OS X")) { //$NON-NLS-1$
+					 Runtime.getRuntime().exec("open " + direccion); //$NON-NLS-1$
 			} else{ 
-					JOptionPane.showMessageDialog(null, "OS no soportado");
+					JOptionPane.showMessageDialog(null, "OS no soportado"); //$NON-NLS-1$
 				 }
 			} catch (IOException e1) {
 				e1.printStackTrace();
@@ -403,16 +420,16 @@ public class P_Ayuda extends JFrame {
 	}
 	private class BtnContactarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			String formato = "Número de contacto: +034 926 831 231\n"
-					+ "Email: foxyCamp@gmail.com\n"
-					+ "Disponibilidad: Lunes a viernes de 9:00 a 18:00\n";
+			String formato = MessagesP_Ayuda.getString("P_Ayuda.56") //$NON-NLS-1$
+					+ MessagesP_Ayuda.getString("P_Ayuda.57") //$NON-NLS-1$
+					+ MessagesP_Ayuda.getString("P_Ayuda.58"); //$NON-NLS-1$
 
-			JOptionPane.showMessageDialog(null, formato, "Contactenos", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, formato, MessagesP_Ayuda.getString("P_Ayuda.59"), JOptionPane.INFORMATION_MESSAGE); //$NON-NLS-1$
 		}
 	}
 	private class BtnVolverActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal frmPrincipal = new P_Principal(nombreAux, iconAux);
+			P_Principal frmPrincipal = new P_Principal(nombreAux);
 			frmPrincipal.getFrame().setVisible(true);
 			frmAyuda.dispose();
 		}

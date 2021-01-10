@@ -1,13 +1,14 @@
 package presentacion;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,16 +18,17 @@ import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import presentacion.V_VerReservasParcelas.RoundedBorder;
+
+//import presentacion.V_Actividades.BtnInscritosActionListener;
 
 public class V_PromocionesActividades extends JPanel {
-	private JPanel pnlContenido;
+
 	/**
 	 * Create the panel.
 	 */
-	public V_PromocionesActividades(JPanel referenciaPnlContenido) {
-		pnlContenido = referenciaPnlContenido;
+	public V_PromocionesActividades() {
 		setBackground(Color.LIGHT_GRAY);
 		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
@@ -42,7 +44,7 @@ public class V_PromocionesActividades extends JPanel {
 		
 		JLabel lblIconOferta1 = new JLabel("");
 		lblIconOferta1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIconOferta1.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconPromo2.png")));
+		lblIconOferta1.setIcon(new ImageIcon(V_PromocionesActividades.class.getResource("/presentacion/IconCalendario.png")));
 		lblIconOferta1.setBounds(32, 367, 102, 93);
 		pnlContenido.add(lblIconOferta1);
 		
@@ -89,9 +91,8 @@ public class V_PromocionesActividades extends JPanel {
 		pnlContenido.add(txtrComienzaElDa_1);
 		
 		JButton btnInscribirse = new JButton("Inscribirse");
-		btnInscribirse.addActionListener(new BtnActionListener());
 		btnInscribirse.setBounds(new Rectangle(0, 0, 60, 50));
-		btnInscribirse.setFont(new Font("Verdana", Font.BOLD, 16));
+		btnInscribirse.setFont(new Font("Verdana", Font.PLAIN, 16));
 		btnInscribirse.setBackground(new Color(255, 165, 0));
 		btnInscribirse.setBounds(433, 469, 124, 23);
 		btnInscribirse.setBorder(new RoundedBorder(10));
@@ -166,12 +167,7 @@ public class V_PromocionesActividades extends JPanel {
 		pnlContenido.add(lblTiroConArco_1);
 		
 	}
-	private class BtnActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			CardLayout cl = (CardLayout)(pnlContenido.getLayout());
-			cl.show(pnlContenido, "actInscribirse");
-		}
-	}
+	
 	public class RoundedBorder implements Border {
 
 		private int radius;
