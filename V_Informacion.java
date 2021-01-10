@@ -64,8 +64,8 @@ public class V_Informacion extends JPanel {
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JLabel lblInformacion = new JLabel("Informaci\u00F3n b\u00E1sica");
-		lblInformacion.setFont(new Font("Verdana", Font.BOLD, 20));
+		JLabel lblInformacion = new JLabel(MessagesV_Informacion.getString("V_Informacion.lblInformacion.text")); //$NON-NLS-1$
+		lblInformacion.setFont(new Font("Verdana", Font.BOLD, 20)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblInformacion = new GridBagConstraints();
 		gbc_lblInformacion.gridwidth = 3;
 		gbc_lblInformacion.insets = new Insets(0, 0, 5, 5);
@@ -73,8 +73,8 @@ public class V_Informacion extends JPanel {
 		gbc_lblInformacion.gridy = 1;
 		panel.add(lblInformacion, gbc_lblInformacion);
 		
-		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setFont(new Font("Verdana", Font.BOLD, 16));
+		JLabel lblNombre = new JLabel(MessagesV_Informacion.getString("V_Informacion.lblNombre.text")); //$NON-NLS-1$
+		lblNombre.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNombre = new GridBagConstraints();
 		gbc_lblNombre.anchor = GridBagConstraints.WEST;
 		gbc_lblNombre.fill = GridBagConstraints.VERTICAL;
@@ -83,8 +83,8 @@ public class V_Informacion extends JPanel {
 		gbc_lblNombre.gridy = 3;
 		panel.add(lblNombre, gbc_lblNombre);
 		
-		JLabel lblCambiarFoto = new JLabel("Cambiar foto de perfil");
-		lblCambiarFoto.setFont(new Font("Verdana", Font.BOLD, 16));
+		JLabel lblCambiarFoto = new JLabel(MessagesV_Informacion.getString("V_Informacion.lblCambiarFoto.text")); //$NON-NLS-1$
+		lblCambiarFoto.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblCambiarFoto = new GridBagConstraints();
 		gbc_lblCambiarFoto.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCambiarFoto.gridx = 7;
@@ -111,8 +111,8 @@ public class V_Informacion extends JPanel {
 		panel.add(txtNombre, gbc_txtNombre);
 		txtNombre.setColumns(10);
 		
-		JLabel lblApellidos = new JLabel("Apellidos");
-		lblApellidos.setFont(new Font("Verdana", Font.BOLD, 16));
+		JLabel lblApellidos = new JLabel(MessagesV_Informacion.getString("V_Informacion.lblApellidos.text")); //$NON-NLS-1$
+		lblApellidos.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblApellidos = new GridBagConstraints();
 		gbc_lblApellidos.anchor = GridBagConstraints.WEST;
 		gbc_lblApellidos.insets = new Insets(0, 0, 5, 5);
@@ -121,7 +121,7 @@ public class V_Informacion extends JPanel {
 		panel.add(lblApellidos, gbc_lblApellidos);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Foto", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		scrollPane.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), MessagesV_Informacion.getString("V_Informacion.scrollPane.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0))); //$NON-NLS-1$
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.gridheight = 10;
 		gbc_scrollPane.gridwidth = 3;
@@ -131,7 +131,7 @@ public class V_Informacion extends JPanel {
 		gbc_scrollPane.gridy = 4;
 		panel.add(scrollPane, gbc_scrollPane);
 		
-		JLabel lblFoto = new JLabel("");
+		JLabel lblFoto = new JLabel(""); //$NON-NLS-1$
 		scrollPane.setViewportView(lblFoto);
 		
 		txtApellidos = new JTextField();
@@ -154,8 +154,8 @@ public class V_Informacion extends JPanel {
 		panel.add(txtApellidos, gbc_txtApellidos);
 		txtApellidos.setColumns(10);
 		
-		JLabel lblCiudad = new JLabel("Ciudad");
-		lblCiudad.setFont(new Font("Verdana", Font.BOLD, 16));
+		JLabel lblCiudad = new JLabel(MessagesV_Informacion.getString("V_Informacion.lblCiudad.text")); //$NON-NLS-1$
+		lblCiudad.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblCiudad = new GridBagConstraints();
 		gbc_lblCiudad.anchor = GridBagConstraints.WEST;
 		gbc_lblCiudad.insets = new Insets(0, 0, 5, 5);
@@ -183,8 +183,8 @@ public class V_Informacion extends JPanel {
 		panel.add(txtCiudad, gbc_txtCiudad);
 		txtCiudad.setColumns(10);
 		
-		JLabel lblEmail = new JLabel("Email");
-		lblEmail.setFont(new Font("Verdana", Font.BOLD, 16));
+		JLabel lblEmail = new JLabel(MessagesV_Informacion.getString("V_Informacion.lblEmail.text")); //$NON-NLS-1$
+		lblEmail.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblEmail = new GridBagConstraints();
 		gbc_lblEmail.anchor = GridBagConstraints.WEST;
 		gbc_lblEmail.insets = new Insets(0, 0, 5, 5);
@@ -212,8 +212,8 @@ public class V_Informacion extends JPanel {
 		panel.add(txtEmail, gbc_txtEmail);
 		txtEmail.setColumns(10);
 		
-		JLabel lblCodigoPostal = new JLabel("C\u00F3digo postal");
-		lblCodigoPostal.setFont(new Font("Verdana", Font.BOLD, 16));
+		JLabel lblCodigoPostal = new JLabel(MessagesV_Informacion.getString("V_Informacion.lblCodigoPostal.text")); //$NON-NLS-1$
+		lblCodigoPostal.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblCodigoPostal = new GridBagConstraints();
 		gbc_lblCodigoPostal.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCodigoPostal.gridx = 1;
@@ -240,8 +240,8 @@ public class V_Informacion extends JPanel {
 		panel.add(txtCodigoP, gbc_txtCodigoP);
 		txtCodigoP.setColumns(10);
 		
-		JLabel lblTelefono = new JLabel("Tel\u00E9fono");
-		lblTelefono.setFont(new Font("Verdana", Font.BOLD, 16));
+		JLabel lblTelefono = new JLabel(MessagesV_Informacion.getString("V_Informacion.lblTelefono.text")); //$NON-NLS-1$
+		lblTelefono.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblTelefono = new GridBagConstraints();
 		gbc_lblTelefono.anchor = GridBagConstraints.WEST;
 		gbc_lblTelefono.insets = new Insets(0, 0, 5, 5);
@@ -269,8 +269,8 @@ public class V_Informacion extends JPanel {
 		panel.add(txtTelefono, gbc_txtTelefono);
 		txtTelefono.setColumns(10);
 		
-		JButton btnCargarFoto = new JButton("Cargar");
-		btnCargarFoto.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		JButton btnCargarFoto = new JButton(MessagesV_Informacion.getString("V_Informacion.btnCargarFoto.text")); //$NON-NLS-1$
+		btnCargarFoto.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
 		btnCargarFoto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -280,7 +280,7 @@ public class V_Informacion extends JPanel {
 				if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 					File file = fcAbrir.getSelectedFile();
 					//En este punto la aplicaci�n se deber�a encargar de realizar la operaci�n sobre el fichero
-					System.out.println("Fichero seleccionado: " + file.getName());
+					System.out.println(MessagesV_Informacion.getString("V_Informacion.10") + file.getName()); //$NON-NLS-1$
 					lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
 				}
 			}
@@ -295,8 +295,8 @@ public class V_Informacion extends JPanel {
 		btnCargarFoto.setBorder(new RoundedBorder(4));
 		panel.add(btnCargarFoto, gbc_btnCargarFoto);
 		
-		JButton btnGuardarCambios = new JButton("Guardar cambios");
-		btnGuardarCambios.setFont(new Font("Tahoma", Font.BOLD, 16));
+		JButton btnGuardarCambios = new JButton(MessagesV_Informacion.getString("V_Informacion.btnGuardarCambios.text")); //$NON-NLS-1$
+		btnGuardarCambios.setFont(new Font("Tahoma", Font.BOLD, 16)); //$NON-NLS-1$
 		btnGuardarCambios.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -306,7 +306,7 @@ public class V_Informacion extends JPanel {
 				if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 					File file = fcAbrir.getSelectedFile();
 					//En este punto la aplicaci�n se deber�a encargar de realizar la operaci�n sobre el fichero
-					System.out.println("Fichero seleccionado: " + file.getName());
+					System.out.println(MessagesV_Informacion.getString("V_Informacion.12") + file.getName()); //$NON-NLS-1$
 					lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
 				}
 			}
