@@ -25,6 +25,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.swing.border.Border;
 import javax.swing.JSeparator;
 import java.awt.Toolkit;
@@ -59,11 +62,14 @@ public class P_Principal extends JFrame implements ActionListener{
 	private V_VerReservasParcelas reservasP;
 	private V_VerReservasBungalows reservasB;
 	private String nombreAux;
+	private Icon iconAux;
+	
 	/**
 	 * Create the frame.
 	 */
-	public P_Principal(String nombre) {
+	public P_Principal(String nombre, Icon icon) {
 		nombreAux= nombre;
+		iconAux = icon;
 		frmPrincipal = new JFrame();
 		frmPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage(P_Principal.class.getResource("/presentacion/casa-de-perro.png"))); //$NON-NLS-1$
 		frmPrincipal.setTitle(MessagesPrincipal.getString("P_Principal.frmPrincipal.title")); //$NON-NLS-1$
@@ -134,9 +140,13 @@ public class P_Principal extends JFrame implements ActionListener{
 		lblFlechaTraductor.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png"))); //$NON-NLS-1$
 		
 		JPopupMenu pmFlecha2 = new JPopupMenu();
+		pmFlecha2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addPopup(lblFlechaTraductor, pmFlecha2);
 		
 		JButton btnEspanol = new JButton(MessagesPrincipal.getString("P_Principal.btnEspanol.text")); //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
+		btnEspanol.setFont(new Font("Verdana", Font.BOLD, 12));
+		btnEspanol.setHorizontalAlignment(SwingConstants.LEFT);
+		btnEspanol.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/lengua-espanola.png")));
 		btnEspanol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MessagesP_About.setIdioma("español"); //$NON-NLS-1$
@@ -145,14 +155,40 @@ public class P_Principal extends JFrame implements ActionListener{
 				MessagesP_Perfil.setIdioma("español");
 				MessagesP_Registro.setIdioma("español");
 				MessagesPrincipal.setIdioma("español");
-				P_Principal frm = new P_Principal(nombre);
+				
+				MessagesV_ActHistorial.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("español");
+				MessagesV_Bungalows.setIdioma("español");
+				MessagesV_BungalowsPromociones.setIdioma("español");
+				MessagesV_Formacion.setIdioma("español");
+				MessagesV_Informacion.setIdioma("español");
+				MessagesV_Inscribirse.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("español");
+				MessagesV_Parcela.setIdioma("español");
+				MessagesV_PerfilCerrarCuenta.setIdioma("español");
+				MessagesV_PerfilContrasena.setIdioma("español");
+				MessagesV_PromocionesActividades.setIdioma("español");
+				MessagesV_Reservas.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("español");
+				MessagesV_RutaCrear.setIdioma("español");
+				MessagesV_RutaElegida.setIdioma("español");
+				MessagesV_RutaInscribirse.setIdioma("español");
+				MessagesV_RutaInscritos.setIdioma("español");
+				MessagesV_VerReservasBungalows.setIdioma("español");
+				MessagesV_VerReservasParcelas.setIdioma("español");
+				
+				P_Principal frm = new P_Principal(nombre,icon);
 				frmPrincipal.dispose();
 				frm.getFrame().setVisible(true);
 			}
 		});
 		pmFlecha2.add(btnEspanol);
 		
-		JButton btnIngles = new JButton(MessagesPrincipal.getString("P_Principal.btnIngles.text")); //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
+		JButton btnIngles = new JButton(MessagesPrincipal.getString("P_Principal.btnIngles.text"));
+		btnIngles.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnIngles.setHorizontalAlignment(SwingConstants.LEFT);
+		btnIngles.setFont(new Font("Verdana", Font.BOLD, 12));
+		btnIngles.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/idioma-en-ingles.png")));
 		btnIngles.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MessagesP_About.setIdioma("inglés"); //$NON-NLS-1$
@@ -161,7 +197,29 @@ public class P_Principal extends JFrame implements ActionListener{
 				MessagesP_Perfil.setIdioma("inglés");
 				MessagesP_Registro.setIdioma("inglés");
 				MessagesPrincipal.setIdioma("inglés");
-				P_Principal frm = new P_Principal(nombre);
+				
+				MessagesV_ActHistorial.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("inglés");
+				MessagesV_Bungalows.setIdioma("inglés");
+				MessagesV_BungalowsPromociones.setIdioma("inglés");
+				MessagesV_Formacion.setIdioma("inglés");
+				MessagesV_Informacion.setIdioma("inglés");
+				MessagesV_Inscribirse.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("inglés");
+				MessagesV_Parcela.setIdioma("inglés");
+				MessagesV_PerfilCerrarCuenta.setIdioma("inglés");
+				MessagesV_PerfilContrasena.setIdioma("inglés");
+				MessagesV_PromocionesActividades.setIdioma("inglés");
+				MessagesV_Reservas.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("inglés");
+				MessagesV_RutaCrear.setIdioma("inglés");
+				MessagesV_RutaElegida.setIdioma("inglés");
+				MessagesV_RutaInscribirse.setIdioma("inglés");
+				MessagesV_RutaInscritos.setIdioma("inglés");
+				MessagesV_VerReservasBungalows.setIdioma("inglés");
+				MessagesV_VerReservasParcelas.setIdioma("inglés");
+				
+				P_Principal frm = new P_Principal(nombre,icon);
 				frmPrincipal.dispose();
 				frm.getFrame().setVisible(true);
 			}
@@ -201,18 +259,43 @@ public class P_Principal extends JFrame implements ActionListener{
 		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
 		
+		LocalDate date = LocalDate.now(); // Gets the current date
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		String date_cu = date.format(formatter);
+		JLabel lblUltimaFecha = new JLabel("Última fecha: " + date_cu);
+		lblUltimaFecha.setFont(new Font("Verdana", Font.PLAIN, 9));
+		pmFlecha.add(lblUltimaFecha);
+		
+		JButton btnAbout = new JButton("   Sobre nosotros");
+        btnAbout.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                P_About frmAbout = new P_About(nombre, icon);
+                frmAbout.getFrame().setVisible(true);
+                frmPrincipal.dispose();
+            }
+        });
+        btnAbout.setBounds(new Rectangle(0, 0, 70, 0));
+        btnAbout.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/IconAboutUs.png")));
+        pmFlecha.add(btnAbout);
+        
 		JButton btnAjustes = new JButton(MessagesPrincipal.getString("P_Principal.btnAjustes.text")); //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
+		btnAjustes.setBounds(new Rectangle(0, 0, 70, 0));
 		btnAjustes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_Perfil frmPerfil = new P_Perfil(nombre);
+				P_Perfil frmPerfil = new P_Perfil(nombre,icon);				
 				frmPerfil.getFrame().setVisible(true);
+				frmPrincipal.setVisible(false);
 				frmPerfil.dispose();
 			}
 		});
+		
+		JSeparator separator = new JSeparator();
+		pmFlecha.add(separator);
 		btnAjustes.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/configuraciones.png"))); //$NON-NLS-1$
 		pmFlecha.add(btnAjustes);
 		
 		JButton btnDesconectar = new JButton(MessagesPrincipal.getString("P_Principal.btnDesconectar.text")); //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
+		btnDesconectar.setBounds(new Rectangle(0, 0, 70, 0));
 		btnDesconectar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				P_Login frmLogin = new P_Login();
@@ -220,6 +303,9 @@ public class P_Principal extends JFrame implements ActionListener{
 				frmPrincipal.dispose();
 			}
 		});
+		
+		JSeparator separator_1 = new JSeparator();
+		pmFlecha.add(separator_1);
 		btnDesconectar.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/desconectar.png"))); //$NON-NLS-1$
 		pmFlecha.add(btnDesconectar);
 		
@@ -262,7 +348,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		pnlPantallaPrincipal.add(pnlBotones);
 		pnlBotones.setLayout(null);
 
-		btnVolver = new JButton("Volver"); //$NON-NLS-1$
+		btnVolver = new JButton(MessagesPrincipal.getString("P_Principal.btnVolver.text")); //$NON-NLS-1$ //$NON-NLS-1$
 		btnVolver.addActionListener(new BtnVolverActionListener());
 		btnVolver.setBounds(37, 542, 242, 33);
 		pnlBotones.add(btnVolver);
@@ -302,15 +388,18 @@ public class P_Principal extends JFrame implements ActionListener{
 		mnRuta_1.add(RutaInscritos);
 		
 		JMenuBar menuActividades = new JMenuBar();
+		menuActividades.setForeground(Color.BLACK);
 		menuActividades.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		menuActividades.setBackground(Color.WHITE);
 		menuActividades.setBounds(37, 270, 242, 65);
 		pnlBotones.add(menuActividades);
 		
 		JLabel lblVaciaAct = new JLabel("       "); //$NON-NLS-1$
+		lblVaciaAct.setForeground(Color.BLACK);
 		menuActividades.add(lblVaciaAct);
 		
 		JMenu mnActiv = new JMenu(MessagesPrincipal.getString("P_Principal.mnActiv.text")); //$NON-NLS-1$
+		mnActiv.setForeground(Color.BLACK);
 		mnActiv.setBorder(null);
 		mnActiv.setFont(new Font("Verdana", Font.BOLD, 20)); //$NON-NLS-1$
 		mnActiv.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/actividades.png"))); //$NON-NLS-1$
@@ -342,6 +431,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		menuBungalows.add(lblVaciaBunga);
 		
 		JMenu mnBungalows = new JMenu(MessagesPrincipal.getString("P_Principal.mnBungalows.text")); //$NON-NLS-1$
+		mnBungalows.setForeground(Color.BLACK);
 		mnBungalows.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/bungalow.png"))); //$NON-NLS-1$
 		mnBungalows.setFont(new Font("Verdana", Font.BOLD, 20)); //$NON-NLS-1$
 		menuBungalows.add(mnBungalows);
@@ -368,6 +458,7 @@ public class P_Principal extends JFrame implements ActionListener{
 		menuParcelas.add(lblVaciaParcela);
 		
 		JMenu mnParcela = new JMenu(MessagesPrincipal.getString("P_Principal.mnParcela.text")); //$NON-NLS-1$
+		mnParcela.setForeground(Color.BLACK);
 		mnParcela.setFont(new Font("Verdana", Font.BOLD, 20)); //$NON-NLS-1$
 		mnParcela.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/parcelas.png"))); //$NON-NLS-1$
 		menuParcelas.add(mnParcela);
@@ -420,10 +511,14 @@ public class P_Principal extends JFrame implements ActionListener{
 	
 	private Icon nuevoIcono(String nombre) {
 		Icon icon = null;
-		if(nombre == "Adrián Ruiz")icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png")); //$NON-NLS-1$ //$NON-NLS-2$
-		if(nombre == "María Jesús") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png")); //$NON-NLS-1$ //$NON-NLS-2$
-		if(nombre == "María Blanco") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png")); //$NON-NLS-1$ //$NON-NLS-2$
+		//MessagesP_Login.getString("P_Login.50"); 
 		
+		if(MessagesP_Login.getString("P_Login.48") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png")); //$NON-NLS-1$ //$NON-NLS-2$
+		if(MessagesP_Login.getString("P_Login.46") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png")); //$NON-NLS-1$ //$NON-NLS-2$
+		if(MessagesP_Login.getString("P_Login.50") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png"));; //$NON-NLS-1$ //$NON-NLS-2$  
+		if(MessagesP_Login.getString("P_Login.48") != nombre && 
+				MessagesP_Login.getString("P_Login.46") != nombre &&
+				MessagesP_Login.getString("P_Login.50") != nombre) icon = iconAux;
 		return icon;
 	}
 
@@ -499,7 +594,7 @@ public class P_Principal extends JFrame implements ActionListener{
 	}
 	private class BtnPromocionesActActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			panelActividadesPromociones = new V_PromocionesActividades();
+			panelActividadesPromociones = new V_PromocionesActividades(pnlContenido);
 			pnlContenido.add(panelActividadesPromociones, "panelActividadesPromociones"); //$NON-NLS-1$
 			CardLayout c1 = (CardLayout)(pnlContenido.getLayout());
 			c1.show(pnlContenido, "panelActividadesPromociones"); //$NON-NLS-1$
@@ -605,7 +700,7 @@ public class P_Principal extends JFrame implements ActionListener{
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda = new P_Ayuda(nombreAux);
+			P_Ayuda frmAyuda = new P_Ayuda(nombreAux,iconAux);
 			frmAyuda.getFrame().setVisible(true);
 			frmPrincipal.dispose();
 		}

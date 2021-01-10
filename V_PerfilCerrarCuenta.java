@@ -9,10 +9,11 @@ import java.awt.Rectangle;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import presentacion.P_Principal.RoundedBorder;
 
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.ImageIcon;
@@ -20,6 +21,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+
 import java.awt.SystemColor;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
@@ -27,11 +30,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class V_PerfilCerrarCuenta extends JPanel {
-	private P_Perfil frmPerfil;
+	private JFrame frmPerfilAux;
 	/**
 	 * Create the panel.
 	 */
-	public V_PerfilCerrarCuenta() {
+	
+	public V_PerfilCerrarCuenta(JFrame frmPerfil) {
+		frmPerfilAux = frmPerfil;
 		setBackground(Color.WHITE);
 		setBounds(new Rectangle(10, 50, 1001, 530));
 		setLayout(new BorderLayout(0, 0));
@@ -108,14 +113,18 @@ public class V_PerfilCerrarCuenta extends JPanel {
 	    }
 
 	    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-	        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+	    	g.drawRoundRect(x, y, width-1, height-1, radius, radius);
 	    }
 	}
 	private class BtnCerrarCuentaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Login frmLogin = new P_Login();
-			frmLogin.getFrame().setVisible(true);
-			frmPerfil.dispose();
+			int ventanaYesNotCancel = JOptionPane.showConfirmDialog(null, "¿Quieres borrar tu cuenta?", "Operación irreversible", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);//0=yes, 1=no, 2=cancel	
+			if(ventanaYesNotCancel == 0) {			  
+				JOptionPane.showMessageDialog(null, "Cuenta cancelada.");
+				P_Login frmLogin = new P_Login();
+				frmLogin.getFrame().setVisible(true);
+				frmPerfilAux.dispose();
+			}
 		}
 	}
 }

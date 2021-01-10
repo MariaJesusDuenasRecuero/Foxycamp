@@ -33,6 +33,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.border.Border;
 import javax.swing.JSeparator;
@@ -64,12 +66,13 @@ public class P_Perfil extends JFrame {
 	V_Formacion panelFormacion;
 	V_PerfilCerrarCuenta panelCerrarCuenta;
 	private String nombreAux;
-
+	private Icon iconAux;
 	/**
 	 * Create the frame.
 	 */
-	public P_Perfil(String nombre) {
+	public P_Perfil(String nombre, Icon icon) {
 		nombreAux = nombre;
+		iconAux = icon;
 		frmPerfil = new JFrame();
 		frmPerfil.setBackground(Color.WHITE);
 		frmPerfil.getContentPane().setBackground(Color.WHITE);
@@ -144,6 +147,7 @@ public class P_Perfil extends JFrame {
 		addPopup(lblFlechaTraductor, pmFlecha2);
 		
 		JButton btnEspanol = new JButton(MessagesP_Perfil.getString("P_Perfil.btnEspanol.text")); //$NON-NLS-1$ //$NON-NLS-1$
+		btnEspanol.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/lengua-espanola.png")));
 		btnEspanol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MessagesP_About.setIdioma("español"); //$NON-NLS-1$
@@ -152,7 +156,29 @@ public class P_Perfil extends JFrame {
 				MessagesP_Perfil.setIdioma("español");
 				MessagesP_Registro.setIdioma("español");
 				MessagesPrincipal.setIdioma("español");
-				P_Perfil frm = new P_Perfil(nombre);
+				
+				MessagesV_ActHistorial.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("español");
+				MessagesV_Bungalows.setIdioma("español");
+				MessagesV_BungalowsPromociones.setIdioma("español");
+				MessagesV_Formacion.setIdioma("español");
+				MessagesV_Informacion.setIdioma("español");
+				MessagesV_Inscribirse.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("español");
+				MessagesV_Parcela.setIdioma("español");
+				MessagesV_PerfilCerrarCuenta.setIdioma("español");
+				MessagesV_PerfilContrasena.setIdioma("español");
+				MessagesV_PromocionesActividades.setIdioma("español");
+				MessagesV_Reservas.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("español");
+				MessagesV_RutaCrear.setIdioma("español");
+				MessagesV_RutaElegida.setIdioma("español");
+				MessagesV_RutaInscribirse.setIdioma("español");
+				MessagesV_RutaInscritos.setIdioma("español");
+				MessagesV_VerReservasBungalows.setIdioma("español");
+				MessagesV_VerReservasParcelas.setIdioma("español");
+				
+				P_Perfil frm = new P_Perfil(nombre, icon);
 				frmPerfil.dispose();
 				frm.getFrame().setVisible(true);
 			}
@@ -160,6 +186,7 @@ public class P_Perfil extends JFrame {
 		pmFlecha2.add(btnEspanol);
 		
 		JButton btnIngles = new JButton(MessagesP_Perfil.getString("P_Perfil.btnIngles.text")); //$NON-NLS-1$ //$NON-NLS-1$
+		btnIngles.setIcon(new ImageIcon(P_Perfil.class.getResource("/presentacion/idioma-en-ingles.png")));
 		btnIngles.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MessagesP_About.setIdioma("inglés"); //$NON-NLS-1$
@@ -168,7 +195,29 @@ public class P_Perfil extends JFrame {
 				MessagesP_Perfil.setIdioma("inglés");
 				MessagesP_Registro.setIdioma("inglés");
 				MessagesPrincipal.setIdioma("inglés");
-				P_Perfil frm = new P_Perfil(nombre);
+				
+				MessagesV_ActHistorial.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("inglés");
+				MessagesV_Bungalows.setIdioma("inglés");
+				MessagesV_BungalowsPromociones.setIdioma("inglés");
+				MessagesV_Formacion.setIdioma("inglés");
+				MessagesV_Informacion.setIdioma("inglés");
+				MessagesV_Inscribirse.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("inglés");
+				MessagesV_Parcela.setIdioma("inglés");
+				MessagesV_PerfilCerrarCuenta.setIdioma("inglés");
+				MessagesV_PerfilContrasena.setIdioma("inglés");
+				MessagesV_PromocionesActividades.setIdioma("inglés");
+				MessagesV_Reservas.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("inglés");
+				MessagesV_RutaCrear.setIdioma("inglés");
+				MessagesV_RutaElegida.setIdioma("inglés");
+				MessagesV_RutaInscribirse.setIdioma("inglés");
+				MessagesV_RutaInscritos.setIdioma("inglés");
+				MessagesV_VerReservasBungalows.setIdioma("inglés");
+				MessagesV_VerReservasParcelas.setIdioma("inglés");
+				
+				P_Perfil frm = new P_Perfil(nombre, icon);
 				frmPerfil.dispose();
 				frm.getFrame().setVisible(true);
 			}
@@ -208,16 +257,24 @@ public class P_Perfil extends JFrame {
 		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
 		
-		JButton btnAjustes = new JButton(MessagesP_Perfil.getString("P_Perfil.btnAjustes.text")); //$NON-NLS-1$ //$NON-NLS-1$
-		btnAjustes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				P_Perfil frmPerfil = new P_Perfil(nombre);
-				frmPerfil.getFrame().setVisible(true);
-				frmPerfil.dispose();
-			}
-		});
-		btnAjustes.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/configuraciones.png"))); //$NON-NLS-1$
-		pmFlecha.add(btnAjustes);
+		LocalDate date = LocalDate.now(); // Gets the current date
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		String date_cu = date.format(formatter);
+		JLabel lblUltimaFecha = new JLabel("Última fecha: " + date_cu);
+		lblUltimaFecha.setFont(new Font("Verdana", Font.PLAIN, 9));
+		pmFlecha.add(lblUltimaFecha);
+		
+		JButton btnAbout = new JButton("   Sobre nosotros");
+        btnAbout.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                P_About frmAbout = new P_About(nombre, icon);
+                frmAbout.getFrame().setVisible(true);
+                frmPerfil.dispose();
+            }
+        });
+        btnAbout.setBounds(new Rectangle(0, 0, 70, 0));
+        btnAbout.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/IconAboutUs.png")));
+        pmFlecha.add(btnAbout);
 		
 		JButton btnDesconectar = new JButton(MessagesP_Perfil.getString("P_Perfil.btnDesconectar.text")); //$NON-NLS-1$ //$NON-NLS-1$
 		btnDesconectar.addActionListener(new ActionListener() {
@@ -523,17 +580,20 @@ public class P_Perfil extends JFrame {
 		panelFormacion = new V_Formacion();
 		panel.add(panelFormacion, MessagesP_Perfil.getString("P_Perfil.54")); //$NON-NLS-1$
 		
-		panelCerrarCuenta = new V_PerfilCerrarCuenta();
+		panelCerrarCuenta = new V_PerfilCerrarCuenta(frmPerfil);
 		panel.add(panelCerrarCuenta, MessagesP_Perfil.getString("P_Perfil.55")); //$NON-NLS-1$
 	}
 	private Icon nuevoIcono(String nombre) {
-		Icon icon = null;
-		if(nombre == MessagesP_Perfil.getString("P_Perfil.56"))icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png")); //$NON-NLS-1$ //$NON-NLS-2$
-		if(nombre == MessagesP_Perfil.getString("P_Perfil.58")) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png")); //$NON-NLS-1$ //$NON-NLS-2$
-		if(nombre == MessagesP_Perfil.getString("P_Perfil.60")) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png")); //$NON-NLS-1$ //$NON-NLS-2$
-		
-		return icon;
-	}
+        Icon icon = null;
+
+        if(MessagesP_Login.getString("P_Login.48") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png")); //$NON-NLS-1$ //$NON-NLS-2$
+        if(MessagesP_Login.getString("P_Login.46") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png")); //$NON-NLS-1$ //$NON-NLS-2$
+        if(MessagesP_Login.getString("P_Login.50") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png"));; //$NON-NLS-1$ //$NON-NLS-2$
+        if(MessagesP_Login.getString("P_Login.48") != nombre && 
+                MessagesP_Login.getString("P_Login.46") != nombre &&
+                MessagesP_Login.getString("P_Login.50") != nombre) icon = iconAux;
+        return icon;
+    }
 	
 	private class BtnInformacionActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
@@ -598,14 +658,14 @@ public class P_Perfil extends JFrame {
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda = new P_Ayuda(nombreAux);
+			P_Ayuda frmAyuda = new P_Ayuda(nombreAux, iconAux);
 			frmAyuda.getFrame().setVisible(true);
 			frmPerfil.dispose();
 		}
 	}
 	private class BtnVolverActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal frmPrincipal = new P_Principal(nombreAux);
+			P_Principal frmPrincipal = new P_Principal(nombreAux, iconAux);
 			frmPrincipal.getFrame().setVisible(true);
 			frmPerfil.dispose();
 		}

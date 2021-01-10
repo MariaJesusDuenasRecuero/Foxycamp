@@ -30,7 +30,7 @@ public class V_ActHistorial extends JPanel {
 		add(pnlContenido, BorderLayout.CENTER);
 		pnlContenido.setLayout(null);
 		
-		JButton lblNewLabel = new JButton(" Actividades 2000");
+		JButton lblNewLabel = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblNewLabel.text")); //$NON-NLS-1$
 		lblNewLabel.addActionListener(new BtnActionListener());
 		lblNewLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel.setBackground(new Color(255, 204, 153));
@@ -41,7 +41,7 @@ public class V_ActHistorial extends JPanel {
 		lblNewLabel.setBounds(68, 75, 229, 69);
 		pnlContenido.add(lblNewLabel);
 		
-		JButton lblActividades = new JButton(" Actividades 2001");
+		JButton lblActividades = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblActividades.text")); //$NON-NLS-1$
 		lblActividades.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades.setBackground(new Color(255, 204, 153));
 		lblActividades.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -52,7 +52,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades.setBounds(68, 171, 229, 69);
 		pnlContenido.add(lblActividades);
 		
-		JButton lblActividades_1 = new JButton(" Actividades 2002");
+		JButton lblActividades_1 = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblActividades_1.text")); //$NON-NLS-1$
 		lblActividades_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1.setBackground(new Color(255, 204, 153));
 		lblActividades_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -63,7 +63,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_1);
 		
-		JButton lblActividades_1_1 = new JButton(" Actividades 2003");
+		JButton lblActividades_1_1 = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblActividades_1_1.text")); //$NON-NLS-1$
 		lblActividades_1_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1_1.setBackground(new Color(255, 204, 153));
 		lblActividades_1_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -74,7 +74,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1_1.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_1_1);
 		
-		JButton lblActividades_3 = new JButton(" Actividades 2004");
+		JButton lblActividades_3 = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblActividades_3.text")); //$NON-NLS-1$
 		lblActividades_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_3.setBackground(new Color(255, 204, 153));
 		lblActividades_3.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -85,7 +85,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_3.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_3);
 		
-		JButton lblActividades_4 = new JButton(" Actividades 2005");
+		JButton lblActividades_4 = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblActividades_4.text")); //$NON-NLS-1$
 		lblActividades_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_4.setBackground(new Color(255, 204, 153));
 		lblActividades_4.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -96,7 +96,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_4.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_4);
 		
-		JButton lblActividades_1_2 = new JButton(" Actividades 2006");
+		JButton lblActividades_1_2 = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblActividades_1_2.text")); //$NON-NLS-1$
 		lblActividades_1_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1_2.setBackground(new Color(255, 204, 153));
 		lblActividades_1_2.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -107,7 +107,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1_2.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_1_2);
 		
-		JButton lblActividades_1_1_1 = new JButton(" Actividades 2007");
+		JButton lblActividades_1_1_1 = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblActividades_1_1_1.text")); //$NON-NLS-1$
 		lblActividades_1_1_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1_1_1.setBackground(new Color(255, 204, 153));
 		lblActividades_1_1_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -118,7 +118,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1_1_1.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_1_1_1);
 		
-		JButton lblActividades_3_1 = new JButton(" Actividades 2008");
+		JButton lblActividades_3_1 = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblActividades_3_1.text")); //$NON-NLS-1$
 		lblActividades_3_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_3_1.setBackground(new Color(255, 204, 153));
 		lblActividades_3_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -129,7 +129,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_3_1.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_3_1);
 		
-		JButton lblActividades_4_1 = new JButton(" Actividades 2009");
+		JButton lblActividades_4_1 = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblActividades_4_1.text")); //$NON-NLS-1$
 		lblActividades_4_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_4_1.setBackground(new Color(255, 204, 153));
 		lblActividades_4_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -140,7 +140,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_4_1.addActionListener(new BtnActionListener());
 		pnlContenido.add(lblActividades_4_1);
 		
-		JButton lblActividades_1_2_1 = new JButton(" Actividades 2010");
+		JButton lblActividades_1_2_1 = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblActividades_1_2_1.text")); //$NON-NLS-1$
 		lblActividades_1_2_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1_2_1.setBackground(new Color(255, 204, 153));
 		lblActividades_1_2_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -151,7 +151,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1_2_1.setBounds(702, 273, 223, 69);
 		pnlContenido.add(lblActividades_1_2_1);
 		
-		JButton lblActividades_1_1_1_1 = new JButton(" Actividades 2011");
+		JButton lblActividades_1_1_1_1 = new JButton(MessagesV_ActHistorial.getString("V_ActHistorial.lblActividades_1_1_1_1.text")); //$NON-NLS-1$
 		lblActividades_1_1_1_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblActividades_1_1_1_1.setBackground(new Color(255, 204, 153));
 		lblActividades_1_1_1_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -162,7 +162,7 @@ public class V_ActHistorial extends JPanel {
 		lblActividades_1_1_1_1.setBounds(702, 366, 223, 69);
 		pnlContenido.add(lblActividades_1_1_1_1);
 		
-		JLabel lblNewLabel_1 = new JLabel("Aviso:  A partir de 2011 se han mantenido las mismas actividades.");
+		JLabel lblNewLabel_1 = new JLabel(MessagesV_ActHistorial.getString("V_ActHistorial.lblNewLabel_1.text")); //$NON-NLS-1$
 		lblNewLabel_1.setForeground(Color.RED);
 		lblNewLabel_1.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblNewLabel_1.setBounds(212, 470, 563, 31);
@@ -171,8 +171,7 @@ public class V_ActHistorial extends JPanel {
 	}
 	private class BtnActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//TODO : poner dir
-			String direccion = " ";
+			String direccion = "https://drive.google.com/file/d/1TfB6TvsqT8MBxvYHlvCSW241p_Iwulfa/view?usp=sharing";
 			try {
 				String osName = System.getProperty("os.name");
 				 if(osName.contains("Windows")) {

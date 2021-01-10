@@ -70,8 +70,8 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_separator.gridy = 0;
 		panel_2.add(separator, gbc_separator);
 
-		JLabel lblNewLabel = new JLabel("Fecha entrada");
-		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 16));
+		JLabel lblNewLabel = new JLabel(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.lblNewLabel.text")); //$NON-NLS-1$
+		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
@@ -87,8 +87,8 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_dateChooser.gridy = 1;
 		panel_2.add(dateChooser, gbc_dateChooser);
 
-		JLabel lblSalida = new JLabel("Fecha salida");
-		lblSalida.setFont(new Font("Verdana", Font.BOLD, 16));
+		JLabel lblSalida = new JLabel(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.lblSalida.text")); //$NON-NLS-1$
+		lblSalida.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblSalida = new GridBagConstraints();
 		gbc_lblSalida.anchor = GridBagConstraints.WEST;
 		gbc_lblSalida.insets = new Insets(0, 0, 5, 5);
@@ -104,8 +104,8 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_dateChooser_1.gridy = 3;
 		panel_2.add(dateChooser_1, gbc_dateChooser_1);
 
-		JLabel lblPrecio = new JLabel("Precio");
-		lblPrecio.setFont(new Font("Verdana", Font.BOLD, 14));
+		JLabel lblPrecio = new JLabel(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.lblPrecio.text")); //$NON-NLS-1$
+		lblPrecio.setFont(new Font("Verdana", Font.BOLD, 14)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblPrecio = new GridBagConstraints();
 		gbc_lblPrecio.anchor = GridBagConstraints.WEST;
 		gbc_lblPrecio.insets = new Insets(0, 0, 5, 5);
@@ -122,7 +122,7 @@ public class V_BungalowsPromociones extends JPanel {
 		sliderPrecio.setSnapToTicks(true);
 		sliderPrecio.setPaintTicks(true);
 		sliderPrecio.setPaintLabels(true);
-		sliderPrecio.setFont(new Font("Verdana", Font.PLAIN, 16));
+		sliderPrecio.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_sliderPrecio = new GridBagConstraints();
 		gbc_sliderPrecio.fill = GridBagConstraints.HORIZONTAL;
 		gbc_sliderPrecio.insets = new Insets(0, 0, 5, 5);
@@ -130,16 +130,16 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_sliderPrecio.gridy = 6;
 		panel_2.add(sliderPrecio, gbc_sliderPrecio);
 
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/IconEuro.png")));
+		JLabel lblNewLabel_4 = new JLabel(""); //$NON-NLS-1$
+		lblNewLabel_4.setIcon(new ImageIcon(V_Parcela.class.getResource("/presentacion/IconEuro.png"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
 		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_4.gridx = 2;
 		gbc_lblNewLabel_4.gridy = 6;
 		panel_2.add(lblNewLabel_4, gbc_lblNewLabel_4);
 
-		JLabel lblNewLabel_3 = new JLabel("Tipo");
-		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD, 14));
+		JLabel lblNewLabel_3 = new JLabel(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.lblNewLabel_3.text")); //$NON-NLS-1$
+		lblNewLabel_3.setFont(new Font("Verdana", Font.BOLD, 14)); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
 		gbc_lblNewLabel_3.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_3.fill = GridBagConstraints.VERTICAL;
@@ -150,8 +150,8 @@ public class V_BungalowsPromociones extends JPanel {
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(
-				new DefaultComboBoxModel(new String[] {"Pequeña", "Mediana", "Grande", "Deluxe", "Con auto"}));
-		comboBox.setFont(new Font("Verdana", Font.PLAIN, 14));
+				new DefaultComboBoxModel(new String[] {MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.7"), MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.8"), MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.9"), MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.10"), MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.11")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+		comboBox.setFont(new Font("Verdana", Font.PLAIN, 14)); //$NON-NLS-1$
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -175,9 +175,9 @@ public class V_BungalowsPromociones extends JPanel {
 		gbl_pnlBungalows.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		pnlBungalows.setLayout(gbl_pnlBungalows);
 
-		JLabel lblBungalow1 = new JLabel("");
-		lblBungalow1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		lblBungalow1.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow1.jpg")));
+		JLabel lblBungalow1 = new JLabel(""); //$NON-NLS-1$
+		lblBungalow1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
+		lblBungalow1.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow1.jpg"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblBungalow1 = new GridBagConstraints();
 		gbc_lblBungalow1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblBungalow1.gridx = 1;
@@ -185,9 +185,9 @@ public class V_BungalowsPromociones extends JPanel {
 		pnlBungalows.add(lblBungalow1, gbc_lblBungalow1);
 
 		JTextArea txtABungalow1 = new JTextArea();
-		txtABungalow1.setFont(new Font("Verdana", Font.PLAIN, 13));
-		txtABungalow1.setText("Esta propiedad independiente tiene cocina con horno, toallas y ropa de cama.\r\n\r\nSe encuentra a 20 metros de la piscina, la grannja mas cercara queda a 500 metros y elas pistas Adolfo Suárez s. ");
-		txtABungalow1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtABungalow1.setFont(new Font("Verdana", Font.PLAIN, 13)); //$NON-NLS-1$
+		txtABungalow1.setText(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.txtABungalow1.text")); //$NON-NLS-1$
+		txtABungalow1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		txtABungalow1.setEditable(false);
 		txtABungalow1.setLineWrap(true);
 		GridBagConstraints gbc_txtABungalow1 = new GridBagConstraints();
@@ -198,10 +198,10 @@ public class V_BungalowsPromociones extends JPanel {
 
 		pnlBungalows.add(txtABungalow1, gbc_txtABungalow1);
 
-		JButton btnReservarBungalow1 = new JButton("Reservar");
-		btnReservarBungalow1.setToolTipText("Reserva con oferta");
-		btnReservarBungalow1.setIcon(new ImageIcon(V_BungalowsPromociones.class.getResource("/presentacion/IconPromo2.png")));
-		btnReservarBungalow1.setFont(new Font("Verdana", Font.BOLD, 16));
+		JButton btnReservarBungalow1 = new JButton(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.btnReservarBungalow1.text")); //$NON-NLS-1$
+		btnReservarBungalow1.setToolTipText(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.btnReservarBungalow1.toolTipText")); //$NON-NLS-1$
+		btnReservarBungalow1.setIcon(new ImageIcon(V_BungalowsPromociones.class.getResource("/presentacion/IconPromo2.png"))); //$NON-NLS-1$
+		btnReservarBungalow1.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_btnReservarBungalow1 = new GridBagConstraints();
 		gbc_btnReservarBungalow1.gridwidth = 2;
 		gbc_btnReservarBungalow1.fill = GridBagConstraints.BOTH;
@@ -213,8 +213,8 @@ public class V_BungalowsPromociones extends JPanel {
 		btnReservarBungalow1.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow1, gbc_btnReservarBungalow1);
 
-		JLabel lblBungalow2 = new JLabel("");
-		lblBungalow2.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow2.jpg")));
+		JLabel lblBungalow2 = new JLabel(""); //$NON-NLS-1$
+		lblBungalow2.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow2.jpg"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblBungalow2 = new GridBagConstraints();
 		gbc_lblBungalow2.insets = new Insets(0, 0, 5, 5);
 		gbc_lblBungalow2.gridx = 1;
@@ -222,11 +222,11 @@ public class V_BungalowsPromociones extends JPanel {
 		pnlBungalows.add(lblBungalow2, gbc_lblBungalow2);
 
 		JTextArea txtABungalow2 = new JTextArea();
-		txtABungalow2.setFont(new Font("Verdana", Font.PLAIN, 10));
-		txtABungalow2.setText("El Arco - Virgen Departamentos se encuentra en Conil de la Frontera. y. Habitación con conexión wifi gratis y vistas al mar, situada a 1,1 km de la playa de La Fontanilla.\r\n\r\nTodos los alojamientos están equipados con aire acondicionado y algunos tienen TV de pantalla plana, lavarropas, cafetera y cocina.\r\n\r\nEl departamento cuenta con solárium.");
+		txtABungalow2.setFont(new Font("Verdana", Font.PLAIN, 10)); //$NON-NLS-1$
+		txtABungalow2.setText(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.txtABungalow2.text")); //$NON-NLS-1$
 		txtABungalow2.setLineWrap(true);
 		txtABungalow2.setEditable(false);
-		txtABungalow2.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtABungalow2.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		GridBagConstraints gbc_txtABungalow2 = new GridBagConstraints();
 		gbc_txtABungalow2.insets = new Insets(0, 0, 5, 5);
 		gbc_txtABungalow2.fill = GridBagConstraints.BOTH;
@@ -234,10 +234,10 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_txtABungalow2.gridy = 4;
 		pnlBungalows.add(txtABungalow2, gbc_txtABungalow2);
 
-		JButton btnReservarBungalow2 = new JButton("Reservar");
-		btnReservarBungalow2.setToolTipText("Reserva con oferta");
-		btnReservarBungalow2.setIcon(new ImageIcon(V_BungalowsPromociones.class.getResource("/presentacion/IconPromo1.png")));
-		btnReservarBungalow2.setFont(new Font("Verdana", Font.BOLD, 16));
+		JButton btnReservarBungalow2 = new JButton(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.btnReservarBungalow2.text")); //$NON-NLS-1$
+		btnReservarBungalow2.setToolTipText(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.btnReservarBungalow2.toolTipText")); //$NON-NLS-1$
+		btnReservarBungalow2.setIcon(new ImageIcon(V_BungalowsPromociones.class.getResource("/presentacion/IconPromo1.png"))); //$NON-NLS-1$
+		btnReservarBungalow2.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_btnReservarBungalow2 = new GridBagConstraints();
 		gbc_btnReservarBungalow2.fill = GridBagConstraints.BOTH;
 		gbc_btnReservarBungalow2.gridwidth = 2;
@@ -249,8 +249,8 @@ public class V_BungalowsPromociones extends JPanel {
 		btnReservarBungalow2.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow2, gbc_btnReservarBungalow2);
 
-		JLabel lblBungalow3 = new JLabel("");
-		lblBungalow3.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow3.jpg")));
+		JLabel lblBungalow3 = new JLabel(""); //$NON-NLS-1$
+		lblBungalow3.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow3.jpg"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblBungalow3 = new GridBagConstraints();
 		gbc_lblBungalow3.insets = new Insets(0, 0, 5, 5);
 		gbc_lblBungalow3.gridx = 1;
@@ -258,11 +258,11 @@ public class V_BungalowsPromociones extends JPanel {
 		pnlBungalows.add(lblBungalow3, gbc_lblBungalow3);
 
 		JTextArea txtABungalow3 = new JTextArea();
-		txtABungalow3.setFont(new Font("Verdana", Font.PLAIN, 10));
-		txtABungalow3.setText("El establecimiento Casas Elena-Conil dispone de pileta al aire libre durante todo el año y parrilla en la localidad andaluza de Conil de la Frontera, a 32 km de Cádiz. El establecimiento está a 43 km de Jerez de la Frontera. Proporciona WiFi gratis en todas las instalaciones y estacionamiento privado gratuito.");
+		txtABungalow3.setFont(new Font("Verdana", Font.PLAIN, 10)); //$NON-NLS-1$
+		txtABungalow3.setText(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.txtABungalow3.text")); //$NON-NLS-1$
 		txtABungalow3.setLineWrap(true);
 		txtABungalow3.setEditable(false);
-		txtABungalow3.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtABungalow3.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		GridBagConstraints gbc_txtABungalow3 = new GridBagConstraints();
 		gbc_txtABungalow3.insets = new Insets(0, 0, 5, 5);
 		gbc_txtABungalow3.fill = GridBagConstraints.BOTH;
@@ -271,8 +271,8 @@ public class V_BungalowsPromociones extends JPanel {
 
 		pnlBungalows.add(txtABungalow3, gbc_txtABungalow3);
 
-		JButton btnReservarBungalow3 = new JButton("Reservar");
-		btnReservarBungalow3.setFont(new Font("Verdana", Font.BOLD, 16));
+		JButton btnReservarBungalow3 = new JButton(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.btnReservarBungalow3.text")); //$NON-NLS-1$
+		btnReservarBungalow3.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_btnReservarBungalow3 = new GridBagConstraints();
 		gbc_btnReservarBungalow3.fill = GridBagConstraints.BOTH;
 		gbc_btnReservarBungalow3.gridwidth = 2;
@@ -284,8 +284,8 @@ public class V_BungalowsPromociones extends JPanel {
 		btnReservarBungalow3.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow3, gbc_btnReservarBungalow3);
 
-		JLabel lblBungalow4 = new JLabel("");
-		lblBungalow4.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow4.jpg")));
+		JLabel lblBungalow4 = new JLabel(""); //$NON-NLS-1$
+		lblBungalow4.setIcon(new ImageIcon(V_Bungalow.class.getResource("/presentacion/Bungalow4.jpg"))); //$NON-NLS-1$
 		GridBagConstraints gbc_lblBungalow4 = new GridBagConstraints();
 		gbc_lblBungalow4.insets = new Insets(0, 0, 5, 5);
 		gbc_lblBungalow4.gridx = 1;
@@ -293,11 +293,11 @@ public class V_BungalowsPromociones extends JPanel {
 		pnlBungalows.add(lblBungalow4, gbc_lblBungalow4);
 
 		JTextArea txtABungalow4 = new JTextArea();
-		txtABungalow4.setFont(new Font("Verdana", Font.PLAIN, 10));
-		txtABungalow4.setText("Todos los alojamientos incluyen TV vía satélite, cocina con lavavajillas, horno, microondas, tostadora y cafetera y baño privado con bañera, secador de pelo y toallas. Algunos de ellos ofrecen zona de estar o de comedor.");
+		txtABungalow4.setFont(new Font("Verdana", Font.PLAIN, 10)); //$NON-NLS-1$
+		txtABungalow4.setText(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.txtABungalow4.text")); //$NON-NLS-1$
 		txtABungalow4.setLineWrap(true);
 		txtABungalow4.setEditable(false);
-		txtABungalow4.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtABungalow4.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		GridBagConstraints gbc_txtABungalow4 = new GridBagConstraints();
 		gbc_txtABungalow4.insets = new Insets(0, 0, 5, 5);
 		gbc_txtABungalow4.fill = GridBagConstraints.BOTH;
@@ -305,8 +305,8 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_txtABungalow4.gridy = 10;
 		pnlBungalows.add(txtABungalow4, gbc_txtABungalow4);
 
-		JButton btnReservarBungalow4 = new JButton("Reservar");
-		btnReservarBungalow4.setFont(new Font("Verdana", Font.BOLD, 16));
+		JButton btnReservarBungalow4 = new JButton(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.btnReservarBungalow4.text")); //$NON-NLS-1$
+		btnReservarBungalow4.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_btnReservarBungalow4 = new GridBagConstraints();
 		gbc_btnReservarBungalow4.fill = GridBagConstraints.BOTH;
 		gbc_btnReservarBungalow4.gridwidth = 2;
@@ -318,7 +318,7 @@ public class V_BungalowsPromociones extends JPanel {
 		btnReservarBungalow4.setBackground(new Color(255, 165, 0));
 		pnlBungalows.add(btnReservarBungalow4, gbc_btnReservarBungalow4);
 
-		JLabel lblBungalow5 = new JLabel("");
+		JLabel lblBungalow5 = new JLabel(""); //$NON-NLS-1$
 		GridBagConstraints gbc_lblBungalow5 = new GridBagConstraints();
 		gbc_lblBungalow5.insets = new Insets(0, 0, 5, 5);
 		gbc_lblBungalow5.gridx = 1;
@@ -326,11 +326,11 @@ public class V_BungalowsPromociones extends JPanel {
 		pnlBungalows.add(lblBungalow5, gbc_lblBungalow5);
 
 		JTextArea txtABungalow5 = new JTextArea();
-		txtABungalow5.setFont(new Font("Verdana", Font.PLAIN, 10));
-		txtABungalow5.setText("El Hostal Flor De Lis- Lojo ofrece alojamiento con WiFi gratuita en Conil de la Frontera, a 34 km de Cádiz. Este establecimiento alberga un bar.\r\n\r\nLas habitaciones disponen de aire acondicionado, TV de pantalla plana y baño privado. También incluyen secador de pelo y artículos de aseo gratuitos.\r\n\r\nLa recepción está abierta las 24 horas.\r\n\r\n");
+		txtABungalow5.setFont(new Font("Verdana", Font.PLAIN, 10)); //$NON-NLS-1$
+		txtABungalow5.setText(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.txtABungalow5.text")); //$NON-NLS-1$
 		txtABungalow5.setLineWrap(true);
 		txtABungalow5.setEditable(false);
-		txtABungalow5.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		txtABungalow5.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		GridBagConstraints gbc_txtABungalow5 = new GridBagConstraints();
 		gbc_txtABungalow5.insets = new Insets(0, 0, 5, 5);
 		gbc_txtABungalow5.fill = GridBagConstraints.BOTH;
@@ -338,10 +338,10 @@ public class V_BungalowsPromociones extends JPanel {
 		gbc_txtABungalow5.gridy = 13;
 		pnlBungalows.add(txtABungalow5, gbc_txtABungalow5);
 
-		JButton btnReservarBungalow5 = new JButton("Reservar");
-		btnReservarBungalow5.setIcon(new ImageIcon(V_BungalowsPromociones.class.getResource("/presentacion/IconPromo2.png")));
-		btnReservarBungalow5.setToolTipText("Reserva con oferta");
-		btnReservarBungalow5.setFont(new Font("Verdana", Font.BOLD, 16));
+		JButton btnReservarBungalow5 = new JButton(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.btnReservarBungalow5.text")); //$NON-NLS-1$
+		btnReservarBungalow5.setIcon(new ImageIcon(V_BungalowsPromociones.class.getResource("/presentacion/IconPromo2.png"))); //$NON-NLS-1$
+		btnReservarBungalow5.setToolTipText(MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.btnReservarBungalow5.toolTipText")); //$NON-NLS-1$
+		btnReservarBungalow5.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		GridBagConstraints gbc_btnReservarBungalow5 = new GridBagConstraints();
 		gbc_btnReservarBungalow5.fill = GridBagConstraints.BOTH;
 		gbc_btnReservarBungalow5.gridwidth = 2;
@@ -363,7 +363,7 @@ public class V_BungalowsPromociones extends JPanel {
 	private class BtnActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout)(pnlContenido.getLayout());
-			cl.show(pnlContenido, "reservar");
+			cl.show(pnlContenido, MessagesV_BungalowsPromociones.getString("V_BungalowsPromociones.0")); //$NON-NLS-1$
 		}
 	}
 	private static class __Tmp {

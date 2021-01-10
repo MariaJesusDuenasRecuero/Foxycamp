@@ -226,6 +226,7 @@ public class V_RutaElegida extends JPanel {
 		panel_1.add(lblInfo, gbc_lblInfo);
 		
 		JButton btnInscribirse = new JButton(MessagesV_RutaElegida.getString("V_RutaElegida.btnInscribirse.text")); //$NON-NLS-1$
+		btnInscribirse.setFont(new Font("Verdana", Font.BOLD, 16));
 		btnInscribirse.setToolTipText(MessagesV_RutaElegida.getString("V_RutaElegida.btnInscribirse.toolTipText")); //$NON-NLS-1$
 		btnInscribirse.addActionListener(new BtnActionListener());
 		GridBagConstraints gbc_btnInscribirse = new GridBagConstraints();
@@ -236,7 +237,7 @@ public class V_RutaElegida extends JPanel {
 		btnInscribirse.setBounds(new Rectangle(0, 0, 30, 10));
 		btnInscribirse.setBorder(new RoundedBorder(10));
 		btnInscribirse.setForeground(new Color(0,0,0));
-		btnInscribirse.setBackground(new Color(244, 164, 96));
+		btnInscribirse.setBackground(new Color(255, 165, 0));
 		panel_1.add(btnInscribirse, gbc_btnInscribirse);
 	}
 	

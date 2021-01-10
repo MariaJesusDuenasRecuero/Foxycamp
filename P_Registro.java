@@ -26,6 +26,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Rectangle;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -88,6 +89,7 @@ public class P_Registro extends JFrame {
 	private JLabel lblAviso;
 	private JLabel lblFichero;
 	private JPopupMenu pmFlecha;
+	private Icon icon = null;
 
 	/**
 	 * Create the frame.
@@ -151,6 +153,7 @@ public class P_Registro extends JFrame {
 		lblFlechaTraductor.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png"))); //$NON-NLS-1$
 		
 		JButton btnEspanol = new JButton(MessagesP_Registro.getString("P_Registro.btnEspanol.text")); //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
+		btnEspanol.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/lengua-espanola.png")));
 		btnEspanol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MessagesP_About.setIdioma("español"); //$NON-NLS-1$
@@ -159,6 +162,28 @@ public class P_Registro extends JFrame {
 				MessagesP_Perfil.setIdioma("español");
 				MessagesP_Registro.setIdioma("español");
 				MessagesPrincipal.setIdioma("español");
+				
+				MessagesV_ActHistorial.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("español");
+				MessagesV_Bungalows.setIdioma("español");
+				MessagesV_BungalowsPromociones.setIdioma("español");
+				MessagesV_Formacion.setIdioma("español");
+				MessagesV_Informacion.setIdioma("español");
+				MessagesV_Inscribirse.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("español");
+				MessagesV_Parcela.setIdioma("español");
+				MessagesV_PerfilCerrarCuenta.setIdioma("español");
+				MessagesV_PerfilContrasena.setIdioma("español");
+				MessagesV_PromocionesActividades.setIdioma("español");
+				MessagesV_Reservas.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("español");
+				MessagesV_RutaCrear.setIdioma("español");
+				MessagesV_RutaElegida.setIdioma("español");
+				MessagesV_RutaInscribirse.setIdioma("español");
+				MessagesV_RutaInscritos.setIdioma("español");
+				MessagesV_VerReservasBungalows.setIdioma("español");
+				MessagesV_VerReservasParcelas.setIdioma("español");
+				
 				P_Registro frm = new P_Registro();
 				frmRegistro.dispose();
 				frm.getFrame().setVisible(true);
@@ -169,6 +194,7 @@ public class P_Registro extends JFrame {
 		pmFlecha.add(btnEspanol);
 		
 		JButton btnIngles = new JButton(MessagesP_Registro.getString("P_Registro.btnIngles.text")); //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
+		btnIngles.setIcon(new ImageIcon(P_Registro.class.getResource("/presentacion/idioma-en-ingles.png")));
 		btnIngles.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MessagesP_About.setIdioma("inglés"); //$NON-NLS-1$
@@ -177,6 +203,28 @@ public class P_Registro extends JFrame {
 				MessagesP_Perfil.setIdioma("inglés");
 				MessagesP_Registro.setIdioma("inglés");
 				MessagesPrincipal.setIdioma("inglés");
+				
+				MessagesV_ActHistorial.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("inglés");
+				MessagesV_Bungalows.setIdioma("inglés");
+				MessagesV_BungalowsPromociones.setIdioma("inglés");
+				MessagesV_Formacion.setIdioma("inglés");
+				MessagesV_Informacion.setIdioma("inglés");
+				MessagesV_Inscribirse.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("inglés");
+				MessagesV_Parcela.setIdioma("inglés");
+				MessagesV_PerfilCerrarCuenta.setIdioma("inglés");
+				MessagesV_PerfilContrasena.setIdioma("inglés");
+				MessagesV_PromocionesActividades.setIdioma("inglés");
+				MessagesV_Reservas.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("inglés");
+				MessagesV_RutaCrear.setIdioma("inglés");
+				MessagesV_RutaElegida.setIdioma("inglés");
+				MessagesV_RutaInscribirse.setIdioma("inglés");
+				MessagesV_RutaInscritos.setIdioma("inglés");
+				MessagesV_VerReservasBungalows.setIdioma("inglés");
+				MessagesV_VerReservasParcelas.setIdioma("inglés");
+				
 				P_Registro frm = new P_Registro();
 				frmRegistro.dispose();
 				frm.getFrame().setVisible(true);
@@ -595,8 +643,8 @@ public class P_Registro extends JFrame {
 			//Recoger el nombre del fichero seleccionado por el usuario
 			if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
 				File file = fcAbrir.getSelectedFile();
-				//En este punto la aplicaci�n se deber�a encargar de realizar la operaci�n sobre el fichero
-				System.out.println(file.getName());
+				icon = new ImageIcon(file.getAbsolutePath());
+				lblFoto.setIcon(icon);
 				lblFoto.setIcon(new ImageIcon(file.getAbsolutePath()));
 			}
 		}
@@ -766,7 +814,7 @@ public class P_Registro extends JFrame {
 	}
 	private class BtnConfirmarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal principal = new P_Principal(textNombre.getText());
+			P_Principal principal = new P_Principal(textNombre.getText(), icon);
 			principal.getFrame().setVisible(true);
 			frmRegistro.dispose();
 		}

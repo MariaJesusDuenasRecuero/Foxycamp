@@ -270,7 +270,7 @@ public class V_Informacion extends JPanel {
 		txtTelefono.setColumns(10);
 		
 		JButton btnCargarFoto = new JButton(MessagesV_Informacion.getString("V_Informacion.btnCargarFoto.text")); //$NON-NLS-1$
-		btnCargarFoto.setFont(new Font("Tahoma", Font.PLAIN, 16)); //$NON-NLS-1$
+		btnCargarFoto.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
 		btnCargarFoto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

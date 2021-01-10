@@ -560,7 +560,7 @@ public class V_Reserva extends JPanel {
 		JButton btnReservar = new JButton(MessagesV_Reservas.getString("V_Reserva.btnReservar.text")); //$NON-NLS-1$
 		btnReservar.addActionListener(new BtnReservarActionListener());
 		btnReservar.setFont(new Font("Verdana", Font.BOLD, 20)); //$NON-NLS-1$
-		btnReservar.setBackground(new Color(244, 164, 96));
+		btnReservar.setBackground(new Color(255, 165, 0));
 		GridBagConstraints gbc_btnReservar = new GridBagConstraints();
 		gbc_btnReservar.anchor = GridBagConstraints.EAST;
 		gbc_btnReservar.insets = new Insets(0, 0, 5, 5);

@@ -1,6 +1,6 @@
 package presentacion;
 
-import java.awt.EventQueue;
+import java.awt.EventQueue; 
 import javax.swing.JFrame;
 import java.awt.Rectangle;
 import java.awt.Color;
@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.GridBagLayout;
@@ -31,11 +32,6 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.text.MaskFormatter;
-
-import java.awt.SystemColor;
-import javax.swing.UIManager;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.MatteBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.ParseException;
@@ -56,7 +52,7 @@ public class P_Login {
 	private JLabel lblIncorrectPassword;
 	private JLabel lblEstado;
 	private JLabel lblLink;
-
+	private Icon iconAux = null;
 	private Color colorBlanco = new Color(255, 255, 255);
 	private Color colorResaltado = new Color(255, 255, 209);
 
@@ -136,15 +132,19 @@ public class P_Login {
 		pnlHeader.add(lblTraductor, gbc_lblTraductor);
 		
 		JLabel lblFlechaTraductor = new JLabel(MessagesP_Login.getString("P_Login.lblNewLabel.text")); //$NON-NLS-1$
+		lblFlechaTraductor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblFlechaTraductor.setIcon(new ImageIcon(P_Login.class.getResource(MessagesP_Login.getString("P_Login.8")))); //$NON-NLS-1$
 		
 		JPopupMenu pmFlecha = new JPopupMenu();
+		pmFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addPopup(lblFlechaTraductor, pmFlecha);
 		
 		JButton btnEspanol = new JButton(MessagesP_Login.getString("P_Login.btnNewButton.text")); //$NON-NLS-1$
+		btnEspanol.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/lengua-espanola.png")));
 		pmFlecha.add(btnEspanol);
 		
 		JButton btnIngles = new JButton(MessagesP_Login.getString("P_Login.btnNewButton_1.text")); //$NON-NLS-1$
+		btnIngles.setIcon(new ImageIcon(P_Login.class.getResource("/presentacion/idioma-en-ingles.png")));
 		pmFlecha.add(btnIngles);
 		GridBagConstraints gbc_lblFlechaTraductor = new GridBagConstraints();
 		gbc_lblFlechaTraductor.anchor = GridBagConstraints.SOUTH;
@@ -168,6 +168,7 @@ public class P_Login {
 		pnlHeader.add(lblLeftLine, gbc_lblLeftLine);
 
 		JPanel pnlContenido = new JPanel();
+		pnlContenido.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		pnlContenido.setToolTipText(MessagesP_Login.getString("P_Login.pnlContenido.toolTipText")); //$NON-NLS-1$
 		pnlContenido.setBackground(new Color(255, 228, 196));
 		frmLogin.getContentPane().add(pnlContenido, BorderLayout.SOUTH);
@@ -331,7 +332,7 @@ public class P_Login {
 		btnEntrarLogin.setIcon(new ImageIcon(P_Login.class.getResource(MessagesP_Login.getString("P_Login.27")))); //$NON-NLS-1$
 		btnEntrarLogin.setForeground(new Color(0, 0, 0));
 		btnEntrarLogin.addActionListener(new BtnAceptarLoginActionListener());
-		btnEntrarLogin.setBackground(new Color(244, 164, 96));
+		btnEntrarLogin.setBackground(new Color(255, 165, 0));
 		btnEntrarLogin.setToolTipText(MessagesP_Login.getString("P_Login.btnEntrarLogin.toolTipText")); //$NON-NLS-1$
 		btnEntrarLogin.setBorder(new RoundedBorder(10));
 		btnEntrarLogin.setFont(new Font(MessagesP_Login.getString("P_Login.28"), Font.BOLD, 16)); //$NON-NLS-1$
@@ -351,7 +352,7 @@ public class P_Login {
 		btnBorrarLogin.setForeground(Color.BLACK);
 		btnBorrarLogin.setToolTipText(MessagesP_Login.getString("P_Login.btnBorrarLogin.toolTipText")); //$NON-NLS-1$
 		btnBorrarLogin.setFont(new Font(MessagesP_Login.getString("P_Login.30"), Font.BOLD, 16)); //$NON-NLS-1$
-		btnBorrarLogin.setBackground(new Color(244, 164, 96));
+		btnBorrarLogin.setBackground(new Color(255, 165, 0));
 		btnBorrarLogin.setBorder(new RoundedBorder(10));
 		GridBagConstraints gbc_btnBorrarLogin = new GridBagConstraints();
 		gbc_btnBorrarLogin.gridheight = 2;
@@ -384,6 +385,28 @@ public class P_Login {
 				MessagesP_Perfil.setIdioma("español");
 				MessagesP_Registro.setIdioma("español");
 				MessagesPrincipal.setIdioma("español");
+				
+				MessagesV_ActHistorial.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("español");
+				MessagesV_Bungalows.setIdioma("español");
+				MessagesV_BungalowsPromociones.setIdioma("español");
+				MessagesV_Formacion.setIdioma("español");
+				MessagesV_Informacion.setIdioma("español");
+				MessagesV_Inscribirse.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("español");
+				MessagesV_Parcela.setIdioma("español");
+				MessagesV_PerfilCerrarCuenta.setIdioma("español");
+				MessagesV_PerfilContrasena.setIdioma("español");
+				MessagesV_PromocionesActividades.setIdioma("español");
+				MessagesV_Reservas.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("español");
+				MessagesV_RutaCrear.setIdioma("español");
+				MessagesV_RutaElegida.setIdioma("español");
+				MessagesV_RutaInscribirse.setIdioma("español");
+				MessagesV_RutaInscritos.setIdioma("español");
+				MessagesV_VerReservasBungalows.setIdioma("español");
+				MessagesV_VerReservasParcelas.setIdioma("español");
+				
 				P_Login frm = new P_Login();
 				frmLogin.dispose();
 				frm.getFrame().setVisible(true);
@@ -398,6 +421,28 @@ public class P_Login {
 				MessagesP_Perfil.setIdioma("inglés");
 				MessagesP_Registro.setIdioma("inglés");
 				MessagesPrincipal.setIdioma("inglés");
+				
+				MessagesV_ActHistorial.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("inglés");
+				MessagesV_Bungalows.setIdioma("inglés");
+				MessagesV_BungalowsPromociones.setIdioma("inglés");
+				MessagesV_Formacion.setIdioma("inglés");
+				MessagesV_Informacion.setIdioma("inglés");
+				MessagesV_Inscribirse.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("inglés");
+				MessagesV_Parcela.setIdioma("inglés");
+				MessagesV_PerfilCerrarCuenta.setIdioma("inglés");
+				MessagesV_PerfilContrasena.setIdioma("inglés");
+				MessagesV_PromocionesActividades.setIdioma("inglés");
+				MessagesV_Reservas.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("inglés");
+				MessagesV_RutaCrear.setIdioma("inglés");
+				MessagesV_RutaElegida.setIdioma("inglés");
+				MessagesV_RutaInscribirse.setIdioma("inglés");
+				MessagesV_RutaInscritos.setIdioma("inglés");
+				MessagesV_VerReservasBungalows.setIdioma("inglés");
+				MessagesV_VerReservasParcelas.setIdioma("inglés");
+				
 				P_Login frm = new P_Login();
 				frmLogin.dispose();
 				frm.getFrame().setVisible(true);
@@ -420,7 +465,8 @@ public class P_Login {
 					|| (txtFormattedDNI.getText().equals(MessagesP_Login.getString("P_Login.38")) //$NON-NLS-1$
 							&& pwdIntroduzcaContrasea.getText().equals(MessagesP_Login.getString("P_Login.39")))) { //$NON-NLS-1$
 				String login = getLogin(txtFormattedDNI.getText());
-				P_Principal principal = new P_Principal(login);
+	
+				P_Principal principal = new P_Principal(login, iconAux);
 				principal.getFrame().setVisible(true);
 				frmLogin.dispose();
 			} else if (txtFormattedDNI.getText().equals(MessagesP_Login.getString("P_Login.40")) || pwdIntroduzcaContrasea.getText().equals(MessagesP_Login.getString("P_Login.41"))) { //$NON-NLS-1$ //$NON-NLS-2$
@@ -442,7 +488,7 @@ public class P_Login {
 			return nombre;
 		}
 	}
-
+	
 
 	private class BtnBorrarLoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {

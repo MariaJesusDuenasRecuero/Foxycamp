@@ -13,6 +13,8 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -37,6 +39,7 @@ import java.awt.Cursor;
 @SuppressWarnings("serial")
 public class P_About extends JFrame {
 	private String nombreAux;
+	private Icon iconAux;
 	private JPanel contentPane;
 	JFrame frmAbout;
 
@@ -44,8 +47,9 @@ public class P_About extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public P_About(String nombre) {
-		nombreAux = nombre;
+	public P_About(String nombre, Icon icon) {
+		nombreAux = nombre;	
+		iconAux = icon;
 		frmAbout = new JFrame();
 		frmAbout.setIconImage(Toolkit.getDefaultToolkit().getImage(P_About.class.getResource("/presentacion/IconAboutUs.png")));
 		frmAbout.setTitle(MessagesP_About.getString("P_About.frmAbout.title")); //$NON-NLS-1$
@@ -116,9 +120,13 @@ public class P_About extends JFrame {
 		lblFlechaTraductor.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/flecha-hacia-abajo-del-angulo.png")));
 		
 		JPopupMenu pmFlecha2 = new JPopupMenu();
+		pmFlecha2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		addPopup(lblFlechaTraductor, pmFlecha2);
 		
 		JButton btnEspanol = new JButton(MessagesP_About.getString("P_About.btnNewButton_1.text")); //$NON-NLS-1$
+		btnEspanol.setFont(new Font("Verdana", Font.PLAIN, 12));
+		btnEspanol.setHorizontalAlignment(SwingConstants.LEFT);
+		btnEspanol.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/lengua-espanola.png")));
 		btnEspanol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MessagesP_About.setIdioma("español"); //$NON-NLS-1$
@@ -127,7 +135,29 @@ public class P_About extends JFrame {
 				MessagesP_Perfil.setIdioma("español");
 				MessagesP_Registro.setIdioma("español");
 				MessagesPrincipal.setIdioma("español");
-				P_About frm = new P_About(nombre);
+				
+				MessagesV_ActHistorial.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("español");
+				MessagesV_Bungalows.setIdioma("español");
+				MessagesV_BungalowsPromociones.setIdioma("español");
+				MessagesV_Formacion.setIdioma("español");
+				MessagesV_Informacion.setIdioma("español");
+				MessagesV_Inscribirse.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("español");
+				MessagesV_Parcela.setIdioma("español");
+				MessagesV_PerfilCerrarCuenta.setIdioma("español");
+				MessagesV_PerfilContrasena.setIdioma("español");
+				MessagesV_PromocionesActividades.setIdioma("español");
+				MessagesV_Reservas.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("español");
+				MessagesV_RutaCrear.setIdioma("español");
+				MessagesV_RutaElegida.setIdioma("español");
+				MessagesV_RutaInscribirse.setIdioma("español");
+				MessagesV_RutaInscritos.setIdioma("español");
+				MessagesV_VerReservasBungalows.setIdioma("español");
+				MessagesV_VerReservasParcelas.setIdioma("español");
+				
+				P_About frm = new P_About(nombre,icon);
 				frmAbout.dispose();
 				frm.getFrame().setVisible(true);
 			}
@@ -135,6 +165,8 @@ public class P_About extends JFrame {
 		pmFlecha2.add(btnEspanol);
 		
 		JButton btnIngles = new JButton(MessagesP_About.getString("P_About.btnNewButton_2.text")); //$NON-NLS-1$
+		btnIngles.setFont(new Font("Verdana", Font.PLAIN, 12));
+		btnIngles.setIcon(new ImageIcon(P_About.class.getResource("/presentacion/idioma-en-ingles.png")));
 		btnIngles.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MessagesP_About.setIdioma("inglés"); //$NON-NLS-1$
@@ -143,7 +175,29 @@ public class P_About extends JFrame {
 				MessagesP_Perfil.setIdioma("inglés");
 				MessagesP_Registro.setIdioma("inglés");
 				MessagesPrincipal.setIdioma("inglés");
-				P_About frm = new P_About(nombre);
+				
+				MessagesV_ActHistorial.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("inglés");
+				MessagesV_Bungalows.setIdioma("inglés");
+				MessagesV_BungalowsPromociones.setIdioma("inglés");
+				MessagesV_Formacion.setIdioma("inglés");
+				MessagesV_Informacion.setIdioma("inglés");
+				MessagesV_Inscribirse.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("inglés");
+				MessagesV_Parcela.setIdioma("inglés");
+				MessagesV_PerfilCerrarCuenta.setIdioma("inglés");
+				MessagesV_PerfilContrasena.setIdioma("inglés");
+				MessagesV_PromocionesActividades.setIdioma("inglés");
+				MessagesV_Reservas.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("inglés");
+				MessagesV_RutaCrear.setIdioma("inglés");
+				MessagesV_RutaElegida.setIdioma("inglés");
+				MessagesV_RutaInscribirse.setIdioma("inglés");
+				MessagesV_RutaInscritos.setIdioma("inglés");
+				MessagesV_VerReservasBungalows.setIdioma("inglés");
+				MessagesV_VerReservasParcelas.setIdioma("inglés");
+				
+				P_About frm = new P_About(nombre, icon);
 				frmAbout.dispose();
 				frm.getFrame().setVisible(true);
 			}
@@ -183,10 +237,17 @@ public class P_About extends JFrame {
 		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
 		
+		LocalDate date = LocalDate.now(); // Gets the current date
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		String date_cu = date.format(formatter);
+		JLabel lblUltimaFecha = new JLabel("Última fecha: " + date_cu);
+		lblUltimaFecha.setFont(new Font("Verdana", Font.PLAIN, 9));
+		pmFlecha.add(lblUltimaFecha);
+		
 		JButton btnAjustes = new JButton(MessagesP_About.getString("P_About.btnAjustes.text")); //$NON-NLS-1$
 		btnAjustes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_Perfil frmPerfil = new P_Perfil(nombre);
+				P_Perfil frmPerfil = new P_Perfil(nombre, icon);
 				frmPerfil.getFrame().setVisible(true);
 				frmAbout.dispose();
 			}
@@ -309,13 +370,16 @@ public class P_About extends JFrame {
 	}
 	
 	private Icon nuevoIcono(String nombre) {
-		Icon icon = null;
-		if(nombre == "Adrián Ruiz")icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png"));
-		if(nombre == "María Jesús") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png"));
-		if(nombre == "María Blanco") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png"));
-		
-		return icon;
-	}
+        Icon icon = null;
+
+        if(MessagesP_Login.getString("P_Login.48") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png")); //$NON-NLS-1$ //$NON-NLS-2$
+        if(MessagesP_Login.getString("P_Login.46") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png")); //$NON-NLS-1$ //$NON-NLS-2$
+        if(MessagesP_Login.getString("P_Login.50") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png"));; //$NON-NLS-1$ //$NON-NLS-2$
+        if(MessagesP_Login.getString("P_Login.48") != nombre && 
+                MessagesP_Login.getString("P_Login.46") != nombre &&
+                MessagesP_Login.getString("P_Login.50") != nombre) icon = iconAux;
+        return icon;
+    }
 	
 	public class RoundedBorder implements Border {
 
@@ -341,14 +405,14 @@ public class P_About extends JFrame {
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda = new P_Ayuda(nombreAux);
+			P_Ayuda frmAyuda = new P_Ayuda(nombreAux, iconAux);
 			frmAyuda.getFrame().setVisible(true);
 			frmAbout.dispose();
 		}
 	}
 	private class BtnVolverActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal frmPrincipal = new P_Principal(nombreAux);
+			P_Principal frmPrincipal = new P_Principal(nombreAux, iconAux);
 			frmPrincipal.getFrame().setVisible(true);
 			frmAbout.dispose();
 		}

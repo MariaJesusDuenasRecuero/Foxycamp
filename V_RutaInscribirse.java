@@ -64,8 +64,8 @@ public class V_RutaInscribirse extends JPanel {
 		btnAceptar.setToolTipText(MessagesV_RutaInscribirse.getString("V_RutaInscribirse.btnAceptar.toolTipText")); //$NON-NLS-1$
 		btnAceptar.addActionListener(new BtnAceptarActionListener());
 		btnAceptar.setBorder(new RoundedBorder(10));
-		btnAceptar.setFont(new Font("Verdana", Font.PLAIN, 16)); //$NON-NLS-1$
-		btnAceptar.setBackground(new Color(244, 164, 96));
+		btnAceptar.setFont(new Font("Verdana", Font.BOLD, 16)); //$NON-NLS-1$
+		btnAceptar.setBackground(new Color(255, 165, 0));
 		btnAceptar.setBounds(827, 473, 121, 23);
 		add(btnAceptar);
 

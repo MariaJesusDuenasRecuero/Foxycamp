@@ -12,6 +12,8 @@ import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -40,8 +42,10 @@ public class P_Ayuda extends JFrame {
 	private JButton btnVideo;
 	private JFrame frmAyuda;
 	private String nombreAux;
+	private Icon iconAux;
 
-	public P_Ayuda(String nombre) {
+	public P_Ayuda(String nombre, Icon icon) {
+		iconAux = icon;
 		nombreAux = nombre;
 		frmAyuda = new JFrame();
 		frmAyuda.setBackground(Color.WHITE);
@@ -118,6 +122,7 @@ public class P_Ayuda extends JFrame {
 		addPopup(lblFlechaTraductor, pmFlecha2);
 		
 		JButton btnEspanol = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnEspanol.text")); //$NON-NLS-1$ //$NON-NLS-1$
+		btnEspanol.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/lengua-espanola.png")));
 		btnEspanol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MessagesP_About.setIdioma("español"); //$NON-NLS-1$
@@ -126,7 +131,30 @@ public class P_Ayuda extends JFrame {
 				MessagesP_Perfil.setIdioma("español");
 				MessagesP_Registro.setIdioma("español");
 				MessagesPrincipal.setIdioma("español");
-				P_Ayuda frm = new P_Ayuda(nombre);
+				
+				MessagesV_ActHistorial.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("español");
+				MessagesV_Bungalows.setIdioma("español");
+				MessagesV_BungalowsPromociones.setIdioma("español");
+				MessagesV_Formacion.setIdioma("español");
+				MessagesV_Informacion.setIdioma("español");
+				MessagesV_Inscribirse.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("español");
+				MessagesV_Parcela.setIdioma("español");
+				MessagesV_PerfilCerrarCuenta.setIdioma("español");
+				MessagesV_PerfilContrasena.setIdioma("español");
+				MessagesV_PromocionesActividades.setIdioma("español");
+				MessagesV_Reservas.setIdioma("español"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("español");
+				MessagesV_RutaCrear.setIdioma("español");
+				MessagesV_RutaElegida.setIdioma("español");
+				MessagesV_RutaInscribirse.setIdioma("español");
+				MessagesV_RutaInscritos.setIdioma("español");
+				MessagesV_VerReservasBungalows.setIdioma("español");
+				MessagesV_VerReservasParcelas.setIdioma("español");
+				
+				
+				P_Ayuda frm = new P_Ayuda(nombre, icon);
 				frmAyuda.dispose();
 				frm.getFrame().setVisible(true);
 			}
@@ -134,6 +162,7 @@ public class P_Ayuda extends JFrame {
 		pmFlecha2.add(btnEspanol);
 		
 		JButton btnIngles = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnIngles.text")); //$NON-NLS-1$ //$NON-NLS-1$
+		btnIngles.setIcon(new ImageIcon(P_Ayuda.class.getResource("/presentacion/idioma-en-ingles.png")));
 		btnIngles.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MessagesP_About.setIdioma("inglés"); //$NON-NLS-1$
@@ -142,7 +171,29 @@ public class P_Ayuda extends JFrame {
 				MessagesP_Perfil.setIdioma("inglés");
 				MessagesP_Registro.setIdioma("inglés");
 				MessagesPrincipal.setIdioma("inglés");
-				P_Ayuda frm = new P_Ayuda(nombre);
+				
+				MessagesV_ActHistorial.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Actividades.setIdioma("inglés");
+				MessagesV_Bungalows.setIdioma("inglés");
+				MessagesV_BungalowsPromociones.setIdioma("inglés");
+				MessagesV_Formacion.setIdioma("inglés");
+				MessagesV_Informacion.setIdioma("inglés");
+				MessagesV_Inscribirse.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Inscritos.setIdioma("inglés");
+				MessagesV_Parcela.setIdioma("inglés");
+				MessagesV_PerfilCerrarCuenta.setIdioma("inglés");
+				MessagesV_PerfilContrasena.setIdioma("inglés");
+				MessagesV_PromocionesActividades.setIdioma("inglés");
+				MessagesV_Reservas.setIdioma("inglés"); //$NON-NLS-1$
+				MessagesV_Ruta.setIdioma("inglés");
+				MessagesV_RutaCrear.setIdioma("inglés");
+				MessagesV_RutaElegida.setIdioma("inglés");
+				MessagesV_RutaInscribirse.setIdioma("inglés");
+				MessagesV_RutaInscritos.setIdioma("inglés");
+				MessagesV_VerReservasBungalows.setIdioma("inglés");
+				MessagesV_VerReservasParcelas.setIdioma("inglés");
+				
+				P_Ayuda frm = new P_Ayuda(nombre, icon);
 				frmAyuda.dispose();
 				frm.getFrame().setVisible(true);
 			}
@@ -182,10 +233,30 @@ public class P_Ayuda extends JFrame {
 		lblPerfilOption.setIcon(nuevoIcono(nombre));
 		pmFlecha.add(lblPerfilOption);
 		
+		LocalDate date = LocalDate.now(); // Gets the current date
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		String date_cu = date.format(formatter);
+		JLabel lblUltimaFecha = new JLabel("Última fecha: " + date_cu);
+		lblUltimaFecha.setFont(new Font("Verdana", Font.PLAIN, 9));
+		pmFlecha.add(lblUltimaFecha);
+
+		
+		JButton btnAbout = new JButton("   Sobre nosotros");
+        btnAbout.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                P_About frmAbout = new P_About(nombre, icon);
+                frmAbout.getFrame().setVisible(true);
+                frmAyuda.dispose();
+            }
+        });
+        btnAbout.setBounds(new Rectangle(0, 0, 70, 0));
+        btnAbout.setIcon(new ImageIcon(P_Principal.class.getResource("/presentacion/IconAboutUs.png")));
+        pmFlecha.add(btnAbout);
+        
 		JButton btnAjustes = new JButton(MessagesP_Ayuda.getString("P_Ayuda.btnAjustes.text_1")); //$NON-NLS-1$ //$NON-NLS-1$
 		btnAjustes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				P_Perfil frmPerfil = new P_Perfil(nombre);
+				P_Perfil frmPerfil = new P_Perfil(nombre, iconAux);
 				frmPerfil.getFrame().setVisible(true);
 				frmAyuda.dispose();
 			}
@@ -328,13 +399,16 @@ public class P_Ayuda extends JFrame {
 
 	}
 	private Icon nuevoIcono(String nombre) {
-		Icon icon = null;
-		if(nombre == "Adrián Ruiz")icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png")); //$NON-NLS-1$ //$NON-NLS-2$
-		if(nombre == "María Jesús") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png")); //$NON-NLS-1$ //$NON-NLS-2$
-		if(nombre == "María Blanco") icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png")); //$NON-NLS-1$ //$NON-NLS-2$
-		
-		return icon;
-	}
+        Icon icon = null;
+
+        if(MessagesP_Login.getString("P_Login.48") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMj.png")); //$NON-NLS-1$ //$NON-NLS-2$
+        if(MessagesP_Login.getString("P_Login.46") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilAdri.png")); //$NON-NLS-1$ //$NON-NLS-2$
+        if(MessagesP_Login.getString("P_Login.50") == nombre) icon = new ImageIcon(P_Principal.class.getResource("/presentacion/PerfilMaria.png"));; //$NON-NLS-1$ //$NON-NLS-2$
+        if(MessagesP_Login.getString("P_Login.48") != nombre && 
+                MessagesP_Login.getString("P_Login.46") != nombre &&
+                MessagesP_Login.getString("P_Login.50") != nombre) icon = iconAux;
+        return icon;
+    }
 	
 	public class RoundedBorder implements Border {
 
@@ -370,7 +444,7 @@ public class P_Ayuda extends JFrame {
 	private class LblAyudaMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			P_Ayuda frmAyuda2 = new P_Ayuda(nombreAux);
+			P_Ayuda frmAyuda2 = new P_Ayuda(nombreAux, iconAux);
 			frmAyuda2.getFrame().setVisible(true);
 			frmAyuda.dispose();
 
@@ -429,7 +503,7 @@ public class P_Ayuda extends JFrame {
 	}
 	private class BtnVolverActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			P_Principal frmPrincipal = new P_Principal(nombreAux);
+			P_Principal frmPrincipal = new P_Principal(nombreAux, iconAux);
 			frmPrincipal.getFrame().setVisible(true);
 			frmAyuda.dispose();
 		}
