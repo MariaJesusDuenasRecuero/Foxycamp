@@ -18,10 +18,20 @@ import javax.swing.border.Border;
 import javax.swing.JButton;
 import presentacion.V_PerfilCerrarCuenta.RoundedBorder;
 
+
+import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.ActionEvent;
+import javax.swing.border.BevelBorder;
+
 public class V_PerfilContrasena extends JPanel {
 	private JPasswordField _contrasenaActual;
 	private JPasswordField passwordField_NuevaContrasena;
 	private JPasswordField passwordField_RepitaContra;
+	private JLabel lblEstado;
+	private Color colorResaltado = new Color (255,255,210);
+	private Color colorBlanco = new Color (255,255,255);
 
 	/**
 	 * Create the panel.
@@ -60,6 +70,7 @@ public class V_PerfilContrasena extends JPanel {
 		panel.add(lblContraseñaActual, gbc_lblContraseñaActual);
 		
 		_contrasenaActual = new JPasswordField();
+		_contrasenaActual.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		GridBagConstraints gbc__contrasenaActual = new GridBagConstraints();
 		gbc__contrasenaActual.insets = new Insets(0, 0, 5, 5);
 		gbc__contrasenaActual.fill = GridBagConstraints.HORIZONTAL;
@@ -77,6 +88,7 @@ public class V_PerfilContrasena extends JPanel {
 		panel.add(lblIntroduzcaNuevaContrasea, gbc_lblIntroduzcaNuevaContrasea);
 		
 		passwordField_NuevaContrasena = new JPasswordField();
+		passwordField_NuevaContrasena.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		GridBagConstraints gbc_passwordField_NuevaContrasena = new GridBagConstraints();
 		gbc_passwordField_NuevaContrasena.insets = new Insets(0, 0, 5, 5);
 		gbc_passwordField_NuevaContrasena.fill = GridBagConstraints.HORIZONTAL;
@@ -94,6 +106,7 @@ public class V_PerfilContrasena extends JPanel {
 		panel.add(lblRepitaLaNueva, gbc_lblRepitaLaNueva);
 		
 		passwordField_RepitaContra = new JPasswordField();
+		passwordField_RepitaContra.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		GridBagConstraints gbc_passwordField_RepitaContra = new GridBagConstraints();
 		gbc_passwordField_RepitaContra.insets = new Insets(0, 0, 5, 5);
 		gbc_passwordField_RepitaContra.fill = GridBagConstraints.HORIZONTAL;
@@ -102,6 +115,16 @@ public class V_PerfilContrasena extends JPanel {
 		panel.add(passwordField_RepitaContra, gbc_passwordField_RepitaContra);
 		
 		JButton btnCambiarContrasea = new JButton(MessagesV_PerfilContrasena.getString("V_PerfilContrasena.btnCambiarContrasea.text")); //$NON-NLS-1$
+		btnCambiarContrasea.addActionListener(new BtnCambiarContraseaActionListener());
+		
+		lblEstado = new JLabel();
+		lblEstado.setFont(new Font("Verdana", Font.PLAIN, 14));
+		lblEstado.setForeground(new Color(51, 153, 0));
+		GridBagConstraints gbc_lblEstado = new GridBagConstraints();
+		gbc_lblEstado.insets = new Insets(0, 0, 5, 5);
+		gbc_lblEstado.gridx = 1;
+		gbc_lblEstado.gridy = 11;
+		panel.add(lblEstado, gbc_lblEstado);
 		btnCambiarContrasea.setForeground(Color.WHITE);
 		btnCambiarContrasea.setFont(new Font("Verdana", Font.BOLD, 16));
 		btnCambiarContrasea.setBorder(new RoundedBorder(12));
@@ -112,6 +135,43 @@ public class V_PerfilContrasena extends JPanel {
 		gbc_btnCambiarContrasea.gridx = 1;
 		gbc_btnCambiarContrasea.gridy = 12;
 		panel.add(btnCambiarContrasea, gbc_btnCambiarContrasea);
+		
+		passwordField_RepitaContra.addFocusListener(new passwordField_RepitaContraFocusListener());
+		passwordField_NuevaContrasena.addFocusListener(new passwordField_RepitaContraFocusListener());
+		_contrasenaActual.addFocusListener(new _contrasenaActualFocusListener());
+		
+	}
+
+	
+	private class passwordField_RepitaContraFocusListener extends FocusAdapter {
+		@Override
+		public void focusGained(FocusEvent e) {
+			e.getComponent().setBackground(colorResaltado);
+		}
+		@Override
+		public void focusLost(FocusEvent e) {
+			e.getComponent().setBackground(colorBlanco);
+		}
+	}
+	private class passwordField_NuevaContrasenFocusListener extends FocusAdapter {
+		@Override
+		public void focusGained(FocusEvent e) {
+			e.getComponent().setBackground(colorResaltado);
+		}
+		@Override
+		public void focusLost(FocusEvent e) {
+			e.getComponent().setBackground(colorBlanco);
+		}
+	}
+	private class _contrasenaActualFocusListener extends FocusAdapter {
+		@Override
+		public void focusGained(FocusEvent e) {
+			e.getComponent().setBackground(colorResaltado);
+		}
+		@Override
+		public void focusLost(FocusEvent e) {
+			e.getComponent().setBackground(colorBlanco);
+		}
 	}
 	public class RoundedBorder implements Border {
 
@@ -132,5 +192,18 @@ public class V_PerfilContrasena extends JPanel {
 	    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
 	        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
 	    }
+	}
+	
+	private class BtnCambiarContraseaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if(passwordField_NuevaContrasena.getText().equals(passwordField_RepitaContra.getText())){
+				lblEstado.setForeground(new Color(51, 153, 0));
+				lblEstado.setText("Contraseña cambiada");
+				
+				
+			}else{
+				lblEstado.setText("Las contraseñas no coinciden");
+			}
+		}
 	}
 }
