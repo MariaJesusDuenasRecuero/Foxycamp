@@ -119,7 +119,7 @@ public class V_PerfilContrasena extends JPanel {
 		
 		lblEstado = new JLabel();
 		lblEstado.setFont(new Font("Verdana", Font.PLAIN, 14));
-		lblEstado.setForeground(new Color(51, 153, 0));
+		lblEstado.setForeground(new Color(204, 0, 0));
 		GridBagConstraints gbc_lblEstado = new GridBagConstraints();
 		gbc_lblEstado.insets = new Insets(0, 0, 5, 5);
 		gbc_lblEstado.gridx = 1;
